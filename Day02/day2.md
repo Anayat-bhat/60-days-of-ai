@@ -4,7 +4,7 @@
 
 Today I learned what Prompt Engineering is and why it is an important skill when working with AI tools like Claude.
 
----
+
 
 ## What I Did Today
 
@@ -18,7 +18,7 @@ Next, I tried a much more detailed prompt. I clearly explained Claude's role, th
 
 The difference was immediately noticeable.
 
----
+
 
 ## Prompts I Used
 
@@ -32,7 +32,7 @@ Create an image explaining Prompt Engineering.
 
 I used a detailed prompt that explained the role, audience, content requirements, output format, and image design instructions.
 
----
+
 
 ## What I Observed
 
@@ -46,7 +46,7 @@ After comparing both responses, I noticed several improvements with the engineer
 
 This showed me that spending a little extra time writing a good prompt can save a lot of time later.
 
----
+
 
 ## What I Learned
 
@@ -62,7 +62,7 @@ I learned that good prompts should include:
 
 The more specific the prompt, the better the response.
 
----
+
 
 ## Key Takeaways
 
@@ -72,7 +72,6 @@ The more specific the prompt, the better the response.
 * Structured prompts save time because they reduce the need for corrections.
 * This is a skill I will continue improving throughout the 60 Days of AI Challenge.
 
----
 
 ## Conclusion
 

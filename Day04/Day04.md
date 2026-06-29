@@ -4,19 +4,18 @@
 
 Today I learned how **Chain-of-Thought Prompting** helps AI think through a problem step by step before giving a final answer. Instead of getting a generic response, the AI first understands my current situation, identifies gaps, and then creates a personalized roadmap.
 
----
+
 
 ## What I Did Today
 
 I used a Chain-of-Thought prompt in Claude to generate a personalized career roadmap. Instead of answering immediately, Claude first asked me four questions about my background, skills, career goal, and timeline. Based on my answers, it analyzed my strengths, identified the skills I need to improve, and created a one-year roadmap to help me become an AI Engineer.
 
----
 
 ## What is Chain-of-Thought Prompting?
 
 Chain-of-Thought Prompting is a technique where the AI solves a problem step by step before providing the final answer. This structured reasoning helps produce more accurate, personalized, and well-thought-out responses, especially for planning, decision-making, and complex tasks.
 
----
+
 
 ## Questions Asked by Claude
 
@@ -27,7 +26,6 @@ Chain-of-Thought Prompting is a technique where the AI solves a problem step by 
 **My Answer:**
 Student
 
----
 
 ### Question 2
 
@@ -44,7 +42,7 @@ Student
 * Basic Design
 * Basic Web Development
 
----
+
 
 ### Question 3
 
@@ -53,7 +51,7 @@ Student
 **My Answer:**
 Become an AI Engineer and Full Stack AI Developer, build AI products, and secure an internship or job at a leading technology company.
 
----
+
 
 ### Question 4
 
@@ -62,7 +60,7 @@ Become an AI Engineer and Full Stack AI Developer, build AI products, and secure
 **My Answer:**
 1 Year
 
----
+
 
 ## Career Roadmap Summary
 
@@ -79,13 +77,13 @@ Some of the main recommendations were:
 
 Claude also gave me a readiness score of **9.2/10**, explaining that I already have a strong foundation in Python, web development, and Git, which allows me to focus more quickly on AI-specific skills.
 
----
+
 
 ## Biggest Insight
 
 The biggest lesson I learned today is that **my existing web development skills give me a strong advantage when learning AI**. Instead of starting from scratch, I can combine my current programming knowledge with AI technologies to build real-world applications much faster.
 
----
+
 
 ## What I Learned
 
@@ -95,7 +93,7 @@ The biggest lesson I learned today is that **my existing web development skills 
 * AI can act like a career mentor by identifying strengths, weaknesses, and learning priorities.
 * A structured roadmap makes long-term goals feel much more achievable.
 
----
+
 
 ## Immediate Next Actions
 
@@ -105,7 +103,7 @@ The biggest lesson I learned today is that **my existing web development skills 
 * Continue building AI projects for my GitHub portfolio.
 * Share my learning journey on LinkedIn and improve my professional profile.
 
----
+
 
 ## Screenshots Included
 
@@ -114,7 +112,7 @@ The biggest lesson I learned today is that **my existing web development skills 
 * Final career roadmap
 * Generated roadmap PDF
 
----
+
 
 ## Conclusion
 

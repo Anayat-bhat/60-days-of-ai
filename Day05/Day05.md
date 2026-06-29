@@ -11,7 +11,7 @@
 | General web development resources          | AI-focused resources and tools                                         |
 | Useful for beginners learning HTML         | Practical roadmap for my AI career journey                             |
 
----
+
 
 ## My Observations
 
@@ -23,7 +23,7 @@ The second roadmap felt like it was written specifically for me. Since I provide
 
 The roadmap also considered that I could study about three hours each day, making the schedule much more realistic.
 
----
+
 
 ## Reflection Questions
 
@@ -33,7 +33,7 @@ Prompt B.
 
 It takes into account my current programming skills, career goal, available time, and learning preferences. The recommendations are directly related to becoming an AI Engineer instead of providing a general learning plan.
 
----
+
 
 ### 2. Which roadmap would you actually follow?
 
@@ -41,7 +41,7 @@ I would definitely follow Prompt B.
 
 It builds on the skills I already have instead of making me start from the beginning. The roadmap includes practical AI projects and technologies that are directly aligned with my long-term career goals.
 
----
+
 
 ### 3. What role did context play?
 
@@ -49,7 +49,7 @@ Context completely changed the quality of the response.
 
 By providing information about my background, skills, goals, and available time, Claude was able to generate a roadmap that felt realistic, achievable, and relevant to my situation. Without context, the roadmap was generic. With context, it became a personalized learning plan that I can actually follow.
 
----
+
 
 ## Biggest Takeaway
 
@@ -65,7 +65,7 @@ Today's activity taught me that the quality of an AI response depends not only o
 
 Today I learned how **Context Engineering** improves AI responses by giving the model enough background information before asking it to perform a task. I compared the results of using the same prompt with and without context to see how much difference it makes.
 
----
+
 
 ## What I Did Today
 
@@ -77,7 +77,7 @@ For the second roadmap, I provided details about my current situation, existing 
 
 Comparing the two responses helped me understand why context is so important when working with AI.
 
----
+
 
 ## What is Context Engineering?
 
@@ -85,7 +85,7 @@ Context Engineering is the practice of providing relevant background information
 
 Instead of expecting the AI to guess who you are or what you need, you provide useful details such as your skills, goals, experience level, available time, and preferences. This allows the AI to generate responses that are more accurate, practical, and personalized.
 
----
+
 
 ## Prompt A (Without Context)
 
@@ -106,7 +106,7 @@ Make it practical and beginner-friendly.
 
 Claude created a general roadmap focused on learning HTML from the basics. It included beginner lessons, simple projects, and common learning resources. Although it was useful, it wasn't related to my career goals or existing skills.
 
----
+
 
 ## Prompt B (With Context)
 
@@ -135,7 +135,7 @@ Make it practical and beginner-friendly.
 
 Claude generated a personalized AI Engineer roadmap based on my current skills and career goals. The plan included Machine Learning, Deep Learning, Large Language Models (LLMs), FastAPI, AI projects, portfolio development, and practical resources. The roadmap was organized around my available study time and focused on helping me prepare for internships and future job opportunities.
 
----
+
 
 ## Comparison Between the Two Outputs
 
@@ -148,7 +148,7 @@ Claude generated a personalized AI Engineer roadmap based on my current skills a
 | No study schedule            | Planned for 3 hours per day              |
 | Basic resources              | AI-focused learning resources            |
 
----
+
 
 ## Reflection Questions
 
@@ -156,19 +156,19 @@ Claude generated a personalized AI Engineer roadmap based on my current skills a
 
 Prompt B feels much more personalized because it considers my current skills, career goals, available study time, and preferred learning style.
 
----
+
 
 ### 2. Which roadmap would you actually follow?
 
 I would follow Prompt B because it is directly related to my goal of becoming an AI Engineer. It builds on the skills I already have instead of making me start from the beginning.
 
----
+
 
 ### 3. What role did context play?
 
 Providing context completely changed the quality of the roadmap. Instead of making assumptions, Claude understood my background and created a practical learning plan that fits my situation and long-term goals.
 
----
+
 
 ## What I Learned
 
@@ -181,7 +181,7 @@ I learned that:
 * Providing goals and available time makes learning plans more realistic.
 * Context helps AI reduce assumptions and focus on what actually matters.
 
----
+
 
 ## Biggest Observation
 
@@ -189,7 +189,7 @@ The biggest thing I noticed today is that **the same prompt can produce complete
 
 Without context, Claude created a general learning roadmap. With context, it generated a roadmap that felt like it was designed specifically for me and my career journey.
 
----
+
 
 ## Screenshots Included
 
@@ -200,7 +200,6 @@ The following files are included in the Day05 folder:
 * comparison.png
 * screenshots.png
 
----
 
 ## Conclusion
 

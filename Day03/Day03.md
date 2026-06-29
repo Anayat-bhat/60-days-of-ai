@@ -56,7 +56,7 @@ What domain or problem are you thinking about? I can give more targeted advice b
 
 Been there. Here's what actually works:
 
----
+
 
 ### 1. Start With a Problem, Not a Product
 
@@ -69,7 +69,7 @@ The biggest mistake student founders make is building something cool and then lo
 
 Pick a problem you personally face or see constantly. AI tools work best when they replace a specific, painful, repetitive task — not when they're "an AI assistant for everything."
 
----
+
 
 ### 2. Validate Before You Build
 
@@ -81,7 +81,7 @@ Spend 2–3 weeks doing this *before* writing a single line of code:
 
 > One of my early companies sold 10 annual contracts before the product existed. The conversations *became* the product spec.
 
----
+
 
 ### 3. Finding Your First Customers
 
@@ -94,7 +94,7 @@ Spend 2–3 weeks doing this *before* writing a single line of code:
 
 **Your first 10 customers should come from conversations, not ads.**
 
----
+
 
 ### 4. Pricing (Most Students Get This Wrong)
 
@@ -112,7 +112,6 @@ Charge real money from day one. Here's a proven starting framework for AI SaaS:
 - **Charge based on value, not cost.** If your tool saves a customer $2,000/month, charging $99 is a no-brainer for them.
 - **Raise prices faster than you're comfortable with.** You're almost certainly undercharging.
 
----
 
 ### 5. Building Sustainably on a Student Budget
 
@@ -132,7 +131,7 @@ Charge real money from day one. Here's a proven starting framework for AI SaaS:
 - Building mobile apps before validating web
 - Spending on ads before you have a working sales conversation
 
----
+
 
 ### 6. Your 90-Day Plan
 
@@ -145,7 +144,7 @@ Charge real money from day one. Here's a proven starting framework for AI SaaS:
 
 $500 MRR in 90 days is a realistic, meaningful goal. It proves the model before you go deeper.
 
----
+
 
 The single biggest advantage you have right now is **low personal burn rate**. You can operate lean, experiment fast, and take risks a 30-year-old with a mortgage can't. Use that window aggressively — but validate ruthlessly before you build.
 
@@ -157,13 +156,13 @@ What problem space are you considering? Happy to go deeper on any of these areas
 
 Here's a practical, honest roadmap for building an AI SaaS as a student — prioritized by what actually matters at each stage.Here's how to think through each phase properly.
 
----
+
 
 **Phase 1 — Validate before you build anything**
 
 The mistake almost every student makes is jumping straight into code. Spend two weeks first. Build a landing page (a single HTML file on Vercel is fine), write down your hypothesis ("people who do X struggle with Y and would pay for Z"), and talk to 10 real humans. If you can't get 10 people to spend 30 minutes talking about their problem, the market probably isn't there.
 
----
+
 
 **Phase 2 — The right MVP stack**
 
@@ -177,7 +176,7 @@ For an AI SaaS MVP, this combo is unbeatable as a student:
 
 Your AI integration pattern should look like: user input → server-side validation → prompt construction → streaming API call → streamed response back to client. Never call the AI API directly from the browser — your API key will get exposed.
 
----
+
 
 **Phase 3 — Deploy and find beta users**
 
@@ -185,7 +184,7 @@ Ship to 50 real users before you write another feature. Post in Discord communit
 
 The most important engineering work at this stage isn't features — it's observability. Log every AI request with the input, output, latency, and token count. You need this data to understand what's costing you money and what's actually working.
 
----
+
 
 **Phase 4 — Scale only what breaks**
 
@@ -195,7 +194,7 @@ Don't over-engineer early. But when you get real users, three things will cause 
 - **Latency**: cache responses for identical or near-identical inputs. For anything that doesn't need to be real-time, move it to a background queue (Inngest or trigger.dev work well with Vercel).
 - **Auth and data isolation**: make sure Row Level Security in Supabase is locked down. Each user must only ever see their own data. Test this explicitly.
 
----
+
 
 **Phase 5 — Monetize with usage-based billing**
 
@@ -203,7 +202,7 @@ Usage-based pricing fits AI products naturally because your costs scale with usa
 
 One practical tip — set your pricing higher than feels comfortable. Students tend to underprice dramatically. If someone is getting real value from your tool, $20–50/month is not unreasonable.
 
----
+
 
 **The thing that actually matters most**
 
@@ -223,7 +222,7 @@ Build the simplest version that does one thing really well, get it in front of r
 
 Today's goal was to understand how assigning different roles to Claude changes the quality and perspective of its responses.
 
----
+
 
 ## What I Did Today
 
@@ -233,7 +232,7 @@ First, I asked the question without assigning any role. Then I asked the same qu
 
 Even though the question stayed the same, each response was completely different because Claude answered from the perspective of the assigned role.
 
----
+
 
 ## What is Role-Based Prompting?
 
@@ -241,7 +240,7 @@ Role-Based Prompting means telling the AI who it should act as before answering 
 
 For example, you can ask Claude to act as a Founder, Developer, Product Manager, HR Manager, Marketer, Consultant, or any other expert depending on the type of answer you need.
 
----
+
 
 ## Prompts I Used
 
@@ -271,7 +270,7 @@ How can I launch an AI SaaS startup as a student?
 Focus on the technical roadmap, technologies, MVP development, deployment, APIs, scalability, and AI integration.
 ```
 
----
+
 
 ## Comparison of Responses
 
@@ -282,7 +281,7 @@ Focus on the technical roadmap, technologies, MVP development, deployment, APIs,
 | Simple roadmap            | Revenue and growth planning     | APIs, deployment, scalability        |
 | Surface-level explanation | Entrepreneur mindset            | Engineering mindset                  |
 
----
+
 
 ## What I Learned
 
@@ -294,7 +293,7 @@ The Developer focused on choosing technologies, building an MVP, integrating AI 
 
 The response without a role was still useful, but it was much more general and lacked the depth of the other two.
 
----
+
 
 ## Biggest Observation
 
@@ -302,7 +301,7 @@ The biggest thing I noticed today was that **the quality of the answer depends n
 
 Simply telling Claude who it should act as produced much more focused, practical, and professional responses.
 
----
+
 
 ## Screenshots
 
@@ -314,7 +313,7 @@ The following screenshots are included in this folder:
 * comparison.png
 * usage-counter.png (if available)
 
----
+
 
 ## Conclusion
 

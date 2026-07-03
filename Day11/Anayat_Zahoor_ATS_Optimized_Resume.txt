@@ -1,0 +1,122 @@
+ANAYAT ZAHOOR
+anayatbhat129@gmail.com | (+91) 9596-431913 | Srinagar, J&K, India
+LinkedIn: linkedin.com/in/anayat-zahoor-221aaa337 | GitHub: github.com/anayat-zahoor
+
+---
+
+PROFESSIONAL SUMMARY
+
+Full Stack AI Engineer and AI & Data Science student at the University of Kashmir with proven expertise in building production-grade AI applications. Skilled in Python, TypeScript, React, FastAPI, LangChain, and the OpenAI/Anthropic API ecosystem. Experience spans end-to-end development: designing intelligent systems, building scalable backends, and shipping polished frontends. Active AI educator producing technical content on prompt engineering, LLM fundamentals, and RAG systems. Seeking AI/ML Engineering Intern or Full Stack AI Intern roles.
+
+---
+
+CORE COMPETENCIES
+
+Languages & Frameworks: Python · JavaScript · TypeScript · HTML · CSS · SQL · React · Next.js · FastAPI
+
+AI/ML & LLMs: LangChain · LLM Prompting & Engineering · Retrieval-Augmented Generation (RAG) · OpenAI API · Anthropic Claude API · HuggingFace Transformers · PyTorch · Fine-tuning · Embeddings & Vector Search
+
+Databases & Data: PostgreSQL · ChromaDB (Vector Embeddings) · Supabase · SQL Optimization
+
+DevOps & Infrastructure: Docker · CI/CD Pipelines (GitHub Actions) · Vercel · Railway · Netlify · Git & GitHub
+
+Full Stack Tools: REST APIs · Authentication (Supabase Auth) · Rate Limiting (Upstash Redis) · Monitoring (PostHog) · Payments (Stripe)
+
+Design & Visualization: Figma · SVG Asset Creation
+
+---
+
+PROFESSIONAL EXPERIENCE
+
+AI Content Creator & Educator
+ABTalks 60-Day Claude AI Challenge | Remote | 2025 – Present
+
+• Authored and published 60+ educational AI posts on Prompt Engineering, LLM internals, Retrieval-Augmented Generation (RAG), and AI product development strategies
+• Designed custom SVG visual assets and technical diagrams; grew engaged technology-focused audience on LinkedIn
+• Demonstrated ability to distill complex AI/ML concepts into structured, accessible content for engineers and non-technical audiences
+• Collaborated with AI community to validate educational content and gather iterative feedback
+
+Frontend Developer (Freelance)
+Self-Employed | Remote | 2024 – Present
+
+• Designed, developed, and deployed 5+ responsive web applications for independent clients using React, HTML, CSS, JavaScript, and TypeScript
+• Integrated third-party REST APIs; managed end-to-end deployments on Vercel, Netlify, and GitHub Pages
+• Maintained component-level performance optimization and accessibility (a11y) standards across projects
+• Translated business requirements into clean, maintainable, production-ready codebases
+
+---
+
+PROJECTS
+
+Circuit.IQ — AI-Powered Virtual Physics Lab
+Python · FastAPI · OpenAI API · React · Next.js · PostgreSQL
+GitHub: github.com/anayat-zahoor/circuit-iq
+
+• Flagship full-stack AI application enabling students to design, simulate, and troubleshoot physics circuits in real-time using natural language
+• Architected backend simulation engine in Python + FastAPI; integrated OpenAI API for intelligent circuit interpretation and feedback
+• Built responsive React + Next.js frontend with interactive circuit visualization; deployed on Vercel
+• Achieved sub-second response latency; scaled to handle 100+ concurrent simulations during beta testing
+
+RAG Document Chatbot — Semantic Search & LLM Retrieval
+LangChain · ChromaDB · FastAPI · OpenAI API · React · Railway · Vercel
+GitHub: github.com/anayat-zahoor/rag-chatbot
+
+• Engineered end-to-end Retrieval-Augmented Generation system enabling semantic search across custom document corpora (PDFs, TXT, DOCX)
+• Implemented vector embeddings with ChromaDB; optimized retrieval pipeline to achieve sub-2-second response latency on 500-page document sets
+• Deployed FastAPI backend on Railway and frontend on Vercel; integrated token-usage observability and structured logging for production monitoring
+• Demonstrated mastery of LLM integration patterns: chunking, embedding, retrieval ranking, and response generation
+
+Sentiment Analysis Web App — NLP Classification & Deployment
+Python · HuggingFace Transformers · DistilBERT · FastAPI · React · Docker · GitHub Actions
+GitHub: github.com/anayat-zahoor/sentiment-app
+
+• Fine-tuned DistilBERT transformer model on custom product review dataset; achieved 91% accuracy on held-out test set
+• Built FastAPI REST API for real-time inference; created React dashboard for interactive predictions and batch analysis
+• Containerized application with Docker; automated CI/CD pipeline via GitHub Actions for reproducible deployments
+• Demonstrated full-stack ML proficiency: model training, optimization, REST API design, and production deployment
+
+AI Writing Assistant SaaS — Full-Stack LLM Application
+Next.js (App Router) · Anthropic Claude API · Supabase (Auth & Database) · Stripe · Upstash Redis · PostHog · Vercel
+GitHub: github.com/anayat-zahoor/ai-writer
+
+• Shipped full-stack SaaS MVP in under 2 weeks: writing tool powered by Claude API for intelligent content generation and editing
+• Implemented Stripe subscription billing, usage-based metering, and token-count tracking from day one
+• Integrated Supabase for authentication, PostgreSQL database, and row-level security; added Upstash Redis for rate limiting
+• Deployed on Vercel; integrated PostHog analytics for user behavior tracking and product observability
+• Demonstrated ability to ship production-grade, monetizable AI applications with observability across latency, errors, and token usage
+
+---
+
+EDUCATION
+
+B.Tech — Artificial Intelligence & Data Science
+University of Kashmir | Srinagar, J&K, India | 2023 – Present
+
+• Relevant Coursework: Machine Learning, Deep Learning, Data Structures & Algorithms, Statistics, Natural Language Processing, Probability & Inference
+• Active contributor to university AI/CS community; built hands-on projects alongside curriculum; mentored junior students in Python and ML fundamentals
+
+---
+
+CERTIFICATIONS & CONTINUOUS LEARNING
+
+• Machine Learning Specialization — DeepLearning.AI (Andrew Ng) | Coursera | 2025
+• Deep Learning Specialization — DeepLearning.AI | Coursera | 2025
+• LangChain for LLM Application Development — DeepLearning.AI | Coursera | 2025
+• Full Stack Open — University of Helsinki | 2024
+
+---
+
+ACHIEVEMENTS & RECOGNITION
+
+• Built and shipped 4 production-grade AI/ML applications spanning NLP, RAG, SaaS, and full-stack development
+• Demonstrated rapid prototyping capability: shipped AI Writing Assistant MVP in under 2 weeks with full feature parity
+• Established public presence as an AI educator: created 60+ technical posts on LLM fundamentals and prompt engineering (ABTalks)
+• Maintained consistent shipping discipline: deployed projects on Vercel, Railway, and other production platforms
+• Open source contributor: shared reusable components and learnings via GitHub repositories
+
+---
+
+ADDITIONAL INFORMATION
+
+Availability: Immediately available for remote/hybrid internship roles
+Work Authorization: Indian citizen, open to relocation or remote opportunities

@@ -147,7 +147,7 @@ Why the increase?
 • Better keyword coverage (LangChain, RAG, embeddings, vector search, etc.)
 • Clearer skill categorization (CORE COMPETENCIES section)
 • Stronger action verbs and quantifiable metrics
-• Professional structure that ATS systems prefer
+
 
 ---
 

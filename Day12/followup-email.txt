@@ -1,0 +1,26 @@
+Subject: Re: AI Engineering Intern Application — Anayat Zahoor | Following Up
+
+Hi [Name],
+
+I wanted to follow up on my application for the [Role Title] role, which I
+submitted on [Date]. I remain very interested in contributing to Microsoft's
+AI engineering work, particularly on [Azure AI Foundry / GitHub Copilot /
+Microsoft 365 Copilot — pick the most relevant].
+
+Since my last message, I [choose one that applies]:
+→ Published a new technical post on multi-agent RAG architectures, which maps
+  directly to Microsoft Foundry's Magentic-One patterns
+→ Added LLM evaluation tooling (ragas) to my RAG chatbot project — now
+  tracking retrieval precision and faithfulness metrics in CI
+→ Started an Azure AI Foundry hands-on module to deepen my familiarity with
+  the platform your teams use
+
+I'm happy to share a project walkthrough, a specific GitHub repo, or make
+myself available for a call at any time convenient to you.
+
+Thank you again for your consideration.
+
+Anayat Zahoor
+anayatbhat129@gmail.com  |  +91 9596-431913
+github.com/anayat-zahoor
+ 

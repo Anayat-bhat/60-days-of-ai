@@ -87,7 +87,7 @@
 
 ## ANAYAT ZAHOOR
 **anayatbhat129@gmail.com** | **(+91) 9596-431913** | Srinagar, J&K, India  
-**LinkedIn**: linkedin.com/in/anayat-zahoor-221aaa337 | **GitHub**: github.com/anayat-zahoor
+**LinkedIn**: linkedin.com/in/anayat-zahoor-221aaa337 | **GitHub**: github.com/Anayat-bhat
 
 ---
 
@@ -138,7 +138,7 @@ Full Stack AI Engineer and AI & Data Science student at the University of Kashmi
 ### **Circuit.IQ** — AI-Powered Virtual Physics Lab
 **Technologies**: Python · FastAPI · OpenAI API · React · Next.js · PostgreSQL
 
-*GitHub: github.com/anayat-zahoor/circuit-iq*
+*GitHub: github.com/Anayat-bhat/circuit-iq*
 
 - Flagship full-stack AI application enabling students to design, simulate, and troubleshoot physics circuits in real-time using natural language
 - Architected backend simulation engine in Python + FastAPI; integrated OpenAI API for intelligent circuit interpretation and feedback
@@ -148,7 +148,7 @@ Full Stack AI Engineer and AI & Data Science student at the University of Kashmi
 ### **RAG Document Chatbot** — Semantic Search & LLM Retrieval
 **Technologies**: LangChain · ChromaDB · FastAPI · OpenAI API · React · Vercel · Railway
 
-*GitHub: github.com/anayat-zahoor/rag-chatbot*
+*GitHub: github.com/Anayat-bhat/rag-chatbot*
 
 - Engineered end-to-end Retrieval-Augmented Generation system enabling semantic search and question-answering across custom document corpora (PDFs, TXT, DOCX)
 - Implemented vector embeddings with ChromaDB; optimized retrieval pipeline to achieve sub-2-second response latency on 500-page document sets
@@ -158,7 +158,7 @@ Full Stack AI Engineer and AI & Data Science student at the University of Kashmi
 ### **Sentiment Analysis Web App** — NLP Classification & Deployment
 **Technologies**: Python · HuggingFace Transformers · DistilBERT · FastAPI · React · Docker · GitHub Actions
 
-*GitHub: github.com/anayat-zahoor/sentiment-app*
+*GitHub: github.com/Anayat-bhat/sentiment-app*
 
 - Fine-tuned DistilBERT transformer model on custom product review dataset; achieved 91% accuracy on held-out test set
 - Built FastAPI REST API for real-time inference; created React dashboard for interactive predictions and batch analysis
@@ -168,7 +168,7 @@ Full Stack AI Engineer and AI & Data Science student at the University of Kashmi
 ### **AI Writing Assistant SaaS** — Full-Stack LLM Application
 **Technologies**: Next.js (App Router) · Anthropic Claude API · Supabase (Auth & Database) · Stripe · Upstash Redis · PostHog · Vercel
 
-*GitHub: github.com/anayat-zahoor/ai-writer*
+*GitHub: github.com/Anayat-bhat/ai-writer*
 
 - Shipped full-stack SaaS MVP in under 2 weeks: writing tool powered by Claude API for intelligent content generation and editing
 - Implemented Stripe subscription billing, usage-based metering, and token-count tracking from day one

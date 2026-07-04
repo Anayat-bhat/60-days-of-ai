@@ -1,0 +1,24 @@
+✦ Shipped Work, Not Theory
+Microsoft's 2026 interview guide is explicit: 'shipped work beats a polished resume on its own.' Four deployed AI applications with live URLs is the single most differentiating thing on your profile.
+
+✦ RAG Engineering Aligned to Foundry
+Your RAG chatbot — LangChain + ChromaDB + FastAPI, sub-2s on 500-page corpora — mirrors Microsoft's own Foundry RAG reference architectures. You are not learning RAG at Microsoft; you are arriving with it.
+
+✦ Agentic AI Readiness
+LangChain chains, FastAPI tool-calling patterns, and multi-step retrieval pipelines are building blocks for the agentic workflows Microsoft is scaling inside Foundry Agent Service and GitHub Copilot.
+
+✦ Growth Mindset Evidence
+Microsoft's four cultural values lead with Growth Mindset. 60 consecutive published posts on AI engineering — learning in public — is the most concrete Growth Mindset signal a student candidate can show.
+
+✦ Full-Stack AI Ownership
+From PyTorch fine-tuning to React frontend to Docker containerisation — you own the entire vertical. Microsoft's AI teams need engineers who can reason about a system, not just one layer of it.
+
+✦ Production Velocity
+SaaS shipped in under 2 weeks with billing, auth, rate limiting, and analytics. That speed with correctness is what Microsoft calls 'customer obsession' in engineering form.
+
+✦ Clean ML Methodology
+91% accuracy on a held-out test set — not train set. That distinction matters to Microsoft's Applied Science teams and signals honest, reproducible ML thinking.
+
+✦ Communication Depth
+Microsoft explicitly values engineers who 'think out loud.' 60+ published technical posts prove you can turn complex AI concepts into clear, structured communication — critical in cross-team Microsoft roles.
+

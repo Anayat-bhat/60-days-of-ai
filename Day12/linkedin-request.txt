@@ -1,0 +1,19 @@
+Variant A — For Microsoft Recruiters
+Hi [Name], I'm Anayat — Full Stack AI dev shipping RAG pipelines & LLM apps,
+targeting Microsoft AI engineering intern roles. Love what Azure AI Foundry is
+building. Would value connecting!
+
+[~188 chars ✓]
+
+Variant B — For Microsoft Engineers / SDEs
+Hi [Name], I'm Anayat — building production RAG systems & LLM apps with
+LangChain, FastAPI & React. Your work on [Copilot/Foundry] directly aligns with
+what I'm shipping. Would love to connect!
+
+[~198 chars ✓]
+
+Variant C — For Research / Applied Science contacts
+Hi [Name], I'm Anayat — B.Tech AI student, shipping DistilBERT classifiers &
+RAG pipelines in production. Deeply interested in Microsoft Research's agentic AI
+work. Would appreciate connecting!
+

@@ -1,0 +1,38 @@
+CURRENT STRENGTHS — ALREADY MICROSOFT-RELEVANT
+
+• Python · TypeScript · FastAPI · React · Next.js — production-proven across 4 apps
+• LangChain · ChromaDB · RAG pipeline engineering — maps to Azure AI Foundry + AI Search
+• OpenAI API + Anthropic Claude API — multi-model, vendor-agnostic AI engineering
+• HuggingFace Transformers + DistilBERT fine-tuning (91% acc.) — relevant to Azure OpenAI fine-tuning
+• PyTorch — required for ML/Applied Science intern tracks
+• Docker + GitHub Actions CI/CD — Microsoft ships via GitHub; this is native fluency
+• Prompt engineering + LLM internals — directly required for Copilot engineering roles
+• Stripe + Supabase + PostHog — production SaaS infrastructure thinking
+• 60+ public technical posts — Growth Mindset and communication evidence
+
+GAPS TO CLOSE BEFORE MICROSOFT INTERVIEWS
+
+⚠  Azure Platform Depth: CRITICAL. Microsoft's AI stack runs on Azure. No Azure experience is the #1 gap. Fix first.
+⚠  C# / .NET Familiarity: Many Microsoft AI teams (Copilot, Teams, Office) build in C#. Even surface-level fluency signals alignment.
+⚠  DSA & LeetCode Prep: Microsoft's phone screen is 1–2 LeetCode Medium problems. No amount of project work bypasses this gate.
+⚠  Azure AI Foundry Hands-On: The platform your target teams use daily. One weekend of Foundry Playground exploration changes your interview answers.
+⚠  MLOps & Experiment Tracking: MLflow or Weights & Biases — expected at intern level for ML engineer tracks at Microsoft.
+⚠  System Design for AI at Scale: How would you scale your RAG chatbot to 1M users on Azure? Prepare a clear architecture answer.
+⚠  LLM Evaluation Frameworks: ragas, deepeval, or RAGAS-style precision/faithfulness metrics — Microsoft teams building Copilot evals need this.
+⚠  Open Source Contributions: A merged PR to LangChain, HuggingFace, or a Microsoft OSS repo creates a permanent signal of collaborative engineering.
+
+90-DAY MICROSOFT READINESS ROADMAP
+
+Week 1–2 — Azure Free Tier + Azure AI Foundry: 
+Create an Azure account. Deploy one existing project (RAG chatbot) to Azure Container Apps. Explore Foundry Playground. This is the highest-leverage move.
+Week 3–4 — LeetCode DSA Prep: 
+Solve 5 problems/day from the Blind 75 list. Focus: arrays, hashmaps, trees, graphs, BFS/DFS. Microsoft phone screens require LeetCode Medium fluency.
+Week 5–6 — Azure AI Search Integration: 
+Rebuild RAG chatbot vector store using Azure AI Search (Foundry native) instead of ChromaDB. One project that now speaks Microsoft's language.
+Week 7–8 — MLflow / Weights & Biases: 
+Add experiment tracking to DistilBERT training run. Log metrics, compare runs, export model card. Adds MLOps credibility to the ML project.
+Week 9–10 — LLM Evaluation with ragas: 
+Add retrieval precision + faithfulness scoring to RAG chatbot. Wire into GitHub Actions CI. Now the project has an eval pipeline — rare among intern candidates.
+Week 11–12 — C# / .NET Surface Familiarity + OSS PR: 
+Complete one Microsoft Learn C# module. Submit one PR to LangChain, HuggingFace, or a Microsoft OSS repo. Signals collaborative engineering.
+ 

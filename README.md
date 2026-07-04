@@ -2,7 +2,7 @@
 
 Hi!
 
-I'm Anayat Bhat.
+I'm Anayat Zahoor.
 
 I'm a B.Tech AI & Data Science student from the University of Kashmir.
 

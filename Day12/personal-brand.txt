@@ -1,0 +1,28 @@
+SECTION 11 — PERSONAL BRAND SUMMARY  (Microsoft Positioning)
+
+UNIQUE VALUE PROPOSITION
+
+Most AI engineering intern candidates understand LLMs. A smaller number have fine-tuned a model. Fewer still have shipped a production RAG pipeline, an LLM-powered SaaS product, a containerised NLP classifier, and an AI simulation platform — all in the same year, all deployed, all with real performance numbers. That production track record, combined with a public teaching record that demonstrates genuine conceptual depth, is what makes Anayat's profile unusually credible for a student candidate targeting Microsoft's AI engineering teams.
+
+PROFESSIONAL POSITIONING STATEMENT
+
+I am a Full Stack AI Engineer and B.Tech AI & Data Science student at the University of Kashmir who specialises in shipping production-grade LLM applications — RAG pipelines, agentic workflows, and end-to-end AI SaaS products. With 4 deployed AI applications, DeepLearning.AI certifications in ML and LangChain (2025), and 60+ public posts on LLM engineering, I sit at the intersection of applied AI and product engineering. I am seeking a Microsoft AI Engineering Internship where I can contribute to agentic AI systems — Azure AI Foundry, GitHub Copilot, or Microsoft 365 Copilot — that reach millions of users.
+
+MICROSOFT-OPTIMISED LINKEDIN HEADLINE
+
+Full Stack AI Engineer | RAG Systems · LLM Apps · Agentic AI | 4 Production AI Projects | DeepLearning.AI Certified | Targeting Microsoft AI Internships
+
+MICROSOFT CULTURAL FIT — HOW TO FRAME IT
+
+▸ Growth Mindset
+Lead with the 60-post public learning series. Every post is a proof point of learning in public — exactly what Satya Nadella's Microsoft values.
+
+▸ Customer Obsession
+Frame Circuit.IQ around the students who use it: 'I built this because students needed real-time circuit feedback, not just textbook answers.'
+
+▸ One Microsoft
+Mention your cross-functional fluency — you own backend, frontend, and ML in your projects. You don't wait for another team.
+
+▸ Diverse & Inclusive
+Your background — an AI student from Kashmir contributing to global open-source AI education — is a genuine, unremarkable part of who you are. Mention it naturally.
+

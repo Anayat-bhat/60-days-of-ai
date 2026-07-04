@@ -1,0 +1,21 @@
+1.  Software Engineer Intern — AI/ML (Azure AI Foundry)
+    → Your RAG pipeline and LangChain work mirrors Foundry's RAG reference architectures. Strongest fit.
+2.  Software Engineer Intern — GitHub Copilot
+    → Agentic workflows, MCP, and code generation intersect your LLM + FastAPI + TypeScript stack.
+3.  Software Engineer Intern — Microsoft 365 Copilot
+    → Full-stack + RAG + production LLM integration is exactly what M365 Copilot teams build.
+4.  Applied AI Engineer Intern — Azure OpenAI Service
+    → OpenAI API production work, fine-tuning (DistilBERT), and embedding pipeline experience.
+5.  Software Engineer Intern — Bing / Microsoft Search
+    → RAG, vector search, ChromaDB, semantic retrieval — all relevant to Bing's AI search stack.
+6.  Research Intern — Memory & Orchestration in LLMs
+    → MSR actively hires for this; your RAG + multi-step retrieval work is directly applicable.
+7.  Software Engineer Intern — Microsoft Research (AI Frontiers)
+    → 60-post teaching record + DistilBERT fine-tuning signals research communication depth.
+8.  Software Engineer Intern — Microsoft Teams AI
+    → Real-time inference, FastAPI, React frontend — applies to Teams Copilot integration work.
+9.  AI Product Engineer Intern — Microsoft Copilot Studio
+    → SaaS MVP shipped with auth, billing, analytics — aligns to Copilot Studio's product stack.
+10.  Developer Advocate Intern — Azure AI / Microsoft AI
+    → 60+ LinkedIn posts, SVG content creation, and technical education are standout for DevRel.
+ 

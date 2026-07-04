@@ -1,0 +1,32 @@
+Subject: AI/ML Engineering Intern — Full-Stack LLM + RAG Background | Immediate Availability
+
+Hi [Recruiter Name],
+
+I'm reaching out about AI/ML engineering intern opportunities at Microsoft. I'm
+Anayat Zahoor, a B.Tech AI & Data Science student at the University of Kashmir
+who builds production AI systems — not side projects.
+
+What I've shipped in the past 12 months:
+• Circuit.IQ — AI physics lab: FastAPI + OpenAI API + React/Next.js, sub-second
+  latency at 100+ concurrent users
+• RAG Document Chatbot — LangChain + ChromaDB, sub-2s semantic retrieval on
+  500-page corpora, deployed on Railway + Vercel
+• DistilBERT Sentiment Classifier — fine-tuned on custom dataset, 91% accuracy,
+  containerised with Docker + GitHub Actions CI/CD
+• AI Writing Assistant SaaS — Claude API + Stripe + Supabase + Redis, shipped
+  in under 2 weeks, full production monitoring with PostHog
+
+Stack: Python · FastAPI · TypeScript · React · LangChain · HuggingFace · PyTorch
+· Docker · GitHub Actions
+Certs: DeepLearning.AI ML Specialization, Deep Learning Specialization,
+LangChain for LLM Development (2025)
+
+I'm particularly interested in teams working on Azure AI Foundry, GitHub Copilot,
+or Microsoft 365 Copilot — my RAG and agentic AI work maps directly to those areas.
+
+Immediately available for remote/hybrid internship. Resume and GitHub below.
+
+Best,
+Anayat Zahoor
+anayatbhat129@gmail.com  |  +91 9596-431913
+github.com/anayat-zahoor  |  linkedin.com/in/anayat-zahoor-221aaa337

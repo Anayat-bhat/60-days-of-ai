@@ -1,0 +1,16 @@
+"I'm Anayat Zahoor, a Full Stack AI Engineer and B.Tech AI & Data Science student
+at the University of Kashmir. Over the past year I've shipped four production AI
+applications — a RAG document chatbot with sub-2-second retrieval on 500-page
+corpora, a Claude API SaaS with full billing and production monitoring shipped in
+under 2 weeks, a fine-tuned DistilBERT classifier at 91% accuracy, and Circuit.IQ,
+an AI physics lab that handled 100+ concurrent simulations in beta with sub-second
+response latency. My stack is Python, FastAPI, LangChain, HuggingFace, React,
+TypeScript, and Docker — end to end. I also run an AI education series on LinkedIn
+with 60+ posts on LLM engineering, RAG systems, and prompt engineering.
+
+What draws me to Microsoft specifically is the agentic AI work: Azure AI Foundry,
+GitHub Copilot's agentic workflows, and the Microsoft Agent Framework announced
+at Build 2026 are exactly the kinds of systems I want to contribute to and learn
+from. I'm looking for an AI engineering internship where I can work on real
+systems that reach real users — and Microsoft builds at that scale."
+ 

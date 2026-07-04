@@ -1,0 +1,36 @@
+Personalise [Team] to: Azure AI Foundry / GitHub Copilot / Microsoft 365 Copilot / Bing / MSR.
+
+Subject: AI Engineering Intern — RAG Systems, Agentic AI & Full-Stack LLM Applications
+
+Hi [Manager Name],
+
+I'm writing because Microsoft's [Team] work on agentic AI and RAG aligns precisely
+with the systems I've been building and deploying over the past year.
+
+The project most relevant to your team: I engineered a complete end-to-end RAG
+pipeline — LangChain orchestration, ChromaDB vector store, OpenAI embeddings,
+FastAPI inference layer — achieving sub-2-second semantic retrieval on 500-page
+document corpora. I designed the chunking strategy, handled embedding cost
+optimisation, and wired in structured logging for production observability. That
+maps directly to the kind of grounded, production-ready RAG work Microsoft is
+shipping inside Azure AI Foundry and Microsoft 365 Copilot.
+
+I also built Circuit.IQ — a full-stack AI application serving 100+ concurrent
+simulations with sub-second latency — and an AI Writing Assistant SaaS on the
+Anthropic Claude API shipped in under 2 weeks with full billing, auth, rate limiting,
+and analytics. Four production AI apps total, all deployed.
+
+Stack: Python · FastAPI · LangChain · HuggingFace · PyTorch · React · TypeScript
+· Docker · GitHub Actions CI/CD
+
+I run a public AI education series (60+ posts) on LLM engineering and RAG, which
+reflects the kind of communication and knowledge-sharing Microsoft values across
+engineering teams.
+
+I'd welcome a 20-minute conversation about how I could contribute to [Team]'s
+engineering work. My GitHub portfolio and resume are below.
+
+Thank you,
+Anayat Zahoor
+anayatbhat129@gmail.com
+github.com/Anayat-bhat  |  linkedin.com/in/anayat-zahoor-221aaa337

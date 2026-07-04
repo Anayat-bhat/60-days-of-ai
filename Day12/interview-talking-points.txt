@@ -1,0 +1,46 @@
+SECTION 12 — MICROSOFT INTERVIEW TALKING POINTS
+
+MOST IMPRESSIVE ACHIEVEMENTS — LEAD WITH THESE
+
+• Circuit.IQ: sub-second AI response latency at 100+ concurrent simulations — a real systems challenge, not a toy demo.
+• RAG chatbot: sub-2-second semantic retrieval on 500-page document sets — measurable, specific, production-grade.
+• DistilBERT: 91% accuracy on held-out test set — correct ML methodology with honest, reproducible evaluation.
+• AI Writing Assistant SaaS: shipped in under 2 weeks, production-complete (billing, auth, rate limiting, analytics).
+• 60+ published technical AI posts — Growth Mindset materialised as a daily public practice.
+
+STAR STORIES PREPARED FOR MICROSOFT'S BEHAVIOURAL SCREEN
+
+STAR Story 1: RAG Pipeline Engineering (Growth Mindset)
+Situation: Off-the-shelf RAG implementations were too slow for interactive use. Task: Build a retrieval system fast enough for real users. Action: Profiled embedding calls, optimised chunk sizes, switched from naive similarity search to HNSW-indexed ChromaDB, added structured logging to identify bottlenecks. Result: Sub-2-second retrieval on 500-page corpora — a 3× improvement over baseline. Learning shared publicly on LinkedIn.
+
+STAR Story 2: Shipping SaaS in 2 Weeks (Customer Obsession)
+Situation: Wanted to validate full-stack AI product ownership end-to-end. Task: Ship a production SaaS — not a prototype. Action: Scoped ruthlessly: Claude API for the AI layer, Stripe for billing, Supabase for auth and DB, Upstash Redis for rate limiting, PostHog for analytics — deliberately chose boring, proven infrastructure so AI was the differentiator. Result: MVP live in 14 days with zero technical debt in the infrastructure layer.
+
+STAR Story 3: Circuit.IQ Concurrency Challenge (One Microsoft — Own the Stack)
+Situation: Beta testers reported degraded latency under load. Task: Diagnose and fix without sacrificing response quality. Action: Profiled FastAPI request handling, identified synchronous bottlenecks in the simulation engine, switched to async handlers and added request queuing. Result: Sub-second latency maintained at 100+ concurrent users. Handled backend, ML, and frontend coordination myself.
+
+STAR Story 4: DistilBERT Fine-Tuning (Technical Rigor)
+Situation: Pre-trained sentiment models performed poorly on domain-specific product reviews. Task: Build a classifier that actually works on the target distribution. Action: Curated a balanced training set, implemented stratified train/val/test splits, fine-tuned DistilBERT with a classification head, monitored for overfitting with validation loss curves. Result: 91% accuracy on held-out test set — not train set accuracy, not validation accuracy.
+
+MICROSOFT-SPECIFIC INTERVIEW PROBES — PREPARE THESE
+
+▸ Coding screen (LeetCode Medium × 2): 
+Think out loud — Microsoft explicitly rejects silent coders. Explain your choice of data structure before you write code. Handle edge cases: null, empty, overflow. Clean variable names matter.
+
+▸ System design: 
+How would you scale your RAG chatbot to 10M users on Azure? Prepare: Azure AI Search (swap ChromaDB), Azure Container Apps for FastAPI, Azure Cache for Redis, Application Insights for observability, Azure OpenAI for embedding calls at scale.
+
+▸ LLM tradeoffs: 
+When would you use RAG vs. fine-tuning vs. few-shot prompting? Prepare concrete cost, latency, and freshness tradeoffs — you've done all three in production.
+
+▸ Growth Mindset probes: 
+'Tell me about something you learned recently.' → Your 60-post series, your DistilBERT eval methodology, your RAG chunk optimisation. 'What would you do differently?' → Always have a genuine answer.
+
+▸ Why Microsoft specifically: 
+Azure AI Foundry's agent harness and the Microsoft Agent Framework announced at Build 2026 map directly to the multi-step retrieval and agentic patterns I'm building. I want to work at the scale where these decisions affect millions of developers.
+
+▸ Your gap / weakest area: 
+Be specific: 'My Azure platform depth is still surface-level — I've been building on Railway and Vercel. I've started an Azure AI Foundry hands-on module specifically to close that gap before joining.' Specificity signals Growth Mindset.
+
+
+Anayat Zahoor  ·  anayatbhat129@gmail.com  ·  github.com/Anayat-bhat  ·  linkedin.com/in/anayat-zahoor-221aaa337

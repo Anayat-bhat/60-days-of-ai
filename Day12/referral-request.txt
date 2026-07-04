@@ -1,0 +1,23 @@
+Hi [Name],
+
+Hope you're doing well! I'm actively pursuing AI engineering intern roles at
+Microsoft — specifically on teams like Azure AI Foundry, GitHub Copilot, or
+Microsoft 365 Copilot — and I noticed you work there. I'd be incredibly grateful
+if you'd be willing to refer me or point me toward the right hiring team.
+
+Quick snapshot: I'm a B.Tech AI & Data Science student who has shipped 4
+production AI apps over the past year — including a RAG document chatbot
+(LangChain + ChromaDB, sub-2s retrieval on 500-page corpora), a full-stack
+Claude API SaaS with Stripe billing shipped in under 2 weeks, and Circuit.IQ,
+an AI physics lab handling 100+ concurrent simulations. Stack: Python · FastAPI
+· LangChain · HuggingFace · React · TypeScript · Docker · GitHub Actions.
+
+I hold DeepLearning.AI certifications in ML, Deep Learning, and LangChain (2025)
+and run a 60-post LinkedIn series on LLM engineering.
+
+I've attached my resume. I completely understand if this isn't possible — any
+guidance on the right team or process would also be genuinely helpful.
+
+Thank you so much,
+Anayat Zahoor
+anayatbhat129@gmail.com  |  github.com/anayat-zahoor

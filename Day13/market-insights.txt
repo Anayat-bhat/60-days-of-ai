@@ -1,0 +1,5 @@
+Market demand insights
+RAG + vector database experience is now table stakes for AI engineering roles — not differentiating anymore. What separates candidates is shipped, measurable production systems. Your sub-2-second retrieval metric is exactly right.
+AI agent and multi-agent system experience (LangGraph, AutoGen) is the current high-demand gap in the fresher/junior market — very few candidates have it, and nearly every JD now lists it as preferred.
+Indeed India has limited fresher AI listings — most high-quality AI startup roles post on LinkedIn, Wellfound (AngelList), and Internshala. Treat Indeed as a supplement, not primary source.
+The ₹6–12 LPA expectation is realistic for full-time fresher AI roles at product companies in Bangalore/Hyderabad/Pune. Remote internships pay ₹10K–50K/month. MNCs (Microsoft/Google) for freshers typically start at ₹12–20 LPA — that requires strong DSA + system design prep.

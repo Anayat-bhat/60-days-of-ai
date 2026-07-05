@@ -1,0 +1,88 @@
+Job match board for Anayat — July 2026, showing top AI engineer opportunities with skill gap analysis and recommendations
+Top matched opportunities
+Tier 1 — apply now
+Tier 2 — strong fit
+Tier 3 — apply if time allows
+AI Engineer (Fresher / Entry-Level)
+
+Helpshift @ Keywords Studios  ·  Pune, Hybrid  ·  Posted Jun 15  ·  Full-time
+
+Explicitly fresher-targeted. Their "nice-to-have projects" list maps directly to Circuit.IQ, your RAG chatbot, and the DistilBERT classifier. Stack is FastAPI + ChromaDB + HuggingFace + LangChain — all projects you've shipped. Strongest institutional fit of any role found.
+
+RAG ✓
+FastAPI ✓
+ChromaDB ✓
+LangChain ✓
+HuggingFace ✓
+Fresher OK ✓
+CTC: Not disclosed (full-time, hybrid — likely ₹6–10 LPA range for entry-level)
+
+9.5
+/ 10
+AI Engineer Intern — OrbitXII Technologies
+
+OrbitXII Technologies  ·  Remote  ·  Posted Jun 8  ·  Internship
+
+Building an AI tutor + voice assistant for educational robotics (Project Poppy). Required stack is Python, LangChain, RAG, vector DBs, HuggingFace, prompt engineering — a precise match to what you've built. Strong portfolio signal for your LinkedIn content series too.
+
+LangChain ✓
+RAG ✓
+Prompt Eng ✓
+Vector DB ✓
+Voice AI (new)
+CTC: ₹10,000/month (~₹1.2 LPA annualised)
+
+9.0
+/ 10
+Founding ML/AI Engineering Intern — Tracer
+
+Tracer (SF AI Startup)  ·  Remote Worldwide  ·  Posted Jun 7  ·  Internship
+
+Open-source LLM cost-reduction tooling. Python pipelines, embeddings, vector search, routing logic. Founding role — direct access to founder. Requires a thoughtful GitHub repo observation in the application; your RAG chatbot and Claude API SaaS work are precisely relevant context.
+
+Python ✓
+Embeddings ✓
+Open-source ✓
+Paid internship
+CTC: ₹4–16 LPA range (paid, remote)
+
+8.5
+/ 10
+AI Engineer Internship — Kognivai Analytics
+
+Kognivai Analytics  ·  Remote  ·  Posted Jun 26  ·  Fresher / Internship
+
+Analytics-focused AI startup with React + FastAPI + Python stack — matches your full-stack AI profile. Posted recently (Jun 26). Details not fully disclosed; worth investigating. Your Circuit.IQ and portfolio site demonstrate the frontend+backend combination they likely need.
+
+React ✓
+FastAPI ✓
+Python ✓
+Analytics domain (new)
+CTC: Not disclosed
+
+7.5
+/ 10
+AI Engineer — BeSpoke AI Stylist
+
+BeSpoke AI Stylist Pvt Ltd  ·  Remote  ·  Posted Jun 12  ·  Full-time
+
+AI-driven fashion startup using LangChain, ChromaDB, Anthropic API, PyTorch — skills you've shipped against. Asks for 3+ years which is a gap, but as a small startup they'll weight portfolio heavily. A targeted cover letter citing your Claude API SaaS and RAG work could overcome the experience requirement.
+
+LangChain ✓
+ChromaDB ✓
+Claude API ✓
+3yr exp req (gap)
+CTC: ₹4.6–17.6 LPA
+
+7.0
+/ 10
+Junior Full Stack Developer — Bao Bao
+
+Bao Bao  ·  Remote  ·  Posted Jul 3  ·  Permanent
+
+Posted yesterday — very fresh. General full-stack role, less AI-specific, but your React + Tailwind + FastAPI stack fits. Good for breadth of applications if AI-specific pipeline is competitive. Worth checking for AI integration requirements in the full JD.
+
+React ✓
+JavaScript ✓
+Less AI-focused
+CTC: Not disclosed

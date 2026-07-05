@@ -8,7 +8,6 @@ PROFESSIONAL SUMMARY
 
 Full Stack AI Engineer and AI & Data Science student at the University of Kashmir with proven expertise in building production-grade AI applications. Skilled in Python, TypeScript, React, FastAPI, LangChain, and the OpenAI/Anthropic API ecosystem. Experience spans end-to-end development: designing intelligent systems, building scalable backends, and shipping polished frontends. Active AI educator producing technical content on prompt engineering, LLM fundamentals, and RAG systems. Seeking AI/ML Engineering Intern or Full Stack AI Intern roles.
 
----
 
 CORE COMPETENCIES
 
@@ -112,7 +111,7 @@ ACHIEVEMENTS & RECOGNITION
 • Demonstrated rapid prototyping capability: shipped AI Writing Assistant MVP in under 2 weeks with full feature parity
 • Established public presence as an AI educator: created 60+ technical posts on LLM fundamentals and prompt engineering (ABTalks)
 • Maintained consistent shipping discipline: deployed projects on Vercel, Railway, and other production platforms
-• Open source contributor: shared reusable components and learnings via GitHub repositories
+
 
 ---
 

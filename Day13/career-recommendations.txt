@@ -1,0 +1,9 @@
+Recommendations to improve interview chances
+Containerise one existing project with Docker
+Pick your RAG chatbot or Circuit.IQ and add a Dockerfile + docker-compose. Push it to GitHub. This single step closes the Docker gap that appears in 4/6 roles and lets you say "production-containerised" rather than "familiar with."
+Ship one LangGraph multi-agent project publicly
+Even a simple research agent (web search → summarise → output) would make you one of very few freshers with a shipped LangGraph project. This is the highest-ROI gap to close — demand is high, supply of candidates with it is low.
+Make one open-source contribution before applying to Tracer
+Tracer explicitly values open-source engagement. Even a small PR — documentation fix, example notebook, bug fix — to a LangChain, ChromaDB, or HuggingFace repo signals seriousness and fills the biggest credential gap visible in your profile.
+Tailor application for Helpshift specifically
+Their "nice-to-have projects" list names RAG-based QA, AI chatbot, and LangChain agents — you have all three. A one-page cover note directly mapping your three projects to their three items would be unusually strong for a fresher application.

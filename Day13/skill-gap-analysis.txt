@@ -1,0 +1,14 @@
+Skill gap analysis
+Python, LangChain, RAG, ChromaDB, HuggingFace, FastAPI, React, Prompt Engineering, Git
+Strong
+Docker / containerisation — you know it but haven't prominently featured it on deployed projects
+Partial
+Cloud platforms (Azure/AWS/GCP) — identity without hands-on deployment credentials
+Partial
+Model fine-tuning — DistilBERT classifier exists but no documented fine-tuning pipeline
+Partial
+MLOps tooling — MLflow, Weights & Biases, model versioning not in public portfolio
+Gap
+AI agents / multi-agent systems (LangGraph) — planned but not yet shipped publicly
+Gap
+Open-source contributions — no public GitHub contributions to external AI projects

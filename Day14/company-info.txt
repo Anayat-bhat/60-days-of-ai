@@ -1,0 +1,95 @@
+Company Information
+Company:
+MyOperator
+The Business AI Operator — unifying WhatsApp, Calls & AI Bots.
+Industry:
+Software Development
+Employees:
+ [201-500 employees](https://www.linkedin.com/search/results/people/?currentCompany=%5B%222036252%22%5D&origin=COMPANY_PAGE_CANNED_SEARCH)
+Location:
+Noida, Uttar Pradesh
+Remote
+Funding:
+Startup
+Website:
+https://myoperator.com/?utm_source=socials&utm_medium=comments
+About:
+About the job
+
+Role Overview
+As a Frontend Developer Intern, you will build and ship responsive web interfaces used in real production environments. You will work on live features, convert designs into code, and deploy updates while collaborating with design and backend teams. This role is ideal for someone who writes code by hand, thinks in components, and wants their work used by thousands of businesses.
+
+About MyOperator
+MyOperator is a Business AI Operator, a category-leader that unifies WhatsApp, Calls, and AI-powered chat & voice bots into one intelligent business communication platform. Unlike fragmented communication tools, MyOperator combines automation, intelligence, and workflow integration to help businesses run WhatsApp campaigns, manage calls, deploy AI chatbots, and track performance — all from a single, no-code platform. Trusted by 12,000+ brands including Amazon, Domino's, Apollo, and Razorpay, MyOperator enables faster responses, higher resolution rates, and scalable customer engagement — without fragmented tools or increased headcount.
+
+Tech Stack: React.js, JavaScript (ES6+), HTML, CSS, Tailwind CSS / Bootstrap, REST APIs
+
+Key Responsibilities
+
+ Frontend Development
+
+Build responsive UI components using React.js and modern JavaScript.
+Convert Figma designs into pixel-perfect, accessible web pages.
+Write clean, reusable code following component-based architecture.
+API Integration
+
+Fetch and display data using REST APIs (GET/POST) and handle asynchronous states.
+Manage loading, error, and empty states gracefully in the UI.
+Optimization & Quality
+
+Identify and fix UI bugs across browsers and devices.
+Optimize page performance (Lighthouse scores, image compression, bundle size).
+Deployment & Collaboration
+
+Push code via Git and manage deployments on Vercel/Netlify.
+Participate in PR reviews, agile sprints, and feedback cycles with senior engineers.
+Requirements
+
+Strong grasp of JavaScript ES6+ (Async/Await, Promises, Destructuring, Array Methods).
+Hands-on experience with React functional components, Hooks (useState, useEffect), and Props.
+Proficiency in CSS Flexbox/Grid with a mobile-first approach.
+Familiarity with Git flow (branching, commits, PRs).
+Ability to consume REST APIs using Fetch or Axios including basic error handling.
+At least 2–3 custom-coded projects (not strictly tutorial-based) hosted on GitHub with live preview URLs.
+Good to Have
+
+Experience with Context API or Redux Toolkit for state management.
+Proficiency in Tailwind CSS (highly preferred) or Bootstrap.
+Practical knowledge of image optimization and improving Core Web Vitals.
+Basic exposure to testing libraries like Jest or Cypress.
+Familiarity with Webflow (only as a supplement to hand-coding skills).
+Portfolio Requirements
+
+GitHub profile with publicly accessible repositories is mandatory.
+Must include live-hosted project links (not just source code).
+Should demonstrate logic beyond basic tutorials (dashboards, API-driven apps, e-commerce clones, or similar).
+Should show clean code structure, component reusability, and responsive design.
+What to Expect
+
+Convert 3–5 high-fidelity design screens into production-ready UI.
+Build and deploy at least 1 live feature or functional module.
+Improve performance metrics (reducing bundle size or improving load times) in assigned tasks.
+You Are NOT a Fit If
+
+You don't have a GitHub profile or live project links.
+Your experience is strictly limited to no-code builders (WordPress/Elementor) without React/JS proficiency.
+Your projects are only tutorial follow-alongs without original logic or structure.
+You cannot demonstrate responsive, component-based frontend work.
+What You'll Gain
+
+Real production exposure — your code will be used by thousands of businesses.
+Direct mentorship from senior engineers on code quality and architecture.
+Experience with CI/CD, PR reviews, and agile sprints.
+Opportunity to build a strong portfolio with real-world shipped features.
+Show less
+
+
+Bottom line: This is one of the cleaner intern JDs you'll see from an Indian B2B SaaS startup. The role is structured, the stack matches your existing work (React, Tailwind, REST APIs), and there's no hustle-bro language anywhere in it.
+
+The one real gap before applying: stipend and remote status are unconfirmed. Reach out to the recruiter or hiring manager on LinkedIn before submitting the portfolio assignment — a quick "can you confirm the stipend range and whether this is fully remote?" takes 30 seconds and saves you from investing hours only to discover it's ₹5K/month and requires Noida presence three days a week.
+
+Your Circuit.IQ project (React + FastAPI, Vercel-deployed, live URLs) is essentially purpose-built for what they're asking for in the portfolio section. That's your lead piece — put it first.
+
+
+
+

@@ -1,0 +1,63 @@
+Overall risk score
+
+28
+out of 100
+Largely a clean internship listing — structured responsibilities, real tech stack, honest expectations. A few gaps (salary silence, company-stage ambiguity) are typical for India startup intern roles, not red flags unique to this JD.
+Red flags found
+3
+Severity (avg)
+3.7
+Positive signals
+7
+Culture signals
+Clean
+Top red flags
+
+Severity 5/10
+No compensation mentioned anywhere
+Internship stipend, duration, and conversion possibility are all absent — common in Indian startups but leaves leverage entirely with the company at offer time.
+Severity 4/10
+Expectation bar is high for an "intern" label
+Requirements (Git flow, async JS, REST integration, Lighthouse optimization, PR reviews, agile sprints) read more like a junior hire than a learning internship. Positive if you match — risky if you're still building.
+Severity 3/10
+Remote claim needs verification
+LinkedIn lists the role as "Remote" but the company is in Noida. No explicit remote/hybrid/onsite policy stated inside the JD itself — worth confirming before investing time.
+Positive signals
+
+Specific, honest tech stack listed (React, Tailwind, REST, Git, Vercel) — no buzzword inflation
+Deliverables are concrete: 3–5 screens, 1 shipped live feature, measurable perf improvements
+Zero hustle-culture language — no "rockstar", "ninja", "move fast and break things"
+Explicit "you are NOT a fit if…" section shows the company values fit accuracy over volume
+Direct mentorship from senior engineers explicitly promised — not vague "learning opportunity"
+12,000+ live customers (Amazon, Domino's, Razorpay) — company has real traction, not pre-revenue
+Portfolio requirements are well-defined and fair — filters serious candidates, not gatekeeping
+Risk breakdown
+
+Category	Risk level	Notes
+Requirements	Low	Senior-leaning but honest; no contradictions
+Culture	Minimal	No burnout or hustle signals detected
+Remote authenticity	Medium	Needs explicit confirmation — Noida HQ listed
+Hiring transparency	Medium	Stipend, duration, conversion path all missing
+Company stability	Low	201–500 employees, real customer base, funded
+Final verdict
+
+⚠️
+Apply — but ask the right questions first
+Strong role with a legitimate company and real production exposure. The missing stipend and unconfirmed remote policy are the only real risks. Clarify both before submitting a full application or assignment.
+5 smart interview questions
+
+Q1
+What is the stipend for this internship, and what does a typical intern-to-full-time conversion look like at MyOperator?
+Validates compensation gap — the single biggest missing piece in the JD.
+Q2
+Is this role fully remote, or will there be expectations to work from the Noida office periodically?
+Resolves the remote ambiguity before you invest in the process.
+Q3
+Can you walk me through what the first 30 days would look like — what would I be building, and who would I be working alongside?
+Tests whether mentorship and real production exposure are genuine or just JD copy.
+Q4
+What does the PR review process look like for interns — do you ship to production directly, or is there a staging review step?
+Reveals real team structure and whether "real production" exposure is supervised or thrown-in-the-deep-end.
+Q5
+What is the duration of this internship, and has the team size in the frontend team grown or stayed flat in the last year?
+Signals team health and whether you'd be filling a gap from attrition or joining a growing function.

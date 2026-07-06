@@ -39,7 +39,7 @@ Here is the log of my daily activities, projects, and key learnings:
 | **11** | [ATS Resume Alignment](Day11/day11.md) | Tailoring professional resume to specific Job Descriptions | Done |
 | **12** | [Career Brand Toolkit](Day12/day12.md) | Personal branding, professional introduction, and positioning | Done |
 | **13** | [Job Discovery & Gaps](Day13/day13.md) | Indeed Connectors, Skill-Gap Analysis, and Market Insights | Done |
-| **14** | *Upcoming...* | - | ⏳ |
+| **14** | [JD Risk Analysis](Day14/day14.md) | Job Description Red Flag Analysis, Verdict, and Interview Strategy for MyOperator Frontend Intern | Done |
 | **15** | *Upcoming...* | - | ⏳ |
 
 *Days 14 to 60 will be updated as the challenge progresses!*

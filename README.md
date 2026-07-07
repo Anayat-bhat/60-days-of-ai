@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 23% Complete (14 / 60 Days)`
+`[██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 25% Complete (15 / 60 Days)`
 
 ---
 
@@ -57,6 +57,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day12/          # Personal Branding & Career Brand Toolkit
 ├── Day13/          # Indeed Claude Connector Job Discovery
 ├── Day14/          # MyOperator JD Risk Analysis
+├── Day15/          # Structured Report Generation
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -82,7 +83,7 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **12** | [Career Brand Toolkit](Day12/day12.md) | Personal branding, professional introduction, and positioning | ✅ Done |
 | **13** | [Job Discovery & Gaps](Day13/day13.md) | Indeed Connectors, Skill-Gap Analysis, and Market Insights | ✅ Done |
 | **14** | [JD Risk Analysis](Day14/day14.md) | Job Description Red Flag Analysis, Verdict, and Interview Strategy for MyOperator Frontend Intern | ✅ Done |
-| **15** | *Upcoming...* | - | ⏳ |
+| **15** | [Structured Report Generation](Day15/day15.md) | Structured Report Generation: Astrology Life Analysis Report | ✅ Done |
 | **16** | *Upcoming...* | - | ⏳ |
 
 *Days 15 to 60 will be updated as the challenge progresses!*

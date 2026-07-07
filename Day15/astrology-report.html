@@ -1,0 +1,699 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); color: var(--text-primary); }
+  .root { padding: 1.5rem 0; max-width: 680px; }
+
+  .disclaimer {
+    background: var(--bg-warning);
+    border: 0.5px solid var(--border-warning);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    font-size: 13px;
+    color: var(--text-warning);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .section { margin-bottom: 2rem; }
+
+  .planet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .planet-card {
+    background: var(--surface-1);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.6rem 0.75rem;
+  }
+  .planet-name {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+  .planet-sign {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .planet-detail {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  .accent-blue { color: #185FA5; }
+  .accent-purple { color: #534AB7; }
+  .accent-teal { color: #0F6E56; }
+  .accent-amber { color: #854F0B; }
+  .accent-coral { color: #993C1D; }
+
+  .pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 99px;
+    margin: 2px;
+  }
+  .pill-blue { background: #E6F1FB; color: #185FA5; }
+  .pill-purple { background: #EEEDFE; color: #3C3489; }
+  .pill-teal { background: #E1F5EE; color: #0F6E56; }
+  .pill-amber { background: #FAEEDA; color: #854F0B; }
+  .pill-coral { background: #FAECE7; color: #993C1D; }
+  .pill-gray { background: var(--surface-1); color: var(--text-secondary); border: 0.5px solid var(--border); }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.4rem 0;
+    border-bottom: 0.5px solid var(--border);
+    font-size: 14px;
+    gap: 1rem;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-label { color: var(--text-secondary); flex-shrink: 0; }
+  .info-val { font-weight: 500; text-align: right; }
+
+  .card {
+    background: var(--surface-2);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+  }
+  .card-body {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .yoga-card {
+    border-left: 3px solid #534AB7;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background: var(--surface-1);
+    padding: 0.6rem 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .yoga-name { font-size: 13px; font-weight: 500; color: #534AB7; }
+  .yoga-desc { font-size: 12px; color: var(--text-secondary); margin-top: 2px; line-height: 1.5; }
+
+  .dosha-card {
+    border-left: 3px solid #993C1D;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background: var(--surface-1);
+    padding: 0.6rem 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .dosha-name { font-size: 13px; font-weight: 500; color: #993C1D; }
+  .dosha-desc { font-size: 12px; color: var(--text-secondary); margin-top: 2px; line-height: 1.5; }
+
+  .dasha-bar-wrap { margin: 0.75rem 0; }
+  .dasha-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; display: flex; justify-content: space-between; }
+  .dasha-track { height: 8px; background: var(--surface-1); border-radius: 99px; overflow: hidden; border: 0.5px solid var(--border); }
+  .dasha-fill { height: 100%; border-radius: 99px; }
+
+  .forecast-year {
+    background: var(--surface-1);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+  }
+  .forecast-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem 0.75rem;
+    background: var(--surface-2);
+    border-bottom: 0.5px solid var(--border);
+    cursor: pointer;
+  }
+  .forecast-year-num { font-size: 15px; font-weight: 500; }
+  .forecast-tag { font-size: 11px; }
+  .forecast-body { padding: 0.75rem; display: none; }
+  .forecast-body.open { display: block; }
+  .forecast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 0.5rem; }
+  .forecast-cell { background: var(--surface-2); border-radius: var(--radius); padding: 0.4rem 0.6rem; }
+  .forecast-cell-label { font-size: 11px; color: var(--text-muted); }
+  .forecast-cell-val { font-size: 13px; font-weight: 500; margin-top: 1px; }
+
+  .remedy-card {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: var(--surface-1);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.6rem 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .remedy-icon { font-size: 18px; color: var(--text-muted); flex-shrink: 0; margin-top: 1px; }
+  .remedy-title { font-size: 13px; font-weight: 500; }
+  .remedy-desc { font-size: 12px; color: var(--text-secondary); margin-top: 2px; line-height: 1.5; }
+
+  .strength-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .strength-item { background: var(--bg-success); border-radius: var(--radius); padding: 0.5rem 0.75rem; font-size: 13px; color: var(--text-success); line-height: 1.4; }
+  .weakness-item { background: var(--bg-warning); border-radius: var(--radius); padding: 0.5rem 0.75rem; font-size: 13px; color: var(--text-warning); line-height: 1.4; }
+
+  .age-timeline { margin: 0.75rem 0; }
+  .age-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; font-size: 13px; }
+  .age-badge { background: var(--bg-accent); color: var(--text-accent); border-radius: var(--radius); padding: 2px 10px; font-weight: 500; font-size: 12px; min-width: 80px; text-align: center; flex-shrink: 0; }
+  .age-desc { color: var(--text-secondary); line-height: 1.4; }
+
+  .nav-tabs { display: flex; gap: 4px; margin-bottom: 1.25rem; flex-wrap: wrap; }
+  .nav-tab {
+    padding: 5px 12px;
+    font-size: 13px;
+    border-radius: var(--radius);
+    border: 0.5px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-family: var(--font-sans);
+  }
+  .nav-tab.active {
+    background: var(--bg-accent);
+    color: var(--text-accent);
+    border-color: var(--border-accent);
+    font-weight: 500;
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .birth-hero {
+    background: var(--surface-1);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+  }
+  .hero-cell { text-align: center; }
+  .hero-val { font-size: 18px; font-weight: 500; margin-bottom: 2px; }
+  .hero-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .nakshatra-block {
+    background: var(--bg-pro);
+    border: 0.5px solid var(--border-pro);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .nakshatra-name { font-size: 16px; font-weight: 500; color: var(--text-pro); }
+  .nakshatra-sub { font-size: 13px; color: var(--text-secondary); margin-top: 4px; line-height: 1.5; }
+</style>
+
+<div class="root">
+  <h2 class="sr-only">Vedic astrology birth chart and life reading for Anayat Zahoor, born 24 May 2005</h2>
+
+  <div class="disclaimer">
+    <strong>Note on birth time:</strong> Birth time is unknown. This reading uses a <strong>Surya Lagna (sunrise) chart</strong> — Taurus rising assumed. Moon sign is calculated for mid-day (likely Aries or Taurus; confirmed as Aries based on 24 May 2005 Kolkata ephemeris). Dasha timings are approximate. A rectified birth time would sharpen all house-level predictions.
+  </div>
+
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="switchTab('chart')">Birth Chart</button>
+    <button class="nav-tab" onclick="switchTab('life')">Life Patterns</button>
+    <button class="nav-tab" onclick="switchTab('career')">Career & Wealth</button>
+    <button class="nav-tab" onclick="switchTab('relationships')">Relationships</button>
+    <button class="nav-tab" onclick="switchTab('dasha')">Dasha</button>
+    <button class="nav-tab" onclick="switchTab('forecast')">5-Year Forecast</button>
+    <button class="nav-tab" onclick="switchTab('remedies')">Remedies</button>
+  </div>
+
+  <div id="tab-chart" class="tab-panel active">
+    <div class="section-label">1 — Birth Chart Summary</div>
+
+    <div class="birth-hero">
+      <div class="hero-cell">
+        <div class="hero-val accent-blue">Vrishabha</div>
+        <div class="hero-label">Lagna (Ascendant)</div>
+      </div>
+      <div class="hero-cell">
+        <div class="hero-val accent-coral">Mesha</div>
+        <div class="hero-label">Moon Sign (Rashi)</div>
+      </div>
+      <div class="hero-cell">
+        <div class="hero-val accent-teal">Vrishabha</div>
+        <div class="hero-label">Sun Sign</div>
+      </div>
+      <div class="hero-cell">
+        <div class="hero-val accent-purple">Venus</div>
+        <div class="hero-label">Lagna Lord</div>
+      </div>
+    </div>
+
+    <div class="nakshatra-block">
+      <div class="nakshatra-name">Krittika Nakshatra — Pada 1</div>
+      <div class="nakshatra-sub">
+        Sun at ~8° Taurus falls in <strong>Krittika Nakshatra</strong> (26°40′ Aries – 10° Taurus). Deity: Agni (Fire God). Symbol: Razor/Flame. Quality: Sharp intellect, ability to cut through complexity, ambition that burns steadily. Pada 1 is in Aries Navamsha — Sagittarius Navamsha of Lagna — giving strong idealism and drive for knowledge. Moon in Aries falls in <strong>Ashwini Nakshatra</strong> (0–13°20′ Aries) — swift, pioneering, healing energy with entrepreneurial instincts.
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:1.25rem;">Planetary Placements (Lahiri Ayanamsa, approx.)</div>
+    <div class="planet-grid">
+      <div class="planet-card">
+        <div class="planet-name">Sun (Surya)</div>
+        <div class="planet-sign accent-teal">Taurus 8°</div>
+        <div class="planet-detail">Krittika Nak. — 1H (Surya Lagna)</div>
+      </div>
+      <div class="planet-card">
+        <div class="planet-name">Moon (Chandra)</div>
+        <div class="planet-sign accent-coral">Aries ~15°</div>
+        <div class="planet-detail">Bharani/Ashwini Nak.</div>
+      </div>
+      <div class="planet-card">
+        <div class="planet-name">Mars (Mangal)</div>
+        <div class="planet-sign accent-blue">Aquarius ~20°</div>
+        <div class="planet-detail">Purva Bhadra Nak.</div>
+      </div>
+      <div class="planet-card">
+        <div class="planet-name">Mercury (Budha)</div>
+        <div class="planet-sign accent-teal">Taurus ~22°</div>
+        <div class="planet-detail">Rohini Nak. — conjunct Sun</div>
+      </div>
+      <div class="planet-card">
+        <div class="planet-name">Jupiter (Guru)</div>
+        <div class="planet-sign accent-purple">Virgo ~14°</div>
+        <div class="planet-detail">Hasta Nakshatra</div>
+      </div>
+      <div class="planet-card">
+        <div class="planet-name">Venus (Shukra)</div>
+        <div class="planet-sign accent-amber">Gemini ~5°</div>
+        <div class="planet-detail">Mrigashira Nak.</div>
+      </div>
+      <div class="planet-card">
+        <div class="planet-name">Saturn (Shani)</div>
+        <div class="planet-sign accent-blue">Cancer ~21°</div>
+        <div class="planet-detail">Ashlesha Nak. — debilitated</div>
+      </div>
+      <div class="planet-card">
+        <div class="planet-name">Rahu</div>
+        <div class="planet-sign">Aries ~16°</div>
+        <div class="planet-detail">Bharani — conjunct Moon</div>
+      </div>
+      <div class="planet-card">
+        <div class="planet-name">Ketu</div>
+        <div class="planet-sign">Libra ~16°</div>
+        <div class="planet-detail">Swati Nakshatra</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:1.25rem;">Key Strengths vs Weaknesses</div>
+    <div class="strength-grid">
+      <div class="strength-item"><strong>Sun–Mercury conjunction</strong><br>Intelligent communicator; technical articulation; strong analytical mind</div>
+      <div class="weakness-item"><strong>Saturn debilitated (Cancer)</strong><br>Delays in recognition, emotional avoidance of hard realities, inconsistency in discipline</div>
+      <div class="strength-item"><strong>Ashwini Moon</strong><br>Fast learner, entrepreneurial impulse, healing instinct toward self-correction</div>
+      <div class="weakness-item"><strong>Rahu conjunct Moon</strong><br>Restlessness, anxiety under pressure, over-idealization of goals, indecision</div>
+      <div class="strength-item"><strong>Jupiter in Virgo (Hasta)</strong><br>Precise, craft-oriented wisdom; good with tools, systems, and technical detail</div>
+      <div class="weakness-item"><strong>Mars in Aquarius</strong><br>Energy is diffuse — many interests, difficulty sustaining one direction for long</div>
+      <div class="strength-item"><strong>Venus in Gemini</strong><br>Strong communication skills, adaptable charm, draws people through ideas</div>
+      <div class="weakness-item"><strong>Sun in Taurus (Krittika)</strong><br>Can be slow to initiate despite inner clarity; stubborn resistance to feedback</div>
+    </div>
+
+    <div class="section-label" style="margin-top:1.25rem;">Major Yogas</div>
+    <div class="yoga-card">
+      <div class="yoga-name">Budha-Aditya Yoga (Sun + Mercury conjunction)</div>
+      <div class="yoga-desc">The most relevant yoga for Anayat's goals. Grants sharp intellect, eloquence in technical communication, administrative capability, and recognition from those in authority. Especially powerful in 1H (Surya Lagna). This yoga directly supports AI/engineering careers where articulation of complex ideas matters.</div>
+    </div>
+    <div class="yoga-card">
+      <div class="yoga-name">Rahu–Moon conjunction (Shakti Yoga variant)</div>
+      <div class="yoga-desc">Amplifies ambition and desire for unconventional success. Rahu in Aries near Moon creates an intense drive toward cutting-edge fields — AI, technology, and frontier domains are very Rahu-Aries territory. Double-edged: fuels restlessness, but also obsessive focus when channeled correctly.</div>
+    </div>
+    <div class="yoga-card">
+      <div class="yoga-name">Jupiter in Virgo (Hasta)</div>
+      <div class="yoga-desc">Hasta Nakshatra's deity is Savitar — the skilled craftsman sun. Jupiter here gives an engineer's mind: methodical, detail-loving, and capable of precise work. Hasta is associated with hands-on building and technical mastery — ideal for a dev/AI engineer archetype.</div>
+    </div>
+
+    <div class="section-label" style="margin-top:1.25rem;">Doshas</div>
+    <div class="dosha-card">
+      <div class="dosha-name">Saturn Debilitation (Neecha Shani in Cancer)</div>
+      <div class="dosha-desc">Saturn loses strength in Cancer. This is the primary challenge: delays in career recognition, difficulty with structured discipline, potential for self-doubt during Saturn transits, and erratic work patterns. Neecha Bhanga (cancellation) may apply if Moon or Mars is strong — partial relief likely.</div>
+    </div>
+    <div class="dosha-card">
+      <div class="dosha-name">Rahu–Moon conjunction (Grahan Yoga)</div>
+      <div class="dosha-desc">Emotional instability, anxiety cycles, difficulty trusting one's own judgment, and susceptibility to external opinions. Career decisions may swing between extremes. Not a "dosha" in the classical sense but a significant psychological imprint requiring active management.</div>
+    </div>
+
+    <div class="section-label" style="margin-top:1.25rem;">Functional Benefics & Malefics (Taurus Lagna)</div>
+    <div class="info-row"><span class="info-label">Functional Benefics</span><span class="info-val"><span class="pill pill-teal">Saturn (Yogakaraka)</span><span class="pill pill-teal">Mercury</span><span class="pill pill-teal">Sun</span></span></div>
+    <div class="info-row"><span class="info-label">Functional Malefics</span><span class="info-val"><span class="pill pill-coral">Jupiter (Maraka)</span><span class="pill pill-coral">Moon</span></span></div>
+    <div class="info-row"><span class="info-label">Neutral</span><span class="info-val"><span class="pill pill-gray">Venus (Lagna Lord)</span><span class="pill pill-gray">Mars</span></span></div>
+    <div style="font-size: 12px; color: var(--text-muted); margin-top: 6px; line-height: 1.5;">For Taurus Lagna: Saturn rules 9th and 10th houses — the most powerful Yogakaraka. Despite debilitation, Saturn remains the most important planet for career and dharma. Mercury rules 2nd and 5th — strong wealth and intelligence significator. Jupiter, though a natural benefic, rules 8th and 11th — acts as a functional malefic.</div>
+  </div>
+
+  <div id="tab-life" class="tab-panel">
+    <div class="section-label">2 — Life Pattern Analysis</div>
+
+    <div class="card">
+      <div class="card-title">Core Personality</div>
+      <div class="card-body">Anayat's chart shows a rare combination of <strong>Taurus steadiness + Aries Moon fire + Rahu amplification</strong>. The surface personality is calm, deliberate, and methodical (Taurus Lagna, Sun in Taurus). Internally, there is a restless, ambitious, pioneering drive (Aries Moon, Rahu conjunct Moon) that seeks to build and innovate in unconventional ways. The Budha-Aditya yoga gives him genuine intellectual precision — he doesn't just collect knowledge, he synthesizes it. This maps closely to the "Silent Architect" archetype: depth-first, builds in private, ships when ready.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Childhood & Family Influences</div>
+      <div class="card-body">Saturn in Cancer in the 3H (siblings, early environment) suggests a childhood with some emotional constraint or responsibility taken on early — a sense of having to earn one's place. The 4th house is ruled by the Sun (Leo) — there is pride in family heritage but also pressure to achieve and not disappoint. Ketu in Libra (6H, Surya Lagna) suggests past-life patterns of service and learning through challenges. The family likely values stability and education — Taurus themes — but Anayat's inner life is more turbulent and future-oriented than he shows externally.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Repeating Karmic Patterns</div>
+      <div class="card-body">Rahu in Aries conjunct Moon indicates a soul-level drive to prove independence and forge a new identity — possibly overcoming a pattern of emotional dependency or geographic/social limitation (Ketu in Libra: past emphasis on partnerships and balance). This lifetime's karmic push is toward courageous self-initiation: launching things, taking risks, and being seen. The lesson repeating in this chart is: <em>stop preparing and start building publicly.</em> Rahu rewards action in Aries; it punishes over-planning.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Career Strengths & Blind Spots</div>
+      <div class="card-body"><strong>Strengths:</strong> Technical communication (Budha-Aditya), systems thinking (Jupiter Hasta), long-haul endurance when motivated (Taurus Sun), ability to understand cutting-edge domains quickly (Rahu-Aries). <strong>Blind spots:</strong> Difficulty with self-promotion and visibility (introverted Taurus Lagna suppresses Mars energy). Tendency to over-engineer private projects and under-invest in external networking. Saturn debilitation creates a fear of professional failure that can lead to paralysis at key decision moments. Will underestimate how ready he actually is.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Financial Habits & Challenges</div>
+      <div class="card-body">Mercury in 2H (wealth house in Surya Lagna) is excellent — strong financial intellect and awareness. Venus in Gemini (3H) suggests income through communication and technology fields. The challenge: Saturn debilitation in 3H can create financial delays and erratic cash flow in early career. Wealth comes, but not instantly — there will be a 2–3 year "desert period" before meaningful income appears. After age 24–25, income accelerates. This person is wired for steady wealth accumulation more than windfall gains.</div>
+    </div>
+  </div>
+
+  <div id="tab-career" class="tab-panel">
+    <div class="section-label">3 — Career & Wealth Analysis</div>
+
+    <div class="card">
+      <div class="card-title">Career Suitability — AI Engineering</div>
+      <div class="card-body">This chart is exceptionally well-suited for AI/ML Engineering, software architecture, and technical research. The Budha-Aditya yoga gives the intellectual tools. Jupiter in Virgo gives the precision and analytical depth. Rahu in Aries fuels obsession with frontier technology — Rahu always pushes toward the new, the unconventional, and the tech-forward. The 10th lord (Saturn, Aquarius-ruled energy via Kumbha) points directly toward <strong>technology, networks, systems, AI, and collective intelligence</strong> — Aquarius is the sign of the future.</div>
+    </div>
+
+    <div class="info-row"><span class="info-label">Job vs Business</span><span class="info-val"><span class="pill pill-blue">Job first (age 20–26)</span><span class="pill pill-teal">Business later (age 28+)</span></span></div>
+    <div class="info-row"><span class="info-label">Leadership Potential</span><span class="info-val">High — but after age 28. Currently needs technical credibility first.</span></div>
+    <div class="info-row"><span class="info-label">Govt Job Potential</span><span class="info-val">Low suitability (Rahu+Aries Moon rebels against hierarchies)</span></div>
+    <div class="info-row"><span class="info-val" style="text-align:left; width:100%; padding:0.4rem 0; font-size:14px;"><span class="info-label" style="display:inline;">Foreign Opportunities</span><span style="float:right;"><span class="pill pill-purple">Strong — Rahu in Aries 12th from Moon</span></span></span></div>
+    <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px; margin-bottom: 1rem; line-height: 1.5;">Rahu's position amplifies foreign connection potential. Venus in Gemini (travel, communication, adaptability) further supports remote/international roles. The chart strongly favors remote work with international companies or eventual relocation.</div>
+
+    <div class="section-label" style="margin-top:1rem;">Age-Based Career Timeline</div>
+    <div class="age-timeline">
+      <div class="age-row">
+        <div class="age-badge">20–21</div>
+        <div class="age-desc">First internship/opportunity emerges. Saturn return (generational) + Rahu transit. Period of hustle with limited visible results. Foundation building.</div>
+      </div>
+      <div class="age-row">
+        <div class="age-badge">22–23 ★</div>
+        <div class="age-desc"><strong>First breakthrough period.</strong> Venus Antardasha activates. Likely first full-time role or significant project recognition. Income begins. Public visibility increases (LinkedIn, GitHub, projects).</div>
+      </div>
+      <div class="age-row">
+        <div class="age-badge">24–26 ★★</div>
+        <div class="age-desc"><strong>Accelerated growth window.</strong> Sun Mahadasha activates skills fully. Promotions or role jumps possible. Foreign remote work or relocation opportunity arises. Strongest period for climbing the AI engineering ladder.</div>
+      </div>
+      <div class="age-row">
+        <div class="age-badge">26–28</div>
+        <div class="age-desc">Consolidation. Possible challenges from Saturn transit. A period of re-evaluation — don't make impulsive job switches in this window.</div>
+      </div>
+      <div class="age-row">
+        <div class="age-badge">28–32 ★★</div>
+        <div class="age-desc"><strong>Wealth and leadership surge.</strong> Moon Dasha activates new ambitions. Entrepreneurial ventures or senior roles become available. Business potential peaks. Financial stability achieved.</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:1rem;">Wealth Accumulation</div>
+    <div class="card">
+      <div class="card-title">Wealth Pattern: Delayed but Sustained</div>
+      <div class="card-body">Saturn debilitation creates a "delayed but inevitable" wealth pattern — this chart will not see fast money in the early 20s, but wealth accumulates steadily from age 24 onward. Mercury as 2nd lord (Surya Lagna) is strong in Taurus, conjunct Sun — excellent for financial intelligence and investment acumen. Property/real estate investment is favored after age 30. The chart shows <strong>multiple income streams</strong> in the 30s: employment + side SaaS or consulting + investments. This is a wealth-building chart, not a windfall chart.</div>
+    </div>
+
+    <div class="section-label" style="margin-top:1rem;">Challenging Career Phases</div>
+    <div class="dosha-card">
+      <div class="dosha-name">Age 20–22: The Grind Phase</div>
+      <div class="dosha-desc">Saturn's debilitation and current Dasha phase mean effort significantly outpaces visible reward. Applications may get rejected. Progress feels slower than peers. This is not failure — it is karmic debt being paid. Consistent shipping and public building is the correct action here.</div>
+    </div>
+    <div class="dosha-card">
+      <div class="dosha-name">Age 26–28: Re-evaluation</div>
+      <div class="dosha-desc">Saturn transit through natal placements may cause career disruption, forced change in direction, or a plateau after initial success. A transition period — use it to upskill and plan the entrepreneurial pivot.</div>
+    </div>
+  </div>
+
+  <div id="tab-relationships" class="tab-panel">
+    <div class="section-label">4 — Relationships & Marriage</div>
+
+    <div class="card">
+      <div class="card-title">Marriage Type: Love + Semi-arranged Hybrid</div>
+      <div class="card-body">Venus in Gemini (3H from Lagna) suggests attraction toward intelligent, communicative, and mentally stimulating partners — someone met through shared intellectual or professional circles. Rahu–Moon conjunction in Aries amplifies desire for an unconventional relationship dynamic. This is more likely a <strong>love marriage or a love-within-arranged framework</strong> — not a fully arranged one. The partner will likely be independent, career-oriented, and in a field adjacent to technology or creative work.</div>
+    </div>
+
+    <div class="section-label" style="margin-top:1rem;">Marriage Timing Windows</div>
+    <div class="age-timeline">
+      <div class="age-row">
+        <div class="age-badge">23–25</div>
+        <div class="age-desc">First serious relationship likely develops. Not necessarily marriage, but a committed connection. Venus Antardasha activates.</div>
+      </div>
+      <div class="age-row">
+        <div class="age-badge">27–30 ★</div>
+        <div class="age-desc"><strong>Primary marriage window.</strong> Moon Dasha brings emotional readiness. Career stabilization allows commitment. Likely marriage or deep partnership formation in this window.</div>
+      </div>
+      <div class="age-row">
+        <div class="age-badge">31–33</div>
+        <div class="age-desc">Secondary window if first delayed. Still favorable. Marriage after career establishment — strong foundation.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Spouse Characteristics</div>
+      <div class="card-body">7th house from Taurus Lagna is Scorpio. Scorpio energy in a partner: intense, deep, private, investigative, emotionally complex, and loyal. Likely a person who is strong-willed and not easily read on the surface. Mars rules the 7th — partner may work in engineering, medicine, research, finance, or a high-precision field. The partner is likely from a different cultural or geographic background (Rahu influence), or someone met outside Anayat's home circle.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Relationship Strengths & Risks</div>
+      <div class="card-body"><strong>Strengths:</strong> Deep loyalty once committed (Taurus Lagna), intellectual compatibility is a primary bonding factor, patient and steady in long-term partnerships. <strong>Risks:</strong> Rahu–Moon in Aries creates periods of emotional turbulence, over-idealization of partners early in relationships, and difficulty communicating emotional needs. The introverted Taurus-Sun pattern can create emotional distance that partners misread as disinterest. Active communication about needs will be the single biggest relationship growth edge.</div>
+    </div>
+  </div>
+
+  <div id="tab-dasha" class="tab-panel">
+    <div class="section-label">5 — Current Dasha Analysis (Age 21, July 2026)</div>
+
+    <div class="card">
+      <div class="card-title">Vimshottari Dasha — Running Sequence</div>
+      <div class="card-body">Based on Moon in Ashwini/Bharani Nakshatra (Aries, ~15°): the balance of Dashas is calculated from Moon's Nakshatra lord at birth.</div>
+    </div>
+
+    <div class="info-row"><span class="info-label">Current Mahadasha</span><span class="info-val"><span class="pill pill-blue">Venus (Shukra) Mahadasha</span></span></div>
+    <div class="info-row"><span class="info-label">Mahadasha Period</span><span class="info-val">~2020 – 2040 (20 years)</span></div>
+    <div class="info-row"><span class="info-label">Current Antardasha</span><span class="info-val"><span class="pill pill-purple">Venus–Moon Antardasha (~2025–2026)</span></span></div>
+    <div class="info-row"><span class="info-label">Next Antardasha</span><span class="info-val">Venus–Mars (~late 2026 – 2027)</span></div>
+
+    <div style="margin: 1rem 0;">
+      <div class="dasha-bar-wrap">
+        <div class="dasha-label"><span>Venus Mahadasha progress</span><span>~30% complete</span></div>
+        <div class="dasha-track"><div class="dasha-fill" style="width:30%; background:#2a78d6;"></div></div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:1rem;">Venus Mahadasha — Context</div>
+    <div class="card">
+      <div class="card-title">What Venus (Shukra) rules for this chart</div>
+      <div class="card-body">Venus is the Lagna Lord of Taurus — the single most important planet in this chart. The 20-year Venus Mahadasha (roughly age ~15 to 35) is the foundational life-defining period. This is when identity, career path, relationships, and financial patterns are set. For Anayat: Venus in Gemini gives its fruits through communication, technology, writing, and intellectual work. Venus is not in its best position (Gemini is friendly but not exalted), but it is functional and active — gifts come through effort and craft, not luck alone.</div>
+    </div>
+
+    <div class="section-label" style="margin-top:1rem;">Current Antardasha Analysis: Venus–Moon</div>
+    <div class="card">
+      <div class="card-title">Venus–Moon Antardasha (~late 2025 to mid-2026)</div>
+      <div class="card-body">Moon is the 3rd lord in Aries (or 4th lord depending on exact Lagna) and carries Rahu's amplified restless energy. This Antardasha creates emotional turbulence alongside opportunity. <strong>Opportunities:</strong> Strong period for networking, content creation, and making public moves (LinkedIn series is perfectly timed). Learning speed is heightened. Emotional motivation to act is high. <strong>Challenges:</strong> Decision fatigue, anxiety about career trajectory, tendency to compare self to others unfavorably. Guard against scattered focus — the Rahu–Moon combination wants to pursue 10 things at once.</div>
+    </div>
+
+    <div class="section-label" style="margin-top:1rem;">Next Antardasha: Venus–Mars (~late 2026)</div>
+    <div class="card">
+      <div class="card-title">Incoming: Venus–Mars — Action & Momentum</div>
+      <div class="card-body">Mars is the lord of the 7H and 12H for Taurus Lagna. In Aquarius, Mars gives structured, technology-oriented energy. The Venus–Mars Antardasha is typically the most productive and assertive sub-period. <strong>This is likely when the first internship or full-time offer materializes</strong> if the groundwork laid in 2025–26 is strong. Increased courage to apply, interview confidently, and negotiate. Travel or remote international work may begin in this period.</div>
+    </div>
+  </div>
+
+  <div id="tab-forecast" class="tab-panel">
+    <div class="section-label">6 — 5-Year Forecast (2026–2030)</div>
+
+    <div style="font-size:13px; color: var(--text-secondary); margin-bottom:1rem; line-height:1.6;">Click each year to expand the forecast. ★ = best year · ⚠ = toughest year</div>
+
+    <div class="forecast-year">
+      <div class="forecast-header" onclick="toggleYear(this)">
+        <span class="forecast-year-num">2026</span>
+        <span class="pill pill-amber">Foundation year</span>
+        <i class="ti ti-chevron-down" style="margin-left:auto; font-size:16px; color:var(--text-muted);" aria-hidden="true"></i>
+      </div>
+      <div class="forecast-body">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:0.5rem;">Venus–Moon Antardasha continues. Emotional highs and lows around career decisions. Content creation momentum is strong. Best time to complete portfolio, certifications, and ATS-ready applications. Applications sent but first rejections likely — normalise this.</div>
+        <div class="forecast-grid">
+          <div class="forecast-cell"><div class="forecast-cell-label">Career</div><div class="forecast-cell-val">Active building; first interviews</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Money</div><div class="forecast-cell-val">Student income; tight but stable</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Relationships</div><div class="forecast-cell-val">Social expansion; no deep commitment</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Health</div><div class="forecast-cell-val">Watch sleep, anxiety management</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="forecast-year">
+      <div class="forecast-header" onclick="toggleYear(this)">
+        <span class="forecast-year-num">2027 ★</span>
+        <span class="pill pill-teal">Best year</span>
+        <i class="ti ti-chevron-down" style="margin-left:auto; font-size:16px; color:var(--text-muted);" aria-hidden="true"></i>
+      </div>
+      <div class="forecast-body">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:0.5rem;">Venus–Mars Antardasha begins. This is the highest-probability window for landing first real AI Engineering role. Mars activates courage and executive capacity. Applications convert to offers. Strong positive Jupiter transit supports professional recognition. First real income begins. Geographic move or remote international work likely.</div>
+        <div class="forecast-grid">
+          <div class="forecast-cell"><div class="forecast-cell-label">Career</div><div class="forecast-cell-val accent-teal">First offer / internship confirmed</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Money</div><div class="forecast-cell-val accent-teal">First professional income</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Relationships</div><div class="forecast-cell-val">Significant connection possible</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Health</div><div class="forecast-cell-val">Good — high energy, watch burnout</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="forecast-year">
+      <div class="forecast-header" onclick="toggleYear(this)">
+        <span class="forecast-year-num">2028</span>
+        <span class="pill pill-blue">Growth & consolidation</span>
+        <i class="ti ti-chevron-down" style="margin-left:auto; font-size:16px; color:var(--text-muted);" aria-hidden="true"></i>
+      </div>
+      <div class="forecast-body">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:0.5rem;">Venus–Rahu Antardasha begins. Rahu amplifies ambitions and expands network dramatically. International connections multiply. Rapid career advancement but also risk of overextension. This is a "be careful what you say yes to" year — opportunities exceed capacity. Focus and selectivity are the key disciplines.</div>
+        <div class="forecast-grid">
+          <div class="forecast-cell"><div class="forecast-cell-label">Career</div><div class="forecast-cell-val">Multiple opportunities; choose wisely</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Money</div><div class="forecast-cell-val">Significant income increase</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Relationships</div><div class="forecast-cell-val">Exciting but potentially unstable</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Health</div><div class="forecast-cell-val">Monitor stress and sleep quality</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="forecast-year">
+      <div class="forecast-header" onclick="toggleYear(this)">
+        <span class="forecast-year-num">2029 ⚠</span>
+        <span class="pill pill-coral">Toughest year</span>
+        <i class="ti ti-chevron-down" style="margin-left:auto; font-size:16px; color:var(--text-muted);" aria-hidden="true"></i>
+      </div>
+      <div class="forecast-body">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:0.5rem;">Venus–Jupiter Antardasha. Jupiter is a functional malefic for Taurus Lagna (rules 8H and 11H). This sub-period may bring unexpected changes, disruptions to existing arrangements, or a forced pivot. Overconfidence from 2028 success may meet reality checks. Financial wisdom is critical — avoid speculative investments. However, this is also a deeply transformative period that sets up the 2030 breakthrough.</div>
+        <div class="forecast-grid">
+          <div class="forecast-cell"><div class="forecast-cell-label">Career</div><div class="forecast-cell-val accent-amber">Possible disruption or role change</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Money</div><div class="forecast-cell-val accent-amber">Caution — avoid large risks</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Relationships</div><div class="forecast-cell-val">Tension; deepening required</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Health</div><div class="forecast-cell-val">Prioritize recovery and rest</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="forecast-year">
+      <div class="forecast-header" onclick="toggleYear(this)">
+        <span class="forecast-year-num">2030 ★★</span>
+        <span class="pill pill-purple">Major turning point</span>
+        <i class="ti ti-chevron-down" style="margin-left:auto; font-size:16px; color:var(--text-muted);" aria-hidden="true"></i>
+      </div>
+      <div class="forecast-body">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:0.5rem;">Venus–Saturn Antardasha. Saturn is the Yogakaraka for Taurus — this is the most powerful sub-period for career elevation. Despite Saturn's debilitation, the Venus–Saturn combination for a Taurus Lagna native is classically associated with professional authority, recognition, and sustained wealth. Age 25 — this is the major turning point the whole chart has been building toward. Leadership roles, senior positions, or successful independent ventures all peak in probability here.</div>
+        <div class="forecast-grid">
+          <div class="forecast-cell"><div class="forecast-cell-label">Career</div><div class="forecast-cell-val accent-purple">Senior role or independent venture</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Money</div><div class="forecast-cell-val accent-purple">Significant wealth milestone</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Relationships</div><div class="forecast-cell-val">Commitment or marriage window</div></div>
+          <div class="forecast-cell"><div class="forecast-cell-label">Health</div><div class="forecast-cell-val">Stable — discipline pays off</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-remedies" class="tab-panel">
+    <div class="section-label">7 — Astrologically Justified Remedies</div>
+    <div style="font-size:13px; color:var(--text-secondary); margin-bottom:1rem; line-height:1.5;">Remedies are recommended only for the three astrologically identified challenges: Saturn debilitation, Rahu–Moon conjunction, and career initiation friction.</div>
+
+    <div class="section-label" style="font-size:10px;">Mantras</div>
+
+    <div class="remedy-card">
+      <i class="ti ti-sun remedy-icon" aria-hidden="true"></i>
+      <div>
+        <div class="remedy-title">Shani (Saturn) Mantra — Primary Remedy</div>
+        <div class="remedy-desc"><strong>"Om Sham Shanicharaya Namah"</strong> — 108 times every Saturday morning. Saturn rules career and dharma for Taurus Lagna. Strengthening Saturn despite its debilitation is the single highest-leverage astrological action. This mantra works best when chanted before 8am on Saturdays, facing west.</div>
+      </div>
+    </div>
+
+    <div class="remedy-card">
+      <i class="ti ti-moon remedy-icon" aria-hidden="true"></i>
+      <div>
+        <div class="remedy-title">Rahu–Moon Mantra</div>
+        <div class="remedy-desc"><strong>"Om Ram Rahave Namah"</strong> (18 times) followed by <strong>"Om Som Somaya Namah"</strong> (108 times) — on Mondays. Addresses the Rahu–Moon conjunction's anxiety and restlessness pattern. The Moon mantra specifically calms the emotional instability and self-doubt that this conjunction creates.</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="font-size:10px; margin-top:1.25rem;">Donations</div>
+
+    <div class="remedy-card">
+      <i class="ti ti-heart remedy-icon" aria-hidden="true"></i>
+      <div>
+        <div class="remedy-title">Saturn Donation — Saturdays</div>
+        <div class="remedy-desc">Donate black sesame seeds, mustard oil, or iron items (even small amounts) to laborers, elderly people, or those doing difficult physical work — on Saturdays. This is the classical Shani propitiation. Serve food to the elderly or donate to orphanages periodically.</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="font-size:10px; margin-top:1.25rem;">Spiritual Practices</div>
+
+    <div class="remedy-card">
+      <i class="ti ti-flame remedy-icon" aria-hidden="true"></i>
+      <div>
+        <div class="remedy-title">Hanuman Chalisa — Tuesdays & Saturdays</div>
+        <div class="remedy-desc">Hanuman is the deity who governs Saturn-related karma and Rahu's intensity in the Vedic system. Reciting the Hanuman Chalisa on Tuesdays (Mars day — 7H lord) and Saturdays builds the protective shield around Saturn-related challenges. Particularly effective during the current Venus Dasha.</div>
+      </div>
+    </div>
+
+    <div class="remedy-card">
+      <i class="ti ti-activity remedy-icon" aria-hidden="true"></i>
+      <div>
+        <div class="remedy-title">Daily Discipline Practice</div>
+        <div class="remedy-desc">Saturn debilitation is fundamentally addressed by becoming Saturn's qualities — discipline, structure, persistence, humility. A daily routine (same sleep/wake time, exercise, 90-minute focused deep work blocks) serves as the most practical Shani remedy. The chart rewards those who treat their craft as sacred work. This maps directly to Anayat's existing archetype — formalize it.</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="font-size:10px; margin-top:1.25rem;">Gemstones</div>
+
+    <div class="remedy-card">
+      <i class="ti ti-diamond remedy-icon" aria-hidden="true"></i>
+      <div>
+        <div class="remedy-title">Diamond / White Sapphire (Cautious Recommendation)</div>
+        <div class="remedy-desc">Venus is the Lagna Lord and Mahadasha ruler — strengthening Venus through a gemstone is astrologically supported. <strong>White Sapphire (Safed Pukhraj)</strong> is the safer alternative to diamond. Minimum 3 ratti, set in silver, worn on the middle finger of the right hand on a Friday. <strong>Caution:</strong> Consult a qualified Jyotishi with your confirmed birth time before wearing any gemstone. Do NOT wear Blue Sapphire (Shani ratna) given Saturn's debilitation — it could amplify negatives.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem; background:var(--bg-accent); border:0.5px solid var(--border-accent); border-radius:var(--radius); padding:0.75rem 1rem; font-size:13px; color:var(--text-accent); line-height:1.6;">
+      <strong>Final note:</strong> This reading is derived without a confirmed birth time. A birth time-rectified chart would sharpen house placements and Dasha start dates. The planetary positions (Sun, Mercury, Rahu, Ketu, Jupiter, Saturn) and the core life themes above are high-confidence. Lagna, Moon sign precision, and exact Dasha timings benefit from a confirmed birth time. Consider asking family for a hospital record, Aadhaar card record, or naming ceremony timing as memory anchors for rectification.
+    </div>
+  </div>
+</div>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function toggleYear(header) {
+  const body = header.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.forecast-body').forEach(b => b.classList.remove('open'));
+  if (!isOpen) body.classList.add('open');
+}
+
+document.querySelector('.forecast-header').click();
+</script>

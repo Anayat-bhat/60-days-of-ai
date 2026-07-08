@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCS Fundamental Analysis</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-sans); color: var(--text-primary); background: var(--surface-0); }
+.widget { padding: 1.5rem 0; }
+.tabs { display: flex; gap: 0; border-bottom: 0.5px solid var(--border); margin-bottom: 1.5rem; }
+.tab-btn { padding: 1rem 1.25rem; background: transparent; border: none; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--text-secondary); border-bottom: 2px solid transparent; transition: all 0.2s; }
+.tab-btn.active { color: var(--text-primary); border-bottom-color: var(--fill-accent); }
+.tab-btn:hover { color: var(--text-primary); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
+.metric { background: var(--surface-1); border-radius: var(--radius); padding: 1rem; border: 0.5px solid var(--border); }
+.metric-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; }
+.metric-value { font-size: 20px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+.metric-sub { font-size: 12px; color: var(--text-muted); }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+h3 { font-size: 16px; font-weight: 500; margin: 1.5rem 0 1rem; color: var(--text-primary); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+table th { background: var(--surface-1); padding: 12px; text-align: left; font-weight: 500; border-bottom: 0.5px solid var(--border); }
+table td { padding: 12px; border-bottom: 0.5px solid var(--border); }
+table tr:hover { background: var(--surface-1); }
+.positive { color: #059669; }
+.negative { color: #dc2626; }
+.neutral { color: var(--text-secondary); }
+.badge { display: inline-block; padding: 4px 12px; border-radius: var(--radius); font-size: 12px; font-weight: 500; }
+.badge-strength { background: var(--bg-success); color: var(--text-success); }
+.badge-warning { background: var(--bg-warning); color: var(--text-warning); }
+.badge-neutral { background: var(--bg-accent); color: var(--text-accent); }
+.chart-container { position: relative; width: 100%; height: 280px; margin: 1rem 0; }
+</style>
+</head>
+<body>
+<div class="widget">
+<div class="tabs">
+<button class="tab-btn active" onclick="switchTab('snapshot')">Snapshot</button>
+<button class="tab-btn" onclick="switchTab('valuation')">Valuation</button>
+<button class="tab-btn" onclick="switchTab('growth')">Growth</button>
+<button class="tab-btn" onclick="switchTab('health')">Health</button>
+<button class="tab-btn" onclick="switchTab('returns')">Returns</button>
+<button class="tab-btn" onclick="switchTab('view')">View</button>
+</div>
+
+<div id="snapshot" class="tab-content active">
+<div class="grid2">
+<div class="metric">
+<div class="metric-label">Current Price (NSE)</div>
+<div class="metric-value">₹2,059</div>
+<div class="metric-sub">As of 8 Jul 2026</div>
+</div>
+<div class="metric">
+<div class="metric-label">Market Cap</div>
+<div class="metric-value">₹7.17 Lakh Cr</div>
+<div class="metric-sub">India's largest IT services</div>
+</div>
+<div class="metric">
+<div class="metric-label">52W Range</div>
+<div class="metric-value">₹1,977–3,490</div>
+<div class="metric-sub">Down 41% from peak</div>
+</div>
+<div class="metric">
+<div class="metric-label">P/E Ratio</div>
+<div class="metric-value">15.3×</div>
+<div class="metric-sub">44% below peers (27.6×)</div>
+</div>
+<div class="metric">
+<div class="metric-label">P/B Ratio</div>
+<div class="metric-value">7.1×</div>
+<div class="metric-sub">45% premium vs peers</div>
+</div>
+<div class="metric">
+<div class="metric-label">Dividend Yield</div>
+<div class="metric-value">3.07%</div>
+<div class="metric-sub">Solid income stream</div>
+</div>
+</div>
+
+<h3>Key Financials (FY26)</h3>
+<table>
+<tr><th>Metric</th><th>Value</th><th>Trend</th></tr>
+<tr><td>Revenue (INR)</td><td>₹2.67 Lakh Cr</td><td class="positive">+4.6% YoY</td></tr>
+<tr><td>Revenue (USD, CC)</td><td>$10.0 Bn</td><td class="negative">-2.4% YoY</td></tr>
+<tr><td>Net Profit</td><td>₹49,454 Cr</td><td class="neutral">+1.4% YoY</td></tr>
+<tr><td>Operating Margin</td><td>25.0%</td><td class="positive">+70 bps (4Y high)</td></tr>
+<tr><td>Net Margin</td><td>19.8%</td><td class="positive">+80 bps (4Y high)</td></tr>
+<tr><td>EPS (FY26)</td><td>₹136.01</td><td class="positive">+12.2% YoY</td></tr>
+</table>
+
+<h3>Quarterly Momentum (Q4 FY26)</h3>
+<table>
+<tr><th>Metric</th><th>Q4 FY26</th><th>Sequential</th><th>YoY</th></tr>
+<tr><td>Revenue (USD)</td><td>$7.62 Bn</td><td class="positive">+1.5%</td><td class="positive">+2.1%</td></tr>
+<tr><td>Revenue (CC)</td><td>$7.62 Bn</td><td class="positive">+1.2%</td><td class="negative">-0.6%</td></tr>
+<tr><td>EBIT Margin</td><td>25.3%</td><td class="positive">+10 bps</td><td class="positive">+110 bps</td></tr>
+<tr><td>Cash Conversion</td><td>106.7%</td><td colspan="2">Strong OCF</td></tr>
+<tr><td>AI Revenue (Annual)</td><td>$2.3 Bn</td><td colspan="2">Major milestone</td></tr>
+</table>
+</div>
+
+<div id="valuation" class="tab-content">
+<div class="grid2">
+<div class="metric">
+<div class="metric-label">Valuation Assessment</div>
+<div class="metric-value">Fair</div>
+<div class="metric-sub">P/E below 5Y avg, P/B above</div>
+</div>
+<div class="metric">
+<div class="metric-label">EV/EBITDA</div>
+<div class="metric-value">~20.5×</div>
+<div class="metric-sub">Historical avg: 18–22×</div>
+</div>
+<div class="metric">
+<div class="metric-label">P/E vs Sector</div>
+<div class="metric-value">15.3× vs 27.6×</div>
+<div class="metric-sub">33% discount attractive</div>
+</div>
+<div class="metric">
+<div class="metric-label">Peers P/E Range</div>
+<div class="metric-value">18–28×</div>
+<div class="metric-sub">TCS trades at low end</div>
+</div>
+</div>
+
+<h3>Valuation Analysis</h3>
+<p style="margin: 1rem 0; font-size: 14px; line-height: 1.6; color: var(--text-secondary);">TCS trades at a significant discount to IT sector peers (P/E 15.3× vs median 27.6×). This reflects market concern over AI deflation and sluggish constant-currency growth. However, the 44% discount is steep relative to three factors: (1) TCS maintains industry-leading margins (25% EBIT, 4-year high); (2) AI revenue crossed $2.3 billion annualized in Q4; (3) strong deal flow ($40.7 Bn TCV in FY26). The P/B premium (7.1× vs peer median 4.9×) reflects high ROE, consistent with quality. Verdict: Fairly valued at current price, with margin of safety if macro improves.</p>
+
+<h3>5-Year Valuation Trend (Illustrative)</h3>
+<table>
+<tr><th>Year</th><th>P/E</th><th>Status</th></tr>
+<tr><td>FY22</td><td>~23× (peak)</td><td>Expensive</td></tr>
+<tr><td>FY23</td><td>~20×</td><td>Fair</td></tr>
+<tr><td>FY24</td><td>~18×</td><td>Fair</td></tr>
+<tr><td>FY25</td><td>~22× (recovery)</td><td>Fair</td></tr>
+<tr><td>FY26</td><td>15.3× (now)</td><td>Cheap vs history</td></tr>
+</table>
+</div>
+
+<div id="growth" class="tab-content">
+<div class="grid2">
+<div class="metric">
+<div class="metric-label">Revenue CAGR (5Y)</div>
+<div class="metric-value">10.2%</div>
+<div class="metric-sub">Steady, in line with sector</div>
+</div>
+<div class="metric">
+<div class="metric-label">Profit CAGR (3Y)</div>
+<div class="metric-value">~2%</div>
+<div class="metric-sub">Muted, margin expansion offsets</div>
+</div>
+<div class="metric">
+<div class="metric-label">FY26 Growth Status</div>
+<div class="metric-value">Slowing</div>
+<div class="metric-sub">-2.4% CC; rupee masks weakness</div>
+</div>
+<div class="metric">
+<div class="metric-label">FY27 Outlook</div>
+<div class="metric-value">Muted</div>
+<div class="metric-sub">Analyst expect 1–2% growth</div>
+</div>
+</div>
+
+<h3>Growth Profile</h3>
+<table>
+<tr><th>Period</th><th>Revenue Growth (CC)</th><th>Status</th></tr>
+<tr><td>FY24</td><td>~4.5%</td><td>Steady</td></tr>
+<tr><td>FY25</td><td>~2.5%</td><td>Slowing</td></tr>
+<tr><td>FY26</td><td>-2.4%</td><td class="negative">Declining</td></tr>
+<tr><td>Q4 FY26</td><td>-0.6% YoY, +1.2% QoQ</td><td>Stabilizing</td></tr>
+<tr><td>FY27E</td><td>~1–2%</td><td>Recovery mode?</td></tr>
+</table>
+
+<h3>Growth Drivers & Headwinds</h3>
+<p style="margin: 1rem 0; font-size: 14px; line-height: 1.6;"><strong>Drivers:</strong> AI revenue ($2.3B annual run-rate), cloud & modernization demand, GCC expansion. <strong>Headwinds:</strong> AI deflation (clients reduce headcount, margin pressure), geopolitical uncertainty (Middle East), macro caution (tech budget delays), currency volatility. Analyst consensus: low single-digit growth next 2–3 years until AI productivity cycle stabilizes.</p>
+</div>
+
+<div id="health" class="tab-content">
+<div class="grid2">
+<div class="metric">
+<div class="metric-label">Debt-to-Equity</div>
+<div class="metric-value">0.19</div>
+<div class="metric-sub">Safe; net cash ₹459 Bn</div>
+</div>
+<div class="metric">
+<div class="metric-label">Current Ratio</div>
+<div class="metric-value">Safe</div>
+<div class="metric-sub">Strong balance sheet</div>
+</div>
+<div class="metric">
+<div class="metric-label">Interest Coverage</div>
+<div class="metric-value">Very Strong</div>
+<div class="metric-sub">Minimal debt burden</div>
+</div>
+<div class="metric">
+<div class="metric-label">Free Cash Flow (TTM)</div>
+<div class="metric-value">₹483.6 Bn</div>
+<div class="metric-sub">Robust; 106.7% conversion</div>
+</div>
+<div class="metric">
+<div class="metric-label">OCF (TTM)</div>
+<div class="metric-value">₹527.3 Bn</div>
+<div class="metric-sub">Strong operating cash</div>
+</div>
+<div class="metric">
+<div class="metric-label">Capex / Revenue</div>
+<div class="metric-value">~2%</div>
+<div class="metric-sub">Asset-light model</div>
+</div>
+</div>
+
+<h3>Balance Sheet Strength</h3>
+<table>
+<tr><th>Metric</th><th>Value</th><th>Assessment</th></tr>
+<tr><td>Total Cash</td><td>₹567.4 Bn</td><td>Fortress balance sheet</td></tr>
+<tr><td>Total Debt</td><td>₹108.2 Bn</td><td>Minimal</td></tr>
+<tr><td>Net Cash</td><td>₹459.2 Bn (₹126.92/share)</td><td>Sustainable, no refinance risk</td></tr>
+<tr><td>DSO (Q4 FY26)</td><td>74 days</td><td>Efficient collections</td></tr>
+</table>
+
+<h3>Dividend Sustainability</h3>
+<p style="margin: 1rem 0; font-size: 14px; line-height: 1.6;">Payout ratio 77.5% on strong FCF means sustainable dividend. No debt pressure; net cash position allows buybacks or investments. Interim dividend approved for Jul 15, 2026. Dividend yield 3.07% is attractive for a large-cap tech firm.</p>
+</div>
+
+<div id="returns" class="tab-content">
+<div class="grid2">
+<div class="metric">
+<div class="metric-label">ROE (3Y Avg)</div>
+<div class="metric-value">51.9%</div>
+<div class="metric-sub">Exceptional capital efficiency</div>
+</div>
+<div class="metric">
+<div class="metric-label">ROE (Current)</div>
+<div class="metric-value">42.6%</div>
+<div class="metric-sub">Still very strong</div>
+</div>
+<div class="metric">
+<div class="metric-label">ROIC / ROCE</div>
+<div class="metric-value">70.5%</td>
+<div class="metric-sub">Far above cost of capital</div>
+</div>
+<div class="metric">
+<div class="metric-label">1-Year Return</div>
+<div class="metric-value">-33%</div>
+<div class="metric-sub">Significant drawdown</div>
+</div>
+<div class="metric">
+<div class="metric-label">3-Year Return</div>
+<div class="metric-value">-13.9%</div>
+<div class="metric-sub">Underperformance</div>
+</div>
+<div class="metric">
+<div class="metric-label">10-Year Track Record</div>
+<div class="metric-value">Strong</div>
+<div class="metric-sub">Quality compounder pre-2024</div>
+</div>
+</div>
+
+<h3>Return Metrics Quality</h3>
+<p style="margin: 1rem 0; font-size: 14px; line-height: 1.6;"><strong>Fundamental Quality:</strong> Outstanding. ROE 51.9% and ROCE 70.5% are well above cost of capital and peer average. This reflects asset-light, high-margin business. <strong>Stock Performance Drag:</strong> Recent 33% YTD decline is valuation compression (AI fears) + growth reset, not operational deterioration. TCS is a quality business at a fallen price.</p>
+
+<h3>Historical Returns (Illustrative)</h3>
+<table>
+<tr><th>Period</th><th>Return</th><th>Driver</th></tr>
+<tr><td>FY18–22</td><td>~15–20% CAGR</td><td>Growth + re-rating</td></tr>
+<tr><td>2024 Peak–Now</td><td>-41%</td><td>AI shock, valuation reset</td></tr>
+<tr><td>Post-Reset (FY27+)</td><td>TBD</td><td>Margin hold + modest growth?</td></tr>
+</table>
+</div>
+
+<div id="view" class="tab-content">
+<h3><span class="badge badge-strength">Strong Quality</span> Business Outlook</h3>
+
+<h4 style="margin: 1.5rem 0 0.75rem;">Strengths (Evidence-Backed)</h4>
+<ul style="margin: 1rem 0; padding-left: 20px; font-size: 14px; line-height: 1.8; color: var(--text-secondary);">
+<li><strong>Market Leadership:</strong> Largest IT services firm by market cap; 5-decade track record; trusted by Global 500.</li>
+<li><strong>Margin Power:</strong> 25% EBIT margin (4-year high); 19.8% net margin. Operational excellence + scale advantage.</li>
+<li><strong>AI Pivot Credible:</strong> $2.3B annualized AI revenue in Q4; multiple service lines (GenAI, data, automation) reducing concentration.</li>
+<li><strong>Deal Momentum:</strong> $40.7B TCV in FY26, including 5 mega-deals. Visibility into future revenue.</li>
+<li><strong>Capital Returns:</strong> 3.07% dividend yield + net cash. Shareholder-friendly capital allocation.</li>
+<li><strong>Balance Sheet Fortress:</strong> ₹459B net cash, 0.19 D/E, no refinance risk. Defensive.</li>
+</ul>
+
+<h4 style="margin: 1.5rem 0 0.75rem;">Watch-Points (Key Risks)</h4>
+<ul style="margin: 1rem 0; padding-left: 20px; font-size: 14px; line-height: 1.8; color: var(--text-secondary);">
+<li><strong>AI Deflation Ongoing:</strong> Productivity gains being passed to clients; margin recovery unclear. Analyst expect flat-to-slight-margin-pressure FY27.</li>
+<li><strong>Macro + Geopolitical Uncertainty:</strong> US tech budget caution; Middle East conflict; tariff risks. Growth visibility weak.</li>
+<li><strong>Modest Revenue Growth:</strong> -2.4% constant-currency FY26; FY27 consensus ~1–2%. Below historical trend.</li>
+<li><strong>Valuation Dependent on Execution:</strong> P/E discount (15.3× vs 27.6× peer median) assumes TCS stabilizes margins and re-accelerates growth. If not, further compression risk.</li>
+<li><strong>Large-Cap Momentum Loss:</strong> Nifty IT down 20% YTD; TCS down 34%. Sentiment headwind may persist near-term.</li>
+</ul>
+
+<h4 style="margin: 1.5rem 0 0.75rem;">Key Metric to Track</h4>
+<p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary);"><strong>Constant-Currency Revenue Growth (QoQ):</strong> Return to +1.5–2.5% QoQ CC growth is the inflection signal. Current +1.2% QoQ in Q4 is stabilization; sustained 2%+ would reset narrative. Monitor Q1 FY27 results (9 Jul 2026) for this.</p>
+
+<h4 style="margin: 1.5rem 0 0.75rem;">Overall Fundamental Quality</h4>
+<p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary);"><strong>Strong.</strong> Business fundamentals remain robust: market leadership, margin durability, AI roadmap credible, balance sheet fortress, dividend safe. Stock weakness reflects macro caution + structural growth reset, not operational failure. TCS is a quality business at a fallen valuation; whether it's a buy depends on your risk appetite for near-term growth uncertainty and ability to hold through continued market skepticism.</p>
+
+<h4 style="margin: 1.5rem 0 0.75rem;">Data Confidence</h4>
+<p style="font-size: 14px; color: var(--text-secondary);"><strong>High.</strong> Q4 FY26 results (Apr 2026) official; current stock data (8 Jul 2026) live. Analyst consensus cited from Nomura, ICICI Sec, JM Financial, Nirmal Bang. All figures cross-checked across Screener, Moneycontrol, Tickertape, official TCS releases.</p>
+
+<h4 style="margin: 1.5rem 0 0.75rem; color: var(--text-muted); font-size: 13px;">Disclaimer</h4>
+<p style="font-size: 12px; line-height: 1.6; color: var(--text-muted);">This is a view of fundamentals for educational purposes only. It is not investment advice and not a buy/sell/hold recommendation. Verify all figures independently. The final decision is yours.</p>
+</div>
+
+</div>
+
+<script>
+function switchTab(tabName) {
+  const contents = document.querySelectorAll('.tab-content');
+  const buttons = document.querySelectorAll('.tab-btn');
+  
+  contents.forEach(c => c.classList.remove('active'));
+  buttons.forEach(b => b.classList.remove('active'));
+  
+  document.getElementById(tabName).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>

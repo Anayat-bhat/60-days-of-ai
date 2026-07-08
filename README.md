@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 25% Complete (15 / 60 Days)`
+`[███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 27% Complete (16 / 60 Days)`
 
 ---
 
@@ -58,6 +58,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day13/          # Indeed Claude Connector Job Discovery
 ├── Day14/          # MyOperator JD Risk Analysis
 ├── Day15/          # Structured Report Generation
+├── Day16/          # Custom Skills: Stock Fundamental Research
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -84,9 +85,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **13** | [Job Discovery & Gaps](Day13/day13.md) | Indeed Connectors, Skill-Gap Analysis, and Market Insights | ✅ Done |
 | **14** | [JD Risk Analysis](Day14/day14.md) | Job Description Red Flag Analysis, Verdict, and Interview Strategy for MyOperator Frontend Intern | ✅ Done |
 | **15** | [Structured Report Generation](Day15/day15.md) | Structured Report Generation: Astrology Life Analysis Report | ✅ Done |
-| **16** | *Upcoming...* | - | ⏳ |
+| **16** | [Custom Skills: Stock Research](Day16/day16.md) | Custom Skills: Stock Fundamental Research on Tata Consultancy Services (TCS) | ✅ Done |
+| **17** | *Upcoming...* | - | ⏳ |
+| **18** | *Upcoming...* | - | ⏳ |
 
-*Days 15 to 60 will be updated as the challenge progresses!*
+*Days 17 to 60 will be updated as the challenge progresses!*
 
 ---
 

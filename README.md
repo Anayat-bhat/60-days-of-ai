@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 27% Complete (16 / 60 Days)`
+`[███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 28% Complete (17 / 60 Days)`
 
 ---
 
@@ -59,6 +59,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day14/          # MyOperator JD Risk Analysis
 ├── Day15/          # Structured Report Generation
 ├── Day16/          # Custom Skills: Stock Fundamental Research
+├── Day17/          # Vehicle Cost Analysis Dashboard
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -86,10 +87,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **14** | [JD Risk Analysis](Day14/day14.md) | Job Description Red Flag Analysis, Verdict, and Interview Strategy for MyOperator Frontend Intern | ✅ Done |
 | **15** | [Structured Report Generation](Day15/day15.md) | Structured Report Generation: Astrology Life Analysis Report | ✅ Done |
 | **16** | [Custom Skills: Stock Research](Day16/day16.md) | Custom Skills: Stock Fundamental Research on Tata Consultancy Services (TCS) | ✅ Done |
-| **17** | *Upcoming...* | - | ⏳ |
+| **17** | [Vehicle Cost Analysis](Day17/day17.md) | Vehicle Cost Analysis Dashboard: Structured CSV data analysis and interactive HTML dashboard | ✅ Done |
 | **18** | *Upcoming...* | - | ⏳ |
+| **19** | *Upcoming...* | - | ⏳ |
 
-*Days 17 to 60 will be updated as the challenge progresses!*
+*Days 18 to 60 will be updated as the challenge progresses!*
 
 ---
 

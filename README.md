@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 30% Complete (18 / 60 Days)`
+`[█████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░] 32% Complete (19 / 60 Days)`
 
 ---
 
@@ -61,6 +61,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day16/          # Custom Skills: Stock Fundamental Research
 ├── Day17/          # Vehicle Cost Analysis Dashboard
 ├── Day18/          # Custom Skills: Brain Dump Action Planner
+├── Day19/          # Football Intelligence Hub
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -90,9 +91,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **16** | [Custom Skills: Stock Research](Day16/day16.md) | Custom Skills: Stock Fundamental Research on Tata Consultancy Services (TCS) | ✅ Done |
 | **17** | [Vehicle Cost Analysis](Day17/day17.md) | Vehicle Cost Analysis Dashboard: Structured CSV data analysis and interactive HTML dashboard | ✅ Done |
 | **18** | [Brain Dump Action Planner](Day18/day18.md) | Custom Skills: Brain Dump Action Planner | ✅ Done |
-| **19** | *Upcoming...* | - | ⏳ |
+| **19** | [Football Intelligence Hub](Day19/day19.md) | Football Intelligence Hub: Sports analytics, FIFA World Cup predictions, IQ quiz, and personality profile | ✅ Done |
+| **20** | *Upcoming...* | - | ⏳ |
+| **21** | *Upcoming...* | - | ⏳ |
 
-*Days 18 to 60 will be updated as the challenge progresses!*
+*Days 20 to 60 will be updated as the challenge progresses!*
 
 ---
 

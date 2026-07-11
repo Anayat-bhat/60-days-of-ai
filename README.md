@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 28% Complete (17 / 60 Days)`
+`[████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 30% Complete (18 / 60 Days)`
 
 ---
 
@@ -60,6 +60,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day15/          # Structured Report Generation
 ├── Day16/          # Custom Skills: Stock Fundamental Research
 ├── Day17/          # Vehicle Cost Analysis Dashboard
+├── Day18/          # Custom Skills: Brain Dump Action Planner
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -88,7 +89,7 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **15** | [Structured Report Generation](Day15/day15.md) | Structured Report Generation: Astrology Life Analysis Report | ✅ Done |
 | **16** | [Custom Skills: Stock Research](Day16/day16.md) | Custom Skills: Stock Fundamental Research on Tata Consultancy Services (TCS) | ✅ Done |
 | **17** | [Vehicle Cost Analysis](Day17/day17.md) | Vehicle Cost Analysis Dashboard: Structured CSV data analysis and interactive HTML dashboard | ✅ Done |
-| **18** | *Upcoming...* | - | ⏳ |
+| **18** | [Brain Dump Action Planner](Day18/day18.md) | Custom Skills: Brain Dump Action Planner | ✅ Done |
 | **19** | *Upcoming...* | - | ⏳ |
 
 *Days 18 to 60 will be updated as the challenge progresses!*

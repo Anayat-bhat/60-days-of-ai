@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[█████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░] 33% Complete (20 / 60 Days)`
+`[██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░] 35% Complete (21 / 60 Days)`
 
 ---
 
@@ -63,6 +63,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day18/          # Custom Skills: Brain Dump Action Planner
 ├── Day19/          # Football Intelligence Hub
 ├── Day20/          # Face Puzzle Game
+├── Day21/          # Digital Privacy Dashboard
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -94,10 +95,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **18** | [Brain Dump Action Planner](Day18/day18.md) | Custom Skills: Brain Dump Action Planner | ✅ Done |
 | **19** | [Football Intelligence Hub](Day19/day19.md) | Football Intelligence Hub: Sports analytics, FIFA World Cup predictions, IQ quiz, and personality profile | ✅ Done |
 | **20** | [Face Puzzle Game](Day20/day20.md) | Face Puzzle Game: Webcam capture, image processing, and drag-and-drop gameplay | ✅ Done |
-| **21** | *Upcoming...* | - | ⏳ |
+| **21** | [Digital Privacy Dashboard](Day21/day21.md) | Digital Privacy Dashboard: Digital footprint size, privacy risk assessment, tracking surface estimation, and cybersecurity-style dashboard | ✅ Done |
 | **22** | *Upcoming...* | - | ⏳ |
+| **23** | *Upcoming...* | - | ⏳ |
 
-*Days 23 to 60 will be updated as the challenge progresses!*
+*Days 24 to 60 will be updated as the challenge progresses!*
 
 ---
 

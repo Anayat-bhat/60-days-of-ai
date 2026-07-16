@@ -518,3 +518,19 @@ Day 23 helped me move from a product-building mindset toward a customer-validati
 Circuit.IQ currently has a technically capable MVP, but the next major milestone is proving that educational institutions experience the identified problems strongly enough to adopt the solution.
 
 The immediate priority is to conduct customer interviews, secure an institutional pilot, measure real outcomes, and collect willingness-to-pay signals. These results will provide stronger evidence about whether Circuit.IQ can achieve Product-Market Fit and scale successfully.
+
+![Circuit.IQ Executive Summary](./screenshots/screenshot-1.png)
+![Circuit.IQ Ideal Customer Profile (ICP)](./screenshots/screenshot-2.png)
+![Circuit.IQ Buyer Persona](./screenshots/screenshot-3.png)
+![Circuit.IQ Top Customer Pain Points](./screenshots/screenshot-4.png)
+![Circuit.IQ Customer Journey](./screenshots/screenshot-5.png)
+![Circuit.IQ Key Customer Objections](./screenshots/screenshot-6.png)
+![Circuit.IQ Key Buying Triggers](./screenshots/screenshot-7.png)
+![Circuit.IQ MVP Recommendation](./screenshots/screenshot-8.png)
+![Circuit.IQ MoSCoW Prioritization](./screenshots/screenshot-9.png)
+![Circuit.IQ Pricing Hypothesis](./screenshots/screenshot-10.png)
+![Circuit.IQ Top 5 Risks](./screenshots/screenshot-11.png)
+![Circuit.IQ 30-Day MVP Plan](./screenshots/screenshot-12.png)
+![Circuit.IQ Founder Action Sheet](./screenshots/screenshot-13.png)
+![Circuit.IQ Scorecard](./screenshots/screenshot-14.png)
+![Circuit.IQ Final Verdict](./screenshots/screenshot-15.png)

@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░] 35% Complete (21 / 60 Days)`
+`[███████████████░░░░░░░░░░░░░░░░░░░░░░░░░] 37% Complete (22 / 60 Days)`
 
 ---
 
@@ -64,6 +64,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day19/          # Football Intelligence Hub
 ├── Day20/          # Face Puzzle Game
 ├── Day21/          # Digital Privacy Dashboard
+├── Day22/          # Startup Validation with Claude
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -96,7 +97,7 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **19** | [Football Intelligence Hub](Day19/day19.md) | Football Intelligence Hub: Sports analytics, FIFA World Cup predictions, IQ quiz, and personality profile | ✅ Done |
 | **20** | [Face Puzzle Game](Day20/day20.md) | Face Puzzle Game: Webcam capture, image processing, and drag-and-drop gameplay | ✅ Done |
 | **21** | [Digital Privacy Dashboard](Day21/day21.md) | Digital Privacy Dashboard: Digital footprint size, privacy risk assessment, tracking surface estimation, and cybersecurity-style dashboard | ✅ Done |
-| **22** | *Upcoming...* | - | ⏳ |
+| **22** | [Startup Validation](Day22/day22.md) | Startup Validation: Market research, founder-market fit, competitor analysis, and 30-day action plan for Circuit.IQ | ✅ Done |
 | **23** | *Upcoming...* | - | ⏳ |
 
 *Days 24 to 60 will be updated as the challenge progresses!*

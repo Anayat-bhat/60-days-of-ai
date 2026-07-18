@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[█████████████████░░░░░░░░░░░░░░░░░░░░░░░] 42% Complete (25 / 60 Days)`
+`[████████████████░░░░░░░░░░░░░░░░░░░░░░░░] 40% Complete (24 / 60 Days)`
 
 ---
 
@@ -66,8 +66,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day21/          # Digital Privacy Dashboard
 ├── Day22/          # Startup Validation with Claude
 ├── Day23/          # Customer Discovery & MVP Blueprint
-├── Day24/          # Customer Discovery Instruments & Outreach Campaign
-├── Day25/          # Target Institutional Pipeline & Pilot Agreement Framework
+├── Day24/          # Business Strategy & Startup Sustainability
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -102,10 +101,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **21** | [Digital Privacy Dashboard](Day21/day21.md) | Digital Privacy Dashboard: Digital footprint size, privacy risk assessment, tracking surface estimation, and cybersecurity-style dashboard | ✅ Done |
 | **22** | [Startup Validation](Day22/day22.md) | Startup Validation: Market research, founder-market fit, competitor analysis, and 30-day action plan for Circuit.IQ | ✅ Done |
 | **23** | [Customer Discovery & MVP](Day23/day23.md) | Customer Discovery & MVP Blueprint: Ideal Customer Profile, Buyer Personas, Customer Journey, Top Objections, and MoSCoW Prioritized MVP Recommendation | ✅ Done |
-| **24** | [Customer Discovery Instruments](Day24/day24.md) | Customer Discovery Instruments: Detailed interview scripts for stakeholders, cold outreach email/LinkedIn templates, and Feedback Log schema | ✅ Done |
-| **25** | [Target Pipeline & Pilot Agreement](Day25/day25.md) | Target Institutional Pipeline & Pilot Agreement: 35-institution target database, Pilot Program MOU Framework, and Low-Bandwidth Demo Tech Spec | ✅ Done |
+| **24** | [Business Strategy & Sustainability](Day24/day24.md) | Business Strategy & Startup Sustainability: Revenue model, pricing strategy, GTM plan, customer acquisition, and investment readiness scorecard for Circuit.IQ | ✅ Done |
+| **25** | *Upcoming...* | - | ⏳ |
+| **26** | *Upcoming...* | - | ⏳ |
 
-*Days 26 to 60 will be updated as the challenge progresses!*
+*Days 27 to 60 will be updated as the challenge progresses!*
 
 ---
 

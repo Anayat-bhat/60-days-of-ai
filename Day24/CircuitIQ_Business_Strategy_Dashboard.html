@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Circuit.IQ — Business Strategy & Investability Report</title>
+<style>
+  :root{
+    --navy:#0B1E3D; --blue:#1E4FD8; --purple:#6C4EE3; --light:#F3F5FB;
+    --grey:#5A6478; --green:#1E9E62; --amber:#D98A17; --red:#C0392B;
+    --border:#D5D9E5;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color:#1A1A2E; margin:0; background:#fff; line-height:1.55;
+  }
+  .wrap{max-width:880px; margin:0 auto; padding:0 32px 60px;}
+  .cover{
+    text-align:center; padding:90px 20px 60px; border-bottom:6px solid var(--blue);
+    margin-bottom:40px;
+  }
+  .cover .eyebrow{color:var(--grey); letter-spacing:2px; font-size:13px; margin-bottom:10px;}
+  .cover h1{font-size:52px; color:var(--navy); margin:0 0 8px; font-weight:800;}
+  .cover .sub{color:var(--grey); font-size:17px; margin-bottom:36px;}
+  .meta-table{width:100%; border-collapse:collapse; margin:0 auto 34px; max-width:640px;}
+  .meta-table td{border:1px solid var(--border); padding:10px 14px; font-size:14px; text-align:left;}
+  .meta-table td:first-child{background:var(--navy); color:#fff; font-weight:700; width:180px;}
+  .verdict-badge{
+    display:inline-block; background:var(--amber); color:#fff; font-weight:800;
+    font-size:20px; padding:16px 40px; border-radius:6px; letter-spacing:0.5px;
+  }
+  .cover .verdict-note{max-width:600px; margin:20px auto 0; color:var(--grey); font-size:14.5px;}
+
+  nav.toc{background:var(--light); border:1px solid var(--border); border-radius:8px; padding:24px 30px; margin-bottom:50px;}
+  nav.toc h2{margin-top:0; color:var(--navy); font-size:20px;}
+  nav.toc ol{columns:1; padding-left:20px; font-size:14.5px;}
+  nav.toc li{margin-bottom:6px;}
+  nav.toc a{color:var(--blue); text-decoration:none;}
+  nav.toc a:hover{text-decoration:underline;}
+
+  section{margin-bottom:52px; scroll-margin-top:20px;}
+  .section-label{color:var(--grey); font-size:12px; letter-spacing:2px; font-weight:700; margin-bottom:4px;}
+  h1.section-title{font-size:26px; color:var(--navy); margin:0 0 14px; border-bottom:3px solid var(--blue); padding-bottom:12px;}
+  h2.sub-title{font-size:18px; color:var(--blue); margin:32px 0 12px;}
+  h3{font-size:14.5px; color:var(--navy); margin:18px 0 6px;}
+  p{font-size:14.5px; margin:0 0 12px;}
+  ul{padding-left:22px; margin:0 0 16px;}
+  li{font-size:14.5px; margin-bottom:6px;}
+
+  table.report-table{width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:13.5px;}
+  table.report-table th{background:var(--navy); color:#fff; text-align:left; padding:10px 12px; font-size:13px;}
+  table.report-table td{border:1px solid var(--border); padding:10px 12px; vertical-align:top;}
+  table.report-table tr:nth-child(even) td{background:var(--light);}
+  table.report-table td:first-child{font-weight:700; color:var(--navy);}
+
+  blockquote{
+    font-style:italic; color:var(--navy); background:var(--light); border-left:4px solid var(--blue);
+    padding:14px 20px; margin:16px 0; font-size:15px;
+  }
+
+  .callout{background:var(--light); border:1px solid var(--blue); border-radius:8px; padding:20px 24px; font-size:14.5px;}
+
+  .score-row{display:flex; align-items:center; gap:14px; margin-bottom:14px;}
+  .score-label{width:170px; font-size:13.5px; color:var(--grey); flex-shrink:0;}
+  .score-track{flex:1; background:#E3E7F2; border-radius:5px; height:16px; position:relative; overflow:hidden;}
+  .score-fill{height:100%; border-radius:5px 0 0 5px;}
+  .score-num{width:34px; font-size:13px; font-weight:700; color:var(--navy); text-align:right;}
+
+  .bad{background:var(--red);} .mid{background:var(--amber);} .good{background:var(--green);}
+
+  /* dashboard */
+  .dashboard{border:1px solid var(--border); border-radius:10px; overflow:hidden;}
+  .dash-title{background:var(--navy); color:#fff; text-align:center; padding:14px; font-weight:800; letter-spacing:1px; font-size:16px;}
+  .dash-body{padding:26px 30px;}
+  .dash-grid{display:grid; grid-template-columns:1fr 1fr; gap:30px;}
+  .dash-block h4{font-size:14px; color:var(--navy); margin:0 0 10px;}
+  .gtm-flow{display:flex; align-items:center; gap:6px; grid-column:1/3; margin-bottom:10px; flex-wrap:wrap;}
+  .gtm-step{background:var(--blue); color:#fff; font-size:11.5px; font-weight:700; text-align:center; padding:10px 8px; border-radius:6px; flex:1; min-width:90px;}
+  .gtm-step.alt{background:var(--purple);}
+  .gtm-arrow{color:var(--grey); font-size:16px;}
+  .legend-item{display:flex; align-items:center; gap:8px; font-size:12.5px; margin-bottom:4px;}
+  .legend-swatch{width:12px; height:12px; border-radius:2px; flex-shrink:0;}
+  .pie-wrap{display:flex; align-items:center; gap:20px;}
+  .snap-row{display:flex; justify-content:space-between; background:var(--light); border:1px solid var(--border); padding:8px 12px; border-radius:5px; margin-bottom:6px; font-size:12.5px;}
+  .snap-row b{color:var(--blue);}
+  .funnel-bar{background:var(--blue); color:#fff; font-size:12px; padding:8px 12px; border-radius:4px; margin-bottom:6px;}
+  .risk-item{display:flex; align-items:center; gap:8px; font-size:12.5px; margin-bottom:8px;}
+  .risk-dot{width:9px; height:9px; border-radius:50%; flex-shrink:0;}
+  .final-verdict-band{background:var(--amber); color:#fff; text-align:center; padding:18px; margin-top:10px; border-radius:6px;}
+  .final-verdict-band .fv-title{font-size:18px; font-weight:800;}
+  .final-verdict-band .fv-sub{font-size:12.5px; margin-top:4px; opacity:0.95;}
+  .verdict-scale{text-align:center; font-size:11.5px; color:var(--grey); margin-top:10px;}
+
+  .action-list{counter-reset:act;}
+  .action-list li{list-style:none; counter-increment:act; margin-bottom:10px; padding-left:34px; position:relative; font-size:14.5px;}
+  .action-list li::before{
+    content:counter(act); position:absolute; left:0; top:0; background:var(--blue); color:#fff;
+    width:22px; height:22px; border-radius:50%; font-size:12px; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  footer{text-align:center; color:var(--grey); font-size:12px; padding-top:30px; border-top:1px solid var(--border); margin-top:60px;}
+
+  @media print{
+    body{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    section{page-break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="eyebrow">BUSINESS STRATEGY &amp; INVESTABILITY REPORT</div>
+  <h1>Circuit.IQ</h1>
+  <div class="sub">AI-Powered Virtual Physics Lab for Indian Schools &amp; Colleges</div>
+  <table class="meta-table">
+    <tr><td>Prepared For</td><td>Anayat Zahoor (Founder)</td></tr>
+    <tr><td>Prepared By</td><td>AI Co-Founder / Growth &amp; Strategy Advisor</td></tr>
+    <tr><td>Source Document</td><td>Circuit.IQ Customer &amp; MVP Blueprint — Day 23, July 2026</td></tr>
+    <tr><td>Report Type</td><td>Sustainability &amp; Investability Assessment</td></tr>
+    <tr><td>Date</td><td>July 18, 2026</td></tr>
+  </table>
+  <div class="verdict-badge">PRELIMINARY VERDICT: ● VALIDATE</div>
+  <div class="verdict-note">Strong technical execution and a structurally validated problem — but zero direct customer or revenue evidence. Investability depends entirely on the next 60 days of pilot proof.</div>
+</div>
+
+<div class="wrap">
+
+<nav class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#s1">Startup Summary</a></li>
+    <li><a href="#s2">Extracted Assumptions</a></li>
+    <li><a href="#s3">Business Reality Check</a></li>
+    <li><a href="#s4">Business Strategy Report</a></li>
+    <li><a href="#s5">Investment Scorecard (0–100)</a></li>
+    <li><a href="#s6">Visual Dashboard</a></li>
+    <li><a href="#s7">Founder Action Sheet — Top 10 Actions</a></li>
+    <li><a href="#s8">Sustainability Verdict</a></li>
+  </ol>
+</nav>
+
+<section id="s1">
+  <div class="section-label">SECTION 1</div>
+  <h1 class="section-title">Startup Summary</h1>
+  <ul>
+    <li>Circuit.IQ is an AI-personalized virtual physics lab built by a solo student founder, targeting the gap between free-but-generic tools (OLabs, PhET) and expensive foreign platforms (Labster).</li>
+    <li>MVP is technically real and shipped: 100+ concurrent simulations at sub-second latency, built on React/TypeScript/Python/FastAPI.</li>
+    <li>Target market is India's private CBSE/ICSE schools (Classes 9–12) and Tier 2/3 engineering colleges — 300–2,000 students, digital-budget-aware, buyer is a Principal or HOD.</li>
+    <li>TAM is estimated at $150M with a 3-year SAM of $22M; founder-market fit is rated 6.1/10.</li>
+    <li>Zero customer validation to date: no interviews, no pilots, no revenue, no signed institution.</li>
+    <li>Core buying trigger is NEP 2020 compliance pressure plus poor practical exam outcomes and lab-equipment scarcity.</li>
+    <li>Pricing hypothesis is a per-institution annual subscription anchored near ₹25,000 (~$300), positioned between free government tools and premium foreign platforms.</li>
+    <li>The blueprint's own recommendation is CONDITIONAL GO: the 30–60 day mandate is customer proof, not more product — 8-12 interviews, one signed pilot, one willingness-to-pay signal.</li>
+    <li>Biggest structural risks: long institutional sales cycles (2-6 months) against solo-founder bandwidth, and a free government alternative (OLabs) that can undercut willingness to pay entirely.</li>
+  </ul>
+</section>
+
+<section id="s2">
+  <div class="section-label">SECTION 2</div>
+  <h1 class="section-title">Extracted Assumptions</h1>
+  <p>These are the load-bearing assumptions in the blueprint. Each one is currently unverified with real customers.</p>
+  <table class="report-table">
+    <tr><th>Dimension</th><th>Stated Assumption</th><th>Validation Status</th></tr>
+    <tr><td>Customer</td><td>Buyer = Principal/HOD; user = teacher &amp; student; ICP = private CBSE/ICSE schools and Tier 2/3 engineering colleges.</td><td>Unvalidated — 0 interviews</td></tr>
+    <tr><td>MVP</td><td>1-2 flagship simulations mapped to Class 11-12 + first-year engineering physics, no-install demo, low-bandwidth mode, teacher dashboard.</td><td>Built, but not pilot-instrumented</td></tr>
+    <tr><td>Value Proposition</td><td>AI feedback, adaptivity and gamification that free tools (OLabs/PhET) lack, at a fraction of Labster's cost.</td><td>Logical, not evidenced</td></tr>
+    <tr><td>Pricing</td><td>Per-institution annual subscription (not per-student) anchored near ₹25,000/yr, positioned below Labster's $79-109/student/yr.</td><td>Hypothesis only — no willingness-to-pay signal</td></tr>
+    <tr><td>Revenue</td><td>Revenue assumed to follow pilot success via case-study-driven referral into paid annual licenses.</td><td>Entirely theoretical — ₹0 revenue to date</td></tr>
+    <tr><td>GTM</td><td>Founder-led LinkedIn content (ABTalks) + direct outreach + referral, starting in J&amp;K, expanding to Delhi NCR and one metro cluster.</td><td>Untested distribution channel</td></tr>
+  </table>
+</section>
+
+<section id="s3">
+  <div class="section-label">SECTION 3</div>
+  <h1 class="section-title">Business Reality Check</h1>
+
+  <h3>Who pays?</h3>
+  <p>The institution (school Principal or college HOD/Dean), not the student and not the teacher. This is a B2B2C model where the economic buyer and the end user are different people — a structurally harder sale than direct-to-consumer, because it requires convincing an administrator who never touches the product day-to-day.</p>
+
+  <h3>Why do they pay?</h3>
+  <p>Only if practical-score improvement or NEP 2020 compliance can be demonstrated in a way that justifies budget against a free alternative (OLabs) that already exists. Pain is real (severity 80/100 per the blueprint), but pain alone does not create willingness to pay when a free substitute is "good enough" for compliance box-ticking.</p>
+
+  <h3>How will they discover the product?</h3>
+  <p>Currently: LinkedIn content (ABTalks audience), founder's personal network, and cold outreach — all founder-bottlenecked, zero-budget channels with no proof of institutional conversion yet.</p>
+
+  <h3>Biggest growth risk</h3>
+  <p>Sales-cycle length (2-6 months) versus solo-founder bandwidth. A single founder cannot run 30-40 parallel institutional sales motions while also building product. Growth is capped by founder hours, not demand.</p>
+
+  <h3>Biggest monetization risk</h3>
+  <p>OLabs is free, government-backed, and "good enough" for compliance optics. If institutions cannot articulate a concrete outcome (score lift, accreditation point) that Circuit.IQ delivers and OLabs doesn't, price resistance will be near-total.</p>
+
+  <h3>Weakest assumptions to validate first</h3>
+  <p>(1) That any institution will pay real money rather than only accept a free pilot forever. (2) That ₹25,000/institution/year is anchored to a real budget line rather than founder guesswork. (3) That founder-led LinkedIn/network outreach can scale past the first 2-3 warm-network wins.</p>
+</section>
+
+<section id="s4">
+  <div class="section-label">SECTION 4</div>
+  <h1 class="section-title">Business Strategy Report</h1>
+
+  <h2 class="sub-title">4.1 Executive Summary</h2>
+  <p>Circuit.IQ has real technical substance and a structurally validated problem in Indian physics education — but it is currently a product in search of a business model, not a business. The founder has built a genuinely capable MVP (sub-second simulation latency at 100+ concurrent users) while skipping the harder, non-technical work: talking to buyers. With zero interviews, zero pilots, and zero revenue, every commercial assumption in the blueprint — including the ₹25,000 price anchor — is a guess dressed as a hypothesis. The single highest-leverage action for the next 30–60 days is not more code; it is 8-12 structured conversations with principals and HODs that either produce a pilot commitment or kill the current pricing/packaging assumption before more time is sunk into it.</p>
+
+  <h2 class="sub-title">4.2 Business Model Canvas</h2>
+  <table class="report-table">
+    <tr><th>Block</th><th>Detail</th></tr>
+    <tr><td>Customer Segments</td><td>Private CBSE/ICSE schools (Classes 9-12); Tier 2/3 engineering colleges &amp; polytechnics. Secondary: coaching institutes (potential pivot segment).</td></tr>
+    <tr><td>Value Propositions</td><td>AI-personalized feedback, gamified practicals, and usage analytics that free tools lack — at roughly 1/10th the cost of foreign premium platforms, with a low-bandwidth mode suited to Indian infrastructure.</td></tr>
+    <tr><td>Channels</td><td>Founder-led LinkedIn content (ABTalks), direct outreach to principals/HODs, personal/alumni network, referral from pilot institutions.</td></tr>
+    <tr><td>Customer Relationships</td><td>High-touch, founder-managed during pilot phase (demo → pilot → onboarding support); shifts to lighter-touch renewal management post-scale.</td></tr>
+    <tr><td>Revenue Streams</td><td>Per-institution annual subscription (primary); optional add-on analytics/accreditation-reporting tier for colleges (secondary, future).</td></tr>
+    <tr><td>Key Resources</td><td>The working MVP codebase; founder's technical + content-creation ability; J&amp;K institutional network; ABTalks audience/credibility asset.</td></tr>
+    <tr><td>Key Activities</td><td>Customer interviews, pilot delivery and support, syllabus-mapped content creation, usage instrumentation, case-study production.</td></tr>
+    <tr><td>Key Partners</td><td>Individual schools/colleges as pilot partners; potentially state education boards or ed-tech resellers later; no partners secured yet.</td></tr>
+    <tr><td>Cost Structure</td><td>Founder time (largest cost), cloud/hosting for simulations, minimal marketing spend; no sales team, no paid acquisition budget currently.</td></tr>
+  </table>
+
+  <h2 class="sub-title">4.3 Revenue &amp; Pricing Strategy</h2>
+  <p>The blueprint's ₹25,000 (~$300) per-institution annual anchor is reasonable as a starting hypothesis but is not yet evidence-based. Recommended approach: treat pricing as a variable to be discovered during interviews, not a fixed number to defend.</p>
+  <table class="report-table">
+    <tr><th>Tier</th><th>Structure</th><th>Purpose</th></tr>
+    <tr><td>Pilot</td><td>Free, 4-8 weeks, 1-2 classes. No card, no PO required.</td><td>Remove all friction to first usage; generate the first outcome data point.</td></tr>
+    <tr><td>Core Annual License</td><td>Per-institution (not per-student) flat fee, anchored near ₹20,000-30,000/yr depending on class-section count.</td><td>Primary revenue line; matches how Indian institutions actually procure software.</td></tr>
+    <tr><td>Analytics / Accreditation Add-on</td><td>Optional premium tier for colleges needing NBA/NAAC-style accreditation reporting.</td><td>Higher-margin upsell for the segment with the strongest budget authority (HOD/Dean).</td></tr>
+  </table>
+  <p>Per-institution (flat) pricing is the correct call over per-student: it removes headcount-audit friction from procurement and matches how school budgets are actually approved.</p>
+
+  <h2 class="sub-title">4.4 Go-To-Market Strategy</h2>
+  <table class="report-table">
+    <tr><th>Phase</th><th>Motion</th></tr>
+    <tr><td>Phase 0 — Proof (Now–60 days)</td><td>Founder-led interviews and 2-3 free pilots in Srinagar/J&amp;K. Goal: one signed pilot, one written willingness-to-pay signal, one case study.</td></tr>
+    <tr><td>Phase 1 — Regional Beachhead</td><td>Use the J&amp;K case study to expand within the same state/board network via referral, before attempting Delhi NCR or metro clusters.</td></tr>
+    <tr><td>Phase 2 — Metro Expansion</td><td>Only after 3-5 paying institutions: expand to Bangalore/Pune/Hyderabad using case-study-driven outbound and LinkedIn content.</td></tr>
+    <tr><td>Phase 3 — Channel Partnerships</td><td>Explore education-board or ed-tech distributor partnerships once unit economics per institution are proven, to escape founder-bandwidth ceiling.</td></tr>
+  </table>
+
+  <h2 class="sub-title">4.5 Customer Acquisition Strategy</h2>
+  <ul>
+    <li>Lead with outcomes, not features: every outreach message should reference the score/compliance pain, not the AI technology.</li>
+    <li>Use warm-network-first sequencing: alumni, professors, and family/community contacts in J&amp;K before cold LinkedIn outreach — institutional buyers trust referred vendors far more than cold ones.</li>
+    <li>Convert ABTalks content into a lead magnet: a short "NEP 2020 practical-compliance checklist" post that funnels principals to a demo link, rather than generic AI-education content.</li>
+    <li>Track everything from interview #1: objections, willingness-to-pay language, and budget-cycle timing — this becomes the case study and the sales script simultaneously.</li>
+    <li>Do not build paid acquisition into the plan yet — CAC only makes sense once one channel (referral) is proven to convert at all.</li>
+  </ul>
+
+  <h2 class="sub-title">4.6 First 100 Users Plan</h2>
+  <p>"Users" here means students reached through institutional licenses, not direct signups — the realistic path to ~100 users runs through 1-2 pilot classrooms, not a consumer funnel.</p>
+  <table class="report-table">
+    <tr><th>Stage</th><th>Action</th><th>Target Users</th></tr>
+    <tr><td>Weeks 1-2</td><td>30-40 institution target list built; 8-12 structured interviews completed in J&amp;K.</td><td>0 (discovery)</td></tr>
+    <tr><td>Weeks 3-4</td><td>1-2 pilots launched with 1-2 classes each (roughly 30-40 students per class).</td><td>~30-80</td></tr>
+    <tr><td>Weeks 5-8</td><td>Pilot classes fully onboarded, pre/post quiz instrumented, usage nudges sent.</td><td>~80-100+</td></tr>
+    <tr><td>Weeks 9-12</td><td>Case study published; 1-2 additional referred classes onboarded to cross 100 and seed paid conversion.</td><td>100-150</td></tr>
+  </table>
+
+  <h2 class="sub-title">4.7 Competitive Position &amp; Moat</h2>
+  <table class="report-table">
+    <tr><th>Competitor</th><th>Position vs. Circuit.IQ</th></tr>
+    <tr><td>OLabs / PhET (free, govt-backed)</td><td>Biggest real threat — "good enough" for compliance, zero cost. Circuit.IQ must win on demonstrated outcome lift and UX, not on existence of AI.</td></tr>
+    <tr><td>Labster (premium, foreign)</td><td>Priced out of the target segment ($79-109/student/yr vs. Indian institutional budgets); Circuit.IQ's whitespace is directly below this price point.</td></tr>
+    <tr><td>Generic AI-tutoring startups</td><td>Not physics-lab-specific; Circuit.IQ's simulation depth is a defensible niche if maintained.</td></tr>
+  </table>
+  <p>Current moat is weak: technical execution (sub-second simulation performance) is real but replicable, and the founder has no distribution moat, no brand trust, and no data moat yet. The only durable moat achievable at this stage is <b>trust and outcome proof</b> — a published case study and word-of-mouth within the tight-knit Indian school-principal network is worth more right now than any additional feature.</p>
+
+  <h2 class="sub-title">4.8 Reverse SWOT Analysis</h2>
+  <p>Reverse SWOT: examining how today's strengths could become tomorrow's weaknesses, and vice versa.</p>
+  <table class="report-table">
+    <tr><th>Category</th><th>Insight</th></tr>
+    <tr><td>Strength → Risk</td><td>Technical strength (a genuinely fast MVP) is currently a liability: it has absorbed founder time that should have gone to customer discovery, and it creates temptation to keep building instead of selling.</td></tr>
+    <tr><td>Weakness → Opportunity</td><td>"Student founder, no track record" is framed as an objection in the blueprint — but it can become the differentiator: a founder who personally understands the J&amp;K exam-pressure context is more credible to a local principal than a faceless EdTech brand.</td></tr>
+    <tr><td>Opportunity → Threat</td><td>NEP 2020 compliance pressure is a tailwind, but it is also a threat: once OLabs or a state education department bundles similar AI features for free, the compliance-driven buying trigger could disappear as a differentiator overnight.</td></tr>
+    <tr><td>Threat → Strength</td><td>Long institutional sales cycles (2-6 months) are painful now, but once one relationship is won, the same slow, relationship-based buying process makes it hard for a fast-moving competitor to displace Circuit.IQ later.</td></tr>
+  </table>
+
+  <h2 class="sub-title">4.9 Investor One-Liner &amp; 30-Second Founder Pitch</h2>
+  <h3>Investor One-Liner</h3>
+  <blockquote>"Circuit.IQ is a low-bandwidth, AI-personalized virtual physics lab priced between free government tools and expensive foreign platforms, aimed at India's NEP-2020-pressured schools and colleges."</blockquote>
+  <h3>30-Second Founder Pitch</h3>
+  <blockquote>"Indian schools are told to deliver hands-on physics practicals, but most share one damaged lab across hundreds of students. The free alternatives are dull and un-adaptive; the good foreign alternatives cost more than most schools spend on their entire lab budget. Circuit.IQ gives a principal AI-personalized simulations mapped to the CBSE and engineering syllabus, running on low-end devices, at a fraction of the cost — with a free pilot so there's nothing to approve before they see it work. We're currently running our first pilots in Jammu &amp; Kashmir and turning that into a repeatable, referral-driven sales motion across Tier 2/3 India."</blockquote>
+</section>
+
+<section id="s5">
+  <div class="section-label">SECTION 5</div>
+  <h1 class="section-title">Investment Scorecard</h1>
+  <table class="report-table">
+    <tr><th>Dimension</th><th>Score /100</th><th>Reasoning</th></tr>
+    <tr><td>Business Viability</td><td>46</td><td>Real problem, real MVP, but zero revenue and an unproven willingness-to-pay against a free substitute.</td></tr>
+    <tr><td>Revenue Potential</td><td>40</td><td>SAM is credible ($22M/3yr) but per-institution pricing is unvalidated and the buyer/user split adds sales friction.</td></tr>
+    <tr><td>GTM Strength</td><td>38</td><td>Founder-only, zero-budget channel (LinkedIn + network); untested beyond warm contacts; 2-6 month sales cycles vs. solo bandwidth.</td></tr>
+    <tr><td>Competitive Strength</td><td>55</td><td>Genuine whitespace between OLabs and Labster and strong technical execution, but no moat beyond that positioning yet.</td></tr>
+    <tr><td>Investor Readiness</td><td>30</td><td>Pre-revenue, pre-pilot, single founder, no traction metrics — far too early for outside capital; bootstrap/grant stage only.</td></tr>
+  </table>
+  <p><b>Composite Score: 42/100 — VALIDATE stage.</b> Below the threshold for investment consideration; appropriate for continued bootstrapped/founder-funded validation, not fundraising.</p>
+
+  <div style="margin-top:24px;">
+    <div class="score-row"><div class="score-label">Business Viability</div><div class="score-track"><div class="score-fill mid" style="width:46%"></div></div><div class="score-num">46</div></div>
+    <div class="score-row"><div class="score-label">Revenue Potential</div><div class="score-track"><div class="score-fill mid" style="width:40%"></div></div><div class="score-num">40</div></div>
+    <div class="score-row"><div class="score-label">GTM Strength</div><div class="score-track"><div class="score-fill bad" style="width:38%"></div></div><div class="score-num">38</div></div>
+    <div class="score-row"><div class="score-label">Competitive Strength</div><div class="score-track"><div class="score-fill mid" style="width:55%"></div></div><div class="score-num">55</div></div>
+    <div class="score-row"><div class="score-label">Investor Readiness</div><div class="score-track"><div class="score-fill bad" style="width:30%"></div></div><div class="score-num">30</div></div>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="section-label">SECTION 6</div>
+  <h1 class="section-title">Visual Dashboard</h1>
+  <p>A single-page visual summary of business model, GTM flow, competitive moat, key risks, and final verdict.</p>
+
+  <div class="dashboard">
+    <div class="dash-title">CIRCUIT.IQ — STRATEGY DASHBOARD</div>
+    <div class="dash-body">
+
+      <div class="gtm-flow">
+        <div class="gtm-step">Interviews<br>(8-12)</div>
+        <span class="gtm-arrow">→</span>
+        <div class="gtm-step alt">Free Pilot<br>(2-3 schools)</div>
+        <span class="gtm-arrow">→</span>
+        <div class="gtm-step">Case Study</div>
+        <span class="gtm-arrow">→</span>
+        <div class="gtm-step alt">Referral<br>Expansion</div>
+        <span class="gtm-arrow">→</span>
+        <div class="gtm-step">Paid License</div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="dash-block">
+          <h4>Revenue Streams (Projected Mix)</h4>
+          <div class="pie-wrap">
+            <svg width="120" height="120" viewBox="0 0 32 32">
+              <circle r="16" cx="16" cy="16" fill="var(--purple)"/>
+              <circle r="16" cx="16" cy="16" fill="transparent" stroke="var(--blue)" stroke-width="32"
+                stroke-dasharray="70 30" transform="rotate(-90 16 16)"/>
+              <circle r="16" cx="16" cy="16" fill="transparent" stroke="#A9B4CF" stroke-width="32"
+                stroke-dasharray="5 95" stroke-dashoffset="-95" transform="rotate(-90 16 16)"/>
+            </svg>
+            <div>
+              <div class="legend-item"><div class="legend-swatch" style="background:var(--blue)"></div>Core Annual License — 70%</div>
+              <div class="legend-item"><div class="legend-swatch" style="background:var(--purple)"></div>Analytics/Accreditation Add-on — 25%</div>
+              <div class="legend-item"><div class="legend-swatch" style="background:#A9B4CF"></div>Other / Future — 5%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-block">
+          <h4>Business Model Snapshot</h4>
+          <div class="snap-row"><b>Buyer:</b><span>Principal / HOD</span></div>
+          <div class="snap-row"><b>User:</b><span>Teacher &amp; Student</span></div>
+          <div class="snap-row"><b>Channel:</b><span>LinkedIn + Referral</span></div>
+          <div class="snap-row"><b>Pricing:</b><span>Per-Institution, ~₹25K/yr</span></div>
+        </div>
+
+        <div class="dash-block">
+          <h4>First 100 Users Funnel</h4>
+          <div class="funnel-bar" style="width:90%">Target list: 40</div>
+          <div class="funnel-bar" style="width:65%">Interviewed: 12</div>
+          <div class="funnel-bar" style="width:45%">Piloted classes: 2</div>
+          <div class="funnel-bar" style="width:100%">Students reached: 100</div>
+        </div>
+
+        <div class="dash-block">
+          <h4>Key Risks</h4>
+          <div class="risk-item"><div class="risk-dot" style="background:var(--red)"></div>Long sales cycles vs. solo founder</div>
+          <div class="risk-item"><div class="risk-dot" style="background:var(--red)"></div>Free OLabs undercuts willingness to pay</div>
+          <div class="risk-item"><div class="risk-dot" style="background:var(--amber)"></div>No dedicated sales/BD resource</div>
+          <div class="risk-item"><div class="risk-dot" style="background:var(--amber)"></div>Content breadth gap at scale</div>
+        </div>
+
+        <div class="dash-block">
+          <h4>Competitive Moat Strength (0–10)</h4>
+          <div class="score-row"><div class="score-label" style="width:130px;font-size:12px">Tech/Sim Depth</div><div class="score-track"><div class="score-fill" style="width:70%;background:var(--purple)"></div></div><div class="score-num">7</div></div>
+          <div class="score-row"><div class="score-label" style="width:130px;font-size:12px">Price Positioning</div><div class="score-track"><div class="score-fill" style="width:80%;background:var(--purple)"></div></div><div class="score-num">8</div></div>
+          <div class="score-row"><div class="score-label" style="width:130px;font-size:12px">Brand Trust</div><div class="score-track"><div class="score-fill" style="width:20%;background:var(--purple)"></div></div><div class="score-num">2</div></div>
+          <div class="score-row"><div class="score-label" style="width:130px;font-size:12px">Distribution</div><div class="score-track"><div class="score-fill" style="width:20%;background:var(--purple)"></div></div><div class="score-num">2</div></div>
+          <div class="score-row"><div class="score-label" style="width:130px;font-size:12px">Outcome Proof</div><div class="score-track"><div class="score-fill" style="width:10%;background:var(--purple)"></div></div><div class="score-num">1</div></div>
+        </div>
+
+        <div class="dash-block">
+          <h4>Investment Scorecard</h4>
+          <div class="score-row"><div class="score-label" style="width:130px;font-size:12px">Viability</div><div class="score-track"><div class="score-fill mid" style="width:46%"></div></div><div class="score-num">46</div></div>
+          <div class="score-row"><div class="score-label" style="width:130px;font-size:12px">Revenue</div><div class="score-track"><div class="score-fill mid" style="width:40%"></div></div><div class="score-num">40</div></div>
+          <div class="score-row"><div class="score-label" style="width:130px;font-size:12px">GTM</div><div class="score-track"><div class="score-fill bad" style="width:38%"></div></div><div class="score-num">38</div></div>
+          <div class="score-row"><div class="score-label" style="width:130px;font-size:12px">Competitive</div><div class="score-track"><div class="score-fill mid" style="width:55%"></div></div><div class="score-num">55</div></div>
+          <div class="score-row"><div class="score-label" style="width:130px;font-size:12px">Inv. Readiness</div><div class="score-track"><div class="score-fill bad" style="width:30%"></div></div><div class="score-num">30</div></div>
+        </div>
+      </div>
+
+      <div class="final-verdict-band">
+        <div class="fv-title">FINAL VERDICT: ● VALIDATE</div>
+        <div class="fv-sub">Composite Score 42/100 — prove the pilot and pricing before seeking capital</div>
+      </div>
+      <div class="verdict-scale">Verdict scale: 🟢 Investable &nbsp;&nbsp; 🟡 Validate &nbsp;&nbsp; 🟠 Pivot &nbsp;&nbsp; 🔴 Reject</div>
+    </div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="section-label">SECTION 7</div>
+  <h1 class="section-title">Founder Action Sheet — Top 10 Actions</h1>
+  <ol class="action-list">
+    <li>Write a 10-question buyer-interview script targeting practical-score pain, budget cycle, and OLabs comparison.</li>
+    <li>Build a target list of 30-40 schools/colleges, starting in Srinagar/J&amp;K where the founder has network access.</li>
+    <li>Reach out via LinkedIn (leveraging the ABTalks audience), email, and personal/alumni network — warm contacts first.</li>
+    <li>Conduct 8-12 structured interviews within 14 days; log every objection and every willingness-to-pay signal verbatim.</li>
+    <li>Identify the 2-3 most promising institutions based on interview signal, not just accessibility.</li>
+    <li>Design a free, 4-8 week, 1-2 class pilot offer with clearly defined, pre-agreed success metrics.</li>
+    <li>Secure at least one signed or clearly verbal pilot commitment before writing any more product code.</li>
+    <li>Build and test a genuinely low-bandwidth demo mode on real, low-end school devices — not just on the founder's laptop.</li>
+    <li>Instrument pilot usage tracking plus a simple pre/post concept quiz to generate the first outcome data point.</li>
+    <li>Publish the pilot outcome as a short case study and use it to unlock the next institution and the first paid conversation.</li>
+  </ol>
+</section>
+
+<section id="s8">
+  <div class="section-label">SECTION 8</div>
+  <h1 class="section-title">Sustainability Verdict</h1>
+  <div class="callout">
+    Circuit.IQ is <b>not yet a sustainable business</b> — it is a well-built product with a plausible but entirely unproven revenue model, sitting at Composite Score 42/100 (VALIDATE). Sustainability hinges on three unresolved questions: whether any institution will pay real money against a free substitute, whether the ₹25,000 price anchor survives contact with a real budget conversation, and whether founder-led distribution can produce more than 2-3 warm-network wins. The next 60 days — 8-12 interviews, one signed pilot, one written willingness-to-pay signal — will answer all three; until then, capital, headcount, and further feature-building should stay paused.
+  </div>
+</section>
+
+<footer>Circuit.IQ — Business Strategy &amp; Investability Report · Prepared for Anayat Zahoor · July 18, 2026</footer>
+
+</div>
+</body>
+</html>

@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[████████████████░░░░░░░░░░░░░░░░░░░░░░░░] 40% Complete (24 / 60 Days)`
+`[█████████████████░░░░░░░░░░░░░░░░░░░░░░░] 42% Complete (25 / 60 Days)`
 
 ---
 
@@ -67,6 +67,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day22/          # Startup Validation with Claude
 ├── Day23/          # Customer Discovery & MVP Blueprint
 ├── Day24/          # Business Strategy & Startup Sustainability
+├── Day25/          # AI Shark Tank Simulator
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -102,10 +103,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **22** | [Startup Validation](Day22/day22.md) | Startup Validation: Market research, founder-market fit, competitor analysis, and 30-day action plan for Circuit.IQ | ✅ Done |
 | **23** | [Customer Discovery & MVP](Day23/day23.md) | Customer Discovery & MVP Blueprint: Ideal Customer Profile, Buyer Personas, Customer Journey, Top Objections, and MoSCoW Prioritized MVP Recommendation | ✅ Done |
 | **24** | [Business Strategy & Sustainability](Day24/day24.md) | Business Strategy & Startup Sustainability: Revenue model, pricing strategy, GTM plan, customer acquisition, and investment readiness scorecard for Circuit.IQ | ✅ Done |
-| **25** | *Upcoming...* | - | ⏳ |
+| **25** | [AI Shark Tank Simulator](Day25/day25.md) | AI Shark Tank Simulator: Interactive pitch simulation, feedback from 4 AI judges, startup scorecard, leaderboard, and downloadable pitch report for Circuit.IQ | ✅ Done |
 | **26** | *Upcoming...* | - | ⏳ |
+| **27** | *Upcoming...* | - | ⏳ |
 
-*Days 27 to 60 will be updated as the challenge progresses!*
+*Days 28 to 60 will be updated as the challenge progresses!*
 
 ---
 

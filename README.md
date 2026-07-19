@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[█████████████████░░░░░░░░░░░░░░░░░░░░░░░] 43% Complete (26 / 60 Days)`
+`[██████████████████░░░░░░░░░░░░░░░░░░░░░░] 45% Complete (27 / 60 Days)`
 
 ---
 
@@ -73,6 +73,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day24/          # Business Strategy & Startup Sustainability
 ├── Day25/          # AI Shark Tank Simulator
 ├── Day26/          # Prior Authorization Workflow Simulator
+├── Day27/          # Prior Authorization Story Simulator
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -110,10 +111,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **24** | [Business Strategy & Sustainability](Day24/day24.md) | Business Strategy & Startup Sustainability: Revenue model, pricing strategy, GTM plan, customer acquisition, and investment readiness scorecard for Circuit.IQ | ✅ Done |
 | **25** | [AI Shark Tank Simulator](Day25/day25.md) | AI Shark Tank Simulator: Interactive pitch simulation, feedback from 4 AI judges, startup scorecard, leaderboard, and downloadable pitch report for Circuit.IQ | ✅ Done |
 | **26** | [Prior Authorization Workflow](Day26/day26.md) | Prior Authorization Workflow Simulator: Drag-and-drop healthcare workflow simulation (Patient → Provider → Payer), medical necessity evaluation, document collection, and efficiency score tracking | ✅ Done |
-| **27** | *Upcoming...* | - | ⏳ |
+| **27** | [Prior Authorization Story](Day27/day27.md) | Prior Authorization Story Simulator: Interactive storytelling and conversational UI following Rahul's healthcare journey | ✅ Done |
 | **28** | *Upcoming...* | - | ⏳ |
+| **29** | *Upcoming...* | - | ⏳ |
 
-*Days 29 to 60 will be updated as the challenge progresses!*
+*Days 30 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -214,6 +216,9 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 26 — Prior Authorization Simulator**
     *   *Tools/Tech:* HTML5 Drag & Drop API, CSS Flexbox/Grid, LocalStorage
     *   *Key Learnings:* Prior Authorization rules, medical necessity criteria, healthcare workflow lanes (Patient → Provider → Payer), interactive status and efficiency score tracking.
+*   **Day 27 — Prior Authorization Story Simulator**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Conversational UI, Branching Dialogue
+    *   *Key Learnings:* Interactive storytelling for complex concepts, role-based dialogue structures, append-only conversational UX, step therapy, and appeal workflow tracking.
 
 </details>
 

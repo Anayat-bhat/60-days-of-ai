@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[██████████████████░░░░░░░░░░░░░░░░░░░░░░] 45% Complete (27 / 60 Days)`
+`[███████████████████░░░░░░░░░░░░░░░░░░░░░] 47% Complete (28 / 60 Days)`
 
 ---
 
@@ -74,6 +74,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day25/          # AI Shark Tank Simulator
 ├── Day26/          # Prior Authorization Workflow Simulator
 ├── Day27/          # Prior Authorization Story Simulator
+├── Day28/          # Hospital Admission Readiness Simulator
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -112,10 +113,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **25** | [AI Shark Tank Simulator](Day25/day25.md) | AI Shark Tank Simulator: Interactive pitch simulation, feedback from 4 AI judges, startup scorecard, leaderboard, and downloadable pitch report for Circuit.IQ | ✅ Done |
 | **26** | [Prior Authorization Workflow](Day26/day26.md) | Prior Authorization Workflow Simulator: Drag-and-drop healthcare workflow simulation (Patient → Provider → Payer), medical necessity evaluation, document collection, and efficiency score tracking | ✅ Done |
 | **27** | [Prior Authorization Story](Day27/day27.md) | Prior Authorization Story Simulator: Interactive storytelling and conversational UI following Rahul's healthcare journey | ✅ Done |
-| **28** | *Upcoming...* | - | ⏳ |
+| **28** | [Hospital Admission Readiness](Day28/day28.md) | Hospital Admission Readiness Simulator: Interactive hospital admission workflow management, insurance & prior authorization verification, bed assignment, and risk monitoring | ✅ Done |
 | **29** | *Upcoming...* | - | ⏳ |
+| **30** | *Upcoming...* | - | ⏳ |
 
-*Days 30 to 60 will be updated as the challenge progresses!*
+*Days 31 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -219,6 +221,9 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 27 — Prior Authorization Story Simulator**
     *   *Tools/Tech:* HTML5, CSS3, JavaScript, Conversational UI, Branching Dialogue
     *   *Key Learnings:* Interactive storytelling for complex concepts, role-based dialogue structures, append-only conversational UX, step therapy, and appeal workflow tracking.
+*   **Day 28 — Hospital Admission Readiness Simulator**
+    *   *Tools/Tech:* HTML5, Tailwind CSS, JavaScript, LocalStorage, Workflow Engine
+    *   *Key Learnings:* Hospital admission workflow management, verifying prior authorization & insurance, clinical documentation & physician orders, bed assignment logic, and real-time risk assessment.
 
 </details>
 

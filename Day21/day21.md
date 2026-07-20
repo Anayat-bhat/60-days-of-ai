@@ -286,4 +286,4 @@ The activity helped me better understand how different digital services contribu
 
 The most valuable lesson was that privacy analysis should be evidence-based and transparent. Known information should be presented as **Facts**, while inferred characteristics should always be clearly identified as **Estimates**.
 
-Overall, this project showed how AI can help make complex cybersecurity and privacy concepts more accessible, visual, and actionable.
+Overall, this project showed how AI can help make complex cybersecurity and privacy concepts more accessible, visual, and actionable.

@@ -17,7 +17,7 @@ A digital footprint is the trail of information created when a person uses websi
 A digital footprint can include information directly provided by a user as well as data generated through interactions with digital platforms.
 
 Examples may include:
-
+<!-- 
 - Account information
 - Search activity
 - Social media interactions
@@ -26,7 +26,7 @@ Examples may include:
 - Shopping activity
 - Entertainment preferences
 - Communication metadata
-- Location-related information, depending on permissions and service behavior
+- Location-related information, depending on permissions and service behavior -->
 
 The larger and more diverse a person's digital ecosystem becomes, the more important it is to understand and manage their privacy settings.
 
@@ -49,13 +49,13 @@ Privacy risk assessment is the process of identifying and evaluating potential p
 In this activity, Claude used the provided list of applications to estimate the overall digital exposure and identify areas that may represent higher privacy or tracking risks.
 
 The analysis considered factors such as:
-
+<!-- 
 - Number of services used
 - Parent-company concentration
 - Potential tracking surface
 - Types of data associated with different services
 - Cross-platform ecosystem exposure
-- Potential profiling opportunities
+- Potential profiling opportunities -->
 
 The dashboard clearly separated known **Facts** from inferred **Estimates**, ensuring that assumptions were not presented as confirmed information.
 
@@ -65,7 +65,7 @@ The dashboard clearly separated known **Facts** from inferred **Estimates**, ens
 
 The Digital Privacy Dashboard analyzed the following 15 reported services:
 
-1. Instagram
+<!-- 1. Instagram
 2. Snapchat
 3. TikTok
 4. YouTube
@@ -79,7 +79,7 @@ The Digital Privacy Dashboard analyzed the following 15 reported services:
 12. Meesho
 13. Google Search
 14. Google Pay
-15. Google Photos
+15. Google Photos -->
 
 These applications represent several categories, including social media, communication, entertainment, gaming, shopping, search, payments, and cloud-based services.
 
@@ -131,7 +131,7 @@ Instead of reviewing every application individually, the visualization allowed m
 
 The Company Exposure Ranking grouped services according to their parent companies and showed which technology ecosystems had the greatest presence in the provided dataset.
 
-### Key Finding
+### Key Findings
 
 **[ADD THE TOP COMPANY OR ECOSYSTEM FROM YOUR DASHBOARD]**
 
@@ -235,7 +235,7 @@ Most importantly, I learned why AI-generated privacy analysis must clearly disti
 
 Through this activity, I learned:
 
-- What a digital footprint is and how online services contribute to it.
+<!-- - What a digital footprint is and how online services contribute to it.
 - Why digital privacy is important in everyday online activities.
 - How privacy risk assessments can identify potential areas of exposure.
 - How multiple applications can belong to the same parent-company ecosystem.
@@ -244,7 +244,7 @@ Through this activity, I learned:
 - Why inferred information should always be clearly labeled as an estimate.
 - How risk visualizations can make privacy analysis easier to understand.
 - How privacy improvement simulators can demonstrate the potential impact of different actions.
-- How Claude can transform structured information into a complete interactive cybersecurity dashboard.
+- How Claude can transform structured information into a complete interactive cybersecurity dashboard. -->
 
 ---
 
@@ -264,7 +264,7 @@ This activity also showed me how AI can be used to build educational tools that 
 
 The following screenshots are included in the **Day21** folder:
 
-- Digital Privacy Dashboard Overview
+<!-- - Digital Privacy Dashboard Overview
 - Digital Footprint Score
 - Privacy Score
 - Exposure Heatmap
@@ -274,7 +274,7 @@ The following screenshots are included in the **Day21** folder:
 - Digital Twin Profile
 - Most Valuable Data Assets
 - Privacy Improvement Simulator
-- Final Verdict
+- Final Verdict -->
 
 ---
 
@@ -286,4 +286,4 @@ The activity helped me better understand how different digital services contribu
 
 The most valuable lesson was that privacy analysis should be evidence-based and transparent. Known information should be presented as **Facts**, while inferred characteristics should always be clearly identified as **Estimates**.
 
-Overall, this project showed how AI can help make complex cybersecurity and privacy concepts more accessible, visual, and actionable.
+Overall, this project showed how AI can help make complex cybersecurity and privacy concepts more accessible, visual, and actionable.

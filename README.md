@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[███████████████████░░░░░░░░░░░░░░░░░░░░░] 47% Complete (28 / 60 Days)`
+`[███████████████████░░░░░░░░░░░░░░░░░░░░░] 48% Complete (29 / 60 Days)`
 
 ---
 
@@ -75,6 +75,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day26/          # Prior Authorization Workflow Simulator
 ├── Day27/          # Prior Authorization Story Simulator
 ├── Day28/          # Hospital Admission Readiness Simulator
+├── Day29/          # Operation Lifeline: Supply Chain Crisis Lab
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -114,10 +115,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **26** | [Prior Authorization Workflow](Day26/day26.md) | Prior Authorization Workflow Simulator: Drag-and-drop healthcare workflow simulation (Patient → Provider → Payer), medical necessity evaluation, document collection, and efficiency score tracking | ✅ Done |
 | **27** | [Prior Authorization Story](Day27/day27.md) | Prior Authorization Story Simulator: Interactive storytelling and conversational UI following Rahul's healthcare journey | ✅ Done |
 | **28** | [Hospital Admission Readiness](Day28/day28.md) | Hospital Admission Readiness Simulator: Interactive hospital admission workflow management, insurance & prior authorization verification, bed assignment, and risk monitoring | ✅ Done |
-| **29** | *Upcoming...* | - | ⏳ |
+| **29** | [Supply Chain Crisis Lab](Day29/day29.md) | Operation Lifeline: Interactive supply chain crisis management simulation, supplier negotiation, executive decisions & AI strategy | ✅ Done |
 | **30** | *Upcoming...* | - | ⏳ |
+| **31** | *Upcoming...* | - | ⏳ |
 
-*Days 31 to 60 will be updated as the challenge progresses!*
+*Days 32 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -224,6 +226,9 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 28 — Hospital Admission Readiness Simulator**
     *   *Tools/Tech:* HTML5, Tailwind CSS, JavaScript, LocalStorage, Workflow Engine
     *   *Key Learnings:* Hospital admission workflow management, verifying prior authorization & insurance, clinical documentation & physician orders, bed assignment logic, and real-time risk assessment.
+*   **Day 29 — Operation Lifeline: Supply Chain Crisis Lab**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Simulation Engine, Supply Chain Analytics
+    *   *Key Learnings:* Supply chain disruption resilience, multi-round supplier negotiation mechanics, executive crisis leadership, cost vs speed trade-offs, and strategic AI capability investments.
 
 </details>
 

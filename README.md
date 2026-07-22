@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[███████████████████░░░░░░░░░░░░░░░░░░░░░] 48% Complete (29 / 60 Days)`
+`[████████████████████░░░░░░░░░░░░░░░░░░░░] 50% Complete (30 / 60 Days)`
 
 ---
 
@@ -76,6 +76,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day27/          # Prior Authorization Story Simulator
 ├── Day28/          # Hospital Admission Readiness Simulator
 ├── Day29/          # Operation Lifeline: Supply Chain Crisis Lab
+├── Day30/          # Supply Chain Builder Simulator
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -116,10 +117,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **27** | [Prior Authorization Story](Day27/day27.md) | Prior Authorization Story Simulator: Interactive storytelling and conversational UI following Rahul's healthcare journey | ✅ Done |
 | **28** | [Hospital Admission Readiness](Day28/day28.md) | Hospital Admission Readiness Simulator: Interactive hospital admission workflow management, insurance & prior authorization verification, bed assignment, and risk monitoring | ✅ Done |
 | **29** | [Supply Chain Crisis Lab](Day29/day29.md) | Operation Lifeline: Interactive supply chain crisis management simulation, supplier negotiation, executive decisions & AI strategy | ✅ Done |
-| **30** | *Upcoming...* | - | ⏳ |
+| **30** | [Supply Chain Builder](Day30/day30.md) | Supply Chain Builder: Interactive supply chain optimization simulator, evaluating supplier, factory, warehousing, transport & inventory trade-offs | ✅ Done |
 | **31** | *Upcoming...* | - | ⏳ |
+| **32** | *Upcoming...* | - | ⏳ |
 
-*Days 32 to 60 will be updated as the challenge progresses!*
+*Days 33 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -229,6 +231,9 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 29 — Operation Lifeline: Supply Chain Crisis Lab**
     *   *Tools/Tech:* HTML5, CSS3, JavaScript, Simulation Engine, Supply Chain Analytics
     *   *Key Learnings:* Supply chain disruption resilience, multi-round supplier negotiation mechanics, executive crisis leadership, cost vs speed trade-offs, and strategic AI capability investments.
+*   **Day 30 — Supply Chain Builder**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Supply Chain Optimization Engine
+    *   *Key Learnings:* Supply chain decision-making trade-offs, supplier strategy, factory/warehousing/transportation selection, inventory management, risk mitigation, and performance scoring across cost, speed, risk, customer satisfaction & sustainability.
 
 </details>
 

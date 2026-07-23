@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[████████████████████░░░░░░░░░░░░░░░░░░░░] 50% Complete (30 / 60 Days)`
+`[█████████████████████░░░░░░░░░░░░░░░░░░░] 52% Complete (31 / 60 Days)`
 
 ---
 
@@ -77,6 +77,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day28/          # Hospital Admission Readiness Simulator
 ├── Day29/          # Operation Lifeline: Supply Chain Crisis Lab
 ├── Day30/          # Supply Chain Builder Simulator
+├── Day31/          # AI Supply Chain Control Tower
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -118,10 +119,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **28** | [Hospital Admission Readiness](Day28/day28.md) | Hospital Admission Readiness Simulator: Interactive hospital admission workflow management, insurance & prior authorization verification, bed assignment, and risk monitoring | ✅ Done |
 | **29** | [Supply Chain Crisis Lab](Day29/day29.md) | Operation Lifeline: Interactive supply chain crisis management simulation, supplier negotiation, executive decisions & AI strategy | ✅ Done |
 | **30** | [Supply Chain Builder](Day30/day30.md) | Supply Chain Builder: Interactive supply chain optimization simulator, evaluating supplier, factory, warehousing, transport & inventory trade-offs | ✅ Done |
-| **31** | *Upcoming...* | - | ⏳ |
+| **31** | [AI Supply Chain Control Tower](Day31/day31.md) | AI Supply Chain Control Tower: Interactive real-time supply chain disruption simulation, alert prioritization, and operational KPI optimization | ✅ Done |
 | **32** | *Upcoming...* | - | ⏳ |
+| **33** | *Upcoming...* | - | ⏳ |
 
-*Days 33 to 60 will be updated as the challenge progresses!*
+*Days 34 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -234,6 +236,15 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 30 — Supply Chain Builder**
     *   *Tools/Tech:* HTML5, CSS3, JavaScript, Supply Chain Optimization Engine
     *   *Key Learnings:* Supply chain decision-making trade-offs, supplier strategy, factory/warehousing/transportation selection, inventory management, risk mitigation, and performance scoring across cost, speed, risk, customer satisfaction & sustainability.
+
+</details>
+
+<details>
+<summary><b>📦 Click to expand Days 31 - 40: Operations, Control Towers & Enterprise Simulations</b></summary>
+
+*   **Day 31 — AI Supply Chain Control Tower**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Real-Time Simulation Engine, Operational KPI Analytics
+    *   *Key Learnings:* Real-time supply chain visibility, operational alert prioritization, disruption resolution trade-offs, and KPI optimization across customer satisfaction, availability, transportation, cost & revenue.
 
 </details>
 

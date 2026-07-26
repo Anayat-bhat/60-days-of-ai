@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[██████████████████████░░░░░░░░░░░░░░░░░░] 55% Complete (33 / 60 Days)`
+`[███████████████████████░░░░░░░░░░░░░░░░░] 57% Complete (34 / 60 Days)`
 
 ---
 
@@ -80,8 +80,9 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day31/          # AI Supply Chain Control Tower
 ├── Day32/          # Think Like a Marketing Strategist
 ├── Day33/          # Media Integrity Analyzer
-├── Day34/          # Upcoming...
+├── Day34/          # Marketing Detective
 ├── Day35/          # Upcoming...
+├── Day36/          # Upcoming...
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -126,10 +127,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **31** | [AI Supply Chain Control Tower](Day31/day31.md) | AI Supply Chain Control Tower: Interactive real-time supply chain disruption simulation, alert prioritization, and operational KPI optimization | ✅ Done |
 | **32** | [Think Like a Marketing Strategist](Day32/day32.md) | Think Like a Marketing Strategist: Interactive marketing strategy simulator, brand/personal brand positioning, platform selection, content pillars & 30-day roadmap | ✅ Done |
 | **33** | [Media Integrity Analyzer](Day33/day33.md) | Media Integrity Analyzer: Interactive media literacy simulator, headline detective, emotion detector & dashboard | ✅ Done |
-| **34** | *Upcoming...* | Interactive AI & Operations Simulator | ⏳ |
-| **35** | *Upcoming...* | Interactive AI & Workflow Automation | ⏳ |
+| **34** | [Marketing Detective](Day34/day34.md) | Marketing Detective: Interactive detective-style marketing simulator, campaign evidence analysis & data-driven strategy | ✅ Done |
+| **35** | *Upcoming...* | Interactive AI & Operations Simulator | ⏳ |
+| **36** | *Upcoming...* | Interactive AI & Workflow Automation | ⏳ |
 
-*Days 36 to 60 will be updated as the challenge progresses!*
+*Days 37 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -257,10 +259,13 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 33 — Media Integrity Analyzer**
     *   *Tools/Tech:* HTML5, CSS3, JavaScript, Media Literacy Analysis Engine
     *   *Key Learnings:* Critical media literacy, evaluating headline accuracy, detecting emotional manipulation techniques, analyzing audience targeting, and building real-time media integrity metrics.
-*   **Day 34 — Upcoming...**
+*   **Day 34 — Marketing Detective**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Marketing Analytics Engine
+    *   *Key Learnings:* Interactive detective-style marketing simulation, campaign data & evidence analysis, identifying root cause campaign mistakes, customer feedback evaluation, and evidence-based decision making.
+*   **Day 35 — Upcoming...**
     *   *Tools/Tech:* Interactive AI & Operations Simulator
     *   *Key Learnings:* Coming soon.
-*   **Day 35 — Upcoming...**
+*   **Day 36 — Upcoming...**
     *   *Tools/Tech:* Interactive AI & Workflow Automation
     *   *Key Learnings:* Coming soon.
 

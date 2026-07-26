@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[█████████████████████░░░░░░░░░░░░░░░░░░░] 52% Complete (31 / 60 Days)`
+`[██████████████████████░░░░░░░░░░░░░░░░░░] 55% Complete (33 / 60 Days)`
 
 ---
 
@@ -79,8 +79,9 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day30/          # Supply Chain Builder Simulator
 ├── Day31/          # AI Supply Chain Control Tower
 ├── Day32/          # Think Like a Marketing Strategist
-├── Day33/          # Upcoming...
+├── Day33/          # Media Integrity Analyzer
 ├── Day34/          # Upcoming...
+├── Day35/          # Upcoming...
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -124,10 +125,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **30** | [Supply Chain Builder](Day30/day30.md) | Supply Chain Builder: Interactive supply chain optimization simulator, evaluating supplier, factory, warehousing, transport & inventory trade-offs | ✅ Done |
 | **31** | [AI Supply Chain Control Tower](Day31/day31.md) | AI Supply Chain Control Tower: Interactive real-time supply chain disruption simulation, alert prioritization, and operational KPI optimization | ✅ Done |
 | **32** | [Think Like a Marketing Strategist](Day32/day32.md) | Think Like a Marketing Strategist: Interactive marketing strategy simulator, brand/personal brand positioning, platform selection, content pillars & 30-day roadmap | ✅ Done |
-| **33** | *Upcoming...* | Interactive AI & Product Strategy Experiment | ⏳ |
+| **33** | [Media Integrity Analyzer](Day33/day33.md) | Media Integrity Analyzer: Interactive media literacy simulator, headline detective, emotion detector & dashboard | ✅ Done |
 | **34** | *Upcoming...* | Interactive AI & Operations Simulator | ⏳ |
+| **35** | *Upcoming...* | Interactive AI & Workflow Automation | ⏳ |
 
-*Days 35 to 60 will be updated as the challenge progresses!*
+*Days 36 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -252,10 +254,13 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 32 — Think Like a Marketing Strategist**
     *   *Tools/Tech:* HTML5, CSS3, JavaScript, React UMD, Babel Standalone, Prompt Engineering
     *   *Key Learnings:* Audience-first marketing strategy, business vs personal brand positioning, platform distribution fit (LinkedIn/X/YouTube/Newsletter), content pillars (3-pillar constraint), 30-day weekly roadmapping, unexpected market event handling, and reusable Claude prompt engineering.
-*   **Day 33 — Upcoming...**
-    *   *Tools/Tech:* Interactive AI, Strategy & Product Development
-    *   *Key Learnings:* Coming soon.
+*   **Day 33 — Media Integrity Analyzer**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Media Literacy Analysis Engine
+    *   *Key Learnings:* Critical media literacy, evaluating headline accuracy, detecting emotional manipulation techniques, analyzing audience targeting, and building real-time media integrity metrics.
 *   **Day 34 — Upcoming...**
+    *   *Tools/Tech:* Interactive AI & Operations Simulator
+    *   *Key Learnings:* Coming soon.
+*   **Day 35 — Upcoming...**
     *   *Tools/Tech:* Interactive AI & Workflow Automation
     *   *Key Learnings:* Coming soon.
 

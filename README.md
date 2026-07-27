@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[███████████████████████░░░░░░░░░░░░░░░░░] 57% Complete (34 / 60 Days)`
+`[███████████████████████░░░░░░░░░░░░░░░░░] 58% Complete (35 / 60 Days)`
 
 ---
 
@@ -81,8 +81,9 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day32/          # Think Like a Marketing Strategist
 ├── Day33/          # Media Integrity Analyzer
 ├── Day34/          # Marketing Detective
-├── Day35/          # Upcoming...
+├── Day35/          # Prompt Puzzle
 ├── Day36/          # Upcoming...
+├── Day37/          # Upcoming...
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -128,10 +129,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **32** | [Think Like a Marketing Strategist](Day32/day32.md) | Think Like a Marketing Strategist: Interactive marketing strategy simulator, brand/personal brand positioning, platform selection, content pillars & 30-day roadmap | ✅ Done |
 | **33** | [Media Integrity Analyzer](Day33/day33.md) | Media Integrity Analyzer: Interactive media literacy simulator, headline detective, emotion detector & dashboard | ✅ Done |
 | **34** | [Marketing Detective](Day34/day34.md) | Marketing Detective: Interactive detective-style marketing simulator, campaign evidence analysis & data-driven strategy | ✅ Done |
-| **35** | *Upcoming...* | Interactive AI & Operations Simulator | ⏳ |
-| **36** | *Upcoming...* | Interactive AI & Workflow Automation | ⏳ |
+| **35** | [Prompt Puzzle](Day35/day35.md) | Prompt Puzzle: Interactive AI prompt engineering puzzle game, prompt building, cleaning & optimization | ✅ Done |
+| **36** | *Upcoming...* | Interactive AI & Operations Simulator | ⏳ |
+| **37** | *Upcoming...* | Interactive AI & Workflow Automation | ⏳ |
 
-*Days 37 to 60 will be updated as the challenge progresses!*
+*Days 38 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -262,10 +264,13 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 34 — Marketing Detective**
     *   *Tools/Tech:* HTML5, CSS3, JavaScript, Marketing Analytics Engine
     *   *Key Learnings:* Interactive detective-style marketing simulation, campaign data & evidence analysis, identifying root cause campaign mistakes, customer feedback evaluation, and evidence-based decision making.
-*   **Day 35 — Upcoming...**
+*   **Day 35 — Prompt Puzzle**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Prompt Engineering Framework
+    *   *Key Learnings:* Master AI prompting through interactive puzzle challenges, building optimized prompts, removing redundant components, and evaluating weak vs optimized prompts.
+*   **Day 36 — Upcoming...**
     *   *Tools/Tech:* Interactive AI & Operations Simulator
     *   *Key Learnings:* Coming soon.
-*   **Day 36 — Upcoming...**
+*   **Day 37 — Upcoming...**
     *   *Tools/Tech:* Interactive AI & Workflow Automation
     *   *Key Learnings:* Coming soon.
 

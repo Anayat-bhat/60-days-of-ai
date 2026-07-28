@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cognitive Pattern Explorer</title>
+<style>
+  :root{
+    --bg-0:#f3f1ec;
+    --bg-1:#e9e4da;
+    --ink-0:#2b2b26;
+    --ink-1:#5c5a4f;
+    --line:#d8d2c4;
+    --accent:#5b7065;
+    --accent-soft:#c7d3c8;
+    --accent-2:#8a6b56;
+    --paper:#fbfaf6;
+    --focus:#3d5a4a;
+    --radius:14px;
+    --shadow: 0 10px 30px -12px rgba(43,43,38,0.25);
+    --dur:.5s;
+  }
+  [data-mode="stress"]{
+    --bg-0:#efece6;
+    --bg-1:#e3ded2;
+    --accent:#6b5b8a;
+    --accent-soft:#dcd4ec;
+    --accent-2:#7a5a4a;
+    --focus:#4a3d6b;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    font-family: "Iowan Old Style","Palatino Linotype","Georgia","Times New Roman",serif;
+    background:
+      radial-gradient(1200px 800px at 10% -10%, var(--bg-1), transparent 60%),
+      radial-gradient(1000px 700px at 110% 10%, var(--accent-soft), transparent 55%),
+      var(--bg-0);
+    color:var(--ink-0);
+    min-height:100vh;
+    overflow-x:hidden;
+    transition: background var(--dur) ease;
+  }
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+
+  /* ambient breathing shapes */
+  .ambient{
+    position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+  }
+  .ambient span{
+    position:absolute; border-radius:50%;
+    background: radial-gradient(circle at 30% 30%, var(--accent-soft), transparent 70%);
+    opacity:.5; filter:blur(2px);
+    animation: drift 22s ease-in-out infinite;
+  }
+  .ambient span:nth-child(1){width:340px;height:340px; top:8%; left:-6%; animation-duration:26s;}
+  .ambient span:nth-child(2){width:220px;height:220px; top:60%; left:80%; animation-duration:19s; animation-delay:-4s;}
+  .ambient span:nth-child(3){width:160px;height:160px; top:80%; left:15%; animation-duration:31s; animation-delay:-11s;}
+  @keyframes drift{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    50%{ transform:translate(30px,-24px) scale(1.08); }
+  }
+
+  #app{ position:relative; z-index:1; max-width:920px; margin:0 auto; padding:32px 20px 80px; }
+
+  header.topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; margin-bottom:28px; flex-wrap:wrap;
+  }
+  .brand{ display:flex; flex-direction:column; }
+  .brand .eyebrow{ font-family:inherit; letter-spacing:.14em; text-transform:uppercase; font-size:.68rem; color:var(--ink-1); }
+  .brand h1{ margin:2px 0 0; font-size:1.5rem; font-weight:600; }
+
+  .progress-wrap{ flex:1 1 260px; max-width:360px; }
+  .progress-track{
+    height:6px; border-radius:999px; background:var(--line); overflow:hidden;
+  }
+  .progress-fill{
+    height:100%; width:0%; border-radius:999px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    transition: width .6s cubic-bezier(.65,0,.35,1);
+  }
+  .progress-label{ font-family:inherit; font-size:.72rem; color:var(--ink-1); margin-top:6px; letter-spacing:.03em;}
+
+  .stage{
+    position:relative; min-height:420px;
+  }
+  .screen{
+    position:absolute; inset:0;
+    opacity:0; transform:translateY(14px) scale(.99);
+    pointer-events:none;
+    transition: opacity var(--dur) ease, transform var(--dur) ease;
+  }
+  .screen.active{
+    position:relative; opacity:1; transform:translateY(0) scale(1); pointer-events:auto;
+  }
+
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:32px;
+  }
+  @media (max-width:560px){ .card{ padding:22px; } }
+
+  h2.chapter-title{ margin:0 0 6px; font-size:1.3rem; font-weight:600; }
+  p.chapter-sub{ margin:0 0 26px; color:var(--ink-1); font-size:.98rem; line-height:1.55; }
+
+  /* Start screen */
+  .start-card{ text-align:center; }
+  .start-card p{ color:var(--ink-1); line-height:1.7; max-width:520px; margin:14px auto 26px; }
+  .mode-choice{
+    display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:28px;
+  }
+  .mode-btn{
+    font-family:inherit; cursor:pointer; border:1.5px solid var(--line); background:var(--bg-0);
+    padding:14px 22px; border-radius:12px; font-size:.95rem; color:var(--ink-0);
+    transition: border-color .25s ease, transform .2s ease, background .25s ease;
+    min-width:160px;
+  }
+  .mode-btn:hover{ transform:translateY(-2px); }
+  .mode-btn.selected{ border-color:var(--accent); background:var(--accent-soft); font-weight:600; }
+  .mode-btn small{ display:block; font-family:var(--sans); color:var(--ink-1); font-weight:400; margin-top:4px; font-size:.78rem; }
+
+  button.primary{
+    font-family:inherit; cursor:pointer; border:none; border-radius:999px;
+    padding:14px 32px; font-size:1rem; letter-spacing:.02em; color:var(--paper);
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    box-shadow:0 8px 20px -8px rgba(0,0,0,.35);
+    transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  }
+  button.primary:hover{ transform:translateY(-2px); box-shadow:0 12px 24px -8px rgba(0,0,0,.4); }
+  button.primary:disabled{ opacity:.4; cursor:not-allowed; transform:none; box-shadow:none; }
+  button.secondary{
+    font-family:inherit; cursor:pointer; border:1.5px solid var(--line); background:transparent;
+    padding:12px 26px; border-radius:999px; font-size:.95rem; color:var(--ink-0);
+    transition: background .2s ease, border-color .2s ease;
+  }
+  button.secondary:hover{ background:var(--bg-1); }
+
+  .nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:30px; gap:10px; flex-wrap:wrap; }
+
+  /* Chapter 1: scenarios */
+  .scenario-text{ font-size:1.06rem; line-height:1.6; margin-bottom:20px; }
+  .options{ display:flex; flex-direction:column; gap:12px; }
+  .option-btn{
+    text-align:left; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    cursor:pointer; border:1.5px solid var(--line); background:var(--bg-0);
+    padding:16px 18px; border-radius:12px; font-size:.95rem; color:var(--ink-0); line-height:1.5;
+    transition: border-color .2s ease, background .2s ease, transform .15s ease;
+  }
+  .option-btn:hover{ border-color:var(--accent); transform:translateX(3px); }
+  .option-btn.picked{ border-color:var(--accent); background:var(--accent-soft); font-weight:600; }
+  .option-btn:focus-visible, .mode-btn:focus-visible, button:focus-visible, .drag-card:focus-visible, .drop-slot:focus-visible {
+    outline: 3px solid var(--focus); outline-offset:3px;
+  }
+
+  /* Chapter 2: draggable priority cards */
+  .priority-layout{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  @media (max-width:640px){ .priority-layout{ grid-template-columns:1fr; } }
+  .pool, .ranked{
+    border:1.5px dashed var(--line); border-radius:12px; padding:14px; min-height:280px;
+    background:rgba(255,255,255,.35);
+  }
+  .zone-label{ font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-1); margin-bottom:10px; display:block; }
+  .drag-card{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--paper); border:1px solid var(--line); border-radius:10px;
+    padding:12px 14px; margin-bottom:10px; cursor:grab; font-size:.9rem;
+    box-shadow:0 3px 8px -4px rgba(0,0,0,.2);
+    transition: box-shadow .2s ease, transform .2s ease, opacity .2s ease;
+    display:flex; align-items:center; gap:10px;
+    touch-action:none;
+    user-select:none;
+  }
+  .drag-card .handle{ color:var(--ink-1); font-size:.8rem; }
+  .drag-card:active{ cursor:grabbing; }
+  .drag-card.dragging{ opacity:.4; }
+  .drag-card.touch-floating{
+    position:fixed; z-index:999; pointer-events:none; box-shadow:0 14px 30px -10px rgba(0,0,0,.4);
+    width:var(--floating-w, auto);
+  }
+  .ranked .drag-card::before{
+    content: attr(data-rank); font-weight:700; color:var(--accent); margin-right:2px;
+  }
+  .drop-slot.over{ background:var(--accent-soft); }
+
+  /* Chapter 3: timeline mapping */
+  .timeline-wrap{ margin-top:6px; }
+  .timeline-track{
+    position:relative; height:64px; border-radius:12px; background:var(--bg-1);
+    border:1px solid var(--line); margin-bottom:26px; overflow:visible;
+  }
+  .timeline-track .tl-labels{
+    display:flex; justify-content:space-between; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:.72rem; color:var(--ink-1); padding:6px 12px; position:absolute; width:100%; bottom:-24px;
+  }
+  .tl-thumb{
+    position:absolute; top:50%; width:38px; height:38px; border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    transform:translate(-50%,-50%); cursor:grab; box-shadow:0 6px 16px -6px rgba(0,0,0,.4);
+    display:flex; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-size:.8rem;
+    touch-action:none;
+    left:50%;
+  }
+  .tl-thumb:active{ cursor:grabbing; }
+  .timeline-q{ font-size:1rem; margin-bottom:14px; line-height:1.5;}
+  .timeline-item{ margin-bottom:42px; }
+
+  /* Journal / results */
+  .journal-header{ text-align:center; margin-bottom:18px; }
+  .style-name{ font-size:1.5rem; font-weight:700; color:var(--accent-2); margin:4px 0 0;}
+  .breakdown{ margin:26px 0; display:flex; flex-direction:column; gap:14px; }
+  .bar-row{ display:flex; align-items:center; gap:12px; }
+  .bar-row .bar-label{ width:160px; font-size:.85rem; color:var(--ink-1); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; flex-shrink:0; }
+  .bar-track{ flex:1; height:10px; border-radius:999px; background:var(--bg-1); overflow:hidden; }
+  .bar-fill{ height:100%; border-radius:999px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); width:0%; transition:width 1s cubic-bezier(.65,0,.35,1); }
+  .bar-pct{ width:42px; text-align:right; font-size:.82rem; color:var(--ink-1); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
+  .reflection-text{ line-height:1.7; font-size:1rem; margin:22px 0; background:var(--bg-0); border-left:3px solid var(--accent); padding:16px 18px; border-radius:6px;}
+  .journal-note{
+    width:100%; min-height:110px; font-family:inherit; font-size:.95rem; padding:14px;
+    border:1.5px solid var(--line); border-radius:10px; background:var(--paper); resize:vertical;
+    color:var(--ink-0);
+  }
+  .journal-note:focus-visible{ outline:3px solid var(--focus); outline-offset:2px; }
+  .disclaimer{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; font-size:.74rem; color:var(--ink-1); margin-top:28px; line-height:1.5; text-align:center; }
+
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+    clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+    .ambient span{ animation:none; }
+  }
+</style>
+</head>
+<body data-mode="calm">
+
+<div class="ambient" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<div id="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="eyebrow sans">Self-Reflection Journey</span>
+      <h1>Cognitive Pattern Explorer</h1>
+    </div>
+    <div class="progress-wrap" role="status" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">Getting started</div>
+    </div>
+  </header>
+
+  <div class="stage" id="stage">
+
+    <!-- SCREEN 0: START -->
+    <section class="screen active" data-screen="start">
+      <div class="card start-card">
+        <h2 class="chapter-title">Before we begin</h2>
+        <p>This is a quiet space to notice how you tend to think and decide — not a test, and not a diagnosis.
+        There are no right answers. Just notice what feels true as you go.</p>
+        <p class="sans" style="font-size:.85rem;">Choose the pace that feels right for this session.</p>
+        <div class="mode-choice" role="group" aria-label="Choose a mode">
+          <button class="mode-btn selected" id="calmModeBtn" type="button" aria-pressed="true">
+            Calm Mode
+            <small>Slower pacing, softer tones</small>
+          </button>
+          <button class="mode-btn" id="stressModeBtn" type="button" aria-pressed="false">
+            Focused Mode
+            <small>Slightly brisker, cooler palette</small>
+          </button>
+        </div>
+        <button class="primary" id="startBtn" type="button">Begin the exploration</button>
+      </div>
+    </section>
+
+    <!-- SCREEN 1: CHAPTER 1 -->
+    <section class="screen" data-screen="ch1">
+      <div class="card">
+        <h2 class="chapter-title">Chapter 1 · Discover Your Thinking Style</h2>
+        <p class="chapter-sub">A handful of everyday moments. Pick whatever response feels most like you — first instinct is usually the most honest one.</p>
+        <div id="ch1-body"></div>
+        <div class="nav-row">
+          <button class="secondary" id="ch1Back" type="button">Back</button>
+          <button class="primary" id="ch1Next" type="button" disabled>Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: CHAPTER 2 -->
+    <section class="screen" data-screen="ch2">
+      <div class="card">
+        <h2 class="chapter-title">Chapter 2 · Choose Your Priorities</h2>
+        <p class="chapter-sub">Drag each card into the ranked list, from what matters most to you (top) to least (bottom). On touch devices, press and hold, then drag.</p>
+        <div class="priority-layout">
+          <div class="pool" id="poolZone" data-zone="pool">
+            <span class="zone-label">Unranked</span>
+            <div id="poolCards"></div>
+          </div>
+          <div class="ranked" id="rankedZone" data-zone="ranked">
+            <span class="zone-label">Your ranking (top = most important)</span>
+            <div id="rankedCards"></div>
+          </div>
+        </div>
+        <div class="nav-row">
+          <button class="secondary" id="ch2Back" type="button">Back</button>
+          <button class="primary" id="ch2Next" type="button" disabled>Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: CHAPTER 3 -->
+    <section class="screen" data-screen="ch3">
+      <div class="card">
+        <h2 class="chapter-title">Chapter 3 · Map Your Thinking</h2>
+        <p class="chapter-sub">For each situation, slide the marker to where you naturally land between the two poles.</p>
+        <div id="ch3-body"></div>
+        <div class="nav-row">
+          <button class="secondary" id="ch3Back" type="button">Back</button>
+          <button class="primary" id="ch3Next" type="button">See my reflection</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: JOURNAL -->
+    <section class="screen" data-screen="journal">
+      <div class="card">
+        <div class="journal-header">
+          <span class="eyebrow sans" style="letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;color:var(--ink-1);">Your reflection profile</span>
+          <div class="style-name" id="styleName">—</div>
+        </div>
+        <div class="breakdown" id="breakdown"></div>
+        <div class="reflection-text" id="reflectionText"></div>
+        <label for="journalNote" class="sans" style="font-size:.85rem;color:var(--ink-1);display:block;margin-bottom:8px;">
+          Optional: jot down a thought this brought up for you.
+        </label>
+        <textarea class="journal-note" id="journalNote" placeholder="What did you notice about yourself?"></textarea>
+        <div class="nav-row">
+          <button class="secondary" id="restartBtn" type="button">Start over</button>
+          <button class="primary" id="downloadBtn" type="button">Download reflection</button>
+        </div>
+        <p class="disclaimer">This experience is for casual self-reflection and educational purposes only.
+        It does not diagnose, assess, or measure any mental health condition. If you have concerns about your
+        wellbeing, please speak with a qualified professional.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<div class="sr-only" aria-live="polite" id="liveRegion"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------------------------------------------------
+     DATA: scenarios, priorities, timeline items
+  --------------------------------------------------------- */
+
+  // Each option maps to one or more tendencies with a weight.
+  const TRAITS = ["analytical","emotional","overthink","action","balanced"];
+  const TRAIT_META = {
+    analytical:{ name:"Analytical Thinker", blurb:"You tend to break things into pieces, weigh evidence, and look for the logic underneath a situation before deciding." },
+    emotional:{ name:"Emotional Intuitive", blurb:"You tend to lead with how something feels, trusting gut signals and the emotional undertone of a moment." },
+    overthink:{ name:"Overthinking Loop Style", blurb:"You tend to circle a decision from many angles, sometimes replaying it even after it's made." },
+    action:{ name:"Action-First Decision Maker", blurb:"You tend to move quickly, trusting that momentum and adjustment beat prolonged deliberation." },
+    balanced:{ name:"Balanced Reflective Thinker", blurb:"You tend to blend gut feeling with a bit of analysis, adjusting your approach to fit the situation." }
+  };
+
+  const CH1_SCENARIOS = [
+    {
+      id:"s1",
+      text:"You receive some unexpected, ambiguous feedback on a piece of work. What's your first move?",
+      options:[
+        {label:"Reread it a few times, trying to find the exact meaning behind each phrase.", w:{analytical:2}},
+        {label:"Notice how it makes you feel before thinking about what it actually says.", w:{emotional:2}},
+        {label:"Start imagining every possible way this could reflect badly on you.", w:{overthink:2}},
+        {label:"Reply right away with a clarifying question so you can move on.", w:{action:2}},
+        {label:"Sit with it for a moment, then decide how to respond once it settles.", w:{balanced:2}}
+      ]
+    },
+    {
+      id:"s2",
+      text:"A friend asks for advice about a big decision they're facing. How do you help?",
+      options:[
+        {label:"List out the pros and cons with them, methodically.", w:{analytical:2}},
+        {label:"Ask how each option makes them feel, more than what makes sense.", w:{emotional:2}},
+        {label:"Explore every 'what if' scenario until you've covered them all.", w:{overthink:2}},
+        {label:"Encourage them to just pick one and adjust as they go.", w:{action:2}},
+        {label:"Offer a mix of practical questions and a gut-check.", w:{balanced:2}}
+      ]
+    },
+    {
+      id:"s3",
+      text:"You're about to send an important message. Right before hitting send, you...",
+      options:[
+        {label:"Double-check the wording is precise and logically airtight.", w:{analytical:2}},
+        {label:"Read it once more to check the tone feels right.", w:{emotional:1, balanced:1}},
+        {label:"Rewrite it several times because none of the versions feel finished.", w:{overthink:2}},
+        {label:"Send it — you'd rather fix things after than wait too long.", w:{action:2}},
+        {label:"Skim it once, trust your first draft, and send.", w:{balanced:2}}
+      ]
+    },
+    {
+      id:"s4",
+      text:"Something unexpected disrupts your plans for the day. Your instinct is to...",
+      options:[
+        {label:"Map out a new plan step by step before doing anything.", w:{analytical:2}},
+        {label:"Notice your emotional reaction first, then decide what's next.", w:{emotional:2}},
+        {label:"Replay how this could have been avoided, again and again.", w:{overthink:2}},
+        {label:"Pivot immediately to whatever seems doable right now.", w:{action:2}},
+        {label:"Take a breath, then adjust your plan calmly.", w:{balanced:2}}
+      ]
+    },
+    {
+      id:"s5",
+      text:"When you're learning something completely new, you prefer to...",
+      options:[
+        {label:"Understand the underlying system before trying anything.", w:{analytical:2}},
+        {label:"Jump in and see how it feels to try it.", w:{emotional:1, action:1}},
+        {label:"Research extensively, worried about doing it wrong.", w:{overthink:2}},
+        {label:"Start immediately and learn by doing.", w:{action:2}},
+        {label:"Read a little, then try it, adjusting as you go.", w:{balanced:2}}
+      ]
+    }
+  ];
+
+  const CH2_PRIORITIES = [
+    {id:"p1", label:"Making the logically correct choice", trait:"analytical"},
+    {id:"p2", label:"Honoring how I truly feel", trait:"emotional"},
+    {id:"p3", label:"Considering every possible angle", trait:"overthink"},
+    {id:"p4", label:"Moving quickly and adapting later", trait:"action"},
+    {id:"p5", label:"Keeping steady, grounded balance", trait:"balanced"},
+    {id:"p6", label:"Avoiding regret before deciding", trait:"overthink"}
+  ];
+
+  const CH3_ITEMS = [
+    {
+      id:"t1",
+      q:"When facing a tough choice, where do you naturally land?",
+      left:"Pure logic", right:"Pure gut feeling",
+      leftTrait:"analytical", rightTrait:"emotional"
+    },
+    {
+      id:"t2",
+      q:"When a decision is made, what happens next in your mind?",
+      left:"I move on quickly", right:"I keep replaying it",
+      leftTrait:"action", rightTrait:"overthink"
+    },
+    {
+      id:"t3",
+      q:"Under pressure, how do you typically respond?",
+      left:"Act immediately", right:"Pause and reflect first",
+      leftTrait:"action", rightTrait:"balanced"
+    }
+  ];
+
+  /* ---------------------------------------------------------
+     STATE
+  --------------------------------------------------------- */
+  const state = {
+    mode:"calm",
+    screenIndex:0,
+    screens:["start","ch1","ch2","ch3","journal"],
+    ch1Answers:{}, // scenarioId -> weights
+    ch2Ranking:[], // ordered array of priority ids (top = most important)
+    ch3Values:{}, // itemId -> 0..100 (0 = left trait, 100 = right trait)
+    scores:{ analytical:0, emotional:0, overthink:0, action:0, balanced:0 }
+  };
+
+  const $ = (sel, root) => (root||document).querySelector(sel);
+  const $all = (sel, root) => Array.from((root||document).querySelectorAll(sel));
+  const liveRegion = $("#liveRegion");
+  function announce(msg){ liveRegion.textContent = msg; }
+
+  /* ---------------------------------------------------------
+     NAVIGATION / PROGRESS
+  --------------------------------------------------------- */
+  function goTo(screenName){
+    const idx = state.screens.indexOf(screenName);
+    if (idx === -1) return;
+    state.screenIndex = idx;
+    $all(".screen").forEach(s=>{
+      s.classList.toggle("active", s.dataset.screen === screenName);
+    });
+    updateProgress();
+    window.scrollTo({top:0, behavior: prefersReducedMotion() ? "auto" : "smooth"});
+    if (screenName === "ch1") renderCh1();
+    if (screenName === "ch2") renderCh2();
+    if (screenName === "ch3") renderCh3();
+    if (screenName === "journal") renderJournal();
+  }
+
+  function prefersReducedMotion(){
+    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  function updateProgress(){
+    const total = state.screens.length - 1; // start doesn't count as progress step
+    const pct = Math.round((state.screenIndex/total)*100);
+    $("#progressFill").style.width = pct + "%";
+    const labels = {
+      start:"Getting started",
+      ch1:"Chapter 1 of 3 — Discover",
+      ch2:"Chapter 2 of 3 — Prioritize",
+      ch3:"Chapter 3 of 3 — Map",
+      journal:"Your reflection"
+    };
+    $("#progressLabel").textContent = labels[state.screens[state.screenIndex]];
+  }
+
+  /* ---------------------------------------------------------
+     MODE TOGGLE
+  --------------------------------------------------------- */
+  function setMode(mode){
+    state.mode = mode;
+    document.body.setAttribute("data-mode", mode);
+    $("#calmModeBtn").classList.toggle("selected", mode==="calm");
+    $("#stressModeBtn").classList.toggle("selected", mode==="stress");
+    $("#calmModeBtn").setAttribute("aria-pressed", mode==="calm");
+    $("#stressModeBtn").setAttribute("aria-pressed", mode==="stress");
+  }
+  $("#calmModeBtn").addEventListener("click", ()=>setMode("calm"));
+  $("#stressModeBtn").addEventListener("click", ()=>setMode("stress"));
+  $("#startBtn").addEventListener("click", ()=>goTo("ch1"));
+
+  /* ---------------------------------------------------------
+     CHAPTER 1: Scenarios
+  --------------------------------------------------------- */
+  function renderCh1(){
+    const container = $("#ch1-body");
+    container.innerHTML = "";
+    CH1_SCENARIOS.forEach((scenario, i)=>{
+      const wrap = document.createElement("div");
+      wrap.style.marginBottom = "30px";
+      wrap.innerHTML = `<p class="scenario-text"><strong>${i+1}.</strong> ${scenario.text}</p>`;
+      const optWrap = document.createElement("div");
+      optWrap.className = "options";
+      optWrap.setAttribute("role","radiogroup");
+      optWrap.setAttribute("aria-label", scenario.text);
+      scenario.options.forEach((opt, oi)=>{
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "option-btn";
+        btn.setAttribute("role","radio");
+        btn.setAttribute("aria-checked","false");
+        btn.tabIndex = 0;
+        btn.textContent = opt.label;
+        if (state.ch1Answers[scenario.id] === oi) {
+          btn.classList.add("picked");
+          btn.setAttribute("aria-checked","true");
+        }
+        btn.addEventListener("click", ()=>{
+          state.ch1Answers[scenario.id] = oi;
+          Array.from(optWrap.children).forEach(c=>{c.classList.remove("picked"); c.setAttribute("aria-checked","false");});
+          btn.classList.add("picked");
+          btn.setAttribute("aria-checked","true");
+          checkCh1Complete();
+        });
+        optWrap.appendChild(btn);
+      });
+      wrap.appendChild(optWrap);
+      container.appendChild(wrap);
+    });
+    checkCh1Complete();
+  }
+  function checkCh1Complete(){
+    const done = CH1_SCENARIOS.every(s => state.ch1Answers[s.id] !== undefined);
+    $("#ch1Next").disabled = !done;
+  }
+  $("#ch1Back").addEventListener("click", ()=>goTo("start"));
+  $("#ch1Next").addEventListener("click", ()=>goTo("ch2"));
+
+  /* ---------------------------------------------------------
+     CHAPTER 2: Draggable priority ranking
+     Native HTML5 DnD for mouse, pointer-based fallback for touch
+  --------------------------------------------------------- */
+  function renderCh2(){
+    const poolCards = $("#poolCards");
+    const rankedCards = $("#rankedCards");
+    poolCards.innerHTML = "";
+    rankedCards.innerHTML = "";
+
+    // Determine which are unranked
+    const rankedIds = state.ch2Ranking;
+    const unranked = CH2_PRIORITIES.filter(p => !rankedIds.includes(p.id));
+
+    unranked.forEach(p => poolCards.appendChild(makeDragCard(p)));
+    rankedIds.forEach((id, idx) => {
+      const p = CH2_PRIORITIES.find(x=>x.id===id);
+      if (p){
+        const el = makeDragCard(p);
+        el.dataset.rank = (idx+1) + ".";
+        rankedCards.appendChild(el);
+      }
+    });
+
+    setupDropZone($("#poolZone"), poolCards, "pool");
+    setupDropZone($("#rankedZone"), rankedCards, "ranked");
+
+    checkCh2Complete();
+  }
+
+  function makeDragCard(priorityObj){
+    const el = document.createElement("div");
+    el.className = "drag-card";
+    el.draggable = true;
+    el.tabIndex = 0;
+    el.setAttribute("role","listitem");
+    el.dataset.id = priorityObj.id;
+    el.innerHTML = `<span class="handle" aria-hidden="true">⠿</span><span>${priorityObj.label}</span>`;
+
+    // Native DnD (mouse / desktop)
+    el.addEventListener("dragstart", e=>{
+      el.classList.add("dragging");
+      e.dataTransfer.effectAllowed = "move";
+      e.dataTransfer.setData("text/plain", priorityObj.id);
+    });
+    el.addEventListener("dragend", ()=>{
+      el.classList.remove("dragging");
+      syncCh2StateFromDOM();
+    });
+
+    // Keyboard accessibility: Enter/Space to toggle between zones, arrows to reorder
+    el.addEventListener("keydown", e=>{
+      const currentZone = el.closest("[data-zone]");
+      const zoneName = currentZone ? currentZone.dataset.zone : null;
+      if (e.key === "Enter" || e.key === " "){
+        e.preventDefault();
+        moveCardToggleZone(el, priorityObj.id);
+      } else if (e.key === "ArrowUp" && zoneName === "ranked"){
+        e.preventDefault();
+        moveCardWithinRanked(el, -1);
+      } else if (e.key === "ArrowDown" && zoneName === "ranked"){
+        e.preventDefault();
+        moveCardWithinRanked(el, 1);
+      }
+    });
+
+    // Touch fallback via pointer events
+    let floatingClone = null, startX=0, startY=0, offsetX=0, offsetY=0;
+    el.addEventListener("pointerdown", e=>{
+      if (e.pointerType !== "touch") return;
+      e.preventDefault();
+      const rect = el.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
+      startX = e.clientX; startY = e.clientY;
+      floatingClone = el.cloneNode(true);
+      floatingClone.classList.add("touch-floating");
+      floatingClone.style.setProperty("--floating-w", rect.width + "px");
+      floatingClone.style.left = rect.left + "px";
+      floatingClone.style.top = rect.top + "px";
+      document.body.appendChild(floatingClone);
+      el.classList.add("dragging");
+      el.setPointerCapture(e.pointerId);
+    });
+    el.addEventListener("pointermove", e=>{
+      if (!floatingClone) return;
+      floatingClone.style.left = (e.clientX - offsetX) + "px";
+      floatingClone.style.top = (e.clientY - offsetY) + "px";
+      // highlight drop zone under pointer
+      $all(".pool, .ranked").forEach(z=>z.classList.remove("over"));
+      const under = document.elementFromPoint(e.clientX, e.clientY);
+      const zone = under && under.closest(".pool, .ranked");
+      if (zone) zone.classList.add("over");
+    });
+    el.addEventListener("pointerup", e=>{
+      if (!floatingClone) return;
+      const under = document.elementFromPoint(e.clientX, e.clientY);
+      const zone = under && under.closest(".pool, .ranked");
+      $all(".pool, .ranked").forEach(z=>z.classList.remove("over"));
+      floatingClone.remove();
+      floatingClone = null;
+      el.classList.remove("dragging");
+      if (zone){
+        const listHost = zone.querySelector("#poolCards, #rankedCards") || zone.querySelector("div");
+        if (listHost) listHost.appendChild(el);
+        syncCh2StateFromDOM();
+      }
+    });
+
+    return el;
+  }
+
+  function moveCardToggleZone(el, id){
+    const poolCards = $("#poolCards");
+    const rankedCards = $("#rankedCards");
+    if (el.closest("#poolCards")){
+      rankedCards.appendChild(el);
+      announce("Moved to your ranking.");
+    } else {
+      poolCards.appendChild(el);
+      announce("Moved back to unranked.");
+    }
+    syncCh2StateFromDOM();
+  }
+
+  function moveCardWithinRanked(el, dir){
+    const parent = el.parentElement;
+    if (dir === -1 && el.previousElementSibling){
+      parent.insertBefore(el, el.previousElementSibling);
+    } else if (dir === 1 && el.nextElementSibling){
+      parent.insertBefore(el.nextElementSibling, el);
+    }
+    el.focus();
+    syncCh2StateFromDOM();
+  }
+
+  function setupDropZone(zoneEl, listHost, zoneName){
+    zoneEl.addEventListener("dragover", e=>{
+      e.preventDefault();
+      zoneEl.classList.add("over");
+      const dragging = $(".dragging");
+      if (!dragging) return;
+      const after = getDragAfterElement(listHost, e.clientY);
+      if (after == null) listHost.appendChild(dragging);
+      else listHost.insertBefore(dragging, after);
+    });
+    zoneEl.addEventListener("dragleave", ()=> zoneEl.classList.remove("over"));
+    zoneEl.addEventListener("drop", e=>{
+      e.preventDefault();
+      zoneEl.classList.remove("over");
+      syncCh2StateFromDOM();
+    });
+  }
+
+  function getDragAfterElement(container, y){
+    const cards = Array.from(container.querySelectorAll(".drag-card:not(.dragging)"));
+    let closest = { offset: -Infinity, element: null };
+    cards.forEach(card=>{
+      const box = card.getBoundingClientRect();
+      const offset = y - box.top - box.height/2;
+      if (offset < 0 && offset > closest.offset){
+        closest = { offset, element: card };
+      }
+    });
+    return closest.element;
+  }
+
+  function syncCh2StateFromDOM(){
+    const rankedCards = $all("#rankedCards .drag-card");
+    state.ch2Ranking = rankedCards.map(c=>c.dataset.id);
+    rankedCards.forEach((c, idx)=> c.dataset.rank = (idx+1) + ".");
+    checkCh2Complete();
+  }
+
+  function checkCh2Complete(){
+    $("#ch2Next").disabled = state.ch2Ranking.length < CH2_PRIORITIES.length;
+  }
+
+  $("#ch2Back").addEventListener("click", ()=>goTo("ch1"));
+  $("#ch2Next").addEventListener("click", ()=>goTo("ch3"));
+
+  /* ---------------------------------------------------------
+     CHAPTER 3: Draggable timeline / slider mapping
+  --------------------------------------------------------- */
+  function renderCh3(){
+    const container = $("#ch3-body");
+    container.innerHTML = "";
+    CH3_ITEMS.forEach(item=>{
+      if (state.ch3Values[item.id] === undefined) state.ch3Values[item.id] = 50;
+      const wrap = document.createElement("div");
+      wrap.className = "timeline-item";
+      wrap.innerHTML = `
+        <p class="timeline-q">${item.q}</p>
+        <div class="timeline-wrap">
+          <div class="timeline-track" data-item="${item.id}">
+            <div class="tl-thumb"
+                 role="slider"
+                 tabindex="0"
+                 aria-label="${item.q}"
+                 aria-valuemin="0" aria-valuemax="100"
+                 aria-valuenow="${state.ch3Values[item.id]}"
+                 style="left:${state.ch3Values[item.id]}%;">↔</div>
+            <div class="tl-labels"><span>${item.left}</span><span>${item.right}</span></div>
+          </div>
+        </div>
+      `;
+      container.appendChild(wrap);
+    });
+
+    $all(".timeline-track").forEach(track=>{
+      const itemId = track.dataset.item;
+      const thumb = track.querySelector(".tl-thumb");
+      setupSlider(track, thumb, itemId);
+    });
+  }
+
+  function setupSlider(track, thumb, itemId){
+    let dragging = false;
+
+    function setFromClientX(clientX){
+      const rect = track.getBoundingClientRect();
+      let pct = ((clientX - rect.left) / rect.width) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+      thumb.style.left = pct + "%";
+      thumb.setAttribute("aria-valuenow", Math.round(pct));
+      state.ch3Values[itemId] = Math.round(pct);
+    }
+
+    thumb.addEventListener("pointerdown", e=>{
+      dragging = true;
+      thumb.setPointerCapture(e.pointerId);
+    });
+    thumb.addEventListener("pointermove", e=>{
+      if (!dragging) return;
+      setFromClientX(e.clientX);
+    });
+    thumb.addEventListener("pointerup", ()=>{ dragging = false; });
+    thumb.addEventListener("pointercancel", ()=>{ dragging = false; });
+
+    // Click on track jumps thumb there
+    track.addEventListener("pointerdown", e=>{
+      if (e.target === thumb) return;
+      setFromClientX(e.clientX);
+    });
+
+    // Keyboard accessibility
+    thumb.addEventListener("keydown", e=>{
+      let cur = parseInt(thumb.getAttribute("aria-valuenow"), 10) || 50;
+      if (e.key === "ArrowLeft" || e.key === "ArrowDown"){
+        e.preventDefault();
+        cur = Math.max(0, cur - 5);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowUp"){
+        e.preventDefault();
+        cur = Math.min(100, cur + 5);
+      } else if (e.key === "Home"){
+        e.preventDefault(); cur = 0;
+      } else if (e.key === "End"){
+        e.preventDefault(); cur = 100;
+      } else { return; }
+      thumb.style.left = cur + "%";
+      thumb.setAttribute("aria-valuenow", cur);
+      state.ch3Values[itemId] = cur;
+    });
+  }
+
+  $("#ch3Back").addEventListener("click", ()=>goTo("ch2"));
+  $("#ch3Next").addEventListener("click", ()=>{
+    computeScores();
+    goTo("journal");
+  });
+
+  /* ---------------------------------------------------------
+     SCORING
+  --------------------------------------------------------- */
+  function computeScores(){
+    const scores = { analytical:0, emotional:0, overthink:0, action:0, balanced:0 };
+
+    // Chapter 1 contributes weighted points per chosen option
+    CH1_SCENARIOS.forEach(scenario=>{
+      const chosenIdx = state.ch1Answers[scenario.id];
+      if (chosenIdx === undefined) return;
+      const opt = scenario.options[chosenIdx];
+      Object.keys(opt.w).forEach(trait => { scores[trait] += opt.w[trait]; });
+    });
+
+    // Chapter 2: ranking position gives points, higher rank = more points
+    const n = CH2_PRIORITIES.length;
+    state.ch2Ranking.forEach((id, idx)=>{
+      const p = CH2_PRIORITIES.find(x=>x.id===id);
+      if (!p) return;
+      const points = (n - idx); // top of list gets n points
+      scores[p.trait] += points * 0.6;
+    });
+
+    // Chapter 3: slider values distribute points between two poles per item
+    CH3_ITEMS.forEach(item=>{
+      const val = state.ch3Values[item.id] !== undefined ? state.ch3Values[item.id] : 50;
+      const leftPoints = (100 - val) / 100 * 3;
+      const rightPoints = val / 100 * 3;
+      scores[item.leftTrait] += leftPoints;
+      scores[item.rightTrait] += rightPoints;
+    });
+
+    state.scores = scores;
+  }
+
+  /* ---------------------------------------------------------
+     JOURNAL / RESULTS
+  --------------------------------------------------------- */
+  function renderJournal(){
+    const scores = state.scores;
+    const total = TRAITS.reduce((sum,t)=> sum + Math.max(scores[t],0), 0) || 1;
+    const pcts = {};
+    TRAITS.forEach(t => pcts[t] = Math.round((Math.max(scores[t],0) / total) * 100));
+
+    // Normalize rounding so it sums close to 100 (cosmetic only)
+    const dominant = TRAITS.reduce((a,b)=> pcts[a] >= pcts[b] ? a : b);
+
+    $("#styleName").textContent = TRAIT_META[dominant].name;
+
+    const breakdownEl = $("#breakdown");
+    breakdownEl.innerHTML = "";
+    TRAITS.slice().sort((a,b)=> pcts[b]-pcts[a]).forEach(t=>{
+      const row = document.createElement("div");
+      row.className = "bar-row";
+      row.innerHTML = `
+        <span class="bar-label">${TRAIT_META[t].name}</span>
+        <div class="bar-track"><div class="bar-fill" data-target="${pcts[t]}"></div></div>
+        <span class="bar-pct">${pcts[t]}%</span>
+      `;
+      breakdownEl.appendChild(row);
+    });
+
+    // animate bars after paint
+    requestAnimationFrame(()=>{
+      $all(".bar-fill").forEach(bar=>{
+        bar.style.width = bar.dataset.target + "%";
+      });
+    });
+
+    const reflectionEl = $("#reflectionText");
+    const secondary = TRAITS.slice().sort((a,b)=> pcts[b]-pcts[a])[1];
+    reflectionEl.innerHTML = `
+      <p>${TRAIT_META[dominant].blurb}</p>
+      <p style="margin-top:10px;">You also show notable traces of the <strong>${TRAIT_META[secondary].name}</strong> pattern —
+      ${TRAIT_META[secondary].blurb.toLowerCase()}</p>
+      <p style="margin-top:10px;">This is simply a reflection of the choices you made today, not a fixed label.
+      Thinking patterns often shift with context, mood, and practice.</p>
+    `;
+
+    // store for download
+    state._lastResult = { dominant, pcts, note:"" };
+  }
+
+  $("#downloadBtn").addEventListener("click", ()=>{
+    const note = $("#journalNote").value.trim();
+    const scores = state.scores;
+    const total = TRAITS.reduce((sum,t)=> sum + Math.max(scores[t],0), 0) || 1;
+    const lines = [];
+    lines.push("COGNITIVE PATTERN EXPLORER — Reflection Summary");
+    lines.push("Generated for personal reflection only. Not a clinical assessment.");
+    lines.push("");
+    lines.push("Style breakdown:");
+    TRAITS.slice().sort((a,b)=> (scores[b]-scores[a])).forEach(t=>{
+      const pct = Math.round((Math.max(scores[t],0)/total)*100);
+      lines.push("- " + TRAIT_META[t].name + ": " + pct + "%");
+    });
+    lines.push("");
+    lines.push($("#reflectionText").textContent.replace(/\s+/g," ").trim());
+    if (note){
+      lines.push("");
+      lines.push("Your note:");
+      lines.push(note);
+    }
+    const blob = new Blob([lines.join("\n")], {type:"text/plain"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "cognitive-pattern-reflection.txt";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+
+  $("#restartBtn").addEventListener("click", ()=>{
+    state.ch1Answers = {};
+    state.ch2Ranking = [];
+    state.ch3Values = {};
+    state.scores = { analytical:0, emotional:0, overthink:0, action:0, balanced:0 };
+    $("#journalNote").value = "";
+    goTo("start");
+  });
+
+  /* init */
+  updateProgress();
+})();
+</script>
+</body>
+</html>

@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[████████████████████████░░░░░░░░░░░░░░░░] 60% Complete (36 / 60 Days)`
+`[█████████████████████████░░░░░░░░░░░░░░░] 62% Complete (37 / 60 Days)`
 
 ---
 
@@ -83,8 +83,9 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day34/          # Marketing Detective
 ├── Day35/          # Prompt Puzzle
 ├── Day36/          # Cognitive Pattern Explorer
-├── Day37/          # Upcoming...
+├── Day37/          # Task Compass (Organizational Workflows)
 ├── Day38/          # Upcoming...
+├── Day39/          # Upcoming...
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -132,10 +133,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **34** | [Marketing Detective](Day34/day34.md) | Marketing Detective: Interactive detective-style marketing simulator, campaign evidence analysis & data-driven strategy | ✅ Done |
 | **35** | [Prompt Puzzle](Day35/day35.md) | Prompt Puzzle: Interactive AI prompt engineering puzzle game, prompt building, cleaning & optimization | ✅ Done |
 | **36** | [Cognitive Pattern Explorer](Day36/day36.md) | Cognitive Pattern Explorer: Interactive self-reflection simulator, scenario analysis, priority ranking & cognitive profile mapping | ✅ Done |
-| **37** | *Upcoming...* | Interactive AI & Operations Simulator | ⏳ |
-| **38** | *Upcoming...* | Interactive AI & Workflow Automation | ⏳ |
+| **37** | [Task Compass](Day37/day37.md) | Task Compass: Interactive organizational workflow, task ownership, delegation & cross-team collaboration simulator | ✅ Done |
+| **38** | *Upcoming...* | Interactive AI & Operations Simulator | ⏳ |
+| **39** | *Upcoming...* | Interactive AI & Workflow Automation | ⏳ |
 
-*Days 39 to 60 will be updated as the challenge progresses!*
+*Days 40 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -272,10 +274,13 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 36 — Cognitive Pattern Explorer**
     *   *Tools/Tech:* HTML5, CSS3, JavaScript, Self-Reflection Engine, Cognitive Profiling
     *   *Key Learnings:* Self-reflection and cognitive style exploration, evaluating decision-making tendencies (Action-First, Analytical, Intuitive), ranking priorities under calm vs stress modes, and mapping dynamic thinking patterns.
-*   **Day 37 — Upcoming...**
+*   **Day 37 — Task Compass**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Organizational Workflow Engine, Simulation Dashboard
+    *   *Key Learnings:* Understanding organizational workflows, clear task ownership & delegation, task routing across departments, cross-team collaboration, and organizational thinking.
+*   **Day 38 — Upcoming...**
     *   *Tools/Tech:* Interactive AI & Operations Simulator
     *   *Key Learnings:* Coming soon.
-*   **Day 38 — Upcoming...**
+*   **Day 39 — Upcoming...**
     *   *Tools/Tech:* Interactive AI & Workflow Automation
     *   *Key Learnings:* Coming soon.
 

@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[██████████████████████████░░░░░░░░░░░░░░] 63% Complete (38 / 60 Days)`
+`[███████████████████████████░░░░░░░░░░░░░] 65% Complete (39 / 60 Days)`
 
 ---
 
@@ -84,8 +84,10 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day35/          # Prompt Puzzle
 ├── Day36/          # Cognitive Pattern Explorer
 ├── Day37/          # Task Compass (Organizational Workflows)
-├── Day38/          # Upcoming...
-├── Day39/          # Upcoming...
+├── Day38/          # Typing Speed Studio
+├── Day39/          # PDF Splitter & Merger
+├── Day40/          # Upcoming...
+├── Day41/          # Upcoming...
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -134,10 +136,12 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **35** | [Prompt Puzzle](Day35/day35.md) | Prompt Puzzle: Interactive AI prompt engineering puzzle game, prompt building, cleaning & optimization | ✅ Done |
 | **36** | [Cognitive Pattern Explorer](Day36/day36.md) | Cognitive Pattern Explorer: Interactive self-reflection simulator, scenario analysis, priority ranking & cognitive profile mapping | ✅ Done |
 | **37** | [Task Compass](Day37/day37.md) | Task Compass: Interactive organizational workflow, task ownership, delegation & cross-team collaboration simulator | ✅ Done |
-| **38** | *Upcoming...* | Interactive AI & Operations Simulator | ⏳ |
-| **39** | *Upcoming...* | Interactive AI & Workflow Automation | ⏳ |
+| **38** | [Typing Speed Studio](Day38/day38.md) | Typing Speed Studio: Commercial-grade typing platform with code/legal text modes, real-time WPM/Accuracy SVG charts, error heatmaps & Web Audio API sound synthesis | ✅ Done |
+| **39** | [PDF Splitter & Merger](Day39/day39.md) | PDF Splitter & Merger: Private client-side PDF utility with interactive page grid, 5 extraction modes, drag-and-drop merger & demo generator | ✅ Done |
+| **40** | *Upcoming...* | Autonomous Agent Task Simulator | ⏳ |
+| **41** | *Upcoming...* | AI Data Pipeline & ETL Automation Studio | ⏳ |
 
-*Days 40 to 60 will be updated as the challenge progresses!*
+*Days 42 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -280,12 +284,15 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 38 — Typing Speed Studio**
     *   *Tools/Tech:* HTML5, CSS3, JavaScript (ES6+), Web Audio API, Pure SVG Analytics Engine, LocalStorage
     *   *Key Learnings:* Built a commercial-grade typing platform featuring dynamic category text generation (Code, Legal, Medical, Business, Quotes), multiple typing modes (Time, Words, Zen, Adaptive), real-time WPM/Accuracy HUD, Monkeytype-inspired SVG performance graph, virtual keyboard error heatmap, and Web Audio API synthesized mechanical keyboard clicks.
-*   **Day 39 — AI Prompt Control Tower & Workflow Automation (Upcoming)**
-    *   *Tools/Tech:* Interactive AI Workflow Engine, System Prompt Architecture
-    *   *Key Learnings:* Designing multi-stage prompt pipelines, automated task orchestration, and context window optimization.
+*   **Day 39 — PDF Splitter & Merger**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, PDF-Lib, PDF.js, JSZip, Canvas API, Web Animations
+    *   *Key Learnings:* 100% client-side browser PDF manipulation with pdf-lib & pdf.js, interactive page thumbnail canvas rendering, 5 distinct PDF split strategies (Visual select, Range, Every N, After page, Multi-bundle), sortable drag-and-drop PDF merging, ZIP archive generation, and responsive glassmorphic welcome UI with particle canvas animations.
 *   **Day 40 — Autonomous Agent Task Simulator (Upcoming)**
     *   *Tools/Tech:* Agentic State Machines, Event-Driven Architecture, Full-Stack Dashboard
     *   *Key Learnings:* Building autonomous agent state loops, tool execution simulations, and real-time execution telemetry.
+*   **Day 41 — AI Data Pipeline & ETL Automation Studio (Upcoming)**
+    *   *Tools/Tech:* Python, Dataform, BigQuery/SQL, Schema Cleaners, Pipeline Orchestration
+    *   *Key Learnings:* Automated data cleaning pipelines, ELT transformations, schema mapping, and data quality validation frameworks.
 
 </details>
 

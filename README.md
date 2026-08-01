@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[███████████████████████████░░░░░░░░░░░░░] 65% Complete (39 / 60 Days)`
+`[████████████████████████████░░░░░░░░░░░░] 67% Complete (40 / 60 Days)`
 
 ---
 
@@ -86,8 +86,9 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day37/          # Task Compass (Organizational Workflows)
 ├── Day38/          # Typing Speed Studio
 ├── Day39/          # PDF Splitter & Merger
-├── Day40/          # Upcoming...
+├── Day40/          # AI Assistant Builder
 ├── Day41/          # Upcoming...
+├── Day42/          # Upcoming...
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -138,10 +139,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **37** | [Task Compass](Day37/day37.md) | Task Compass: Interactive organizational workflow, task ownership, delegation & cross-team collaboration simulator | ✅ Done |
 | **38** | [Typing Speed Studio](Day38/day38.md) | Typing Speed Studio: Commercial-grade typing platform with code/legal text modes, real-time WPM/Accuracy SVG charts, error heatmaps & Web Audio API sound synthesis | ✅ Done |
 | **39** | [PDF Splitter & Merger](Day39/day39.md) | PDF Splitter & Merger: Private client-side PDF utility with interactive page grid, 5 extraction modes, drag-and-drop merger & demo generator | ✅ Done |
-| **40** | *Upcoming...* | Autonomous Agent Task Simulator | ⏳ |
-| **41** | *Upcoming...* | AI Data Pipeline & ETL Automation Studio | ⏳ |
+| **40** | [AI Assistant Builder](Day40/day40.md) | AI Assistant Builder: Production-ready interview-driven assistant builder with 0-100% readiness score dial, ATS resume rewriter, skill-gap diagnostics & 30-day roadmap | ✅ Done |
+| **41** | *Upcoming...* | Autonomous Agent Task Simulator | ⏳ |
+| **42** | *Upcoming...* | AI Data Pipeline & ETL Automation Studio | ⏳ |
 
-*Days 42 to 60 will be updated as the challenge progresses!*
+*Days 43 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -287,10 +289,13 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 39 — PDF Splitter & Merger**
     *   *Tools/Tech:* HTML5, CSS3, JavaScript, PDF-Lib, PDF.js, JSZip, Canvas API, Web Animations
     *   *Key Learnings:* 100% client-side browser PDF manipulation with pdf-lib & pdf.js, interactive page thumbnail canvas rendering, 5 distinct PDF split strategies (Visual select, Range, Every N, After page, Multi-bundle), sortable drag-and-drop PDF merging, ZIP archive generation, and responsive glassmorphic welcome UI with particle canvas animations.
-*   **Day 40 — Autonomous Agent Task Simulator (Upcoming)**
+*   **Day 40 — AI Assistant Builder**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Anthropic Claude 3.5 Messages API, System Prompt Engineering, View Router
+    *   *Key Learnings:* Interview-driven AI assistant generation, production-quality system prompt design (role, constraints, output schema, edge-case guards), light glassmorphism UI/UX design, interactive score gauge animations, ATS resume bullet optimizer, and 30-day candidate roadmap generation.
+*   **Day 41 — Autonomous Agent Task Simulator (Upcoming)**
     *   *Tools/Tech:* Agentic State Machines, Event-Driven Architecture, Full-Stack Dashboard
     *   *Key Learnings:* Building autonomous agent state loops, tool execution simulations, and real-time execution telemetry.
-*   **Day 41 — AI Data Pipeline & ETL Automation Studio (Upcoming)**
+*   **Day 42 — AI Data Pipeline & ETL Automation Studio (Upcoming)**
     *   *Tools/Tech:* Python, Dataform, BigQuery/SQL, Schema Cleaners, Pipeline Orchestration
     *   *Key Learnings:* Automated data cleaning pipelines, ELT transformations, schema mapping, and data quality validation frameworks.
 

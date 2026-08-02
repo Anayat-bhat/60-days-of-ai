@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[████████████████████████████░░░░░░░░░░░░] 67% Complete (40 / 60 Days)`
+`[████████████████████████████░░░░░░░░░░░░] 68% Complete (41 / 60 Days)`
 
 ---
 
@@ -87,8 +87,9 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day38/          # Typing Speed Studio
 ├── Day39/          # PDF Splitter & Merger
 ├── Day40/          # AI Assistant Builder
-├── Day41/          # Upcoming...
+├── Day41/          # Interactive Learning Studio (Python OOP)
 ├── Day42/          # Upcoming...
+├── Day43/          # Upcoming...
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -140,10 +141,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **38** | [Typing Speed Studio](Day38/day38.md) | Typing Speed Studio: Commercial-grade typing platform with code/legal text modes, real-time WPM/Accuracy SVG charts, error heatmaps & Web Audio API sound synthesis | ✅ Done |
 | **39** | [PDF Splitter & Merger](Day39/day39.md) | PDF Splitter & Merger: Private client-side PDF utility with interactive page grid, 5 extraction modes, drag-and-drop merger & demo generator | ✅ Done |
 | **40** | [AI Assistant Builder](Day40/day40.md) | AI Assistant Builder: Production-ready interview-driven assistant builder with 0-100% readiness score dial, ATS resume rewriter, skill-gap diagnostics & 30-day roadmap | ✅ Done |
-| **41** | *Upcoming...* | Autonomous Agent Task Simulator | ⏳ |
-| **42** | *Upcoming...* | AI Data Pipeline & ETL Automation Studio | ⏳ |
+| **41** | [Interactive Learning Studio](Day41/day41.md) | Interactive Learning Studio: Offline educational web app for Python OOP featuring 4 structured modules, interactive quizzes, visual UML/concept diagrams, live coding exercises, cheat sheet & Library System challenge | ✅ Done |
+| **42** | *Upcoming...* | Autonomous Agent Task Simulator | ⏳ |
+| **43** | *Upcoming...* | AI Data Pipeline & ETL Automation Studio | ⏳ |
 
-*Days 43 to 60 will be updated as the challenge progresses!*
+*Days 44 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -292,10 +294,19 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 40 — AI Assistant Builder**
     *   *Tools/Tech:* HTML5, CSS3, JavaScript, Anthropic Claude 3.5 Messages API, System Prompt Engineering, View Router
     *   *Key Learnings:* Interview-driven AI assistant generation, production-quality system prompt design (role, constraints, output schema, edge-case guards), light glassmorphism UI/UX design, interactive score gauge animations, ATS resume bullet optimizer, and 30-day candidate roadmap generation.
-*   **Day 41 — Autonomous Agent Task Simulator (Upcoming)**
+
+</details>
+
+<details>
+<summary><b>🎓 Click to expand Days 41 - 50: Educational Studios, Agentic Systems & Pipelines</b></summary>
+
+*   **Day 41 — Interactive Learning Studio**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Python OOP, Interactive Quizzes, UML Diagrams
+    *   *Key Learnings:* Single-file offline educational web application teaching Python Object-Oriented Programming (Classes, Objects, Encapsulation, Inheritance, Polymorphism, Dunder methods), interactive module quizzes, visual UML/composition diagrams, live coding exercises, and a Library System final project challenge.
+*   **Day 42 — Autonomous Agent Task Simulator (Upcoming)**
     *   *Tools/Tech:* Agentic State Machines, Event-Driven Architecture, Full-Stack Dashboard
     *   *Key Learnings:* Building autonomous agent state loops, tool execution simulations, and real-time execution telemetry.
-*   **Day 42 — AI Data Pipeline & ETL Automation Studio (Upcoming)**
+*   **Day 43 — AI Data Pipeline & ETL Automation Studio (Upcoming)**
     *   *Tools/Tech:* Python, Dataform, BigQuery/SQL, Schema Cleaners, Pipeline Orchestration
     *   *Key Learnings:* Automated data cleaning pipelines, ELT transformations, schema mapping, and data quality validation frameworks.
 

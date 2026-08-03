@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[████████████████████████████░░░░░░░░░░░░] 68% Complete (41 / 60 Days)`
+`[████████████████████████████░░░░░░░░░░░░] 70% Complete (42 / 60 Days)`
 
 ---
 
@@ -88,8 +88,9 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day39/          # PDF Splitter & Merger
 ├── Day40/          # AI Assistant Builder
 ├── Day41/          # Interactive Learning Studio (Python OOP)
-├── Day42/          # Upcoming...
+├── Day42/          # Personal Financial Command Center
 ├── Day43/          # Upcoming...
+├── Day44/          # Upcoming...
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -142,10 +143,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **39** | [PDF Splitter & Merger](Day39/day39.md) | PDF Splitter & Merger: Private client-side PDF utility with interactive page grid, 5 extraction modes, drag-and-drop merger & demo generator | ✅ Done |
 | **40** | [AI Assistant Builder](Day40/day40.md) | AI Assistant Builder: Production-ready interview-driven assistant builder with 0-100% readiness score dial, ATS resume rewriter, skill-gap diagnostics & 30-day roadmap | ✅ Done |
 | **41** | [Interactive Learning Studio](Day41/day41.md) | Interactive Learning Studio: Offline educational web app for Python OOP featuring 4 structured modules, interactive quizzes, visual UML/concept diagrams, live coding exercises, cheat sheet & Library System challenge | ✅ Done |
-| **42** | *Upcoming...* | Autonomous Agent Task Simulator | ⏳ |
-| **43** | *Upcoming...* | AI Data Pipeline & ETL Automation Studio | ⏳ |
+| **42** | [Personal Financial Command Center](Day42/day42.md) | Personal Financial Command Center: Interactive browser-based financial dashboard featuring expense/income tracking, budget planning, savings goals, subscription manager, AI health score & What-if simulator | ✅ Done |
+| **43** | *Upcoming...* | Autonomous Agent Task Simulator | ⏳ |
+| **44** | *Upcoming...* | AI Data Pipeline & ETL Automation Studio | ⏳ |
 
-*Days 44 to 60 will be updated as the challenge progresses!*
+*Days 45 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -303,10 +305,13 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 41 — Interactive Learning Studio**
     *   *Tools/Tech:* HTML5, CSS3, JavaScript, Python OOP, Interactive Quizzes, UML Diagrams
     *   *Key Learnings:* Single-file offline educational web application teaching Python Object-Oriented Programming (Classes, Objects, Encapsulation, Inheritance, Polymorphism, Dunder methods), interactive module quizzes, visual UML/composition diagrams, live coding exercises, and a Library System final project challenge.
-*   **Day 42 — Autonomous Agent Task Simulator (Upcoming)**
+*   **Day 42 — Personal Financial Command Center**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Chart.js, LocalStorage, Financial Analytics Engine
+    *   *Key Learnings:* Interactive browser-based financial command center for income/expense tracking, budget limits, savings goals, subscription management, cash flow analytics, AI financial health score & What-if scenario simulator.
+*   **Day 43 — Autonomous Agent Task Simulator (Upcoming)**
     *   *Tools/Tech:* Agentic State Machines, Event-Driven Architecture, Full-Stack Dashboard
     *   *Key Learnings:* Building autonomous agent state loops, tool execution simulations, and real-time execution telemetry.
-*   **Day 43 — AI Data Pipeline & ETL Automation Studio (Upcoming)**
+*   **Day 44 — AI Data Pipeline & ETL Automation Studio (Upcoming)**
     *   *Tools/Tech:* Python, Dataform, BigQuery/SQL, Schema Cleaners, Pipeline Orchestration
     *   *Key Learnings:* Automated data cleaning pipelines, ELT transformations, schema mapping, and data quality validation frameworks.
 

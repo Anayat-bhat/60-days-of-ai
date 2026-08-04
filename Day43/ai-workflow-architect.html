@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Workflow Architect — Full Stack AI Portfolio Build</title>
+<style>
+:root{
+  --bg:#0A0F16;
+  --bg-raised:#0F1620;
+  --bg-card:#111A26;
+  --line:#1E2A38;
+  --trace:#1B2735;
+  --text:#E7EDF3;
+  --muted:#8FA0B3;
+  --dim:#5D6C7D;
+  --cyan:#54E6D6;
+  --cyan-dim:#2C7A72;
+  --amber:#F0A93B;
+  --violet:#9C8CF0;
+  --danger:#E8697A;
+  --font-display:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;
+  --font-body:'Inter',ui-sans-serif,system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+  --radius:10px;
+}
+@font-face{font-family:'Space Grotesk';src:local('Space Grotesk');}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(84,230,214,0.06) 1px, transparent 0) 0 0/28px 28px,
+    linear-gradient(180deg,#0A0F16 0%,#0A0F16 100%);
+  color:var(--text);
+  font-family:var(--font-body);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+body.light{
+  --bg:#F3F5F2;
+  --bg-raised:#FFFFFF;
+  --bg-card:#FFFFFF;
+  --line:#DCE3DE;
+  --trace:#D3DBD5;
+  --text:#111A17;
+  --muted:#4B5A54;
+  --dim:#8A9791;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(20,120,110,0.07) 1px, transparent 0) 0 0/28px 28px,
+    linear-gradient(180deg,#F3F5F2 0%,#F3F5F2 100%);
+}
+::selection{background:var(--cyan);color:#04231F;}
+a{color:inherit;}
+button{font-family:inherit;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+
+/* ---------- topbar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;max-width:1180px;margin:0 auto;}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;letter-spacing:.2px;}
+.brand-mark{width:22px;height:22px;flex:none;}
+.brand-name{font-size:15px;}
+.brand-sub{color:var(--dim);font-size:11px;font-family:var(--font-mono);letter-spacing:.5px;text-transform:uppercase;}
+.topbar-actions{display:flex;gap:8px;align-items:center;}
+.btn{
+  border:1px solid var(--line);background:var(--bg-raised);color:var(--text);
+  padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;transition:.15s;font-family:var(--font-body);
+}
+.btn:hover{border-color:var(--cyan-dim);color:var(--cyan);}
+.btn.primary{background:var(--cyan);color:#04231F;border-color:var(--cyan);font-weight:600;}
+.btn.primary:hover{background:#6FF0E1;color:#04231F;}
+.btn.icon{padding:8px;}
+.progress-pill{
+  display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--muted);
+  border:1px solid var(--line);padding:6px 10px;border-radius:20px;
+}
+.progress-track{width:70px;height:5px;border-radius:4px;background:var(--trace);overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--cyan-dim),var(--cyan));width:0%;transition:width .4s;}
+
+/* ---------- hero ---------- */
+.hero{padding:64px 0 40px;position:relative;overflow:hidden;}
+.hero-eyebrow{font-family:var(--font-mono);font-size:12px;color:var(--cyan);letter-spacing:1.5px;text-transform:uppercase;display:flex;align-items:center;gap:8px;}
+.hero-eyebrow::before{content:'';width:8px;height:8px;background:var(--cyan);border-radius:50%;box-shadow:0 0 0 3px rgba(84,230,214,.15);}
+.hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,54px);line-height:1.05;margin:16px 0 14px;font-weight:600;letter-spacing:-.5px;}
+.hero h1 span{color:var(--cyan);}
+.hero p{color:var(--muted);max-width:640px;font-size:16px;}
+.hero-stats{display:flex;gap:0;margin-top:32px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;flex-wrap:wrap;}
+.hero-stat{flex:1;min-width:130px;padding:16px 18px;border-right:1px solid var(--line);}
+.hero-stat:last-child{border-right:none;}
+.hero-stat b{display:block;font-family:var(--font-display);font-size:22px;color:var(--cyan);}
+.hero-stat span{font-size:12px;color:var(--muted);}
+
+/* ---------- circuit map ---------- */
+.map-section{padding:20px 0 50px;}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:8px;}
+.section-title{font-family:var(--font-display);font-size:22px;font-weight:600;}
+.section-note{color:var(--dim);font-size:12px;font-family:var(--font-mono);}
+.map-scroll{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-card);padding:10px 4px;overflow-x:auto;}
+#circuitSvg{display:block;min-width:1200px;width:100%;height:200px;}
+.node-group{cursor:pointer;}
+.node-circle{fill:var(--bg-raised);stroke:var(--trace);stroke-width:2;transition:.2s;}
+.node-group:hover .node-circle{stroke:var(--cyan);}
+.node-group.done .node-circle{fill:var(--cyan-dim);stroke:var(--cyan);}
+.node-group.active .node-circle{stroke:var(--amber);}
+.node-label{fill:var(--muted);font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.5px;}
+.node-num{fill:var(--text);font-family:var(--font-display);font-size:13px;font-weight:600;}
+.trace-line{stroke:var(--trace);stroke-width:2;fill:none;}
+.trace-pulse{stroke:var(--cyan);stroke-width:2;fill:none;stroke-dasharray:6 10;opacity:.6;animation:dash 3s linear infinite;}
+@keyframes dash{to{stroke-dashoffset:-160;}}
+
+/* ---------- stage cards ---------- */
+.stage{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-card);
+  margin-bottom:18px;overflow:hidden;scroll-margin-top:90px;
+}
+.stage-head{
+  display:flex;align-items:center;gap:16px;padding:20px 22px;cursor:pointer;user-select:none;
+}
+.stage-index{
+  font-family:var(--font-display);font-size:13px;color:var(--cyan-dim);border:1px solid var(--line);
+  border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex:none;
+}
+.stage.done .stage-index{background:var(--cyan-dim);color:#04231F;border-color:var(--cyan-dim);}
+.stage-head-text{flex:1;min-width:0;}
+.stage-head-text h3{font-family:var(--font-display);font-size:17px;margin:0 0 3px;font-weight:600;}
+.stage-head-text p{margin:0;color:var(--muted);font-size:13px;}
+.stage-meta{display:flex;gap:14px;align-items:center;flex:none;}
+.chip{font-family:var(--font-mono);font-size:11px;color:var(--muted);border:1px solid var(--line);padding:3px 9px;border-radius:20px;white-space:nowrap;}
+.chevron{width:16px;height:16px;transition:.25s;flex:none;color:var(--dim);}
+.stage.open .chevron{transform:rotate(180deg);}
+.stage-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.stage.open .stage-body{max-height:4000px;}
+.stage-inner{padding:0 22px 26px;border-top:1px solid var(--line);}
+.stage-checkbox{display:flex;align-items:center;gap:8px;padding-top:18px;}
+.stage-checkbox input{accent-color:var(--cyan);width:15px;height:15px;}
+.stage-checkbox label{font-size:12px;color:var(--muted);font-family:var(--font-mono);cursor:pointer;}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:18px;}
+@media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+.block h4{
+  font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--cyan);
+  margin:0 0 8px;display:flex;align-items:center;gap:6px;
+}
+.block ul{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px;}
+.block ul li{margin-bottom:5px;}
+.block p{color:var(--muted);font-size:13.5px;margin:0;}
+
+.tool-row{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:10px;
+  border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:8px;background:var(--bg-raised);
+}
+.tool-name{font-weight:600;font-size:13.5px;}
+.tool-why{color:var(--muted);font-size:12.5px;margin-top:2px;}
+.tool-tag{font-family:var(--font-mono);font-size:10px;color:var(--cyan);border:1px solid var(--cyan-dim);padding:2px 7px;border-radius:20px;white-space:nowrap;flex:none;}
+.tool-tag.alt{color:var(--violet);border-color:#4B3F82;}
+
+.prompt-box{
+  background:#050A10;border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-family:var(--font-mono);
+  font-size:12.5px;color:#B8F5EC;position:relative;margin-bottom:10px;white-space:pre-wrap;
+}
+body.light .prompt-box{background:#0B1512;color:#0E5E52;}
+.copy-btn{
+  position:absolute;top:8px;right:8px;background:var(--bg-raised);border:1px solid var(--line);color:var(--muted);
+  font-size:10px;padding:3px 8px;border-radius:6px;cursor:pointer;font-family:var(--font-body);
+}
+.copy-btn:hover{color:var(--cyan);border-color:var(--cyan-dim);}
+
+.mistake{display:flex;gap:8px;font-size:13.5px;color:var(--muted);margin-bottom:6px;}
+.mistake::before{content:'✕';color:var(--danger);flex:none;font-size:12px;margin-top:2px;}
+.practice{display:flex;gap:8px;font-size:13.5px;color:var(--muted);margin-bottom:6px;}
+.practice::before{content:'✓';color:var(--cyan);flex:none;font-size:12px;margin-top:2px;}
+
+.footer-strip{display:flex;gap:18px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);}
+.footer-strip .fs{font-family:var(--font-mono);font-size:11.5px;color:var(--dim);}
+.footer-strip .fs b{color:var(--muted);font-weight:600;}
+
+textarea.note-area{
+  width:100%;min-height:70px;background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;
+  color:var(--text);font-family:var(--font-body);font-size:13px;padding:10px 12px;resize:vertical;margin-top:16px;
+}
+textarea.note-area:focus{outline:none;border-color:var(--cyan-dim);}
+.note-label{font-family:var(--font-mono);font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:16px;display:block;}
+.bookmark-btn{
+  display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--line);color:var(--dim);
+  font-size:11px;padding:5px 10px;border-radius:20px;cursor:pointer;margin-top:10px;font-family:var(--font-mono);
+}
+.bookmark-btn.active{color:var(--amber);border-color:#5C4419;}
+
+/* ---------- decision tree ---------- */
+.dt-section{padding:10px 0 50px;}
+.dt-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-card);padding:24px;}
+.dt-q{font-family:var(--font-display);font-size:16px;margin-bottom:14px;}
+.dt-options{display:flex;gap:10px;flex-wrap:wrap;}
+.dt-opt{
+  border:1px solid var(--line);background:var(--bg-raised);padding:10px 16px;border-radius:8px;cursor:pointer;
+  font-size:13px;transition:.15s;
+}
+.dt-opt:hover{border-color:var(--cyan-dim);}
+.dt-result{
+  margin-top:18px;padding:16px 18px;border:1px dashed var(--cyan-dim);border-radius:8px;background:rgba(84,230,214,.05);
+  font-size:13.5px;color:var(--text);display:none;
+}
+.dt-result.show{display:block;}
+.dt-crumbs{font-family:var(--font-mono);font-size:11px;color:var(--dim);margin-bottom:14px;}
+
+/* ---------- comparison table ---------- */
+.compare-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-card);}
+table.compare{width:100%;border-collapse:collapse;font-size:13px;min-width:640px;}
+table.compare th{text-align:left;padding:12px 16px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--cyan);border-bottom:1px solid var(--line);background:var(--bg-raised);}
+table.compare td{padding:12px 16px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top;}
+table.compare tr:last-child td{border-bottom:none;}
+table.compare td.name{color:var(--text);font-weight:600;}
+
+/* ---------- summary / stack / resources ---------- */
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:760px){.summary-grid{grid-template-columns:1fr;}}
+.panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-card);padding:22px;}
+.panel h3{font-family:var(--font-display);font-size:16px;margin:0 0 14px;display:flex;align-items:center;gap:8px;}
+.panel h3::before{content:'';width:6px;height:6px;background:var(--cyan);border-radius:1px;}
+.stack-item{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;}
+.stack-item:last-child{border-bottom:none;}
+.stack-item span{color:var(--dim);font-family:var(--font-mono);font-size:11px;}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:8px;}
+.tag-cloud span{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);border:1px solid var(--line);padding:5px 10px;border-radius:20px;}
+.res-link{display:block;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted);}
+.res-link:last-child{border-bottom:none;}
+.res-link b{color:var(--text);display:block;font-size:13.5px;margin-bottom:2px;}
+
+footer{padding:40px 0 60px;text-align:center;color:var(--dim);font-size:12px;font-family:var(--font-mono);}
+
+@media print{
+  .topbar,.map-section,.dt-section,.bookmark-btn,.copy-btn,.note-area,.progress-pill{display:none !important;}
+  body{background:#fff;color:#000;}
+  .stage-body{max-height:none !important;}
+  .stage{break-inside:avoid;border-color:#ccc;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#54E6D6" stroke-width="1.6"/><path d="M12 2v5M12 17v5M2 12h5M17 12h5M5 5l3.5 3.5M15.5 15.5L19 19M19 5l-3.5 3.5M8.5 15.5L5 19" stroke="#54E6D6" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <div>
+        <div class="brand-name">AI Workflow Architect</div>
+        <div class="brand-sub">Full Stack AI Portfolio Build</div>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <div class="progress-pill"><span id="progressText">0/10 stages</span><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div></div>
+      <button class="btn icon" id="themeToggle" title="Toggle light/dark">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path id="themeIcon" d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+      </button>
+      <button class="btn" id="printBtn">Print Guide</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="hero-eyebrow">Workflow blueprint · Generated for a single role</div>
+    <h1>End‑to‑End <span>AI Portfolio Project</span> Workflow</h1>
+    <p>A complete build path for a Full Stack AI Application — from idea to a live, interview-ready portfolio piece. Ten stages, each with objectives, tasks, tool picks, prompts, and pitfalls. Track your progress, bookmark stages, and print the whole thing as a guide.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><b>10</b><span>Stages, planning → maintenance</span></div>
+      <div class="hero-stat"><b>~3–5 wks</b><span>Realistic solo timeline</span></div>
+      <div class="hero-stat"><b>24</b><span>AI tools evaluated</span></div>
+      <div class="hero-stat"><b>1</b><span>Deployed, documented project</span></div>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <div class="section-head">
+      <div class="section-title">Workflow Map</div>
+      <div class="section-note">click a node to jump to its stage</div>
+    </div>
+    <div class="map-scroll">
+      <svg id="circuitSvg" viewBox="0 0 1200 200"></svg>
+    </div>
+  </section>
+
+  <section id="stagesSection">
+    <div class="section-head">
+      <div class="section-title">The Workflow</div>
+      <div class="section-note">10 stages · expand each for full detail</div>
+    </div>
+    <div id="stagesContainer"></div>
+  </section>
+
+  <section class="dt-section">
+    <div class="section-head">
+      <div class="section-title">Stack Decision Tree</div>
+      <div class="section-note">answer 3 questions → get a recommended stack</div>
+    </div>
+    <div class="dt-card">
+      <div class="dt-crumbs" id="dtCrumbs">Question 1 of 3</div>
+      <div id="dtQuestion"></div>
+      <div class="dt-result" id="dtResult"></div>
+    </div>
+  </section>
+
+  <section class="dt-section" style="padding-top:0;">
+    <div class="section-head">
+      <div class="section-title">Tool Comparison — AI Coding Copilots</div>
+      <div class="section-note">for the build stages</div>
+    </div>
+    <div class="compare-wrap">
+      <table class="compare" id="compareTable"></table>
+    </div>
+  </section>
+
+  <section class="dt-section" style="padding-top:0;">
+    <div class="summary-grid">
+      <div class="panel">
+        <h3>Workflow Summary</h3>
+        <p style="color:var(--muted);font-size:13.5px;">Scope a single believable AI feature, wireframe and design it, build a React + Tailwind frontend backed by a FastAPI service that calls an LLM or a trained model, test it end‑to‑end, deploy frontend and backend for free, then package the whole thing into a story: README, demo video, and a LinkedIn post. The project isn't done until someone outside your head can use it and understand why it exists in under 30 seconds.</p>
+      </div>
+      <div class="panel">
+        <h3>Recommended AI Stack</h3>
+        <div class="stack-item"><div>Claude (Code / chat)</div><span>architecture, code, debugging</span></div>
+        <div class="stack-item"><div>v0.dev or Claude</div><span>UI scaffolding</span></div>
+        <div class="stack-item"><div>Cursor or VS Code + Copilot</div><span>in-editor pair programming</span></div>
+        <div class="stack-item"><div>FastAPI + Uvicorn</div><span>backend / model serving</span></div>
+        <div class="stack-item"><div>HuggingFace / OpenAI / Claude API</div><span>the "AI" in the app</span></div>
+        <div class="stack-item"><div>Vercel + Render/Railway</div><span>deployment</span></div>
+        <div class="stack-item"><div>Notion AI or ChatGPT</div><span>docs & README drafting</span></div>
+      </div>
+      <div class="panel">
+        <h3>Learning Resources</h3>
+        <a class="res-link"><b>FastAPI Official Docs</b>fastapi.tiangolo.com — the fastest way to learn the framework properly</a>
+        <a class="res-link"><b>DeepLearning.AI Short Courses</b>free, focused courses on RAG, agents, prompt engineering</a>
+        <a class="res-link"><b>fast.ai Practical Deep Learning</b>free, project-first ML fundamentals</a>
+        <a class="res-link"><b>Vercel + React docs</b>deployment and framework fundamentals</a>
+      </div>
+      <div class="panel">
+        <h3>Communities</h3>
+        <a class="res-link"><b>r/MachineLearning & r/cscareerquestions</b>feedback and market reality checks</a>
+        <a class="res-link"><b>HuggingFace Discord</b>open-source model help</a>
+        <a class="res-link"><b>Indie Hackers</b>building-in-public accountability</a>
+        <a class="res-link"><b>LinkedIn AI/ML creator circles</b>distribution for your build-in-public posts</a>
+      </div>
+      <div class="panel">
+        <h3>Search Keywords</h3>
+        <div class="tag-cloud">
+          <span>full stack AI project ideas</span><span>FastAPI RAG tutorial</span><span>React FastAPI deployment</span>
+          <span>AI portfolio project github</span><span>LangChain chatbot demo</span><span>AI engineer resume project</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Future Automation Opportunities</h3>
+        <ul style="margin:0;padding-left:18px;color:var(--muted);font-size:13.5px;">
+          <li>Auto-generate weekly progress posts from your git commit history</li>
+          <li>CI pipeline that runs tests + posts a Slack/Discord summary</li>
+          <li>Scheduled model re-evaluation job if your project uses a fine-tuned model</li>
+          <li>Auto-sync project metrics (users, uptime) into your portfolio site</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="dt-section" style="padding-top:0;">
+    <div class="panel">
+      <h3>Additional AI Prompts to Reuse</h3>
+      <div class="prompt-box">Act as a senior full-stack engineer reviewing my project for a portfolio. Here is my README and repo structure: [paste]. Identify the 3 things a hiring manager would question first, and rewrite my README's opening paragraph so it answers them.<button class="copy-btn" onclick="copyPrompt(this)">Copy</button></div>
+      <div class="prompt-box">I'm building [one-line project description] using React + FastAPI + [model/API]. Draft a system architecture in plain text (boxes and arrows description) showing data flow from user input to AI response and back.<button class="copy-btn" onclick="copyPrompt(this)">Copy</button></div>
+      <div class="prompt-box">Turn this changelog of my project into a 150-word LinkedIn "build in public" post, first person, no hype language, one concrete technical detail, ending with a genuine question for readers.<button class="copy-btn" onclick="copyPrompt(this)">Copy</button></div>
+    </div>
+  </section>
+</div>
+
+<footer>AI Workflow Architect · generated as a static, offline-capable guide · your progress, notes and bookmarks are saved locally in this browser</footer>
+
+<script>
+/* ================= DATA ================= */
+const stages = [
+  {
+    id:'scope', title:'Scope the Project', sub:'Pick one believable AI feature and a user',
+    time:'1–2 days', output:'One-page project brief',
+    objectives:['Choose an AI capability worth showcasing (RAG, classification, agentic workflow, generation)','Define one real user and their problem, not a feature list','Set a hard scope boundary you will not cross in v1'],
+    tasks:['List 5 project ideas that use skills you actually want a job for','Score each on: buildable in 2 weeks, demoable in 60 seconds, uses a real dataset/API','Write a 3-sentence pitch: who it is for, what it does, why AI (not rules) is needed','Define the single "wow moment" the demo must hit'],
+    tools:[
+      {name:'Claude', why:'Best for structured brainstorming and honest scope pushback — will tell you when an idea is too broad.', tag:'Primary'},
+      {name:'ChatGPT', why:'Good alternative for rapid idea listing and market-fit sanity checks.', tag:'Alternative', alt:true},
+      {name:'Perplexity', why:'Fast research on whether similar tools already exist, and how they position themselves.', tag:'Research', alt:true}
+    ],
+    prompts:['I want to build a full-stack AI portfolio project. My strengths are: [React, FastAPI, LangChain]. My target roles are: [AI Engineer Intern / ML Engineer]. Give me 5 project ideas scoped to 2 weeks solo, each with the one AI capability it showcases and why a recruiter would care.'],
+    practices:['Pick depth over breadth: one AI feature done well beats five done shallowly','Write the demo script before writing any code','Anchor scope to a real dataset or API you have already confirmed access to'],
+    mistakes:['Choosing a project because it sounds impressive, not because you can finish it','Starting to code before defining who the user is','Scoping around a model you have not actually tested for output quality'],
+    efficiency:'Timebox ideation to 90 minutes total — more time spent comparing ideas rarely improves the final choice.'
+  },
+  {
+    id:'plan', title:'Plan & Architect', sub:'System design, data flow, tech decisions',
+    time:'1–2 days', output:'Architecture diagram + tech stack doc',
+    objectives:['Decide the exact stack (frontend, backend, model/API, database)','Map data flow from user input to AI output and back','Identify the riskiest technical unknown and de-risk it first'],
+    tasks:['Sketch architecture: client → API → model/vector store → response','Decide hosting for each layer (Vercel, Render, Railway, HuggingFace Spaces)','List every external API/key you will need and confirm free-tier limits','Build a throwaway script that proves the riskiest part works (e.g. the RAG retrieval quality)'],
+    tools:[
+      {name:'Claude (extended thinking)', why:'Strong at reasoning through architecture trade-offs and catching missing pieces like auth or rate limits.', tag:'Primary'},
+      {name:'Excalidraw', why:'Fastest way to turn the architecture into a diagram you can reuse in your README.', tag:'Diagramming', alt:true},
+      {name:'Notion AI', why:'Good for turning a messy plan into a clean structured doc.', tag:'Alternative', alt:true}
+    ],
+    prompts:['Here is my project brief: [paste]. Propose a system architecture using React + FastAPI + [model/API of choice]. Call out the riskiest technical assumption I am making and suggest how to validate it in under an hour.'],
+    practices:['De-risk the hardest technical piece in week one, not week three','Keep the v1 architecture boring — swap in cleverness only after it works'],
+    mistakes:['Designing for scale a portfolio project will never need','Skipping the de-risking spike and discovering the blocker mid-build'],
+    efficiency:'A 20-minute whiteboard sketch now saves days of refactoring later — do not skip this stage even under time pressure.'
+  },
+  {
+    id:'design', title:'UI/UX Design', sub:'Wireframes, flow, and visual direction',
+    time:'2–3 days', output:'Wireframes + one polished screen',
+    objectives:['Map the core user flow in 3–5 screens max','Establish a visual identity distinct from default AI-generated UI','Design the "empty state" and "loading" state — most demos ignore these'],
+    tasks:['Wireframe the core flow on paper or in Figma before touching code','Pick a type + color system and write it down as tokens','Design how the AI output is presented (streaming text, cards, structured data)','Design loading, error, and empty states explicitly'],
+    tools:[
+      {name:'v0.dev', why:'Generates production-ready React + Tailwind components from a text description, faster than wireframing manually.', tag:'Primary'},
+      {name:'Figma + Figma AI', why:'Best when you need precise, reusable design systems beyond a single generated screen.', tag:'Alternative', alt:true},
+      {name:'Claude', why:'Good for critiquing a screenshot of your UI and flagging generic patterns.', tag:'Critique', alt:true}
+    ],
+    prompts:['Design a dashboard for [project]. Primary user action is [X]. Use a [dark/light] theme with a [technical/warm/minimal] feel. Include loading and empty states. Output as a single React component with Tailwind classes.'],
+    practices:['Design the loading and error states, not just the happy path','Steal type and color pairing ideas from tools in your own domain, not generic templates'],
+    mistakes:['Copying the default purple-gradient SaaS look with no connection to the project subject','Spending days in Figma polishing a screen you will redesign after seeing real data'],
+    efficiency:'Generate 3 quick UI variants with v0 or Claude before committing — picking from options is faster than designing from a blank canvas.'
+  },
+  {
+    id:'frontend', title:'Frontend Development', sub:'Build the React interface',
+    time:'3–5 days', output:'Working, responsive frontend',
+    objectives:['Implement the core flow end-to-end with mock data first','Wire up real API calls once the UI is stable','Make it responsive and keyboard-accessible'],
+    tasks:['Scaffold the app (Vite + React + Tailwind)','Build components against mock/static JSON before wiring the backend','Add loading skeletons and streaming text handling if using an LLM API','Test on mobile viewport widths continuously, not at the end'],
+    tools:[
+      {name:'Claude Code', why:'Handles multi-file React changes with context of your whole repo — best for iterative feature building.', tag:'Primary'},
+      {name:'Cursor', why:'Strong alternative if you prefer an IDE-native AI pairing experience.', tag:'Alternative', alt:true},
+      {name:'GitHub Copilot', why:'Good for fast autocomplete on repetitive component boilerplate.', tag:'Autocomplete', alt:true}
+    ],
+    prompts:['Here is my component structure: [paste tree]. Add a streaming text component that renders tokens as they arrive from a fetch stream, with a blinking cursor while streaming and a stop button.'],
+    practices:['Build against mock data first so frontend and backend can progress in parallel','Commit in small, working increments — never leave the app broken overnight'],
+    mistakes:['Wiring the real API before the UI states (loading/error/success) are all handled','Over-engineering state management for an app with 3 screens'],
+    efficiency:'Keep a running "TODO / later" list of polish items instead of chasing them mid-build — protects momentum on the core flow.'
+  },
+  {
+    id:'backend', title:'Backend & AI Integration', sub:'FastAPI service + model/LLM wiring',
+    time:'3–5 days', output:'Deployed API with working AI endpoint',
+    objectives:['Build the API layer that the frontend calls','Integrate the model or LLM with proper error handling and timeouts','Add basic input validation and rate limiting'],
+    tasks:['Scaffold FastAPI with clear route structure and Pydantic models','Wire the AI call (LLM API, HuggingFace model, or custom-trained model)','Add retries/timeouts and a sane fallback when the AI call fails','Write 3–5 test cases for the main endpoint'],
+    tools:[
+      {name:'Claude', why:'Reliable for FastAPI patterns, Pydantic schema design, and reasoning about failure modes.', tag:'Primary'},
+      {name:'LangChain / LlamaIndex', why:'Use when the project needs retrieval (RAG) — saves building chunking/embedding pipelines from scratch.', tag:'Framework', alt:true},
+      {name:'Postman / Thunder Client', why:'Fast manual testing of endpoints before frontend integration.', tag:'Testing', alt:true}
+    ],
+    prompts:['Write a FastAPI endpoint POST /generate that accepts {query: str}, calls [Claude/OpenAI/HF] with a system prompt for [task], handles timeouts with a 10s limit, and returns a structured JSON response with error handling for empty or malformed input.'],
+    practices:['Never let a raw model error reach the frontend — always catch and return a clean message','Log every AI call input/output during development to catch bad edge cases early'],
+    mistakes:['Hardcoding API keys in source instead of environment variables','No timeout on the model call, so one slow request can hang the whole demo'],
+    efficiency:'Build a small CLI test script that calls your endpoint directly — much faster than testing through the UI on every change.'
+  },
+  {
+    id:'test', title:'Testing & QA', sub:'Make sure it survives a live demo',
+    time:'2–3 days', output:'Test suite + a demo that survives edge cases',
+    objectives:['Catch the failure modes a live demo will expose','Verify the app works with a cold cache and slow network','Confirm the AI output is consistently reasonable, not just occasionally good'],
+    tasks:['Write unit tests for backend logic and API contracts','Manually test empty input, huge input, and non-English input if relevant','Throttle network in devtools and confirm loading states hold up','Run the exact demo script 5 times end-to-end'],
+    tools:[
+      {name:'Claude', why:'Good at generating edge-case test inputs you would not think of yourself.', tag:'Primary'},
+      {name:'Pytest', why:'Standard, lightweight test runner for the FastAPI backend.', tag:'Framework', alt:true},
+      {name:'Playwright', why:'Use if you want automated end-to-end browser tests for the core flow.', tag:'E2E', alt:true}
+    ],
+    prompts:['Generate 15 adversarial test inputs for an endpoint that accepts free text and returns an AI-generated summary: include empty strings, extremely long input, non-English text, and prompt-injection attempts. Explain what each is testing for.'],
+    practices:['Test the exact flow you plan to demo, start to finish, at least 5 times','Treat any inconsistent AI output as a bug to constrain with better prompting, not an acceptable quirk'],
+    mistakes:['Only testing the happy path you built the feature around','Skipping mobile testing because the demo will "probably" be on desktop'],
+    efficiency:'Keep a short markdown bug list during testing instead of fixing everything immediately — batch fixes to avoid context-switching.'
+  },
+  {
+    id:'deploy', title:'Deployment & DevOps', sub:'Get it live on a real URL',
+    time:'1–2 days', output:'Live, public URL for frontend and backend',
+    objectives:['Deploy frontend and backend on free-tier infrastructure','Set environment variables and secrets correctly in production','Confirm CORS, cold-start latency, and uptime are demo-acceptable'],
+    tasks:['Deploy frontend to Vercel with production env vars set','Deploy backend to Render or Railway, confirm free-tier cold-start behavior','Set up a custom domain or clean subdomain if available','Add a simple uptime check or health endpoint'],
+    tools:[
+      {name:'Vercel', why:'Fastest, most reliable free hosting for a React frontend with zero config.', tag:'Primary'},
+      {name:'Render / Railway', why:'Simple free-tier hosting for the FastAPI backend with auto-deploy from GitHub.', tag:'Backend', alt:true},
+      {name:'Claude', why:'Useful for debugging CORS errors and deployment config issues quickly.', tag:'Debugging', alt:true}
+    ],
+    prompts:['My FastAPI backend on Render is returning a CORS error when called from my Vercel frontend at [url]. Here is my CORS middleware config: [paste]. Diagnose and fix.'],
+    practices:['Warn the reader/interviewer in your README about free-tier cold starts so it is not mistaken for a bug','Test the production URL yourself before sharing it anywhere'],
+    mistakes:['Leaving API keys in the frontend bundle instead of proxying through the backend','Never testing the deployed version, only localhost'],
+    efficiency:'Set up auto-deploy from your main branch on day one — every push becomes a live update with zero extra effort.'
+  },
+  {
+    id:'package', title:'Portfolio Packaging & Storytelling', sub:'README, demo video, case study',
+    time:'1–2 days', output:'README, 60–90s demo video, case study page',
+    objectives:['Write a README that sells the project in the first 3 lines','Record a short, honest demo video','Turn the build into a short case study explaining decisions, not just features'],
+    tasks:['Write README: problem, solution, architecture diagram, how to run it, what you would improve next','Record a 60–90 second screen capture demo with narration','Add a "what I would do differently" section — recruiters read for self-awareness','Add the project to your portfolio site with a live link and repo link'],
+    tools:[
+      {name:'Claude', why:'Best for turning a rough project summary into a tight, non-generic README structure.', tag:'Primary'},
+      {name:'Loom', why:'Fastest way to record and share a narrated demo video with a link.', tag:'Video', alt:true},
+      {name:'ReadMe AI / Claude', why:'Good for generating architecture diagrams in text/mermaid form for the README.', tag:'Diagrams', alt:true}
+    ],
+    prompts:['Write a README for a project called [name]: [one-line description]. Include sections: Problem, Solution, Architecture (as a mermaid diagram), Tech Stack, Running Locally, What I Would Improve Next. Keep the tone plain and specific, no marketing language.'],
+    practices:['Lead with the problem and user, not the tech stack — recruiters skim for relevance first','Include a "next steps" section — it signals you think past the demo'],
+    mistakes:['A README that is just a feature list with no context on why it exists','No screenshots or video — asking a busy recruiter to run the code themselves'],
+    efficiency:'Draft the README before the video — writing it forces a clear narrative, which makes the video script trivial after.'
+  },
+  {
+    id:'launch', title:'Launch & Distribution', sub:'GitHub polish + LinkedIn post',
+    time:'1 day', output:'Public post + polished GitHub repo',
+    objectives:['Publish the project where hiring managers and your network will see it','Get initial feedback and iterate before it becomes your main portfolio piece','Log the project cleanly for future reference in applications'],
+    tasks:['Polish the GitHub repo: pinned, clear description, topics/tags added','Write and publish a build-in-public LinkedIn post with the demo video','Share in 1–2 relevant communities for feedback','Add the project to your resume with a one-line, outcome-focused description'],
+    tools:[
+      {name:'Claude', why:'Good for drafting a LinkedIn post that avoids generic hype language while staying specific.', tag:'Primary'},
+      {name:'Canva', why:'Quick cover image or carousel for the LinkedIn post if a video is not ready.', tag:'Visual', alt:true},
+      {name:'Buffer / native scheduling', why:'Useful if this fits into an ongoing content series rather than a one-off post.', tag:'Scheduling', alt:true}
+    ],
+    prompts:['Turn this project changelog into a LinkedIn post: [paste]. First person, one concrete technical detail, no buzzwords like "revolutionary" or "game-changing", end with a genuine question to invite comments.'],
+    practices:['Post when the project is genuinely usable, not "almost done" — half-working demos hurt more than help','Respond to every comment on the launch post — it is where real conversations start'],
+    mistakes:['Launching with a broken production link because it was not re-tested after the README pass','Writing a caption-only post with no visual or video — engagement drops sharply'],
+    efficiency:'Batch this stage with the previous one — write the README, record the video, and draft the post in the same sitting while the context is fresh.'
+  },
+  {
+    id:'iterate', title:'Iteration & Maintenance', sub:'Keep it alive and improving',
+    time:'ongoing', output:'A living project you can discuss in interviews',
+    objectives:['Keep the deployed app online and working','Turn interview and feedback questions into a backlog','Use the project as a living example of how you handle feedback'],
+    tasks:['Set a monthly check that the live URL and API keys still work','Log every piece of feedback (interview or public) as a GitHub issue','Ship one meaningful improvement every few weeks and log it in the README changelog','Revisit the project before interviews and re-familiarize yourself with every architectural decision'],
+    tools:[
+      {name:'Claude', why:'Good for quickly re-explaining your own architecture back to you before an interview.', tag:'Primary'},
+      {name:'GitHub Issues', why:'Free, visible backlog that shows a hiring manager how you triage and prioritize.', tag:'Tracking', alt:true},
+      {name:'UptimeRobot', why:'Free monitoring so a dead demo link is not a surprise mid-interview.', tag:'Monitoring', alt:true}
+    ],
+    prompts:['Here is my project architecture and code structure: [paste]. Quiz me with 5 interview-style questions a hiring manager might ask about my technical decisions, then evaluate my answers.'],
+    practices:['Re-read your own README before every interview that might reference the project','Treat every piece of critical feedback as free product direction, not a personal judgment'],
+    mistakes:['Letting the free-tier deployment silently expire before an interview','Never updating the project after launch, so it reads as abandoned'],
+    efficiency:'Set a recurring 15-minute monthly calendar reminder to check uptime and add one small improvement — small consistent updates beat rare big rewrites.'
+  }
+];
+
+const toolCompareData = [
+  ['Claude Code','Multi-file repo edits, architecture reasoning','Deep context handling, strong at explaining trade-offs','Terminal/desktop-first workflow'],
+  ['Cursor','IDE-native AI pair programming','Fast inline edits, good autocomplete + chat blend','Occasional context limits on very large repos'],
+  ['GitHub Copilot','Autocomplete while typing','Cheap, ubiquitous, low-friction','Weaker at multi-step reasoning or architecture'],
+  ['v0.dev','Generating React + Tailwind UI from text','Fastest path from idea to working component','Best for UI only, not backend logic']
+];
+
+/* ================= RENDER STAGES ================= */
+const container = document.getElementById('stagesContainer');
+const state = JSON.parse(localStorage.getItem('awa_state')||'{}');
+state.done = state.done || {};
+state.notes = state.notes || {};
+state.bookmarks = state.bookmarks || {};
+
+function saveState(){ localStorage.setItem('awa_state', JSON.stringify(state)); updateProgress(); }
+
+function toolRow(t){
+  return `<div class="tool-row"><div><div class="tool-name">${t.name}</div><div class="tool-why">${t.why}</div></div><div class="tool-tag ${t.alt?'alt':''}">${t.tag}</div></div>`;
+}
+
+stages.forEach((s, i)=>{
+  const el = document.createElement('div');
+  el.className = 'stage';
+  el.id = 'stage-'+s.id;
+  el.innerHTML = `
+    <div class="stage-head" onclick="toggleStage('${s.id}')">
+      <div class="stage-index">${i+1}</div>
+      <div class="stage-head-text"><h3>${s.title}</h3><p>${s.sub}</p></div>
+      <div class="stage-meta">
+        <span class="chip">${s.time}</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div class="stage-inner">
+        <div class="grid2">
+          <div class="block"><h4>Objectives</h4><ul>${s.objectives.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+          <div class="block"><h4>Tasks</h4><ul>${s.tasks.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+        </div>
+        <div class="block" style="margin-top:20px;"><h4>Best AI Tools</h4>${s.tools.map(toolRow).join('')}</div>
+        <div class="block" style="margin-top:18px;"><h4>Prompt Examples</h4>${s.prompts.map(p=>`<div class="prompt-box">${p}<button class="copy-btn" onclick="copyPrompt(this)">Copy</button></div>`).join('')}</div>
+        <div class="grid2" style="margin-top:4px;">
+          <div class="block"><h4>Best Practices</h4>${s.practices.map(x=>`<div class="practice">${x}</div>`).join('')}</div>
+          <div class="block"><h4>Common Mistakes</h4>${s.mistakes.map(x=>`<div class="mistake">${x}</div>`).join('')}</div>
+        </div>
+        <div class="footer-strip">
+          <div class="fs"><b>Expected output:</b> ${s.output}</div>
+          <div class="fs"><b>Time estimate:</b> ${s.time}</div>
+        </div>
+        <div class="block" style="margin-top:14px;"><h4>Efficiency Tip</h4><p>${s.efficiency}</p></div>
+        <label class="note-label">Your notes</label>
+        <textarea class="note-area" placeholder="Jot down decisions, blockers, or links for this stage..." oninput="saveNote('${s.id}', this.value)">${state.notes[s.id]||''}</textarea>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+          <button class="bookmark-btn ${state.bookmarks[s.id]?'active':''}" onclick="toggleBookmark('${s.id}', this)">★ ${state.bookmarks[s.id]?'Bookmarked':'Bookmark this stage'}</button>
+          <div class="stage-checkbox" style="padding-top:10px;">
+            <input type="checkbox" id="chk-${s.id}" ${state.done[s.id]?'checked':''} onchange="toggleDone('${s.id}')">
+            <label for="chk-${s.id}">Mark stage complete</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  if(state.done[s.id]) el.classList.add('done');
+  container.appendChild(el);
+});
+
+function toggleStage(id){
+  document.getElementById('stage-'+id).classList.toggle('open');
+}
+function toggleDone(id){
+  state.done[id] = !state.done[id];
+  document.getElementById('stage-'+id).classList.toggle('done', !!state.done[id]);
+  saveState();
+  renderCircuit();
+}
+function saveNote(id, val){ state.notes[id] = val; saveState(); }
+function toggleBookmark(id, btn){
+  state.bookmarks[id] = !state.bookmarks[id];
+  btn.classList.toggle('active', !!state.bookmarks[id]);
+  btn.innerHTML = '★ ' + (state.bookmarks[id] ? 'Bookmarked' : 'Bookmark this stage');
+  saveState();
+}
+function copyPrompt(btn){
+  const text = btn.parentElement.textContent.replace('Copy','').trim();
+  navigator.clipboard.writeText(text).then(()=>{
+    const old = btn.textContent; btn.textContent='Copied'; setTimeout(()=>btn.textContent=old,1200);
+  });
+}
+function updateProgress(){
+  const doneCount = Object.values(state.done).filter(Boolean).length;
+  document.getElementById('progressText').textContent = doneCount+'/'+stages.length+' stages';
+  document.getElementById('progressFill').style.width = (doneCount/stages.length*100)+'%';
+}
+updateProgress();
+
+/* ================= CIRCUIT MAP ================= */
+function renderCircuit(){
+  const svg = document.getElementById('circuitSvg');
+  const n = stages.length;
+  const w = 1200, h = 200, marginX = 60;
+  const step = (w - marginX*2) / (n-1);
+  const y = 100;
+  let paths = '';
+  let pulse = '';
+  let nodes = '';
+  let d = `M ${marginX} ${y}`;
+  for(let i=1;i<n;i++){
+    const x1 = marginX+(i-1)*step, x2 = marginX+i*step;
+    d += ` L ${x2} ${y}`;
+  }
+  paths += `<path class="trace-line" d="${d}"/>`;
+  pulse += `<path class="trace-pulse" d="${d}"/>`;
+  stages.forEach((s,i)=>{
+    const x = marginX+i*step;
+    const doneClass = state.done[s.id] ? 'done' : '';
+    nodes += `<g class="node-group ${doneClass}" onclick="jumpTo('${s.id}')">
+      <circle class="node-circle" cx="${x}" cy="${y}" r="20"/>
+      <text class="node-num" x="${x}" y="${y+5}" text-anchor="middle">${state.done[s.id]?'✓':i+1}</text>
+      <text class="node-label" x="${x}" y="${y+42}" text-anchor="middle">${s.title.split(' ')[0]}</text>
+    </g>`;
+  });
+  svg.innerHTML = paths+pulse+nodes;
+}
+function jumpTo(id){
+  const el = document.getElementById('stage-'+id);
+  el.classList.add('open');
+  el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+renderCircuit();
+
+/* ================= DECISION TREE ================= */
+const dtFlow = {
+  q1:{
+    text:'What kind of AI capability is core to your project?',
+    options:{
+      'Conversational / Q&A over documents':'q2rag',
+      'Classification or prediction':'q2ml',
+      'Multi-step agent or automation':'q2agent'
+    }
+  },
+  q2rag:{
+    text:'How large is your document set?',
+    options:{
+      'Small (under ~200 pages)':'resRAGsmall',
+      'Large / growing corpus':'resRAGlarge'
+    }
+  },
+  q2ml:{
+    text:'Do you have a labeled dataset already?',
+    options:{
+      'Yes, ready to use':'resMLdata',
+      'No, need to source or label one':'resMLnodata'
+    }
+  },
+  q2agent:{
+    text:'Does it need to call external tools/APIs?',
+    options:{
+      'Yes, multiple tools':'resAgentTools',
+      'No, mostly reasoning over text':'resAgentSimple'
+    }
+  },
+  resRAGsmall:{result:'Recommended stack: FastAPI + LangChain (or plain embeddings) + ChromaDB (local, no infra cost) + Claude/OpenAI for generation. This is the fastest path to a working RAG demo and keeps hosting free.'},
+  resRAGlarge:{result:'Recommended stack: FastAPI + LlamaIndex + a hosted vector DB (Pinecone/Qdrant free tier) + Claude/OpenAI for generation. Add a background ingestion job for updating the corpus.'},
+  resMLdata:{result:'Recommended stack: scikit-learn or a fine-tuned DistilBERT via HuggingFace Transformers + FastAPI to serve predictions + React dashboard for results. Skip an LLM entirely if a classical model performs well — it is cheaper to explain and faster to demo.'},
+  resMLnodata:{result:'Recommended stack: start with a pretrained HuggingFace model as a baseline, use weak/AI-assisted labeling (Claude/GPT to pre-label, you verify) to bootstrap a small labeled set fast, then fine-tune once you have ~200+ verified examples.'},
+  resAgentTools:{result:'Recommended stack: LangGraph or a lightweight custom orchestrator + FastAPI backend exposing tool functions + Claude for planning/reasoning steps. Keep the tool count small (3–5) for a v1 demo — reliability drops fast beyond that.'},
+  resAgentSimple:{result:'Recommended stack: a single well-structured system prompt + Claude/OpenAI with function calling only if needed + FastAPI wrapper. Resist adding an agent framework until plain prompting genuinely falls short.'}
+};
+let dtState = 'q1';
+let dtStep = 1;
+const dtCrumbs = document.getElementById('dtCrumbs');
+const dtQ = document.getElementById('dtQuestion');
+const dtResult = document.getElementById('dtResult');
+
+function renderDT(){
+  const node = dtFlow[dtState];
+  if(node.result){
+    dtQ.innerHTML = '';
+    dtResult.innerHTML = node.result + '<br><br><span style="cursor:pointer;color:var(--cyan);font-family:var(--font-mono);font-size:12px;" onclick="resetDT()">↺ start over</span>';
+    dtResult.classList.add('show');
+    dtCrumbs.textContent = 'Result';
+    return;
+  }
+  dtResult.classList.remove('show');
+  dtCrumbs.textContent = 'Question '+dtStep+' of 3';
+  dtQ.innerHTML = `<div class="dt-q">${node.text}</div><div class="dt-options">${Object.keys(node.options).map(opt=>`<div class="dt-opt" onclick="dtChoose('${node.options[opt]}')">${opt}</div>`).join('')}</div>`;
+}
+function dtChoose(next){
+  dtStep++;
+  dtState = next;
+  renderDT();
+}
+function resetDT(){ dtState='q1'; dtStep=1; renderDT(); }
+renderDT();
+
+/* ================= COMPARE TABLE ================= */
+const table = document.getElementById('compareTable');
+table.innerHTML = `<thead><tr><th>Tool</th><th>Best for</th><th>Strengths</th><th>Watch out for</th></tr></thead>
+<tbody>${toolCompareData.map(r=>`<tr><td class="name">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('')}</tbody>`;
+
+/* ================= THEME + PRINT ================= */
+const themeToggle = document.getElementById('themeToggle');
+if(localStorage.getItem('awa_theme')==='light'){ document.body.classList.add('light'); }
+themeToggle.addEventListener('click', ()=>{
+  document.body.classList.toggle('light');
+  localStorage.setItem('awa_theme', document.body.classList.contains('light')?'light':'dark');
+});
+document.getElementById('printBtn').addEventListener('click', ()=>{
+  stages.forEach(s=>document.getElementById('stage-'+s.id).classList.add('open'));
+  setTimeout(()=>window.print(), 150);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Roast & Rebuild — Anayat Zahoor</title>
+<style>
+  :root{
+    --bg:#0b0c0f;
+    --panel:#141519;
+    --panel-2:#1a1c21;
+    --line:#26282f;
+    --ink:#e9e9ec;
+    --ink-dim:#9a9ca3;
+    --red:#ff5c5c;
+    --amber:#ffb454;
+    --green:#4ade80;
+    --blue:#4db8ff;
+    --mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+    --disp: 'Georgia', 'Times New Roman', serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--ink); margin:0; padding:0;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    line-height:1.55;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:40px 24px 100px;}
+
+  /* Header */
+  .masthead{border-bottom:2px solid var(--line);padding-bottom:24px;margin-bottom:32px;}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--red);text-transform:uppercase;margin-bottom:10px;}
+  h1{font-family:var(--disp);font-size:38px;font-weight:700;margin:0 0 8px;line-height:1.1;}
+  .sub{color:var(--ink-dim);font-size:15px;}
+
+  /* Overall score banner */
+  .banner{
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    background:linear-gradient(135deg,#1a1214,#141519);
+    border:1px solid #3a1f1f;border-radius:10px;padding:24px 28px;margin-bottom:36px;
+  }
+  .banner .scoreblock{text-align:center;}
+  .banner .num{font-family:var(--mono);font-size:44px;font-weight:700;}
+  .banner .num.before{color:var(--red);}
+  .banner .num.after{color:var(--green);}
+  .banner .lbl{font-size:11px;color:var(--ink-dim);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}
+  .arrow{font-size:24px;color:var(--ink-dim);}
+
+  /* Tabs */
+  .tabs{display:flex;gap:2px;margin-bottom:28px;border-bottom:1px solid var(--line);overflow-x:auto;}
+  .tab{
+    padding:12px 18px;font-size:13.5px;font-weight:600;color:var(--ink-dim);cursor:pointer;
+    border-bottom:2px solid transparent;white-space:nowrap;transition:.15s;
+  }
+  .tab:hover{color:var(--ink);}
+  .tab.active{color:var(--ink);border-bottom-color:var(--red);}
+  .panel{display:none;}
+  .panel.active{display:block;animation:fade .25s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+
+  /* Roast cards */
+  .rcard{
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:22px 24px;margin-bottom:18px;
+  }
+  .rcard-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;gap:12px;}
+  .rcard-title{font-size:16px;font-weight:700;}
+  .score-pill{
+    font-family:var(--mono);font-size:13px;font-weight:700;padding:4px 12px;border-radius:20px;
+    white-space:nowrap;
+  }
+  .score-low{background:#3a1a1a;color:var(--red);}
+  .score-mid{background:#3a2f14;color:var(--amber);}
+  .score-high{background:#173a24;color:var(--green);}
+  .quote{
+    font-family:var(--mono);font-size:13px;color:var(--ink-dim);background:var(--panel-2);
+    border-left:3px solid var(--red);padding:10px 14px;border-radius:0 6px 6px 0;margin:12px 0;
+  }
+  .breakdown{margin-top:12px;}
+  .breakdown div{margin-bottom:8px;font-size:14px;}
+  .breakdown b{margin-right:6px;}
+
+  /* Rebuild sections */
+  .rebuild-block{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:20px;}
+  .rebuild-block h3{margin-top:0;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:10px;}
+  .option{
+    background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:10px;
+  }
+  .option .tag{font-family:var(--mono);font-size:10.5px;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+  .option .text{font-size:14.5px;font-weight:500;}
+  .option .use{font-size:12.5px;color:var(--ink-dim);margin-top:8px;font-style:italic;}
+  .copybtn{
+    font-family:var(--mono);font-size:11px;background:transparent;border:1px solid var(--line);
+    color:var(--ink-dim);padding:4px 10px;border-radius:5px;cursor:pointer;margin-top:8px;
+  }
+  .copybtn:hover{border-color:var(--blue);color:var(--blue);}
+
+  .about-line{margin-bottom:14px;padding-left:14px;border-left:2px solid var(--line);}
+  .about-line .ltag{font-family:var(--mono);font-size:10.5px;color:var(--amber);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;}
+  .about-line p{margin:0;font-size:14.5px;}
+  .keywords{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+  .kw{font-family:var(--mono);font-size:11.5px;background:#12242f;color:var(--blue);padding:3px 9px;border-radius:14px;}
+
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;}
+  .ba-box{background:var(--panel-2);border-radius:6px;padding:12px 14px;font-size:13.5px;}
+  .ba-box.before{border-left:3px solid var(--red);}
+  .ba-box.after{border-left:3px solid var(--green);}
+  .ba-label{font-family:var(--mono);font-size:10px;color:var(--ink-dim);text-transform:uppercase;margin-bottom:5px;}
+
+  table.skills{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px;}
+  table.skills td{padding:8px 6px;border-bottom:1px solid var(--line);}
+  table.skills td:first-child{color:var(--ink-dim);font-family:var(--mono);font-size:12px;width:24px;}
+
+  /* scorecard table */
+  table.sc{width:100%;border-collapse:collapse;margin-top:10px;}
+  table.sc th{text-align:left;font-size:11px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.05em;padding:8px 10px;border-bottom:1px solid var(--line);}
+  table.sc td{padding:12px 10px;border-bottom:1px solid var(--line);font-size:14px;}
+  table.sc td.num{font-family:var(--mono);}
+  .delta{color:var(--green);font-weight:700;}
+
+  /* 7 day plan */
+  .day{
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:14px;
+  }
+  .day-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;cursor:pointer;}
+  .day-num{
+    font-family:var(--mono);font-weight:700;font-size:13px;background:var(--panel-2);
+    color:var(--amber);border-radius:6px;padding:4px 10px;
+  }
+  .day-title{font-weight:700;font-size:15px;}
+  .day-body{font-size:14px;color:var(--ink-dim);}
+  .day-body p{margin:6px 0;}
+  .checklist label{display:flex;gap:8px;align-items:flex-start;margin:6px 0;font-size:14px;color:var(--ink);cursor:pointer;}
+  .checklist input{margin-top:3px;}
+  .post-draft{
+    background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:14px 16px;
+    font-size:13.5px;white-space:pre-wrap;margin-top:10px;font-family:var(--mono);color:#d5d6da;
+  }
+
+  /* Summary card */
+  .sumcard{
+    background:linear-gradient(160deg,#0e1a14,#0b0c0f);border:1px solid #1f3a2a;border-radius:14px;
+    padding:32px;text-align:center;
+  }
+  .sumcard h2{font-family:var(--disp);font-size:22px;margin-top:0;}
+  .sumcard .bignum{font-family:var(--mono);font-size:15px;margin:18px 0;}
+  .sumcard .bignum span{font-size:30px;font-weight:700;}
+  .sumcard ol{text-align:left;max-width:480px;margin:18px auto;font-size:14px;color:var(--ink-dim);}
+  .sumcard .highlight{color:var(--green);font-weight:700;}
+  .progress-note{font-size:11px;color:var(--ink-dim);margin-top:20px;font-family:var(--mono);}
+
+  ::selection{background:#3a1f1f;color:#fff;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="eyebrow">LinkedIn Audit &amp; Rebuild</div>
+    <h1>Your profile is currently invisible to recruiters.</h1>
+    <div class="sub">Anayat Zahoor · Data Science / AI, University of Kashmir · Target: AI Engineer Intern / ML Engineer / Full Stack AI Developer</div>
+  </div>
+
+  <div class="banner">
+    <div class="scoreblock"><div class="num before">14</div><div class="lbl">Before / 100</div></div>
+    <div class="arrow">→</div>
+    <div class="scoreblock"><div class="num after">78</div><div class="lbl">After / 100</div></div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="roast">1 · Roast</div>
+    <div class="tab" data-tab="rebuild">2 · Rebuild</div>
+    <div class="tab" data-tab="scorecard">3 · Scorecard</div>
+    <div class="tab" data-tab="plan">4 · 7-Day Plan</div>
+    <div class="tab" data-tab="summary">5 · Summary Card</div>
+  </div>
+
+  <!-- ROAST -->
+  <div class="panel active" id="roast">
+
+    <div class="rcard">
+      <div class="rcard-head">
+        <div class="rcard-title">Headline</div>
+        <div class="score-pill score-low">2/10</div>
+      </div>
+      <div class="quote">"Data Science / AI Kashmir University"</div>
+      <div class="breakdown">
+        <div>❌ <b>The problem:</b> This is a job title field, not a headline. It tells a recruiter your major and your school — nothing about what you can do, who you help, or what makes you worth a click.</div>
+        <div>🧠 <b>Why it hurts:</b> Recruiters searching for "AI Engineer" or "Python developer" will never see you — you're not using a single keyword they'd search for. The headline is your #1 real estate for LinkedIn's search algorithm and you're spending it on your university's name, which they can already see below.</div>
+        <div>🔍 <b>Invisible cost:</b> Every recruiter search that should surface you (by skill, by role, by stack) — doesn't. You're not being filtered out for being unqualified. You're not being found at all.</div>
+      </div>
+    </div>
+
+    <div class="rcard">
+      <div class="rcard-head">
+        <div class="rcard-title">About — First 2 Lines (the "hook")</div>
+        <div class="score-pill score-low">0/10</div>
+      </div>
+      <div class="quote">"You can write about your years of experience, industry, or skills. People also talk about their achievements or previous job experiences."</div>
+      <div class="breakdown">
+        <div>❌ <b>The problem:</b> This is LinkedIn's own placeholder instruction text. You never actually replaced it — it's sitting live on your profile like an unfinished form.</div>
+        <div>🧠 <b>Why it hurts:</b> This is the exact text every visitor sees before clicking "see more." A recruiter scanning 40 profiles in an hour reads this and assumes the rest of your profile is equally unfinished. Most won't click "see more" at all.</div>
+        <div>🔍 <b>Invisible cost:</b> This single leftover sentence is probably costing you more opportunities than any other issue on this profile. It signals "not serious yet" before anyone reads a single real word you wrote.</div>
+      </div>
+    </div>
+
+    <div class="rcard">
+      <div class="rcard-head">
+        <div class="rcard-title">About — Full Section</div>
+        <div class="score-pill score-mid">4/10</div>
+      </div>
+      <div class="quote">"I'm passionate about using technology to solve real-world problems... My Goal: To grow into a skilled Data Scientist or AI Engineer and work with innovative teams at companies like Google, Microsoft, or Amazon."</div>
+      <div class="breakdown">
+        <div>❌ <b>The problem:</b> "Passionate about using technology to solve real-world problems" is the single most-written sentence on LinkedIn — it appears on tens of thousands of student profiles verbatim. It says nothing specific about you. The whole section is about what you're <i>learning</i>, never what you've <i>built</i>.</div>
+        <div>🧠 <b>Why it hurts:</b> Recruiters read About sections looking for evidence, not intentions. "I want to work with innovative teams" reads as a wish, not a pitch. There's zero mention of Circuit.IQ, your RAG chatbot, or your DistilBERT classifier — real, deployed work that would actually prove the skills you're listing.</div>
+        <div>🔍 <b>Invisible cost:</b> You have shippable proof of the exact skills recruiters are screening for, and none of it is visible here. This section is currently doing the opposite of its job — making a builder sound like a beginner.</div>
+      </div>
+    </div>
+
+    <div class="rcard">
+      <div class="rcard-head">
+        <div class="rcard-title">Experience</div>
+        <div class="score-pill score-low">0/10</div>
+      </div>
+      <div class="quote">Section is empty.</div>
+      <div class="breakdown">
+        <div>❌ <b>The problem:</b> No entries at all. For an entry-level candidate this is somewhat expected, but it's still a blank space where recruiters expect to see something.</div>
+        <div>🧠 <b>Why it hurts:</b> Recruiters use Experience as their fastest scan point. An empty section reads as "no proof of applied skill" — even though that's not true in your case. LinkedIn also lets you list projects, freelance work, or self-directed builds under Experience, not just formal jobs.</div>
+        <div>🔍 <b>Invisible cost:</b> Circuit.IQ is a deployed, full-stack AI product (React, TypeScript, FastAPI, live on Vercel). That's genuinely more substantive than most internship bullet points — and it's not on your profile at all.</div>
+      </div>
+    </div>
+
+    <div class="rcard">
+      <div class="rcard-head">
+        <div class="rcard-title">Skills &amp; Keywords</div>
+        <div class="score-pill score-low">2/10</div>
+      </div>
+      <div class="quote">HTML, JavaScript, Cascading Style Sheets (CSS)</div>
+      <div class="breakdown">
+        <div>❌ <b>The problem:</b> Three skills listed, and none of them are the ones you actually want to be hired for. No Python. No Machine Learning. No React, FastAPI, LangChain, or Generative AI — the exact terms an AI Engineer recruiter search would use.</div>
+        <div>🧠 <b>Why it hurts:</b> LinkedIn's search and "People you may want to hire" surfacing is keyword-driven. If "Machine Learning" isn't in your Skills section, you don't show up for that search — full stop, regardless of how good you actually are.</div>
+        <div>🔍 <b>Invisible cost:</b> Right now your top skills section is optimized for a front-end intern role you don't want, not the AI Engineer / ML Engineer roles you're actually targeting.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- REBUILD -->
+  <div class="panel" id="rebuild">
+
+    <div class="rebuild-block">
+      <h3>Headline — 3 Options</h3>
+      <p style="font-size:13px;color:var(--ink-dim);margin-top:-6px;">Formula: [Role/Identity] | [Who I Help or What I Do] | [Proof or Differentiator]</p>
+
+      <div class="option">
+        <div class="tag">Option 1 · Keyword-optimized (for recruiter search)</div>
+        <div class="text">Aspiring AI Engineer | Python, Machine Learning &amp; Full Stack Development | Building &amp; Deploying Real AI Products</div>
+        <div class="use">Use this if your main goal right now is showing up in recruiter searches for "AI Engineer," "ML," "Python developer" — it front-loads the exact keywords Microsoft/Google/Amazon recruiters filter by.</div>
+      </div>
+      <div class="option">
+        <div class="tag">Option 2 · Value-proposition (for outreach &amp; cold applications)</div>
+        <div class="text">B.Tech AI &amp; Data Science Student | I Build Full-Stack AI Products (RAG, LLMs, Sentiment Models) | Seeking AI Engineer Internship</div>
+        <div class="use">Use this on applications and when messaging hiring managers directly — it states the target role outright, which recruiters actually appreciate over vague headlines.</div>
+      </div>
+      <div class="option">
+        <div class="tag">Option 3 · Authority (for content &amp; LinkedIn growth)</div>
+        <div class="text">Documenting My Path to AI Engineer | Building in Public: RAG, LangChain &amp; Full-Stack AI | 60-Day Claude Mastery Challenge</div>
+        <div class="use">Use this while you're actively posting your content series — it turns your headline into a hook that makes people want to follow your posts, not just your profile.</div>
+      </div>
+      <p style="font-size:13px;color:var(--ink-dim);">Recommendation: run <b>Option 1</b> as your default. Switch to Option 2 temporarily when applying directly to a specific company.</p>
+    </div>
+
+    <div class="rebuild-block">
+      <h3>About Section — Full Rewrite</h3>
+
+      <div class="about-line">
+        <div class="ltag">Hook (before "see more")</div>
+        <p>I build AI products end-to-end — from the model to the interface people actually use.</p>
+      </div>
+      <div class="about-line">
+        <div class="ltag">Story</div>
+        <p>I'm a B.Tech student in AI &amp; Data Science at the University of Kashmir, and I don't just study machine learning — I ship it. I work across the full stack: Python and FastAPI on the backend, React and Tailwind on the front end, and increasingly, LLM-powered systems in between (RAG pipelines, prompt engineering, LangChain agents).</p>
+      </div>
+      <div class="about-line">
+        <div class="ltag">Proof</div>
+        <p>→ Built Circuit.IQ, an AI-powered virtual physics lab (React, TypeScript, FastAPI), deployed and live on Vercel<br>
+        → Built a RAG document chatbot with sub-2-second retrieval over large document corpora<br>
+        → Trained a DistilBERT sentiment classifier reaching 91% accuracy<br>
+        → Certified in ML, Deep Learning, and LangChain (DeepLearning.AI)</p>
+      </div>
+      <div class="about-line">
+        <div class="ltag">CTA</div>
+        <p>I'm actively looking for an AI Engineer / ML Engineer internship where I can work on real production systems. If that's you — let's talk. Message me, or check the Featured section below for live demos of my work.</p>
+      </div>
+
+      <div class="keywords">
+        <span class="kw">Machine Learning</span><span class="kw">Python</span><span class="kw">FastAPI</span>
+        <span class="kw">React</span><span class="kw">LangChain</span><span class="kw">RAG</span>
+        <span class="kw">Prompt Engineering</span><span class="kw">Generative AI</span><span class="kw">Full Stack</span>
+        <span class="kw">Deep Learning</span>
+      </div>
+      <button class="copybtn" onclick="copyText('about-full', this)">Copy full About text</button>
+    </div>
+
+    <div class="rebuild-block">
+      <h3>Experience — Add This Entry</h3>
+      <p style="font-size:13px;color:var(--ink-dim);">Your Experience section is empty — add Circuit.IQ as a project/founder-style entry. LinkedIn lets you add projects under Experience even without a formal employer.</p>
+
+      <div class="ba">
+        <div class="ba-box before"><div class="ba-label">Before</div>No entry exists.</div>
+        <div class="ba-box after"><div class="ba-label">After</div><b>Circuit.IQ — Founder &amp; Full Stack Developer</b><br>Self-directed · React, TypeScript, Python, FastAPI</div>
+      </div>
+
+      <div class="ba">
+        <div class="ba-box before"><div class="ba-label">Before</div>(no bullets)</div>
+        <div class="ba-box after"><div class="ba-label">After</div>Architected and shipped an AI-powered virtual physics lab, handling both the FastAPI backend and the React/TypeScript frontend, deployed live on Vercel.</div>
+      </div>
+      <div class="ba">
+        <div class="ba-box before"><div class="ba-label">Before</div>(no bullets)</div>
+        <div class="ba-box after"><div class="ba-label">After</div>Designed the product end-to-end as a solo builder — from system architecture to UI — validating a full-stack AI workflow from prototype to deployment.</div>
+      </div>
+      <p style="font-size:13px;color:var(--ink-dim);margin-top:10px;">You can add NutriScope and the RAG chatbot as separate "Project" entries under Circuit.IQ, or list them in the Featured section with links — don't cram every project into one Experience entry.</p>
+    </div>
+
+    <div class="rebuild-block">
+      <h3>Skills Recommendations</h3>
+      <table class="skills">
+        <tr><td>1</td><td>Machine Learning</td></tr>
+        <tr><td>2</td><td>Python</td></tr>
+        <tr><td>3</td><td>FastAPI</td></tr>
+        <tr><td>4</td><td>React</td></tr>
+        <tr><td>5</td><td>Generative AI</td></tr>
+        <tr><td>6</td><td>LangChain</td></tr>
+        <tr><td>7</td><td>Prompt Engineering</td></tr>
+        <tr><td>8</td><td>Deep Learning</td></tr>
+        <tr><td>9</td><td>Git/GitHub</td></tr>
+        <tr><td>10</td><td>Tailwind CSS</td></tr>
+      </table>
+      <p style="font-size:13px;margin-top:14px;"><b style="color:var(--red)">Remove:</b> Cascading Style Sheets (CSS) as a standalone pin — fold it under general web dev, it's diluting your top-3 real estate for a role that isn't your target.</p>
+      <p style="font-size:13px;"><b style="color:var(--green)">Pin to top 3:</b> Machine Learning, Python, FastAPI — these are the highest-leverage keywords for AI Engineer / ML Engineer recruiter searches.</p>
+    </div>
+
+  </div>
+
+  <!-- SCORECARD -->
+  <div class="panel" id="scorecard">
+    <div class="rebuild-block">
+      <h3>Before vs After</h3>
+      <table class="sc">
+        <tr><th>Section</th><th>Before</th><th></th><th>After</th><th>Change</th></tr>
+        <tr><td>Headline</td><td class="num">2/10</td><td>→</td><td class="num">8/10</td><td class="delta">+6</td></tr>
+        <tr><td>About (Hook)</td><td class="num">0/10</td><td>→</td><td class="num">8/10</td><td class="delta">+8</td></tr>
+        <tr><td>About (Full)</td><td class="num">4/10</td><td>→</td><td class="num">8/10</td><td class="delta">+4</td></tr>
+        <tr><td>Experience</td><td class="num">0/10</td><td>→</td><td class="num">7/10</td><td class="delta">+7</td></tr>
+        <tr><td>Skills / Keywords</td><td class="num">2/10</td><td>→</td><td class="num">9/10</td><td class="delta">+7</td></tr>
+      </table>
+      <div class="banner" style="margin-top:24px;">
+        <div class="scoreblock"><div class="num before">14</div><div class="lbl">Overall Before</div></div>
+        <div class="arrow">→</div>
+        <div class="scoreblock"><div class="num after">78</div><div class="lbl">Overall After</div></div>
+      </div>
+      <p style="font-size:13px;color:var(--ink-dim);">78/100 isn't a ceiling — it's what's achievable purely from rewriting existing info. Getting past 85 requires real signals over time: posts, recommendations, and profile views, which is what the 7-day plan builds.</p>
+    </div>
+  </div>
+
+  <!-- PLAN -->
+  <div class="panel" id="plan">
+
+    <div class="day">
+      <div class="day-head"><span class="day-num">DAY 1</span><span class="day-title">Make all profile changes</span></div>
+      <div class="checklist">
+        <label><input type="checkbox">Replace headline with Option 1</label>
+        <label><input type="checkbox">Replace About section (delete the LinkedIn placeholder text first — check it's actually gone)</label>
+        <label><input type="checkbox">Add Circuit.IQ as an Experience entry</label>
+        <label><input type="checkbox">Update Skills section — add the 10 listed, remove CSS as a top pin</label>
+        <label><input type="checkbox">Pin Machine Learning, Python, FastAPI as your top 3 skills</label>
+        <label><input type="checkbox">Add Circuit.IQ, RAG chatbot, and DistilBERT project links to Featured</label>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-num">DAY 2</span><span class="day-title">Publish Post #1 — "I rebuilt my LinkedIn"</span></div>
+      <div class="day-body">
+        <p>Post this after Day 1's edits are live. It drives comments because it invites people to react to a before/after, not just read a status update.</p>
+        <div class="post-draft" id="post1">I just spent a day rewriting my LinkedIn from scratch.
+
+My old headline said "Data Science / AI — Kashmir University."
+Cool. But it told you nothing about what I actually do.
+
+New one: I build AI products end-to-end — model to interface.
+
+Here's what changed:
+→ Added the projects I'd never listed (an AI-powered physics lab, a sub-2-second RAG chatbot, a 91%-accuracy sentiment classifier)
+→ Fixed a Skills section that had... CSS pinned above Machine Learning
+→ Wrote an About section that actually says what I build, not what I "aspire" to
+
+Biggest lesson: nobody reads your profile the way you think they do. Recruiters give you about 3 seconds before deciding whether to keep reading.
+
+If you're a student and haven't audited your profile in 6 months — you probably have your own version of this.
+
+What's one thing on your profile you've been meaning to fix?</div>
+        <button class="copybtn" onclick="copyText('post1', this)">Copy post</button>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-num">DAY 3</span><span class="day-title">Send 10 strategic connection requests</span></div>
+      <div class="day-body">
+        <p><b>Who to target:</b> AI Engineers / ML Engineers at Microsoft, Google, Amazon, and AI startups you're watching · recruiters who post about entry-level AI roles · founders of small AI startups (higher acceptance rate, more responsive) · alumni from University of Kashmir now in tech.</p>
+        <div class="post-draft" id="conn1">Hi [Name] — I'm a B.Tech AI/DS student building full-stack AI projects (RAG, LLMs). Following your work at [Company] — would love to connect and learn from your journey.</div>
+        <button class="copybtn" onclick="copyText('conn1', this)">Copy connection message</button>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-num">DAY 4</span><span class="day-title">Comment on 5 posts in your target space</span></div>
+      <div class="day-body">
+        <p><b>The Value Comment formula:</b> Agree + Add Insight + Ask a Question.</p>
+        <p>Example: "Agree that RAG evaluation is underrated — I ran into the same issue building a document chatbot; chunking strategy mattered more than the embedding model itself. Curious what retrieval metric you found most reliable in production?"</p>
+        <p>This gets you seen by the post author (often a hiring manager) and by everyone else commenting — far higher signal than a like.</p>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-num">DAY 5</span><span class="day-title">Publish Post #2 — lessons-learned / hot take</span></div>
+      <div class="day-body">
+        <div class="post-draft" id="post2">Unpopular opinion: your first AI project shouldn't be a Kaggle notebook.
+
+It should be something that breaks in production.
+
+My RAG chatbot "worked" in testing. Then I fed it a 200-page PDF and retrieval latency tripled. Fixing that taught me more about embeddings, chunking, and vector search than any course did.
+
+Courses teach you the theory. Deployment teaches you where the theory lies to you.
+
+If you're learning AI right now — ship something small, put it in front of real inputs, and let it break. That's the fastest way I've found to actually learn this stuff.
+
+What's something you learned only after your project broke?</div>
+        <button class="copybtn" onclick="copyText('post2', this)">Copy post</button>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-num">DAY 6</span><span class="day-title">Engage + send 5 more connections</span></div>
+      <div class="day-body">
+        <p>Reply to every comment on Posts #1 and #2 — even a one-line reply keeps the post alive in others' feeds via LinkedIn's algorithm. Send 5 more connection requests using the Day 3 template, targeting people who engaged with your posts.</p>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-num">DAY 7</span><span class="day-title">Review your numbers</span></div>
+      <div class="day-body">
+        <p><b>Profile views:</b> If they've roughly doubled from your pre-rebuild baseline, your headline/keywords are working. If flat, your headline still isn't keyword-matched to what recruiters search — revisit Option 1.</p>
+        <p><b>Connection acceptance rate:</b> Above 40% is healthy for cold outreach to strangers in tech. Below that, your connection message is too generic — personalize the [Company]/[Name] fields more specifically next time.</p>
+        <p><b>Post engagement:</b> Comments matter more than likes. If Post #2 got more comments than Post #1, lean into hot-takes/lessons-learned as your content format going forward.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="panel" id="summary">
+    <div class="sumcard">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:.15em;text-transform:uppercase;">Screenshot &amp; Post This</div>
+      <h2>I let AI roast my LinkedIn profile today.<br>Here's what changed:</h2>
+      <div class="bignum">Before: <span style="color:var(--red)">14</span>/100 → After: <span class="highlight">78</span>/100</div>
+      <ol>
+        <li>My "About" section was still showing LinkedIn's own placeholder text — unedited, live, for who knows how long.</li>
+        <li>My Experience section was completely empty, despite having a deployed AI product (Circuit.IQ) and two other real projects.</li>
+        <li>My Skills section had CSS pinned above Machine Learning — actively hiding the skills I actually want to be hired for.</li>
+      </ol>
+      <p style="font-size:14px;">The #1 thing that made the biggest difference: <span class="highlight">turning my projects into proof</span> — Circuit.IQ, my RAG chatbot, and my sentiment classifier went from invisible to the centerpiece of my profile.</p>
+      <div class="progress-note">linkedin-roast-rebuild · anayat zahoor</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    panels.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+  }));
+
+  function copyText(id, btn){
+    const el = document.getElementById(id);
+    let text;
+    if(id === 'about-full'){
+      text = "I build AI products end-to-end — from the model to the interface people actually use.\n\nI'm a B.Tech student in AI & Data Science at the University of Kashmir, and I don't just study machine learning — I ship it. I work across the full stack: Python and FastAPI on the backend, React and Tailwind on the front end, and increasingly, LLM-powered systems in between (RAG pipelines, prompt engineering, LangChain agents).\n\n→ Built Circuit.IQ, an AI-powered virtual physics lab (React, TypeScript, FastAPI), deployed and live on Vercel\n→ Built a RAG document chatbot with sub-2-second retrieval over large document corpora\n→ Trained a DistilBERT sentiment classifier reaching 91% accuracy\n→ Certified in ML, Deep Learning, and LangChain (DeepLearning.AI)\n\nI'm actively looking for an AI Engineer / ML Engineer internship where I can work on real production systems. If that's you — let's talk. Message me, or check the Featured section below for live demos of my work.";
+    } else {
+      text = el.innerText;
+    }
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.innerText;
+      btn.innerText = "Copied ✓";
+      setTimeout(() => btn.innerText = orig, 1500);
+    });
+  }
+</script>
+</body>
+</html>

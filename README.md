@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[█████████████████████████████░░░░░░░░░░░] 73% Complete (44 / 60 Days)`
+`[██████████████████████████████░░░░░░░░░░] 75% Complete (45 / 60 Days)`
 
 ---
 
@@ -91,8 +91,9 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day42/          # Personal Financial Command Center
 ├── Day43/          # AI Workflow Architect
 ├── Day44/          # LinkedIn Profile Optimizer
-├── Day45/          # Upcoming...
+├── Day45/          # AI Decision Strategist
 ├── Day46/          # Upcoming...
+├── Day47/          # Upcoming...
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -318,10 +319,13 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 44 — LinkedIn Profile Optimizer**
     *   *Tools/Tech:* HTML5, CSS3, JavaScript, Recruiter Scoring Engine, LocalStorage
     *   *Key Learnings:* Recruiter perspective profile evaluation, keyword optimization & ATS ranking, headline & About hook engineering, project-based proof positioning, and generating an actionable 7-day LinkedIn growth plan.
-*   **Day 45 — Autonomous Agent Task Simulator (Upcoming)**
+*   **Day 45 — AI Decision Strategist**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Decision Analysis Framework, Cognitive Bias Detection, Trade-off Matrix Engine
+    *   *Key Learnings:* Interactive decision support application guiding users through complex decisions using structured reasoning, evaluating trade-off options, cognitive bias detection, weighted decision matrices, premortem failure analysis, and shareable decision cards.
+*   **Day 46 — Autonomous Agent Task Simulator (Upcoming)**
     *   *Tools/Tech:* Agentic State Machines, Event-Driven Architecture, Full-Stack Dashboard
     *   *Key Learnings:* Building autonomous agent state loops, tool execution simulations, and real-time execution telemetry.
-*   **Day 46 — AI Data Pipeline & ETL Automation Studio (Upcoming)**
+*   **Day 47 — AI Data Pipeline & ETL Automation Studio (Upcoming)**
     *   *Tools/Tech:* Python, Dataform, BigQuery/SQL, Schema Cleaners, Pipeline Orchestration
     *   *Key Learnings:* Automated data cleaning pipelines, ELT transformations, schema mapping, and data quality validation frameworks.
 

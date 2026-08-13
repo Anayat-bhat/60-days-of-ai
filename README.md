@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[████████████████████████████████░░░░░░░░] 83% Complete (50 / 60 Days)`
+`[█████████████████████████████████░░░░░░░] 83% Complete (50 / 60 Days)`
 
 ---
 
@@ -98,6 +98,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day49/          # Personal AI Playbook
 ├── Day50/          # Defend Your Experience
 ├── Day51/          # Enterprise RAG & Vector Search System (Upcoming)
+├── Day52/          # Advanced AI Agents & Tool Calling (Upcoming)
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -160,8 +161,9 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **49** | [Personal AI Playbook](Day49/day49.md) | Personal AI Playbook: Private, offline workflow system & prompt management toolkit with reusable templates, Prompt Builder, Loop Builder, local storage library & JSON export/import | ✅ Done |
 | **50** | [Defend Your Experience](Day50/day50.md) | Defend Your Experience: Interactive AI adaptive skeptic interviewer application extracting experience claims from resumes/portfolios and probing with customizable personas, MCQ defense strategies, live STAR & readiness scoring, 5-axis radar analytics & exportable PDF reports | ✅ Done |
 | **51** | *Upcoming...* | Enterprise RAG & Vector Search System | ⏳ |
+| **52** | *Upcoming...* | Advanced AI Agents & Tool Calling | ⏳ |
 
-*Days 52 to 60 will be updated as the challenge progresses!*
+*Days 53 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -346,9 +348,18 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 50 — Defend Your Experience**
     *   *Tools/Tech:* HTML5, CSS3, JavaScript, Anthropic Messages API, Claims Extraction Engine, SVG Radar Chart Analytics, LocalStorage
     *   *Key Learnings:* Built an interactive AI adaptive skeptic interviewer application that parses resumes/portfolios, extracts claims, categorizes vulnerability risks, challenges candidates via 4 customized personas, provides MCQ defense strategy suggestions, tracks live STAR framework coverage & defense readiness, and generates exportable diagnostic PDF reports.
+
+</details>
+
+<details>
+<summary><b>🔮 Click to expand Days 51 - 60: Enterprise AI, Agentic Workflows & Final Polish</b></summary>
+
 *   **Day 51 — Enterprise RAG & Vector Search System (Upcoming)**
     *   *Tools/Tech:* Vector Embeddings, Chunking Strategies, RAG Retrieval Engine, Hybrid Search
     *   *Key Learnings:* Building retrieval-augmented generation pipelines, document chunking & embedding strategies, vector similarity search, context injection, and response hallucination scoring.
+*   **Day 52 — Advanced AI Agents & Tool Calling (Upcoming)**
+    *   *Tools/Tech:* Agentic Frameworks, Function Calling, API Integration, Task Planning
+    *   *Key Learnings:* Building autonomous agents that can plan tasks, execute external tools, handle API integrations, and synthesize multi-step workflows.
 
 </details>
 

@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[██████████████████████████████░░░░░░░░░░] 75% Complete (45 / 60 Days)`
+`[████████████████████████████████░░░░░░░░] 83% Complete (50 / 60 Days)`
 
 ---
 
@@ -92,8 +92,12 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day43/          # AI Workflow Architect
 ├── Day44/          # LinkedIn Profile Optimizer
 ├── Day45/          # AI Decision Strategist
-├── Day46/          # Upcoming...
-├── Day47/          # Upcoming...
+├── Day46/          # Autonomous Agent Task Simulator (Upcoming)
+├── Day47/          # AI Data Pipeline & ETL Automation Studio (Upcoming)
+├── Day48/          # Compare & Decide Builder
+├── Day49/          # Personal AI Playbook
+├── Day50/          # Defend Your Experience
+├── Day51/          # Enterprise RAG & Vector Search System (Upcoming)
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -149,10 +153,15 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **42** | [Personal Financial Command Center](Day42/day42.md) | Personal Financial Command Center: Interactive browser-based financial dashboard featuring expense/income tracking, budget planning, savings goals, subscription manager, AI health score & What-if simulator | ✅ Done |
 | **43** | [AI Workflow Architect](Day43/day43.md) | AI Workflow Architect: Interactive 10-stage AI project workflow planner featuring stage-by-stage guidance, tool recommendations, reusable prompt engine, tech stack decision tree & progress tracking | ✅ Done |
 | **44** | [LinkedIn Profile Optimizer](Day44/day44.md) | LinkedIn Profile Optimizer: AI-powered career development app analyzing LinkedIn profile from a recruiter perspective with section scores, rewritten content & 7-day action plan | ✅ Done |
-| **45** | *Upcoming...* | Autonomous Agent Task Simulator | ⏳ |
-| **46** | *Upcoming...* | AI Data Pipeline & ETL Automation Studio | ⏳ |
+| **45** | [AI Decision Strategist](Day45/day45.md) | AI Decision Strategist: Interactive decision support application guiding users through complex decisions using structured reasoning, evaluating trade-off options, cognitive bias detection, weighted decision matrices, premortem failure analysis & shareable decision cards | ✅ Done |
+| **46** | *Upcoming...* | Autonomous Agent Task Simulator | ⏳ |
+| **47** | *Upcoming...* | AI Data Pipeline & ETL Automation Studio | ⏳ |
+| **48** | [Compare & Decide Builder](Day48/day48.md) | Compare & Decide Builder: Interactive decision-support application for comparing AI coding assistants (Cursor, Copilot, Windsurf, Claude Code) with dynamic criterion weight adjustment, real-world citations & live ranking updates | ✅ Done |
+| **49** | [Personal AI Playbook](Day49/day49.md) | Personal AI Playbook: Private, offline workflow system & prompt management toolkit with reusable templates, Prompt Builder, Loop Builder, local storage library & JSON export/import | ✅ Done |
+| **50** | [Defend Your Experience](Day50/day50.md) | Defend Your Experience: Interactive AI adaptive skeptic interviewer application extracting experience claims from resumes/portfolios and probing with customizable personas, MCQ defense strategies, live STAR & readiness scoring, 5-axis radar analytics & exportable PDF reports | ✅ Done |
+| **51** | *Upcoming...* | Enterprise RAG & Vector Search System | ⏳ |
 
-*Days 47 to 60 will be updated as the challenge progresses!*
+*Days 52 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -328,6 +337,18 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 47 — AI Data Pipeline & ETL Automation Studio (Upcoming)**
     *   *Tools/Tech:* Python, Dataform, BigQuery/SQL, Schema Cleaners, Pipeline Orchestration
     *   *Key Learnings:* Automated data cleaning pipelines, ELT transformations, schema mapping, and data quality validation frameworks.
+*   **Day 48 — Compare & Decide Builder**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Weighted Decision Engine, Real-World Citation System, Dynamic UI
+    *   *Key Learnings:* Interactive decision-support application for comparing AI coding assistants (Cursor, GitHub Copilot, Windsurf, Claude Code) across 5 criteria (Cost, Features, Ease of Use, Availability, Performance) with dynamic criterion weight adjustments, live dynamic rankings, transparent research methodology, and real-world citations.
+*   **Day 49 — Personal AI Playbook**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, LocalStorage API, Dynamic Prompt Engine, JSON Import/Export
+    *   *Key Learnings:* Private offline workflow system and prompt management toolkit for AI tools (ChatGPT, Claude, Gemini, Copilot) featuring 5 core workflow categories (Learning, Coding, Documentation, Career, Content), prompt variable interpolation, autonomous loop builder, prompt building blocks, and local storage persistence with JSON export/import capability.
+*   **Day 50 — Defend Your Experience**
+    *   *Tools/Tech:* HTML5, CSS3, JavaScript, Anthropic Messages API, Claims Extraction Engine, SVG Radar Chart Analytics, LocalStorage
+    *   *Key Learnings:* Built an interactive AI adaptive skeptic interviewer application that parses resumes/portfolios, extracts claims, categorizes vulnerability risks, challenges candidates via 4 customized personas, provides MCQ defense strategy suggestions, tracks live STAR framework coverage & defense readiness, and generates exportable diagnostic PDF reports.
+*   **Day 51 — Enterprise RAG & Vector Search System (Upcoming)**
+    *   *Tools/Tech:* Vector Embeddings, Chunking Strategies, RAG Retrieval Engine, Hybrid Search
+    *   *Key Learnings:* Building retrieval-augmented generation pipelines, document chunking & embedding strategies, vector similarity search, context injection, and response hallucination scoring.
 
 </details>
 

@@ -1,0 +1,544 @@
+{
+  "workflows": [
+    {
+      "id": "lrn-concept-deepdive",
+      "category": "learning",
+      "title": "Concept Deep-Dive Explainer",
+      "description": "Get any ML/DSA/Azure concept explained at exactly the depth you need, with the analogy style that sticks.",
+      "variables": [
+        {
+          "key": "concept",
+          "label": "Concept / topic",
+          "type": "text",
+          "options": null
+        },
+        {
+          "key": "depth",
+          "label": "Explanation depth",
+          "type": "select",
+          "options": [
+            "Absolute beginner (first exposure)",
+            "Intermediate (I know the basics, go deeper)",
+            "Advanced (assume strong fundamentals, focus on nuance)"
+          ]
+        },
+        {
+          "key": "goal",
+          "label": "Why you need this",
+          "type": "select",
+          "options": [
+            "Understand for an interview",
+            "Apply it in a project",
+            "Pass an exam / assignment",
+            "Just building intuition"
+          ]
+        },
+        {
+          "key": "analogy",
+          "label": "Preferred analogy style",
+          "type": "select",
+          "options": [
+            "Real-world / everyday analogies",
+            "Code-first (show it in Python)",
+            "Math-first (formal notation)",
+            "Visual / diagram description"
+          ]
+        },
+        {
+          "key": "followup",
+          "label": "Follow-up you want after",
+          "type": "select",
+          "options": [
+            "3 practice questions to test myself",
+            "A short summary I can paste into my notes",
+            "Common interview questions on this topic",
+            "Nothing extra, just the explanation"
+          ]
+        }
+      ],
+      "template": "Act as an expert AI/ML educator teaching a B.Tech AI & Data Science student.\n\nConcept to explain: {{concept}}\nTarget depth: {{depth}}\nMy reason for learning this: {{goal}}\nPreferred teaching style: {{analogy}}\n\nInstructions:\n1. Explain the concept clearly at the specified depth — don't over- or under-shoot it.\n2. Use the preferred teaching style as the primary vehicle for explanation.\n3. Call out the 1-2 most common misconceptions beginners have about this.\n4. End with: {{followup}}\n\nKeep the explanation tight and structured — no filler, no repeated restating of the question.",
+      "example": "concept = \"Attention mechanism in Transformers\", depth = \"Intermediate\", goal = \"Apply it in a project\", analogy = \"Code-first (show it in Python)\"",
+      "bestPractices": [
+        "Name the exact sub-topic, not just the broad subject — \"backpropagation through a ReLU\" beats \"neural networks\".",
+        "Always set a depth level; without it the AI defaults to a generic middle-ground answer.",
+        "Ask for the follow-up test questions when you actually want to check retention, not every time."
+      ]
+    },
+    {
+      "id": "lrn-notes-converter",
+      "category": "learning",
+      "title": "Study Material → Structured Notes",
+      "description": "Turn a lecture transcript, video summary, or raw notes into clean, structured study notes.",
+      "variables": [
+        {
+          "key": "rawmaterial",
+          "label": "Paste your raw material (transcript / notes / summary)",
+          "type": "textarea",
+          "options": null
+        },
+        {
+          "key": "format",
+          "label": "Output format",
+          "type": "select",
+          "options": [
+            "Bullet-point notes with headings",
+            "Cornell-style notes (cue / notes / summary)",
+            "Flashcard Q&A pairs",
+            "One-page cheat sheet"
+          ]
+        },
+        {
+          "key": "emphasis",
+          "label": "What to emphasize",
+          "type": "select",
+          "options": [
+            "Definitions & terminology",
+            "Formulas & derivations",
+            "Practical/code examples",
+            "Exam-style key points"
+          ]
+        }
+      ],
+      "template": "You are turning raw study material into high-quality notes for later revision.\n\nRaw material:\n\"\"\"\n{{rawmaterial}}\n\"\"\"\n\nOutput format: {{format}}\nEmphasis: {{emphasis}}\n\nInstructions:\n1. Preserve every distinct concept — don't silently drop anything technical.\n2. Remove filler, repetition, and verbal tics from the source.\n3. Use consistent heading levels so this can be pasted directly into my notes app.\n4. Flag anything ambiguous or likely mis-transcribed with [CHECK].",
+      "example": "format = \"Cornell-style notes\", emphasis = \"Formulas & derivations\"",
+      "bestPractices": [
+        "Paste the raw transcript as-is — don't pre-clean it, the AI does that better with full context.",
+        "Pick \"Flashcard Q&A\" when you plan to actually self-test later, not by default."
+      ]
+    },
+    {
+      "id": "lrn-daily-plan",
+      "category": "learning",
+      "title": "Daily Learning Plan Generator",
+      "description": "Generate a focused, time-boxed study plan matching your 3-hour/day rhythm.",
+      "variables": [
+        {
+          "key": "topics",
+          "label": "Topics to cover this week (comma-separated)",
+          "type": "text",
+          "options": null
+        },
+        {
+          "key": "hours",
+          "label": "Hours available today",
+          "type": "select",
+          "options": [
+            "1 hour",
+            "2 hours",
+            "3 hours (default)",
+            "4+ hours"
+          ]
+        },
+        {
+          "key": "mode",
+          "label": "Learning mode",
+          "type": "select",
+          "options": [
+            "Video + project (your usual rhythm)",
+            "Reading + notes only",
+            "Project-only, no new theory",
+            "Interview-prep drilling"
+          ]
+        },
+        {
+          "key": "deadline",
+          "label": "Any deadline or milestone this connects to",
+          "type": "text",
+          "options": null
+        }
+      ],
+      "template": "Create a focused daily study plan for a B.Tech AI/DS student preparing for AI engineering internships.\n\nTopics this week: {{topics}}\nTime available today: {{hours}}\nPreferred mode: {{mode}}\nRelevant deadline/milestone: {{deadline}}\n\nInstructions:\n1. Time-box the session into clear blocks (e.g. 0:00-0:40, 0:40-1:20…) that sum to the available hours.\n2. Alternate theory and hands-on application — don't stack all theory first.\n3. End with one concrete, shippable output for today (a note, a code snippet, a small feature).\n4. Keep it realistic for a single focused session, not an idealized schedule.",
+      "example": "topics = \"LangGraph multi-agent basics\", hours = \"3 hours (default)\", mode = \"Video + project (your usual rhythm)\"",
+      "bestPractices": [
+        "List only what you can realistically touch today — 1-2 topics beats a wishlist of 6.",
+        "Always name the concrete output; a plan without a deliverable rarely gets finished."
+      ]
+    },
+    {
+      "id": "code-context-primer",
+      "category": "coding",
+      "title": "Project Context Primer (stop re-explaining)",
+      "description": "A reusable context block you paste once per chat so you never re-explain Circuit.IQ / NutriScope / RAG chatbot from scratch again.",
+      "variables": [
+        {
+          "key": "project",
+          "label": "Project name",
+          "type": "select",
+          "options": [
+            "Circuit.IQ (AI physics lab)",
+            "NutriScope (nutrition dashboard)",
+            "RAG Document Chatbot",
+            "DistilBERT Sentiment Classifier",
+            "AI Portfolio Website",
+            "Other"
+          ]
+        },
+        {
+          "key": "stack",
+          "label": "Tech stack",
+          "type": "text",
+          "options": null
+        },
+        {
+          "key": "stage",
+          "label": "Current stage",
+          "type": "select",
+          "options": [
+            "Early prototype",
+            "MVP / mostly working",
+            "Polishing for demo/portfolio",
+            "Debugging a specific issue",
+            "Adding a new feature"
+          ]
+        },
+        {
+          "key": "constraints",
+          "label": "Constraints AI must respect",
+          "type": "textarea",
+          "options": null
+        },
+        {
+          "key": "task",
+          "label": "What you need help with right now",
+          "type": "textarea",
+          "options": null
+        }
+      ],
+      "template": "Project context (reuse this block for the whole conversation, don't ask me to repeat it):\n\nProject: {{project}}\nStack: {{stack}}\nStage: {{stage}}\nConstraints: {{constraints}}\n\nWhat I need right now: {{task}}\n\nInstructions:\n- Treat the above as fixed ground truth for this entire conversation.\n- If a later request conflicts with a constraint above, flag it instead of silently ignoring it.\n- Don't re-ask me to describe the project again in this thread.",
+      "example": "project = \"Circuit.IQ (AI physics lab)\", stack = \"React, TypeScript, FastAPI, Vercel\", stage = \"Polishing for demo/portfolio\"",
+      "bestPractices": [
+        "Paste this as the very first message in a new chat, then just ask follow-ups normally.",
+        "Keep \"constraints\" specific: \"no new npm deps\", \"must stay Vercel-deployable\", \"keep offline-capable\"."
+      ]
+    },
+    {
+      "id": "code-debug",
+      "category": "coding",
+      "title": "Debug-This-Error",
+      "description": "Structured bug report format that gets a root-cause fix instead of a guess-and-check patch.",
+      "variables": [
+        {
+          "key": "error",
+          "label": "Exact error message / stack trace",
+          "type": "textarea",
+          "options": null
+        },
+        {
+          "key": "expected",
+          "label": "What you expected to happen",
+          "type": "text",
+          "options": null
+        },
+        {
+          "key": "actual",
+          "label": "What actually happened",
+          "type": "text",
+          "options": null
+        },
+        {
+          "key": "tried",
+          "label": "What you already tried",
+          "type": "textarea",
+          "options": null
+        },
+        {
+          "key": "env",
+          "label": "Environment (framework/version/OS)",
+          "type": "text",
+          "options": null
+        }
+      ],
+      "template": "Debug this issue. I want root-cause diagnosis, not a superficial patch.\n\nError / stack trace:\n\"\"\"\n{{error}}\n\"\"\"\n\nExpected behavior: {{expected}}\nActual behavior: {{actual}}\nAlready tried: {{tried}}\nEnvironment: {{env}}\n\nInstructions:\n1. State the most likely root cause first, with your confidence level.\n2. Explain *why* it's happening, not just what to change.\n3. Give the minimal fix, then note if there's a more robust long-term fix.\n4. If you need more information to be sure, ask exactly one clarifying question before guessing further.",
+      "example": "error = \"TypeError: Cannot read properties of undefined (reading 'map')\", env = \"React 18 + Vite\"",
+      "bestPractices": [
+        "Always paste the *exact* error text — paraphrasing hides the clue that would solve it in one pass.",
+        "List what you already tried so the AI doesn't waste a turn suggesting it again."
+      ]
+    },
+    {
+      "id": "code-review",
+      "category": "coding",
+      "title": "Code Review Request",
+      "description": "Get a focused review against the specific quality bar you care about right now.",
+      "variables": [
+        {
+          "key": "code",
+          "label": "Paste the code",
+          "type": "textarea",
+          "options": null
+        },
+        {
+          "key": "focus",
+          "label": "Review focus",
+          "type": "select",
+          "options": [
+            "Correctness & edge cases",
+            "Performance",
+            "Readability & maintainability",
+            "Security",
+            "Production-readiness (all of the above)"
+          ]
+        },
+        {
+          "key": "level",
+          "label": "Reviewer strictness",
+          "type": "select",
+          "options": [
+            "Gentle — I'm still learning this pattern",
+            "Standard — treat me as capable",
+            "Brutal — review like a strict senior engineer"
+          ]
+        }
+      ],
+      "template": "Review this code as a senior engineer.\n\nFocus area: {{focus}}\nStrictness: {{level}}\n\nCode:\n\"\"\"\n{{code}}\n\"\"\"\n\nInstructions:\n1. List issues ordered by severity (blocking → nice-to-have).\n2. For each issue, give the fix, not just the diagnosis.\n3. Call out one thing that's already done well — don't skip it just because more issues exist.\n4. Skip generic style nitpicks unless \"Strictness\" is Brutal.",
+      "example": "focus = \"Production-readiness (all of the above)\", level = \"Standard — treat me as capable\"",
+      "bestPractices": [
+        "Paste complete functions/components, not fragments — partial context produces partial reviews.",
+        "Set strictness explicitly; without it most models default to overly gentle."
+      ]
+    },
+    {
+      "id": "docs-readme",
+      "category": "docs",
+      "title": "README Generator",
+      "description": "Produce a clean, recruiter-and-developer-friendly README for a portfolio project.",
+      "variables": [
+        {
+          "key": "project",
+          "label": "Project name",
+          "type": "text",
+          "options": null
+        },
+        {
+          "key": "summary",
+          "label": "One-line summary",
+          "type": "text",
+          "options": null
+        },
+        {
+          "key": "stack",
+          "label": "Tech stack",
+          "type": "text",
+          "options": null
+        },
+        {
+          "key": "features",
+          "label": "Key features (comma-separated)",
+          "type": "textarea",
+          "options": null
+        },
+        {
+          "key": "audience",
+          "label": "Primary audience",
+          "type": "select",
+          "options": [
+            "Recruiters skimming my portfolio",
+            "Other developers who might contribute",
+            "Both, equally"
+          ]
+        }
+      ],
+      "template": "Write a README.md for a portfolio project.\n\nProject: {{project}}\nOne-line summary: {{summary}}\nStack: {{stack}}\nKey features: {{features}}\nPrimary audience: {{audience}}\n\nInstructions:\n1. Structure: Title, one-line summary, Features, Tech Stack, Setup/Run instructions, Screenshots placeholder, Roadmap (optional), License placeholder.\n2. Write the summary to be scannable in under 10 seconds — this is often the first thing a recruiter sees.\n3. Keep setup instructions copy-pasteable (actual commands, not prose descriptions of commands).\n4. No filler phrases like \"this project aims to\" — be direct.",
+      "example": "project = \"Circuit.IQ\", summary = \"AI-powered virtual physics lab for interactive experiments\", audience = \"Recruiters skimming my portfolio\"",
+      "bestPractices": [
+        "List real features, not aspirational ones — a README overselling an MVP hurts more than a modest accurate one.",
+        "Regenerate this each time a project reaches a new milestone rather than hand-editing drift."
+      ]
+    },
+    {
+      "id": "docs-planning",
+      "category": "docs",
+      "title": "Project Planning / Feature Breakdown",
+      "description": "Break a fuzzy project idea into a scoped, buildable plan with clear priorities.",
+      "variables": [
+        {
+          "key": "idea",
+          "label": "The feature or project idea",
+          "type": "textarea",
+          "options": null
+        },
+        {
+          "key": "timeframe",
+          "label": "Time you have",
+          "type": "select",
+          "options": [
+            "A weekend",
+            "1 week",
+            "2-4 weeks",
+            "Ongoing, no fixed deadline"
+          ]
+        },
+        {
+          "key": "skillgap",
+          "label": "Skills you're still building (optional)",
+          "type": "text",
+          "options": null
+        }
+      ],
+      "template": "Break this idea into a scoped, buildable plan.\n\nIdea: {{idea}}\nTime available: {{timeframe}}\nSkills still developing: {{skillgap}}\n\nInstructions:\n1. Split into Must-have (MVP), Should-have, and Nice-to-have — be ruthless about what's actually MVP.\n2. Sequence tasks in build order, noting dependencies.\n3. Flag any task that touches a skill I'm still developing, with a one-line note on what to look up.\n4. End with a single \"definition of done\" for the MVP.",
+      "example": "idea = \"Add a pilot feedback form + basic analytics to Circuit.IQ\", timeframe = \"1 week\"",
+      "bestPractices": [
+        "State the real time budget honestly — the plan quality depends entirely on this constraint being accurate.",
+        "Re-run this whenever scope creeps; don't try to patch an old plan by hand."
+      ]
+    },
+    {
+      "id": "career-resume-bullet",
+      "category": "career",
+      "title": "Resume Bullet Rewriter (ATS-optimized)",
+      "description": "Turn a rough accomplishment into a punchy, ATS-friendly resume bullet with metrics.",
+      "variables": [
+        {
+          "key": "rough",
+          "label": "Describe what you did, roughly",
+          "type": "textarea",
+          "options": null
+        },
+        {
+          "key": "role",
+          "label": "Target role this resume is for",
+          "type": "select",
+          "options": [
+            "AI Engineer Intern",
+            "ML Engineer",
+            "Full Stack AI Developer",
+            "Software Engineer (AI)"
+          ]
+        },
+        {
+          "key": "metric",
+          "label": "Any real metric/number you can cite (optional)",
+          "type": "text",
+          "options": null
+        }
+      ],
+      "template": "Rewrite this into a strong, ATS-optimized resume bullet.\n\nRough description: {{rough}}\nTarget role: {{role}}\nAvailable metric: {{metric}}\n\nInstructions:\n1. Start with a strong action verb, past tense.\n2. Follow the pattern: [Action] + [what/how] + [measurable result/impact].\n3. Only include a metric if I gave you a real one — never invent numbers.\n4. Keep it to one line, ATS-plain-text (no special characters, no emoji).\n5. Give 2 phrasing variants so I can pick the better fit.",
+      "example": "rough = \"built the RAG chatbot to answer questions from PDFs fast\", role = \"AI Engineer Intern\", metric = \"under 2 seconds retrieval on large corpora\"",
+      "bestPractices": [
+        "Never let the AI invent a metric — approximate honestly or omit it.",
+        "Regenerate per target role; a Full Stack bullet and an AI Engineer bullet should emphasize different verbs."
+      ]
+    },
+    {
+      "id": "career-interview-prep",
+      "category": "career",
+      "title": "Mock Interview Question Drill",
+      "description": "Get realistic interview questions for a specific company/role, with what a strong answer covers.",
+      "variables": [
+        {
+          "key": "company",
+          "label": "Target company",
+          "type": "select",
+          "options": [
+            "Microsoft",
+            "Google",
+            "Amazon",
+            "Meta",
+            "NVIDIA",
+            "AI startup (generic)",
+            "Other"
+          ]
+        },
+        {
+          "key": "type",
+          "label": "Interview type",
+          "type": "select",
+          "options": [
+            "Technical (ML/DSA)",
+            "System design",
+            "Behavioral / culture fit",
+            "Project deep-dive (my own projects)"
+          ]
+        },
+        {
+          "key": "count",
+          "label": "How many questions",
+          "type": "select",
+          "options": [
+            "3",
+            "5",
+            "8"
+          ]
+        }
+      ],
+      "template": "Generate realistic interview questions for this prep session.\n\nTarget company: {{company}}\nInterview type: {{type}}\nNumber of questions: {{count}}\n\nInstructions:\n1. Make questions realistic to what {{company}} actually asks freshers/interns for this interview type — note if you're inferring vs. citing a known pattern.\n2. For each question, give a 2-3 line note on what a strong answer covers (not the full answer — I want to attempt it myself first).\n3. If type is \"Project deep-dive,\" phrase questions to probe my own listed projects (Circuit.IQ, NutriScope, RAG chatbot) rather than generic projects.",
+      "example": "company = \"Microsoft\", type = \"Behavioral / culture fit\", count = \"5\"",
+      "bestPractices": [
+        "Use \"Project deep-dive\" before any real interview — recruiters will ask exactly this.",
+        "Attempt answers yourself before reading the \"what a strong answer covers\" hint."
+      ]
+    },
+    {
+      "id": "content-abtalks-post",
+      "category": "content",
+      "title": "ABTalks LinkedIn Post Generator",
+      "description": "Turn today's learning or build progress into a polished ABTalks LinkedIn post.",
+      "variables": [
+        {
+          "key": "topic",
+          "label": "What did you learn/build today?",
+          "type": "textarea",
+          "options": null
+        },
+        {
+          "key": "daynum",
+          "label": "Challenge day number",
+          "type": "text",
+          "options": null
+        },
+        {
+          "key": "angle",
+          "label": "Post angle",
+          "type": "select",
+          "options": [
+            "A concept I finally understood",
+            "A mistake/bug I fixed and what it taught me",
+            "A project milestone I shipped",
+            "A resource/tool I found genuinely useful"
+          ]
+        },
+        {
+          "key": "cta",
+          "label": "Call-to-action style",
+          "type": "select",
+          "options": [
+            "Ask a question to spark discussion",
+            "Invite people to check out my project link",
+            "Simple takeaway, no explicit CTA"
+          ]
+        }
+      ],
+      "template": "Write a LinkedIn post for my \"ABTalks 60-Day Challenge\" series (documenting my AI learning journey publicly).\n\nDay: {{daynum}}\nWhat happened: {{topic}}\nAngle: {{angle}}\nCall-to-action: {{cta}}\n\nInstructions:\n1. Hook in the first line — no \"Day X of my journey\" opener, that's overused.\n2. Write in first person, conversational but credible — not salesy, not overly hyped.\n3. 120-180 words, short paragraphs/line breaks for LinkedIn readability.\n4. End per the chosen CTA style.\n5. Suggest 3-5 relevant hashtags separately at the end.",
+      "example": "topic = \"Finally understood how attention heads specialize in transformers\", angle = \"A concept I finally understood\", cta = \"Ask a question to spark discussion\"",
+      "bestPractices": [
+        "Give the real, specific detail from today — vague input produces a generic-sounding post.",
+        "Vary \"angle\" across the week so the series doesn't read as one repeated template."
+      ]
+    },
+    {
+      "id": "content-learning-to-post",
+      "category": "content",
+      "title": "Learning Session → Content Idea",
+      "description": "Mine a study/build session for 3 genuinely postable content angles.",
+      "variables": [
+        {
+          "key": "session",
+          "label": "Summarize what you did in this session",
+          "type": "textarea",
+          "options": null
+        }
+      ],
+      "template": "I just finished a study/build session. Help me find genuinely postable content angles for ABTalks.\n\nSession summary: {{session}}\n\nInstructions:\n1. Suggest exactly 3 distinct angles (not 3 phrasings of the same idea) that a LinkedIn audience of aspiring AI engineers would find useful or relatable.\n2. For each angle, give a one-line hook and who it's most useful for (beginners / fellow builders / recruiters).\n3. Rank them by how likely they are to spark comments, with a one-line reason.",
+      "example": "session = \"Debugged a CORS issue between FastAPI and Vercel-hosted React for 2 hours, root cause was a missing OPTIONS handler\"",
+      "bestPractices": [
+        "Run this right after a session while details are fresh — recalled-later summaries are noticeably weaker input."
+      ]
+    }
+  ],
+  "favorites": [],
+  "settings": {
+    "theme": "dark",
+    "explainerDismissed": false,
+    "onboarded": true
+  }
+}

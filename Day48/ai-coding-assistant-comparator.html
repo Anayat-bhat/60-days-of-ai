@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pick Your Assistant — AI Coding Tool Comparator</title>
+<style>
+  :root{
+    --bg: #0d1117;
+    --bg-panel: #131a23;
+    --bg-raised: #1a2330;
+    --line: #26313f;
+    --line-soft: #1c2530;
+    --text: #dbe4ee;
+    --text-dim: #8593a3;
+    --text-faint: #566274;
+    --accent: #ff8a3d;
+    --accent-dim: #ff8a3d33;
+    --good: #5fc98d;
+    --warn: #e0b84c;
+    --mono: 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 15% -10%, #17202c 0%, transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:80px;
+  }
+  ::selection{background:var(--accent-dim); color:var(--text);}
+
+  a{color:var(--accent);}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    border-bottom:1px solid var(--line);
+    padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; flex-wrap:wrap;
+    position:sticky; top:0; z-index:50;
+    background:rgba(13,17,23,0.92);
+    backdrop-filter:blur(10px);
+  }
+  .topbar .brand{
+    font-family:var(--mono); font-size:13px; letter-spacing:0.06em;
+    color:var(--text-dim); text-transform:uppercase;
+    display:flex; align-items:center; gap:8px;
+  }
+  .brand .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent);}
+  .updated{font-family:var(--mono); font-size:11px; color:var(--text-faint);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    max-width:1080px; margin:0 auto; padding:56px 24px 28px;
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; color:var(--accent);
+    letter-spacing:0.12em; text-transform:uppercase; margin-bottom:14px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--accent);}
+  h1{
+    font-size:clamp(28px, 4.4vw, 46px); font-weight:700; letter-spacing:-0.02em;
+    line-height:1.08; max-width:820px; margin-bottom:16px;
+  }
+  h1 span{color:var(--text-dim); font-weight:500;}
+  .sub{
+    font-size:16px; color:var(--text-dim); max-width:640px; margin-bottom:8px;
+  }
+  .audience-line{
+    font-family:var(--mono); font-size:12.5px; color:var(--text-faint); margin-top:18px;
+    border-left:2px solid var(--line); padding-left:12px;
+  }
+
+  /* ---------- Weight controls ---------- */
+  .controls{
+    max-width:1080px; margin:0 auto; padding:0 24px 8px;
+  }
+  .controls-head{
+    display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+    margin-bottom:14px; flex-wrap:wrap;
+  }
+  .controls-head h2{font-size:14px; font-family:var(--mono); text-transform:uppercase; letter-spacing:0.08em; color:var(--text);}
+  .reset-btn{
+    font-family:var(--mono); font-size:11.5px; color:var(--text-dim);
+    background:var(--bg-raised); border:1px solid var(--line); padding:6px 12px;
+    border-radius:5px; cursor:pointer; transition:all .15s;
+  }
+  .reset-btn:hover{border-color:var(--accent); color:var(--accent);}
+
+  .weights-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr));
+    gap:14px; margin-bottom:30px;
+  }
+  .weight-card{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:10px;
+    padding:14px 16px;
+  }
+  .weight-card .wc-top{
+    display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;
+  }
+  .weight-card label{font-size:13px; font-weight:600;}
+  .weight-val{
+    font-family:var(--mono); font-size:13px; color:var(--accent); min-width:32px; text-align:right;
+  }
+  input[type=range]{
+    -webkit-appearance:none; width:100%; height:4px; border-radius:2px;
+    background:var(--line); outline:none; cursor:pointer;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none; width:16px; height:16px; border-radius:50%;
+    background:var(--accent); cursor:pointer; border:2px solid #0d1117;
+    box-shadow:0 0 0 1px var(--accent);
+  }
+  input[type=range]::-moz-range-thumb{
+    width:16px; height:16px; border-radius:50%; background:var(--accent);
+    cursor:pointer; border:2px solid #0d1117; box-shadow:0 0 0 1px var(--accent);
+  }
+  .weight-desc{font-size:11px; color:var(--text-faint); margin-top:8px; line-height:1.4;}
+
+  .presets{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:36px;}
+  .preset-btn{
+    font-family:var(--mono); font-size:11.5px; color:var(--text-dim);
+    background:transparent; border:1px solid var(--line-soft); padding:7px 13px;
+    border-radius:20px; cursor:pointer; transition:all .15s;
+  }
+  .preset-btn:hover, .preset-btn.active{
+    border-color:var(--accent); color:var(--accent); background:var(--accent-dim);
+  }
+
+  /* ---------- Ranking ---------- */
+  .rank-section{max-width:1080px; margin:0 auto; padding:0 24px;}
+  .rank-section h2{font-size:14px; font-family:var(--mono); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px;}
+  .rank-list{display:flex; flex-direction:column; gap:10px; margin-bottom:44px;}
+
+  .rank-item{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:12px;
+    padding:18px 20px; display:grid; grid-template-columns:44px 1.4fr 1fr 90px;
+    align-items:center; gap:18px; transition:border-color .2s, transform .2s;
+  }
+  .rank-item:hover{border-color:#3a4655;}
+  .rank-item.leader{border-color:var(--accent); background:linear-gradient(180deg, #1c1712, var(--bg-panel));}
+  .rank-pos{
+    font-family:var(--mono); font-size:22px; font-weight:700; color:var(--text-faint); text-align:center;
+  }
+  .rank-item.leader .rank-pos{color:var(--accent);}
+  .rank-name{display:flex; flex-direction:column; gap:4px;}
+  .rank-name .tool-name{font-size:17px; font-weight:700;}
+  .rank-name .tool-tag{font-size:12px; color:var(--text-dim);}
+  .rank-bar-wrap{display:flex; flex-direction:column; gap:5px;}
+  .rank-bar-track{height:7px; border-radius:4px; background:var(--line-soft); overflow:hidden;}
+  .rank-bar-fill{height:100%; border-radius:4px; background:linear-gradient(90deg, #ff8a3d, #ffb27a); transition:width .4s ease;}
+  .rank-item:not(.leader) .rank-bar-fill{background:linear-gradient(90deg, #4d5b6c, #6b7c92);}
+  .rank-score{font-family:var(--mono); font-size:12px; color:var(--text-dim);}
+  .rank-cta{
+    font-family:var(--mono); font-size:11px; color:var(--text-dim); text-align:right; cursor:pointer;
+    border:1px solid var(--line-soft); border-radius:6px; padding:7px 10px; background:transparent;
+    transition:all .15s; white-space:nowrap;
+  }
+  .rank-cta:hover{border-color:var(--accent); color:var(--accent);}
+
+  /* ---------- Detail table ---------- */
+  .table-wrap{
+    overflow-x:auto; border:1px solid var(--line); border-radius:12px; margin-bottom:44px;
+    background:var(--bg-panel);
+  }
+  table{border-collapse:collapse; width:100%; min-width:760px;}
+  thead th{
+    font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--text-dim); text-align:left; padding:14px 16px; border-bottom:1px solid var(--line);
+    background:var(--bg-raised); position:sticky; top:0;
+  }
+  thead th:first-child{position:sticky; left:0; z-index:2; background:var(--bg-raised);}
+  tbody td{padding:14px 16px; border-bottom:1px solid var(--line-soft); font-size:13px; vertical-align:top;}
+  tbody td:first-child{
+    font-weight:600; color:var(--text-dim); white-space:nowrap; position:sticky; left:0;
+    background:var(--bg-panel); font-size:12px; font-family:var(--mono);
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  .cell-fact{font-size:13px; color:var(--text); margin-bottom:4px;}
+  .cell-score{font-family:var(--mono); font-size:11px; color:var(--accent);}
+  .flag-est{
+    display:inline-block; font-family:var(--mono); font-size:9.5px; color:var(--warn);
+    border:1px solid #4a3e1f; background:#221b0c; padding:1px 6px; border-radius:4px; margin-left:6px;
+    vertical-align:middle;
+  }
+
+  /* ---------- Panels (sources / methodology) ---------- */
+  .panel{
+    border:1px solid var(--line); border-radius:12px; background:var(--bg-panel);
+    margin-bottom:20px; overflow:hidden;
+  }
+  .panel-head{
+    padding:18px 20px; cursor:pointer; display:flex; align-items:center; justify-content:space-between;
+    user-select:none;
+  }
+  .panel-head h3{font-size:14.5px; font-weight:700;}
+  .panel-head .ph-sub{font-size:12px; color:var(--text-faint); font-weight:400; margin-top:3px;}
+  .chevron{
+    width:20px; height:20px; flex-shrink:0; color:var(--text-dim); transition:transform .25s;
+  }
+  .panel.open .chevron{transform:rotate(180deg);}
+  .panel-body{
+    max-height:0; overflow:hidden; transition:max-height .35s ease;
+  }
+  .panel.open .panel-body{max-height:3200px;}
+  .panel-body-inner{padding:0 20px 22px;}
+
+  .source-item{
+    border-top:1px solid var(--line-soft); padding:13px 0; display:grid;
+    grid-template-columns:110px 1fr; gap:14px;
+  }
+  .source-item:first-child{border-top:none;}
+  .source-tool{font-family:var(--mono); font-size:11px; color:var(--accent); padding-top:2px;}
+  .source-detail a{font-size:13px; font-weight:600; text-decoration:none;}
+  .source-detail a:hover{text-decoration:underline;}
+  .source-meta{font-size:11.5px; color:var(--text-faint); margin-top:3px;}
+
+  .method-block{border-top:1px solid var(--line-soft); padding:16px 0;}
+  .method-block:first-child{border-top:none;}
+  .method-block h4{font-size:13px; margin-bottom:8px; color:var(--text);}
+  .method-block p{font-size:13px; color:var(--text-dim); line-height:1.6;}
+  .method-block ul{margin:8px 0 0 18px; font-size:13px; color:var(--text-dim); line-height:1.7;}
+
+  .conflict-box{
+    background:var(--bg-raised); border:1px solid var(--line); border-radius:8px;
+    padding:12px 14px; margin-top:10px; font-size:12.5px; color:var(--text-dim);
+  }
+  .conflict-box b{color:var(--text);}
+
+  /* ---------- Footer note ---------- */
+  .disclaimer{
+    max-width:1080px; margin:36px auto 0; padding:16px 24px; border-top:1px solid var(--line);
+    font-size:11.5px; color:var(--text-faint); line-height:1.7;
+  }
+
+  /* ---------- Empty / loading ---------- */
+  .state-box{
+    max-width:1080px; margin:40px auto; padding:40px 24px; text-align:center; color:var(--text-dim);
+    font-family:var(--mono); font-size:13px;
+  }
+  .spinner{
+    width:26px; height:26px; border-radius:50%; border:2px solid var(--line);
+    border-top-color:var(--accent); animation:spin .8s linear infinite; margin:0 auto 14px;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  @media (max-width:640px){
+    .rank-item{grid-template-columns:32px 1fr; grid-template-rows:auto auto; row-gap:10px;}
+    .rank-bar-wrap{grid-column:1 / -1;}
+    .rank-cta{grid-column:1 / -1; text-align:left;}
+    .source-item{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="dot"></span> compare &amp; decide · AI coding assistants</div>
+  <div class="updated">data verified · August 2026</div>
+</div>
+
+<div id="root">
+  <div class="state-box" id="loadingState">
+    <div class="spinner"></div>
+    Loading comparison data&hellip;
+  </div>
+</div>
+
+<script>
+/* ======================================================================
+   DATA LAYER
+   Every numeric "score" (1–10) below is an editorial synthesis Claude
+   produced from the cited sources — not a number any source published
+   directly, except where the fact itself is a real reported figure
+   (prices, SWE-bench %, context window size). Estimated/synthesized
+   points are flagged with isEstimate:true and explained in the
+   "How this was researched" panel.
+   ====================================================================== */
+
+const CRITERIA = [
+  { key: 'cost',        label: 'Cost',        desc: 'Lower monthly price for a solo dev = higher score' },
+  { key: 'features',    label: 'Features',    desc: 'Breadth of agentic/multi-file/model capability' },
+  { key: 'easeOfUse',   label: 'Ease of use', desc: 'Setup friction, learning curve, editor familiarity' },
+  { key: 'availability', label: 'Availability', desc: 'Platform/IDE reach, free-tier access, uptime signals' },
+  { key: 'performance', label: 'Performance',  desc: 'Benchmark scores, context window, latency reports' },
+];
+
+const TOOLS = [
+  {
+    id: 'cursor',
+    name: 'Cursor',
+    tag: 'AI-native VS Code fork · Anysphere',
+    scores: { cost: 5, features: 9, easeOfUse: 8, availability: 6, performance: 7 },
+    facts: {
+      cost: { text: 'Free (Hobby) · Pro $20/mo · Pro+ $60/mo · Ultra $200/mo · Teams $40/user/mo', estimate:false, sourceIds:['cursor-pricing-1','cursor-pricing-2'] },
+      features: { text: 'Multi-model access (Claude, GPT, Gemini, DeepSeek), Composer for visual multi-file edits, background/cloud agents, Supermaven-based autocomplete reported at ~72% acceptance', estimate:false, sourceIds:['nxcode-compare'] },
+      easeOfUse: { text: 'Familiar VS Code interface; widely described by reviewers as the tool developers most often push their employer to approve', estimate:true, sourceIds:['kanerika-1'] },
+      availability: { text: 'Standalone editor (VS Code fork); no official JetBrains Rider support', estimate:false, sourceIds:['gilricardo'] },
+      performance: { text: '200K token context window; ~4GB RAM footprint reported for large codebases', estimate:false, sourceIds:['browseai'] },
+    }
+  },
+  {
+    id: 'copilot',
+    name: 'GitHub Copilot',
+    tag: 'Plugin for any IDE · Microsoft/GitHub',
+    scores: { cost: 8, features: 6, easeOfUse: 9, availability: 10, performance: 5 },
+    facts: {
+      cost: { text: 'Free tier · Pro $10/mo · Pro+ $39/mo · Max $100/mo · Business $19/user/mo · Enterprise $39/user/mo', estimate:false, sourceIds:['copilot-pricing-1','copilot-pricing-2'] },
+      features: { text: 'Unlimited completions on paid plans, GPT-4.1 default with model switching, issue-to-PR coding agent; reviewers rate its multi-file editing as the weakest of the three IDE-based tools compared here', estimate:false, sourceIds:['nxcode-compare','browseai'] },
+      easeOfUse: { text: 'Ships as a lightweight plugin for existing editors — lowest setup friction of the four, minimal local resource overhead', estimate:true, sourceIds:['nxcode-compare','browseai'] },
+      availability: { text: 'Works across VS Code, JetBrains (incl. Rider), Neovim and more; reported 20M+ users and SOC 2 compliance', estimate:false, sourceIds:['kanerika-1','gilricardo'] },
+      performance: { text: 'Runs on GPT-4.1 by default with no built-in Claude/Gemini option; rated behind Cursor and Claude Code on multi-file refactor quality by reviewers', estimate:true, sourceIds:['browseai','nxcode-compare'] },
+    }
+  },
+  {
+    id: 'windsurf',
+    name: 'Windsurf',
+    tag: 'Agentic IDE · Cognition AI (formerly Codeium)',
+    scores: { cost: 6, features: 7, easeOfUse: 7, availability: 5, performance: 6 },
+    facts: {
+      cost: { text: 'Free tier · Pro $20/mo (raised from $15 in March 2026) · Max $200/mo · Teams $40/user/mo · Enterprise custom', estimate:false, sourceIds:['windsurf-pricing-1','windsurf-pricing-2'] },
+      features: { text: 'Cascade agent for autonomous multi-step edits, proprietary SWE-1.5 model, unlimited Tab autocomplete on every plan including Free, Arena Mode for side-by-side model comparison', estimate:false, sourceIds:['fundesk','modern-datatools'] },
+      easeOfUse: { text: 'Reviewers describe the Cascade workflow as fast but less polished than Cursor for individual developer experience; smaller community means fewer tutorials', estimate:true, sourceIds:['fundesk','gilricardo'] },
+      availability: { text: 'Standalone VS Code-fork editor; no JetBrains Rider support; separate Codeium extension exists for JetBrains/Neovim with different limits', estimate:false, sourceIds:['gilricardo','devtoolsreview'] },
+      performance: { text: 'Reported as leading on latency in one comparison; runs its own SWE-1.5 model rather than always defaulting to frontier Claude/GPT models, which reviewers note trails Opus on hard tasks', estimate:true, sourceIds:['browseai','gilricardo'] },
+    }
+  },
+  {
+    id: 'claudecode',
+    name: 'Claude Code',
+    tag: 'Terminal-native coding agent · Anthropic',
+    scores: { cost: 3, features: 8, easeOfUse: 5, availability: 4, performance: 10 },
+    facts: {
+      cost: { text: 'No free tier · bundled into Claude Pro $20/mo, Max 5x $100/mo, Max 20x $200/mo, or Team Premium seats ~$100–125/mo (5-seat minimum)', estimate:false, sourceIds:['claudecode-pricing-1','claudecode-pricing-2'] },
+      features: { text: '1M-token context window (GA March 2026), "Agent Teams" for parallel multi-step tasks, deep single-pass whole-codebase analysis without chunking', estimate:false, sourceIds:['nxcode-compare','kanerika-1'] },
+      easeOfUse: { text: 'Terminal-first workflow rather than a graphical IDE — reviewers frame it as the choice once a problem is "genuinely hard," implying a steeper on-ramp than editor-based tools', estimate:true, sourceIds:['kanerika-1'] },
+      availability: { text: 'Primarily an individual CLI/terminal tool (also web and desktop); team usage runs through API or Team Premium seats rather than broad IDE-plugin support', estimate:true, sourceIds:['nxcode-compare','ssdnodes'] },
+      performance: { text: 'Highest reported SWE-bench Verified scores of the group — 80.8–80.9% on Opus 4.5/4.6, with Opus 4.8 reaching 88.6% in the most recent reporting; largest context window of the four tools', estimate:false, sourceIds:['nxcode-compare','kanerika-1','lushbinary'] },
+    }
+  },
+];
+
+const SOURCES = {
+  'cursor-pricing-1': { title:'Cursor AI Pricing 2026 | All 6 Plans, Credits, and True Cost', url:'https://www.lowcode.agency/blog/cursor-ai-pricing', domain:'lowcode.agency', date:'Aug 2026' },
+  'cursor-pricing-2': { title:'Cursor pricing 2026: Hobby, Pro, and Business plans compared', url:'https://www.eesel.ai/blog/cursor-pricing', domain:'eesel.ai', date:'Jun 2026' },
+  'copilot-pricing-1': { title:'GitHub Copilot cost: what teams actually pay in 2026', url:'https://www.cloudzero.com/blog/github-copilot-cost/', domain:'cloudzero.com', date:'Jul 2026' },
+  'copilot-pricing-2': { title:'GitHub Copilot Pricing 2026: Free, Pro & Business Plans', url:'https://www.nocode.mba/articles/github-copilot-pricing', domain:'nocode.mba', date:'Jun 2026' },
+  'windsurf-pricing-1': { title:'Windsurf Pricing In 2026: Plans, Quotas, And More', url:'https://www.cloudzero.com/blog/windsurf-pricing/', domain:'cloudzero.com', date:'May 2026' },
+  'windsurf-pricing-2': { title:'Windsurf AI Pricing: Free, Pro, Max & Teams Explained (2026)', url:'https://k-antenna.com/windsurf-ai-pricing/', domain:'k-antenna.com', date:'Apr 2026' },
+  'claudecode-pricing-1': { title:'Claude Code Pricing in 2026: Every Plan Explained (Pro, Max, API & Teams)', url:'https://www.ssdnodes.com/blog/claude-code-pricing-in-2026-every-plan-explained-pro-max-api-teams/', domain:'ssdnodes.com', date:'Jul 2026' },
+  'claudecode-pricing-2': { title:'Claude Code Pricing 2026: Every Plan and Price', url:'https://claudify.tech/blog/claude-code-pricing', domain:'claudify.tech', date:'Jul 2026' },
+  'ssdnodes': { title:'Claude Code Pricing in 2026: Every Plan Explained (Pro, Max, API & Teams)', url:'https://www.ssdnodes.com/blog/claude-code-pricing-in-2026-every-plan-explained-pro-max-api-teams/', domain:'ssdnodes.com', date:'Jul 2026' },
+  'nxcode-compare': { title:'Cursor vs Claude Code vs GitHub Copilot 2026: The Ultimate Comparison', url:'https://www.nxcode.io/resources/news/cursor-vs-claude-code-vs-github-copilot-2026-ultimate-comparison', domain:'nxcode.io', date:'Apr 2026' },
+  'kanerika-1': { title:'GitHub Copilot vs Claude Code vs Cursor vs Windsurf (2026)', url:'https://kanerika.com/blogs/github-copilot-vs-claude-code-vs-cursor-vs-windsurf/', domain:'kanerika.com', date:'Jul 2026' },
+  'browseai': { title:'GitHub Copilot vs Cursor vs Windsurf: AI Coding 2026', url:'https://www.browse-ai.tools/blog/github-copilot-vs-cursor-vs-windsurf-coding-with-ai-in-2026', domain:'browse-ai.tools', date:'Jul 2026' },
+  'gilricardo': { title:'Cursor vs Claude Code vs Windsurf vs Copilot 2026', url:'https://www.gilricardo.com/blog/cursor-vs-claude-code-vs-windsurf-vs-copilot-2026', domain:'gilricardo.com', date:'Jul 2026' },
+  'fundesk': { title:'AI Coding Agents Compared: Cursor vs Copilot vs Claude Code vs Windsurf in 2026', url:'https://www.fundesk.io/ai-coding-agents-compared-cursor-copilot-claude-code-windsurf-2026', domain:'fundesk.io', date:'Aug 2026' },
+  'modern-datatools': { title:'Windsurf Pricing (2026): Free and Pro Editor Plans', url:'https://www.modern-datatools.com/tools/windsurf/pricing', domain:'modern-datatools.com', date:'2026' },
+  'devtoolsreview': { title:'Windsurf Pricing 2026 (Now Devin Desktop): Plans, Costs & Is It Worth It?', url:'https://devtoolsreview.com/pricing/windsurf-pricing/', domain:'devtoolsreview.com', date:'Aug 2026' },
+  'lushbinary': { title:'AI Coding Agents 2026: Claude Code vs Antigravity 2.0 vs Codex vs Cursor vs Kiro vs Copilot vs Windsurf', url:'https://lushbinary.com/blog/ai-coding-agents-comparison-cursor-windsurf-claude-copilot-kiro-2026/', domain:'lushbinary.com', date:'Jul 2026' },
+};
+
+const PRESETS = {
+  balanced:  { cost:20, features:20, easeOfUse:20, availability:20, performance:20 },
+  student:   { cost:45, features:10, easeOfUse:25, availability:15, performance:5  },
+  pro:       { cost:10, features:30, easeOfUse:10, availability:15, performance:35 },
+  team:      { cost:15, features:20, easeOfUse:15, availability:35, performance:15 },
+};
+
+let weights = { ...PRESETS.balanced };
+
+/* ======================================================================
+   RENDER
+   ====================================================================== */
+
+function computeRanked() {
+  const totalWeight = CRITERIA.reduce((s,c) => s + weights[c.key], 0) || 1;
+  return TOOLS.map(t => {
+    const raw = CRITERIA.reduce((s,c) => s + t.scores[c.key] * weights[c.key], 0);
+    const norm = raw / totalWeight; // 0-10 scale
+    return { ...t, score: norm };
+  }).sort((a,b) => b.score - a.score);
+}
+
+function svgChevron(){
+  return `<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+}
+
+function render() {
+  const root = document.getElementById('root');
+  if (!TOOLS.length) {
+    root.innerHTML = `<div class="state-box">No comparison data available. Try refreshing the page.</div>`;
+    return;
+  }
+
+  const ranked = computeRanked();
+  const maxScore = ranked[0].score || 1;
+
+  root.innerHTML = `
+    <div class="hero">
+      <div class="eyebrow">Compare &amp; decide</div>
+      <h1>Which AI coding assistant<br><span>actually fits how you work?</span></h1>
+      <p class="sub">A side-by-side of Cursor, GitHub Copilot, Windsurf, and Claude Code across cost, features, ease of use, availability, and performance — built for students and developers choosing their next tool.</p>
+      <div class="audience-line">Adjust the weights below to match what matters to you. The ranking updates live — nothing here is a fixed "best" list.</div>
+    </div>
+
+    <div class="controls">
+      <div class="controls-head">
+        <h2>Set your priorities</h2>
+        <button class="reset-btn" id="resetBtn">Reset to balanced</button>
+      </div>
+      <div class="presets" id="presetRow">
+        ${Object.keys(PRESETS).map(p => `<button class="preset-btn" data-preset="${p}">${presetLabel(p)}</button>`).join('')}
+      </div>
+      <div class="weights-grid" id="weightsGrid"></div>
+    </div>
+
+    <div class="rank-section">
+      <h2>Live ranking</h2>
+      <div class="rank-list" id="rankList"></div>
+
+      <h2>Full comparison</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Criterion</th>
+              ${TOOLS.map(t => `<th>${t.name}</th>`).join('')}
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="panel" id="sourcesPanel">
+        <div class="panel-head" data-panel="sourcesPanel">
+          <div>
+            <h3>Sources panel</h3>
+            <div class="ph-sub">Every citation used to build this comparison</div>
+          </div>
+          ${svgChevron()}
+        </div>
+        <div class="panel-body"><div class="panel-body-inner" id="sourcesBody"></div></div>
+      </div>
+
+      <div class="panel" id="methodPanel">
+        <div class="panel-head" data-panel="methodPanel">
+          <div>
+            <h3>How this was researched</h3>
+            <div class="ph-sub">Where each data point came from, and conflicts we had to resolve</div>
+          </div>
+          ${svgChevron()}
+        </div>
+        <div class="panel-body"><div class="panel-body-inner" id="methodBody"></div></div>
+      </div>
+
+      <div class="disclaimer">
+        Pricing and benchmark figures change frequently in this market — plans, credit systems, and model versions were revised multiple times in 2026 alone. Figures above were verified against the cited sources in August 2026; check vendor pricing pages directly before making a purchase decision. Scores are a synthesis for comparison purposes, not an endorsement, and the "ease of use," "availability," and parts of "performance" scores involve editorial judgment layered on top of the cited reporting — see the flagged items and the methodology panel above.
+      </div>
+    </div>
+  `;
+
+  renderWeights();
+  renderRanking(ranked, maxScore);
+  renderTable();
+  renderSources();
+  renderMethod();
+  bindEvents();
+}
+
+function presetLabel(p){
+  return { balanced:'Balanced', student:'Budget student', pro:'Power / performance', team:'Team lead' }[p] || p;
+}
+
+function renderWeights(){
+  const grid = document.getElementById('weightsGrid');
+  grid.innerHTML = CRITERIA.map(c => `
+    <div class="weight-card">
+      <div class="wc-top">
+        <label for="w-${c.key}">${c.label}</label>
+        <span class="weight-val" id="val-${c.key}">${weights[c.key]}</span>
+      </div>
+      <input type="range" min="0" max="50" step="1" id="w-${c.key}" data-key="${c.key}" value="${weights[c.key]}">
+      <div class="weight-desc">${c.desc}</div>
+    </div>
+  `).join('');
+}
+
+function renderRanking(ranked, maxScore){
+  const list = document.getElementById('rankList');
+  list.innerHTML = ranked.map((t, i) => `
+    <div class="rank-item ${i===0 ? 'leader':''}">
+      <div class="rank-pos">${i+1}</div>
+      <div class="rank-name">
+        <div class="tool-name">${t.name}</div>
+        <div class="tool-tag">${t.tag}</div>
+      </div>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:${(t.score/maxScore*100).toFixed(1)}%"></div></div>
+        <div class="rank-score">${t.score.toFixed(2)} / 10 weighted score</div>
+      </div>
+      <button class="rank-cta" data-jump="${t.id}">View details ↓</button>
+    </div>
+  `).join('');
+}
+
+function renderTable(){
+  const body = document.getElementById('tableBody');
+  body.innerHTML = CRITERIA.map(c => `
+    <tr>
+      <td>${c.label}</td>
+      ${TOOLS.map(t => {
+        const f = t.facts[c.key];
+        return `<td>
+          <div class="cell-fact">${f.text}${f.estimate ? '<span class="flag-est">editorial synthesis</span>' : ''}</div>
+          <div class="cell-score">score: ${t.scores[c.key]}/10</div>
+        </td>`;
+      }).join('')}
+    </tr>
+  `).join('');
+}
+
+function renderSources(){
+  const body = document.getElementById('sourcesBody');
+  const rows = [];
+  TOOLS.forEach(t => {
+    const usedIds = new Set();
+    Object.values(t.facts).forEach(f => f.sourceIds.forEach(id => usedIds.add(id)));
+    usedIds.forEach(id => {
+      const s = SOURCES[id];
+      if (!s) return;
+      rows.push(`
+        <div class="source-item">
+          <div class="source-tool">${t.name}</div>
+          <div class="source-detail">
+            <a href="${s.url}" target="_blank" rel="noopener">${s.title}</a>
+            <div class="source-meta">${s.domain} · checked ${s.date}</div>
+          </div>
+        </div>
+      `);
+    });
+  });
+  body.innerHTML = rows.join('') || '<p style="color:var(--text-dim); font-size:13px;">No sources recorded.</p>';
+}
+
+function renderMethod(){
+  const body = document.getElementById('methodBody');
+  body.innerHTML = `
+    <div class="method-block">
+      <h4>Scoring approach</h4>
+      <p>Each tool gets a 1–10 score per criterion. Cost scores are anchored to the real published monthly price for a solo developer's most relevant plan (lower price → higher score). Performance scores lean on reported SWE-bench Verified results and context-window sizes where sources gave numbers. Features, ease of use, and availability scores are Claude's editorial synthesis of the cited comparison articles and vendor pages — they are not numbers any single source published as a "score." Items built this way are marked <span class="flag-est" style="margin-left:0;">editorial synthesis</span> in the table above.</p>
+    </div>
+    <div class="method-block">
+      <h4>Cost</h4>
+      <p>Pulled directly from vendor pricing pages and pricing-tracking sites for each tool, cross-checked across two independent write-ups per tool. All four vendors run credit- or token-metered billing beneath the sticker price as of 2026, so the published monthly figure is a floor, not a hard ceiling, for heavy users.</p>
+    </div>
+    <div class="method-block">
+      <h4>Performance</h4>
+      <p>SWE-bench Verified is the benchmark most consistently cited across sources for this category. Claude Code's Opus-based scores (80.8–88.6% depending on model version) were the highest reported of the four tools in every comparison found. Windsurf and Cursor performance claims relied more on qualitative reviewer language (latency, "feel") than a shared benchmark, since neither publishes a comparable SWE-bench figure for their default in-editor model — this gap is noted rather than papered over with an invented number.</p>
+    </div>
+    <div class="conflict-box">
+      <b>Conflict resolved — Windsurf Pro price.</b> Some sources still list Windsurf Pro at its former $15/month price; multiple sources dated March 2026 or later confirm a structural pricing change raised Pro to $20/month and replaced the credit pool with daily/weekly quotas. This comparison uses the post-March-2026 figure and flags the earlier $15 figure as outdated rather than treating it as a live alternative.
+    </div>
+    <div class="conflict-box">
+      <b>Conflict resolved — GitHub Copilot billing model.</b> Sources disagree on whether Copilot's per-seat prices ($10/$19/$39) represent a hard cap or a credit allowance. The more recent sources (dated June 2026 onward, after Copilot's move to token-metered "AI Credits") describe the sticker price as a monthly credit allowance rather than an unlimited ceiling — that is the reading used here.</p>
+    </div>
+    <div class="method-block">
+      <h4>What isn't in here</h4>
+      <p>No data point in this tool was invented to fill a gap. Where a source only supported a qualitative claim (e.g. "less polished," "feels chaotic") rather than a number, the table reflects that claim in prose and the score is marked as editorial synthesis rather than presented as sourced fact.</p>
+    </div>
+  `;
+}
+
+function bindEvents(){
+  CRITERIA.forEach(c => {
+    const input = document.getElementById(`w-${c.key}`);
+    input.addEventListener('input', (e) => {
+      weights[c.key] = parseInt(e.target.value, 10);
+      document.getElementById(`val-${c.key}`).textContent = weights[c.key];
+      const ranked = computeRanked();
+      renderRanking(ranked, ranked[0].score || 1);
+      clearPresetActive();
+    });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    weights = { ...PRESETS.balanced };
+    renderWeights();
+    bindEvents();
+    const ranked = computeRanked();
+    renderRanking(ranked, ranked[0].score || 1);
+    setPresetActive('balanced');
+  });
+
+  document.querySelectorAll('.preset-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const p = btn.dataset.preset;
+      weights = { ...PRESETS[p] };
+      renderWeights();
+      bindEvents();
+      const ranked = computeRanked();
+      renderRanking(ranked, ranked[0].score || 1);
+      setPresetActive(p);
+    });
+  });
+
+  document.querySelectorAll('[data-jump]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelector('.table-wrap').scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+  });
+
+  document.querySelectorAll('.panel-head').forEach(head => {
+    head.addEventListener('click', () => {
+      document.getElementById(head.dataset.panel).classList.toggle('open');
+    });
+  });
+}
+
+function clearPresetActive(){
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+}
+function setPresetActive(p){
+  clearPresetActive();
+  const btn = document.querySelector(`.preset-btn[data-preset="${p}"]`);
+  if (btn) btn.classList.add('active');
+}
+
+/* ---------- Boot with a brief simulated load + graceful fallback ---------- */
+try {
+  setTimeout(() => {
+    try {
+      render();
+      setPresetActive('balanced');
+    } catch (err) {
+      document.getElementById('root').innerHTML =
+        `<div class="state-box">Something went wrong rendering the comparison. Please reload the page.</div>`;
+      console.error(err);
+    }
+  }, 350);
+} catch (err) {
+  document.getElementById('root').innerHTML =
+    `<div class="state-box">Something went wrong loading the comparison.</div>`;
+}
+</script>
+</body>
+</html>

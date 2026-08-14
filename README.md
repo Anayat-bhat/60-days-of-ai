@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[██████████████████████████████████░░░░░░] 85% Complete (51 / 60 Days)`
+`[███████████████████████████████████░░░░░] 88% Complete (53 / 60 Days)`
 
 ---
 
@@ -98,8 +98,10 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day49/          # Personal AI Playbook
 ├── Day50/          # Defend Your Experience
 ├── Day51/          # Capstone Kickoff & Product Discovery
-├── Day52/          # Capstone Day 2: Tech Stack Foundation (Upcoming)
-├── Day53/          # Capstone Day 3: GitHub API Integration (Upcoming)
+├── Day52/          # Capstone Day 2: System Design
+├── Day53/          # Capstone Day 3: Tech Stack Foundation
+├── Day54/          # Capstone Day 4: GitHub API Integration (Upcoming)
+├── Day55/          # Capstone Day 5: Code-Aware Chunking (Upcoming)
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -165,8 +167,9 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **52** | [System Design](Day52/day52.md) | Capstone Day 2: System Architecture & Tech Stack Selection | ✅ Done |
 | **53** | [Tech Stack Foundation](Day53/day53.md) | Capstone Day 3: Frontend & Backend Scaffolding | ✅ Done |
 | **54** | *Upcoming...* | Capstone Day 4: GitHub Repository Ingestion Service | ⏳ |
+| **55** | *Upcoming...* | Capstone Day 5: Code-Aware Chunking & Embeddings | ⏳ |
 
-*Days 54 to 60 will be updated as the challenge progresses!*
+*Days 56 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -369,6 +372,9 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 54 — Capstone Day 4: GitHub API Integration (Upcoming)**
     *   *Tools/Tech:* GitHub REST API, Python Dotenv
     *   *Key Learnings:* Handling GitHub rate limits, recursive directory tree fetching, and extracting raw file contents.
+*   **Day 55 — Capstone Day 5: Code-Aware Chunking (Upcoming)**
+    *   *Tools/Tech:* LangChain, OpenAI Embeddings, Pinecone Vector DB
+    *   *Key Learnings:* Intelligent code splitting, metadata tracking, and generating/storing semantic vector embeddings.
 
 </details>
 

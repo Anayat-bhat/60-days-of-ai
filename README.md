@@ -162,10 +162,11 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **49** | [Personal AI Playbook](Day49/day49.md) | Personal AI Playbook: Private, offline workflow system & prompt management toolkit with reusable templates, Prompt Builder, Loop Builder, local storage library & JSON export/import | ✅ Done |
 | **50** | [Defend Your Experience](Day50/day50.md) | Defend Your Experience: Interactive AI adaptive skeptic interviewer application extracting experience claims from resumes/portfolios and probing with customizable personas, MCQ defense strategies, live STAR & readiness scoring, 5-axis radar analytics & exportable PDF reports | ✅ Done |
 | **51** | [Capstone Kickoff](Day51/day51.md) | Capstone Kickoff & Product Discovery: Generated CodeCompass PRD, Implementation Blueprint (Days 2-10), and Pitch Deck | ✅ Done |
-| **52** | *Upcoming...* | Capstone Day 2: Tech Stack Foundation & Architecture Scaffold | ⏳ |
-| **53** | *Upcoming...* | Capstone Day 3: GitHub Repository Ingestion Service | ⏳ |
+| **52** | [System Design](Day52/day52.md) | Capstone Day 2: System Architecture & Tech Stack Selection | ✅ Done |
+| **53** | [Tech Stack Foundation](Day53/day53.md) | Capstone Day 3: Frontend & Backend Scaffolding | ✅ Done |
+| **54** | *Upcoming...* | Capstone Day 4: GitHub Repository Ingestion Service | ⏳ |
 
-*Days 53 to 60 will be updated as the challenge progresses!*
+*Days 54 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -359,12 +360,15 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 51 — Capstone Kickoff & Product Discovery**
     *   *Tools/Tech:* Product Discovery, PRD Generation, Technical Sprint Planning
     *   *Key Learnings:* Discovered and defined CodeCompass, a code-aware RAG intelligence assistant. Generated the PRD, Implementation Blueprint (Days 2-10), and presentation Pitch Deck to ensure strict execution for the 10-day capstone.
-*   **Day 52 — Capstone Day 2: Tech Stack Foundation (Upcoming)**
-    *   *Tools/Tech:* FastAPI, React, Vite, Tailwind CSS
-    *   *Key Learnings:* Initializing full-stack monorepo, configuring FastAPI CORS, and establishing basic frontend-to-backend communication.
-*   **Day 53 — Capstone Day 3: GitHub API Integration (Upcoming)**
-    *   *Tools/Tech:* GitHub REST API, PyGithub, Python Dotenv
-    *   *Key Learnings:* Handling GitHub rate limits, recursive directory tree fetching, and filtering raw file content.
+*   **Day 52 — Capstone Day 2: System Design**
+    *   *Tools/Tech:* System Architecture, Vector Databases
+    *   *Key Learnings:* Designing component diagrams, request lifecycles, and vector DB schemas for RAG.
+*   **Day 53 — Capstone Day 3: Tech Stack Foundation**
+    *   *Tools/Tech:* FastAPI, React, Vite, Tailwind CSS v4
+    *   *Key Learnings:* Initializing full-stack monorepo, configuring FastAPI CORS, and establishing frontend-to-backend communication.
+*   **Day 54 — Capstone Day 4: GitHub API Integration (Upcoming)**
+    *   *Tools/Tech:* GitHub REST API, Python Dotenv
+    *   *Key Learnings:* Handling GitHub rate limits, recursive directory tree fetching, and extracting raw file contents.
 
 </details>
 

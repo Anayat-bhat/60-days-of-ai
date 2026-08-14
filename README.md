@@ -5,7 +5,7 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ---
 
 ### 📊 Challenge Progress
-`[█████████████████████████████████░░░░░░░] 83% Complete (50 / 60 Days)`
+`[██████████████████████████████████░░░░░░] 85% Complete (51 / 60 Days)`
 
 ---
 
@@ -97,8 +97,9 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day48/          # Compare & Decide Builder
 ├── Day49/          # Personal AI Playbook
 ├── Day50/          # Defend Your Experience
-├── Day51/          # Enterprise RAG & Vector Search System (Upcoming)
-├── Day52/          # Advanced AI Agents & Tool Calling (Upcoming)
+├── Day51/          # Capstone Kickoff & Product Discovery
+├── Day52/          # Capstone Day 2: Tech Stack Foundation (Upcoming)
+├── Day53/          # Capstone Day 3: GitHub API Integration (Upcoming)
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -160,8 +161,9 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **48** | [Compare & Decide Builder](Day48/day48.md) | Compare & Decide Builder: Interactive decision-support application for comparing AI coding assistants (Cursor, Copilot, Windsurf, Claude Code) with dynamic criterion weight adjustment, real-world citations & live ranking updates | ✅ Done |
 | **49** | [Personal AI Playbook](Day49/day49.md) | Personal AI Playbook: Private, offline workflow system & prompt management toolkit with reusable templates, Prompt Builder, Loop Builder, local storage library & JSON export/import | ✅ Done |
 | **50** | [Defend Your Experience](Day50/day50.md) | Defend Your Experience: Interactive AI adaptive skeptic interviewer application extracting experience claims from resumes/portfolios and probing with customizable personas, MCQ defense strategies, live STAR & readiness scoring, 5-axis radar analytics & exportable PDF reports | ✅ Done |
-| **51** | *Upcoming...* | Enterprise RAG & Vector Search System | ⏳ |
-| **52** | *Upcoming...* | Advanced AI Agents & Tool Calling | ⏳ |
+| **51** | [Capstone Kickoff](Day51/day51.md) | Capstone Kickoff & Product Discovery: Generated CodeCompass PRD, Implementation Blueprint (Days 2-10), and Pitch Deck | ✅ Done |
+| **52** | *Upcoming...* | Capstone Day 2: Tech Stack Foundation & Architecture Scaffold | ⏳ |
+| **53** | *Upcoming...* | Capstone Day 3: GitHub Repository Ingestion Service | ⏳ |
 
 *Days 53 to 60 will be updated as the challenge progresses!*
 
@@ -354,12 +356,15 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 <details>
 <summary><b>🔮 Click to expand Days 51 - 60: Enterprise AI, Agentic Workflows & Final Polish</b></summary>
 
-*   **Day 51 — Enterprise RAG & Vector Search System (Upcoming)**
-    *   *Tools/Tech:* Vector Embeddings, Chunking Strategies, RAG Retrieval Engine, Hybrid Search
-    *   *Key Learnings:* Building retrieval-augmented generation pipelines, document chunking & embedding strategies, vector similarity search, context injection, and response hallucination scoring.
-*   **Day 52 — Advanced AI Agents & Tool Calling (Upcoming)**
-    *   *Tools/Tech:* Agentic Frameworks, Function Calling, API Integration, Task Planning
-    *   *Key Learnings:* Building autonomous agents that can plan tasks, execute external tools, handle API integrations, and synthesize multi-step workflows.
+*   **Day 51 — Capstone Kickoff & Product Discovery**
+    *   *Tools/Tech:* Product Discovery, PRD Generation, Technical Sprint Planning
+    *   *Key Learnings:* Discovered and defined CodeCompass, a code-aware RAG intelligence assistant. Generated the PRD, Implementation Blueprint (Days 2-10), and presentation Pitch Deck to ensure strict execution for the 10-day capstone.
+*   **Day 52 — Capstone Day 2: Tech Stack Foundation (Upcoming)**
+    *   *Tools/Tech:* FastAPI, React, Vite, Tailwind CSS
+    *   *Key Learnings:* Initializing full-stack monorepo, configuring FastAPI CORS, and establishing basic frontend-to-backend communication.
+*   **Day 53 — Capstone Day 3: GitHub API Integration (Upcoming)**
+    *   *Tools/Tech:* GitHub REST API, PyGithub, Python Dotenv
+    *   *Key Learnings:* Handling GitHub rate limits, recursive directory tree fetching, and filtering raw file content.
 
 </details>
 

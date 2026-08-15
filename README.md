@@ -166,8 +166,8 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **51** | [Capstone Kickoff](Day51/day51.md) | Capstone Kickoff & Product Discovery: Generated CodeCompass PRD, Implementation Blueprint (Days 2-10), and Pitch Deck | ✅ Done |
 | **52** | [System Design](Day52/day52.md) | Capstone Day 2: System Architecture & Tech Stack Selection | ✅ Done |
 | **53** | [Tech Stack Foundation](Day53/day53.md) | Capstone Day 3: Frontend & Backend Scaffolding | ✅ Done |
-| **54** | *Upcoming...* | Capstone Day 4: GitHub Repository Ingestion Service | ⏳ |
-| **55** | *Upcoming...* | Capstone Day 5: Code-Aware Chunking & Embeddings | ⏳ |
+| **54** | [Ingestion & Vector DB](Day54/day54.md) | Capstone Day 4: GitHub Repository Ingestion & AST Code-Aware Vector DB Indexing | ✅ Done |
+| **55** | *Upcoming...* | Capstone Day 5: Early Deployment Pipeline | ⏳ |
 
 *Days 56 to 60 will be updated as the challenge progresses!*
 

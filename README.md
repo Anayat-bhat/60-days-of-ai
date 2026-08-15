@@ -167,9 +167,10 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **52** | [System Design](Day52/day52.md) | Capstone Day 2: System Architecture & Tech Stack Selection | ✅ Done |
 | **53** | [Tech Stack Foundation](Day53/day53.md) | Capstone Day 3: Frontend & Backend Scaffolding | ✅ Done |
 | **54** | [Ingestion & Vector DB](Day54/day54.md) | Capstone Day 4: GitHub Repository Ingestion & AST Code-Aware Vector DB Indexing | ✅ Done |
-| **55** | *Upcoming...* | Capstone Day 5: Early Deployment Pipeline | ⏳ |
+| **55** | *Upcoming...* | Capstone Day 5: Early Deployment Pipeline (Render & Vercel) | ⏳ |
+| **56** | *Upcoming...* | Capstone Day 6: RAG Retrieval & Grounded Chat Backend | ⏳ |
 
-*Days 56 to 60 will be updated as the challenge progresses!*
+*Days 57 to 60 will be updated as the challenge progresses!*
 
 ---
 
@@ -369,12 +370,15 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 53 — Capstone Day 3: Tech Stack Foundation**
     *   *Tools/Tech:* FastAPI, React, Vite, Tailwind CSS v4
     *   *Key Learnings:* Initializing full-stack monorepo, configuring FastAPI CORS, and establishing frontend-to-backend communication.
-*   **Day 54 — Capstone Day 4: GitHub API Integration (Upcoming)**
-    *   *Tools/Tech:* GitHub REST API, Python Dotenv
-    *   *Key Learnings:* Handling GitHub rate limits, recursive directory tree fetching, and extracting raw file contents.
-*   **Day 55 — Capstone Day 5: Code-Aware Chunking (Upcoming)**
-    *   *Tools/Tech:* LangChain, OpenAI Embeddings, Pinecone Vector DB
-    *   *Key Learnings:* Intelligent code splitting, metadata tracking, and generating/storing semantic vector embeddings.
+*   **Day 54 — Capstone Day 4: Ingestion, AST Code Chunking & Vector DB Indexing**
+    *   *Tools/Tech:* GitHub REST API, `langchain-text-splitters`, ChromaDB, OpenAI `text-embedding-3-small`, FastAPI
+    *   *Key Learnings:* Built end-to-end repository ingestion pipeline combining GitHub API recursive tree retrieval, AST language-aware code chunking (preserving functions/classes), vector embedding generation, and ChromaDB vector database storage. Verified by indexing 524 chunks from a live repository (`bottlepy/bottle`) and executing semantic vector search queries.
+*   **Day 55 — Capstone Day 5: Early Deployment Pipeline (Upcoming)**
+    *   *Tools/Tech:* Render, Vercel, Production Env Vars, CORS Configuration
+    *   *Key Learnings:* Deploying backend FastAPI service to Render and frontend Vite React app to Vercel to establish live production environment early.
+*   **Day 56 — Capstone Day 6: RAG Retrieval & Grounded Chat Backend (Upcoming)**
+    *   *Tools/Tech:* Vector Retrieval, OpenAI GPT-4o-mini, Code Prompting, FastAPI Streaming Response
+    *   *Key Learnings:* Implementing semantic vector search query service and prompt engineering for grounded codebase Q&A endpoints.
 
 </details>
 

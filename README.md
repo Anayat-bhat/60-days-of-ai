@@ -100,8 +100,10 @@ Welcome to my **60 Days of AI** repository! This is a dedicated learning journey
 ├── Day51/          # Capstone Kickoff & Product Discovery
 ├── Day52/          # Capstone Day 2: System Design
 ├── Day53/          # Capstone Day 3: Tech Stack Foundation
-├── Day54/          # Capstone Day 4: GitHub API Integration (Upcoming)
-├── Day55/          # Capstone Day 5: Code-Aware Chunking (Upcoming)
+├── Day54/          # Capstone Day 4: GitHub API Ingestion & Vector Indexing
+├── Day55/          # Capstone Day 5: Free Vector DB, AST Chunking & Early Deployment
+├── Day56/          # Capstone Day 6: RAG Retrieval & Grounded Chat Backend (Upcoming)
+├── Day57/          # Capstone Day 7: Interactive Frontend UI (Chat & File Tree) (Upcoming)
 └── README.md       # Main Hub & Progress Tracker
 ```
 
@@ -167,8 +169,9 @@ Here is the log of my daily activities, projects, and key learnings. Click on an
 | **52** | [System Design](Day52/day52.md) | Capstone Day 2: System Architecture & Tech Stack Selection | ✅ Done |
 | **53** | [Tech Stack Foundation](Day53/day53.md) | Capstone Day 3: Frontend & Backend Scaffolding | ✅ Done |
 | **54** | [Ingestion & Vector DB](Day54/day54.md) | Capstone Day 4: GitHub Repository Ingestion & AST Code-Aware Vector DB Indexing | ✅ Done |
-| **55** | *Upcoming...* | Capstone Day 5: Early Deployment Pipeline (Render & Vercel) | ⏳ |
+| **55** | [Free Vector DB & Deployment](Day55/day55.md) | Capstone Day 5: AST Code Chunking, Free Vector DB (ChromaDB ONNX) & Early Deployment (Render/Vercel) | ✅ Done |
 | **56** | *Upcoming...* | Capstone Day 6: RAG Retrieval & Grounded Chat Backend | ⏳ |
+| **57** | *Upcoming...* | Capstone Day 7: Interactive Frontend UI (Chat & File Tree) | ⏳ |
 
 *Days 57 to 60 will be updated as the challenge progresses!*
 
@@ -373,12 +376,15 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 54 — Capstone Day 4: Ingestion, AST Code Chunking & Vector DB Indexing**
     *   *Tools/Tech:* GitHub REST API, `langchain-text-splitters`, ChromaDB, OpenAI `text-embedding-3-small`, FastAPI
     *   *Key Learnings:* Built end-to-end repository ingestion pipeline combining GitHub API recursive tree retrieval, AST language-aware code chunking (preserving functions/classes), vector embedding generation, and ChromaDB vector database storage. Verified by indexing 524 chunks from a live repository (`bottlepy/bottle`) and executing semantic vector search queries.
-*   **Day 55 — Capstone Day 5: Early Deployment Pipeline (Upcoming)**
-    *   *Tools/Tech:* Render, Vercel, Production Env Vars, CORS Configuration
-    *   *Key Learnings:* Deploying backend FastAPI service to Render and frontend Vite React app to Vercel to establish live production environment early.
+*   **Day 55 — Capstone Day 5: Free Vector DB, AST Chunking & Early Deployment**
+    *   *Tools/Tech:* LangChain AST Splitters, ChromaDB, ONNX Local Embeddings, FastAPI, Render, Vercel
+    *   *Key Learnings:* Implemented AST code-aware chunking for Python, JS, TS, HTML, CSS, and Markdown with structural metadata. Integrated persistent local ChromaDB vector store running 100% free local ONNX embeddings (`all-MiniLM-L6-v2`) with zero API costs. Configured production CORS, endpoints (`/health`, `/api/ingest`, `/api/search`), unit tests (`test_chunker.py`, `test_vector_db.py`), and cloud deployment specifications (`Procfile`, `render.yaml`, `vercel.json`).
 *   **Day 56 — Capstone Day 6: RAG Retrieval & Grounded Chat Backend (Upcoming)**
     *   *Tools/Tech:* Vector Retrieval, OpenAI GPT-4o-mini, Code Prompting, FastAPI Streaming Response
     *   *Key Learnings:* Implementing semantic vector search query service and prompt engineering for grounded codebase Q&A endpoints.
+*   **Day 57 — Capstone Day 7: Interactive Frontend UI (Chat & File Tree) (Upcoming)**
+    *   *Tools/Tech:* React 18, Tailwind CSS, Lucide Icons, Recursive File Tree Component, Chat UI
+    *   *Key Learnings:* Building interactive frontend interface featuring repo file explorer, message list, input bar, and onboarding brief tabs.
 
 </details>
 

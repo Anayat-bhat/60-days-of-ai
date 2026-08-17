@@ -379,12 +379,15 @@ Here is a comprehensive breakdown of the tools utilized and key concepts mastere
 *   **Day 55 — Capstone Day 5: Free Vector DB, AST Chunking & Early Deployment**
     *   *Tools/Tech:* LangChain AST Splitters, ChromaDB, ONNX Local Embeddings, FastAPI, Render, Vercel
     *   *Key Learnings:* Implemented AST code-aware chunking for Python, JS, TS, HTML, CSS, and Markdown with structural metadata. Integrated persistent local ChromaDB vector store running 100% free local ONNX embeddings (`all-MiniLM-L6-v2`) with zero API costs. Configured production CORS, endpoints (`/health`, `/api/ingest`, `/api/search`), unit tests (`test_chunker.py`, `test_vector_db.py`), and cloud deployment specifications (`Procfile`, `render.yaml`, `vercel.json`).
-*   **Day 56 — Capstone Day 6: RAG Retrieval & Grounded Chat Backend (Upcoming)**
-    *   *Tools/Tech:* Vector Retrieval, OpenAI GPT-4o-mini, Code Prompting, FastAPI Streaming Response
-    *   *Key Learnings:* Implementing semantic vector search query service and prompt engineering for grounded codebase Q&A endpoints.
-*   **Day 57 — Capstone Day 7: Interactive Frontend UI (Chat & File Tree) (Upcoming)**
-    *   *Tools/Tech:* React 18, Tailwind CSS, Lucide Icons, Recursive File Tree Component, Chat UI
-    *   *Key Learnings:* Building interactive frontend interface featuring repo file explorer, message list, input bar, and onboarding brief tabs.
+*   **Day 56 — Capstone Day 6: RAG Retrieval, Chat Backend & Full Interactive MVP**
+    *   *Tools/Tech:* ChromaDB, Gemini API / OpenAI / Local Synthesizer, RAG QA, React, Lucide Icons, Tailwind CSS v4, Vite
+    *   *Key Learnings:* Built full RAG retrieval engine (`rag_service.py`) & `/api/chat` API endpoint returning code explanations with source citations. Integrated collapsible directory `FileTree.jsx`, interactive `Chat.jsx`, and mandatory Challenge Footer (*"Built with Claude as part of the AB Talks 60-Day Claude AI Challenge."*). Automated unit tests passed and Vite build compiled in 1.49s.
+*   **Day 57 — Capstone Day 7: Auto-Generated Repository Onboarding Brief (Upcoming)**
+    *   *Tools/Tech:* React, Markdown Renderer, Summarization Prompts, FastAPI
+    *   *Key Learnings:* Building automated onboarding brief tab with architecture overview, key file summaries, and automated codebase documentation.
+*   **Day 58 — Capstone Day 8: End-to-End Refinement & Response Streaming (Upcoming)**
+    *   *Tools/Tech:* FastAPI StreamingResponse, Server-Sent Events (SSE), Streams API, Error Boundaries
+    *   *Key Learnings:* Upgrading RAG chat to stream responses word-by-word, handling edge cases, and adding toast notifications.
 
 </details>
 
